@@ -1,0 +1,38 @@
+<div ng-show="!connected">
+  <p>
+    Enter your Trello API Key to get started:
+    <input ng-model="key" placeholder="167e44d08df6c0cb0dbc7e2f274bd654">
+  </p>
+  
+  (if you don't have one, <a href="https://trello.com/app-key">grab your API key here</a>.)
+  
+  Then press connect:
+  <md-button class="md-raised md-primary" ng-click="connect()">Connect</md-button>
+</div>
+<div ng-show="connected && !authenticated"> 
+  <p>Great, we have now included a script tag that looks like this:</p>
+  <div class="code">&lt;script src="{{url}}"&gt;&lt;/script&gt;</div>
+  <p>We can now need to authenticate a user before we can make interesting API calls.</p>
+  <md-button ng-click="authenticate()" class="md-raised md-primary">Authenticate</md-button>
+  <p>{{authenticationErrorMessage}}</p>
+</div>
+<div ng-show="authenticated">
+  <style>textarea {width:100%;height:300px;}</style>
+  <p>Now let's do something interesting.</p>
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="Get Boards">
+      <p>Get boards...<md-button ng-click="run(codeContent.getBoards)" class="md-raised md-primary">Execute</md-button></p>
+      <textarea ng-model="codeContent.getBoards"></textarea>
+      
+    </md-tab>
+    <md-tab label="Create Card">
+      <p>Create Cards... <md-button ng-click="run(codeContent.createCard)" class="md-raised md-primary">Execute</md-button></p>
+      <textarea ng-model="codeContent.createCard"></textarea>
+      
+    </md-tab>`
+  </md-tabs>
+  <div id="output"></div>
+</div>
+
+<div id="scriptZone">
+</div>
