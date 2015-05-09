@@ -1,0 +1,1 @@
+alert('Trying to create a card.');
