@@ -4,7 +4,7 @@ app.controller('OverviewCtrl', function($scope) {
   
 });
 
-app.controller('SandboxCtrl', function($scope, $http, $sce) {
+app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout) {
   // Get rid of this in production
   $scope.key = "167e94d08df6c0cb0dbc7e2f274bd654";
   
@@ -17,13 +17,14 @@ app.controller('SandboxCtrl', function($scope, $http, $sce) {
     
     scriptZone.appendChild(client);
     $scope.connected = true;
+
   };
   
   $scope.authenticate = function() {
     Trello.authorize({
       type: 'popup',
       name: 'Sandbox Trello Application',
-      scope: {read: true, write: true},
+      scope: {read: true, write: true, account: true},
       success: $scope.authenticationSuccess,
       error: $scope.authenticationError
     });
@@ -32,6 +33,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce) {
   
   $scope.authenticationSuccess = function() {
     $scope.authenticated = true;
+    console.log("Authentication was successful!");
   };
   
   $scope.authenticationError = function(error) {
@@ -39,32 +41,43 @@ app.controller('SandboxCtrl', function($scope, $http, $sce) {
   };
   
   var output = function(msg) {
+    console.log("Starting output.");
+    
+    console.log("Scope applying output");
     $scope.outputMessages = $sce.trustAsHtml( syntaxHighlight(msg) );
+    console.log("Done output.");
   };
+
+  var asyncOutput = function(msg) {
+    $scope.$apply(function() {
+      output(msg);
+    });
+  }
   
   $scope.run = function(codeSource) {
     console.log("About to run");
     console.log(codeSource);
     /*jslint evil: true */
     eval(codeSource);
+    console.log("Finished running.");
   };
   
   $scope.codeContent = [];
   $scope.codes = ["getBoards", "getLists", "createCard"];
   
   var attachTo = function(codeName) {
-    console.log("Creating attach function.");
+    //console.log("Creating attach function.");
     return function(output) {
-      console.log("Executing attach function.");
-      console.log("HTTP pulled '" + codeName + "': " + output); 
+      //console.log("Executing attach function.");
+      //console.log("HTTP pulled '" + codeName + "': " + output); 
       $scope.codeContent[codeName] = output;
     };
     
   };
   
-  console.log("Running through codes.");
+  //console.log("Running through codes.");
   for(i = 0;i<$scope.codes.length;i++) {
-    console.log("Running code #" + i);
+    //console.log("Running code #" + i);
     $http.get('scripts/code/' + $scope.codes[i] + ".js", {
       transformResponse: undefined
     }).success( attachTo( $scope.codes[i] ) );

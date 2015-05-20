@@ -1,5 +1,5 @@
 // Set the destination list for the new card
-var destionationList = "";
+var destinationList = "";
 
 var success = function(successMsg) {
   output(successMsg);
