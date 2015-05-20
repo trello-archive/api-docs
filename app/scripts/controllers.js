@@ -50,7 +50,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce) {
   };
   
   $scope.codeContent = [];
-  var codes = ["getBoards", "createCard"];
+  $scope.codes = ["getBoards", "getLists", "createCard"];
   
   var attachTo = function(codeName) {
     console.log("Creating attach function.");
@@ -63,11 +63,11 @@ app.controller('SandboxCtrl', function($scope, $http, $sce) {
   };
   
   console.log("Running through codes.");
-  for(i = 0;i<codes.length;i++) {
+  for(i = 0;i<$scope.codes.length;i++) {
     console.log("Running code #" + i);
-    $http.get('scripts/code/' + codes[i] + ".js", {
+    $http.get('scripts/code/' + $scope.codes[i] + ".js", {
       transformResponse: undefined
-    }).success( attachTo( codes[i] ) );
+    }).success( attachTo( $scope.codes[i] ) );
   }
   
   var syntaxHighlight = function(json) {
@@ -102,6 +102,14 @@ app.controller('CommunityCtrl', function($scope, $window) {
     , {name:'Python', author:'Plish', url: 'https://github.com/plish/Trolly'}
     , {name:'Python', author:'btubs', url: 'https://bitbucket.org/btubbs/trollop'}
     , {name:'.NET', author:'greggs dennis', url: 'https://bitbucket.org/gregsdennis/manatee.trello'}
+  ];
+
+  $scope.samples = [
+    {name:'Trello Calendar', author:'Francois Metz',url:'https://github.com/francois2metz/trello-calendar'},
+    {name:'Cardorizer', author:'Mark Drago',url:'https://github.com/markdrago/cardorizer'},
+    {name:'Trello Bookmarklet', author:'danlec',url:'https://github.com/danlec/Trello-Bookmarklet'},
+    {name:'Trellobo', author:'oisin',url:'https://github.com/oisin/trellobo'},
+    {name:'taskboards', author:'Jake Ginnivan',url:'https://bitbucket.org/JakeGinnivan/taskboards'}
   ];
 
   $scope.open = function(url) {

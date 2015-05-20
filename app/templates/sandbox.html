@@ -7,10 +7,12 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 .key { color: red; }
 
 </style>
+<h2>Sandbox</h2>
 <div ng-show="!connected">
+  <p>The API Sandbox allows you to get started with working code samples that run directly in the browser.</p>
   <p>
     Enter your Trello API Key to get started:
-    <input ng-model="key" placeholder="167e44d08df6c0cb0dbc7e2f274bd654">
+    <input ng-model="key" placeholder="167e44d08df6c0cb0dbc7e2f274bd654" style="width:350px;">
   </p>
   
   (if you don't have one, <a href="https://trello.com/app-key">grab your API key here</a>.)
@@ -30,15 +32,20 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
   <p>Now let's do something interesting.</p>
   <md-tabs md-dynamic-height md-border-bottom>
     <md-tab label="Get Boards">
-      <p>Get boards...<md-button ng-click="run(codeContent.getBoards)" class="md-raised md-primary">Execute</md-button></p>
+      <p>Get my Boards...<md-button ng-click="run(codeContent.getBoards)" class="md-raised md-primary">Execute</md-button></p>
       <textarea ng-model="codeContent.getBoards"></textarea>
+      
+    </md-tab>
+    <md-tab label="Get Lists">
+      <p>Get lists from a Board... <md-button ng-click="run(codeContent.getLists)" class="md-raised md-primary">Execute</md-button></p>
+      <textarea ng-model="codeContent.getLists"></textarea>
       
     </md-tab>
     <md-tab label="Create Card">
       <p>Create Cards... <md-button ng-click="run(codeContent.createCard)" class="md-raised md-primary">Execute</md-button></p>
       <textarea ng-model="codeContent.createCard"></textarea>
       
-    </md-tab>`
+    </md-tab>
   </md-tabs>
   <pre ng-bind-html="outputMessages"></pre>
 </div>
