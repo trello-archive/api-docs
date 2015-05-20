@@ -21,5 +21,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/sandbox',
       templateUrl: 'templates/sandbox.html',
       controller: 'SandboxCtrl'
+    })
+    .state('community', {
+      url: "/community",
+      templateUrl: "templates/community.html",
+      controller: 'CommunityCtrl'
     });
 });

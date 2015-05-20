@@ -1,11 +1,11 @@
-var board = "4d5ea62fd76aa1136000000c";
+var board = "555c8e81e8d5aff570505f5b";
 
 var success = function(successMsg) {
   output(successMsg);
 };
 
 var error = function(errorMsg) {
-  output(errorMsg);
+  output("error: " + errorMsg);
 };
 
-Trello.get('/boards', success, error);
+Trello.get('/boards/' + board, success, error);
