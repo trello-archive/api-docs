@@ -11,13 +11,13 @@
 <h3>Connect to the client.js library</h3>
 <h4>Step 1</h4>
 <p>The client.js library was created to make it easier to use the Trello REST API. There's nothing magic about it, but it can make things a little bit faster through some nice convencience methods.</p>
-<p>There are two steps to using the client.js library. The first is to get your Application ID. This ID identifies your Application to the API and is needed for any authenticated or unauthenticated API Calls</p>
-<md-button class="md-primary md-raised" ng-href="https://trello.com/app-key">Get your Application ID</md-button>
+<p>There are two steps to using the client.js library. The first is to get your Application Key. This Key identifies your Application to the API and is needed for any authenticated or unauthenticated API Calls</p>
+<md-button class="md-primary md-raised" ng-href="https://trello.com/app-key">Get your Application Key</md-button>
 <h4>Step 2</h4>
-<p>Now we include jQuery and the client.js library in the application. Before the body tag, include the following and replace the AppID:</p>
+<p>Now we include jQuery and the client.js library in the application. Before the body tag, include the following and replace the AppKey:</p>
 <pre>
 &lt;script src="http://code.jquery.com/jquery-1.7.1.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://api.trello.com/1/client.js?key=[AppID]"&gt;&lt;/script&gt;
+&lt;script src="https://api.trello.com/1/client.js?key=[AppKey]"&gt;&lt;/script&gt;
 </pre>
 <p>Now that you have included these two dependencies, you will have access to a global Trello object that has many helper methods.</p>
 <h3>Authenticate your user</h3>
