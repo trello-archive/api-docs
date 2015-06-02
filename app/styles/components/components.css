@@ -559,10 +559,6 @@ pre {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-bullet::before, ul li::before, ul.list-links a::before, .list-anchor a::before {
-  content: "\e001";
-}
-
 .icon-chevron-down::before {
   content: "\e002";
 }
@@ -2264,7 +2260,6 @@ li > p {
 * List
 *
 **/
-ul,
 ol {
   list-style: none;
   margin: 0;
