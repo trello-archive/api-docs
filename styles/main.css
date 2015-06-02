@@ -16,6 +16,17 @@ footer {
   clear:both;
 }
 
+a {
+	color: #5e98ba;
+
+}
+a:visited {
+	color: #265773;
+}
+
+.quiet {
+  color: #999;
+}
 
 /*
  * Web Starter Kit
@@ -165,7 +176,7 @@ body.open {
   bottom: 0;
   width: 250px;
   height: 100%;
-  background-color: #0E74AF;
+  background-color: rgb(5,90,140);;
   color: #fefefe;
   -webkit-transform: translate(-250px, 0);
           transform: translate(-250px, 0);

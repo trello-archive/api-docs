@@ -4,7 +4,7 @@ app.controller('OverviewCtrl', function($scope) {
   
 });
 
-app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout) {
+app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $location) {
   // Get rid of this in production
   $scope.key = "167e94d08df6c0cb0dbc7e2f274bd654";
   
@@ -17,6 +17,8 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout) {
     
     scriptZone.appendChild(client);
     $scope.connected = true;
+
+    $window.ga('send', 'pageview', { page: ($location.path() + "/connected") });
 
   };
   
@@ -34,6 +36,8 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout) {
   $scope.authenticationSuccess = function() {
     $scope.authenticated = true;
     console.log("Authentication was successful!");
+    $scope.token = Trello.token();
+ 	$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[0]) });
   };
   
   $scope.authenticationError = function(error) {
@@ -63,7 +67,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout) {
   };
   
   $scope.codeContent = [];
-  $scope.codes = ["getBoards", "getLists", "createCard"];
+  $scope.codes = ["getBoards", "getLists", "createCard", "createWebhook", "getWebhooks"];
   
   var attachTo = function(codeName) {
     //console.log("Creating attach function.");
@@ -83,27 +87,33 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout) {
     }).success( attachTo( $scope.codes[i] ) );
   }
   
-  var syntaxHighlight = function(json) {
-    if (typeof json != 'string') {
-         json = JSON.stringify(json, undefined, 4);
-    }
-    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-        var cls = 'number';
-        if (/^"/.test(match)) {
-            if (/:$/.test(match)) {
-                cls = 'key';
-            } else {
-                cls = 'string';
-            }
-        } else if (/true|false/.test(match)) {
-            cls = 'boolean';
-        } else if (/null/.test(match)) {
-            cls = 'null';
-        }
-        return '<span class="' + cls + '">' + match + '</span>';
-    });
-}
+	var syntaxHighlight = function(json) {
+	    if (typeof json != 'string') {
+	         json = JSON.stringify(json, undefined, 4);
+	    }
+	    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+	        var cls = 'number';
+	        if (/^"/.test(match)) {
+	            if (/:$/.test(match)) {
+	                cls = 'key';
+	            } else {
+	                cls = 'string';
+	            }
+	        } else if (/true|false/.test(match)) {
+	            cls = 'boolean';
+	        } else if (/null/.test(match)) {
+	            cls = 'null';
+	        }
+	        return '<span class="' + cls + '">' + match + '</span>';
+	    });
+	}
+
+
+	// Register the tabs with analytics by watching selected index
+	$scope.$watch('selectedCodeSample', function(newValue, oldValue) {
+		$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[newValue]) });
+	});
       
 });
 
@@ -132,4 +142,14 @@ app.controller('CommunityCtrl', function($scope, $window) {
 
 });
 
+
+
+app.controller('GetStartedCtrl', function($scope, $location, $anchorScroll) {
+	$scope.scrollTo = function(destination) {
+		$location.hash(destination);
+		$anchorScroll();
+	}
+
+
+});
 

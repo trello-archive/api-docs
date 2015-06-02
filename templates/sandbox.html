@@ -30,7 +30,7 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 <div ng-show="authenticated">
   <style>textarea {width:100%;height:300px;}</style>
   <p>Now let's do something interesting.</p>
-  <md-tabs md-dynamic-height md-border-bottom>
+  <md-tabs md-dynamic-height md-border-bottom md-selected="selectedCodeSample">
     <md-tab label="Get Boards">
       <p>Get my Boards...<md-button ng-click="run(codeContent.getBoards)" class="md-raised md-primary">Execute</md-button></p>
       <textarea ng-model="codeContent.getBoards"></textarea>
@@ -46,6 +46,18 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
       <textarea ng-model="codeContent.createCard"></textarea>
       
     </md-tab>
+    <md-tab label="Create Webhook">
+      <p>Create a webhook... <md-button ng-click="run(codeContent.createWebhook)" class="md-raised md-primary">Execute</md-button></p>
+      <textarea ng-model="codeContent.createWebhook"></textarea>
+      
+    </md-tab>
+    <md-tab label="Get Webhooks">
+      <p>Get webhooks registered on a token...<md-button ng-click="run(codeContent.getWebhooks)" class="md-raised md-primary">Execute</md-button></p>
+      <p style="font-size:12px;">(Your token is {{token}}) </p>
+      <textarea ng-model="codeContent.getWebhooks"></textarea>
+      
+    </md-tab>
+
   </md-tabs>
   <pre ng-bind-html="outputMessages"></pre>
 </div>

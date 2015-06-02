@@ -11,7 +11,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('get-started', {
       url: "/get-started",
-      templateUrl: "templates/get-started.html"
+      templateUrl: "templates/get-started.html",
+      controller: 'GetStartedCtrl'
     })
     .state('apis', {
       url: "/apis",
@@ -26,5 +27,21 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/community",
       templateUrl: "templates/community.html",
       controller: 'CommunityCtrl'
+    })
+    .state('advanced-reference', {
+      url: "/advanced-reference",
+      templateUrl: "templates/advanced-reference.html"
     });
 });
+
+app.run(['$rootScope', '$location', '$window', function($rootScope, $location, $window){
+     $rootScope
+        .$on('$stateChangeSuccess',
+            function(event){
+ 
+                if (!$window.ga)
+                    return;
+ 
+                $window.ga('send', 'pageview', { page: $location.path() });
+        });
+}]);
