@@ -13,7 +13,7 @@
 </ol>
 <h3>Authentication and Authorization</h3>
 <p>There are two steps before your application may make a call on behalf of a user. The first is to get your Application Key. This key identifies your application to Trello, and to your users.</p>
-<p>The second step is to perform an authentication and authorization. Trello uses an OAuth flow so that your application never has to deal with storing or handling usernames or passwords. Your application passes control to Trello. Once we have allowed the user to chose an account and sign in, we will hand the user and control back to your application, with the addition of a Authorization Token. This token is based on your Application Key, the user that has logged in, and the set of permissions that have been authorized.</p>
+<p>The second step is to perform an authentication and authorization. Trello uses a delegated authentication and authorization flow so that your application never has to deal with storing or handling usernames or passwords. Your application passes control to Trello. Once we have allowed the user to chose an account and sign in, we will hand the user and control back to your application, with the addition of a Authorization Token. This token is based on your Application Key, the user that has logged in, and the set of permissions that have been authorized.</p>
 <p>Every time your application uses this token, the request will be made on behalf of the authenticated user, based on that user's content and permissions. If you try to access a board or make a change that the user does not have permission to, your request will be blocked.</p>
 
 <h3>Boards</h3>
@@ -49,7 +49,7 @@
 
 <h4>Child Methods</h4>
 <ul>
-	<li>Actions</li>
+	<li>Actions - Actions are the audit log / record of everything that has been done to a card throughout its history.</li>
 	<li>Labels</li>
 	<li>Actions</li>
 	<li>Actions</li>
@@ -62,15 +62,10 @@
 	<li>POST /1/webhooks - Create a Webhook</li>
 	<li>GET /1/tokens/[token]/webhooks - Get an array of the Webhooks associated with your token</li>
 	<li>DELETE /1/webhooks/[idWebhook] - Delete a Webhook</li>
-	<li></li>
 </ul>
 <p><a href="https://trello.com/docs/gettingstarted/webhooks.html">Learn more about Webhooks</a></p>
 
-<h3>Batching</h3>
-<p></p>
 
-<h3>Organizations</h3>
-<p></p>
 
 <h3>Recursion Helpers</h3>
 <p>Several of the core methods allow you to directly access member content. For example, instead of retrieving a list and then recursively requesting each of the cards on the list, you can retrieve this information directly, and optionaly supply a filter for the child cards.</p>
@@ -81,3 +76,9 @@
 	<li>GET /1/cards/[card id or shortlink]/checklists</li>
 	<li>DELETE /1/cards/[card id or shortlink]/labels/[color]</li>
 </ul>
+
+<h2>Advanced Topics and Optimizations
+<h3>Deltas</h3>
+<h3>Batching</h3>
+<p>When requesting content from the Trello API, you may want to lookup a lot of information at once. The Trello API has the ability to Batch multiple GET requests at once. You can use this to get the contents of multiple Cards or Lists with a single HTTP transaction, and you can even mix multiple request types.</p>
+<h2>OAuth
