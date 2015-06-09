@@ -13,13 +13,13 @@
 </ol>
 <h3>Authentication and Authorization</h3>
 <p>There are two steps before your application may make a call on behalf of a user. The first is to get your Application Key. This key identifies your application to Trello, and to your users.</p>
-<p>The second step is to perform an authentication and authorization. Trello uses a delegated authentication and authorization flow so that your application never has to deal with storing or handling usernames or passwords. Your application passes control to Trello. Once we have allowed the user to chose an account and sign in, we will hand the user and control back to your application, with the addition of a Authorization Token. This token is based on your Application Key, the user that has logged in, and the set of permissions that have been authorized.</p>
-<p>Every time your application uses this token, the request will be made on behalf of the authenticated user, based on that user's content and permissions. If you try to access a board or make a change that the user does not have permission to, your request will be blocked.</p>
+<p>The second step is to perform an authentication and authorization. Trello uses a delegated authentication and authorization flow so that your application never has to deal with storing or handling usernames or passwords. Your application passes control to Trello. Once we have allowed the user to choose an account and sign in, we will hand the user and control back to your application, with the addition of an Authorization Token. This token is based on your Application Key, the user that has logged in, and the set of permissions that have been authorized.</p>
+<p>Every time your application uses this token, the request will be made on behalf of the authenticated user, based on that user's content and permissions. If you try to access a board or make a change for which the user does not have permission, your request will be blocked.</p>
 
 <h3>Boards</h3>
 <a href="https://trello.com/docs/api/board/index.html">Full Boards API Reference</a>
-<p>Boards are the first concept that any Trello user has to deal with. The Boards API allows you to list, view, create, and edit Boards. Each Board has a name, description, a set of members attached, and an ordered array of Lists.</p>
-<p>Boards can be open or closed, starred, subscribed, and each Board belongs to an organization. Each board also has a set of preferences that affect its visual display and additional features that may have been attached to the Board (such as the Voting powerup).</p>
+<p>Boards are the highest level concept within the Trello workflow. The Boards API allows you to list, view, create, and edit Boards. Each Board has a name, description, a set of members attached, and an ordered array of Lists.</p>
+<p>Boards can be open or closed, starred, and/or subscribed. Each Board belongs to an organization. Each board also has a set of preferences that affect its visual display, and additional features that may have been attached to the Board (such as Power-Ups).</p>
 <h4>Important Methods</h4>
 <ul>
 	<li>GET /1/members/me/boards - Get an array of the Boards of a user</li>
@@ -56,7 +56,7 @@
 </ul>
 
 <h3>Webhooks</h3>
-<p>You could theoretically parse a user's Boards, Lists, Cards and get all of the information, but this would mean loading a lot of data that doesn't change very often repeatedly, using more bandwidth, CPU, RAM for both you and for our servers. To mitigate this we have built a system that allows your application to hook into updates on various members such as Boards, Lists, and Cards. Whenever a member with a Webhook is changed, we make an HTTP request to the endpoint of your choosing.</p>
+<p>You could theoretically parse a user's Boards, Lists, and Cards in order to get all of the information, but this would mean loading a lot of data that doesn't change very often, using more bandwidth, CPU, and RAM for both you and for our servers. To mitigate this we have built a system that allows your application to hook into updates on various members such as Boards, Lists, and Cards. Whenever a member with a Webhook is changed, we make an HTTP request to the endpoint of your choosing.</p>
 <h4>Important Methods</h4>
 <ul>
 	<li>POST /1/webhooks - Create a Webhook</li>
@@ -68,7 +68,7 @@
 
 
 <h3>Recursion Helpers</h3>
-<p>Several of the core methods allow you to directly access member content. For example, instead of retrieving a list and then recursively requesting each of the cards on the list, you can retrieve this information directly, and optionaly supply a filter for the child cards.</p>
+<p>Several of the core methods allow you to directly access member content. For example, instead of retrieving a list and then recursively requesting each of the cards on the list, you can retrieve this information directly, and optionally supply a filter for the child cards.</p>
 <h4>Example Recursions</h4>
 <ul>
 	<li>GET /1/lists/[idList]/cards</li>
@@ -77,7 +77,7 @@
 	<li>DELETE /1/cards/[card id or shortlink]/labels/[color]</li>
 </ul>
 
-<h2>Advanced Topics and Optimizations
+<h2>Advanced Topics and Optimizations</h2>
 <h3>Deltas</h3>
 <h3>Batching</h3>
 <p>When requesting content from the Trello API, you may want to lookup a lot of information at once. The Trello API has the ability to Batch multiple GET requests at once. You can use this to get the contents of multiple Cards or Lists with a single HTTP transaction, and you can even mix multiple request types.</p>
