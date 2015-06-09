@@ -1,6 +1,6 @@
-<h2>Get Started Building with Trello</h2>
+<h2>Start Building with Trello</h2>
 
-<p>Getting started building a web application that integrates with Trello in three parts.</p>
+<p>Follow this framework to start building an integration with Trello.</p>
 
 <ol>
   <li><a href="" ng-click="scrollTo('connect');">Connect to the client.js library</a></li>
@@ -10,12 +10,12 @@
 
 <h3 id="connect">01 Connect to the client.js library</h3>
 	<h4>Get your Application Key</h4>
-		<p>The client.js library was created to make it easier to use the Trello REST API. There's nothing magic about it, but it can make things a little bit faster through some nice convencience methods.</p>
+		<p>The client.js library was created to make it easier to use the Trello REST API. There's nothing magic about it, but it can make things a little bit faster through some convenient methods.</p>
 		<p>There are two steps to using the client.js library. The first is to get your Application Key. This Key identifies your Application to the API and is needed for any authenticated or unauthenticated API Calls.</p>
 		<md-button class="md-primary md-raised" ng-href="https://trello.com/app-key" target>Get your Application Key</md-button>
 
 	<h4>Include the client library and jquery</h4>
-		<p>Now we include jQuery and the client.js library in the application. Before the body tag, include the following and replace the AppKey:</p>
+		<p>Now we can include jQuery and the client.js library in the application. Before the body tag, add the following and replace the AppKey:</p>
 		<pre>
 &lt;script src="http://code.jquery.com/jquery-1.7.1.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://api.trello.com/1/client.js?key=[AppKey]"&gt;&lt;/script&gt;
@@ -25,7 +25,7 @@
 
 <h3 id="authenticate">02 Authenticate your user</h3>
 	<p>Using the Trello object, we need to authenticate the user. This is done with the Trello.authenticate method. This method will automatically trigger the OAuth flow and return back a token. This token will be specific to your Application ID and the user who is executing the flow.</p>
-	<p>It's important to understand that the Authentication Token gives your application to make calls on behalf of your user, from their context. This token grants access to the authenticated user's boards, lists, cards, and other settings, depending on the permissions you requested in the authenticate method.</p>
+	<p>It's important to understand that the Authentication Token gives your application the ability to make calls on behalf of your user, from their context. This token grants access to the authenticated user's boards, lists, cards, and other settings, depending on the permissions you requested in the authenticate method.</p>
 	<h4>Define Success and Failure</h4>
 		<p>First, let's define what happens when authentication has finished using success and failure callbacks.</p>
 		<pre>
