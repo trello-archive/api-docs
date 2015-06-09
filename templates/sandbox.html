@@ -23,13 +23,13 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 <div ng-show="connected && !authenticated"> 
   <p>Great, we have now included a script tag that looks like this:</p>
   <div class="code">&lt;script src="{{url}}"&gt;&lt;/script&gt;</div>
-  <p>We can now need to authenticate a user before we can make interesting API calls.</p>
+  <p>We now need to authenticate a user before we can make interesting API calls.</p>
   <md-button ng-click="authenticate()" class="md-raised md-primary">Authenticate</md-button>
   <p>{{authenticationErrorMessage}}</p>
 </div>
 <div ng-show="authenticated">
   <style>textarea {width:100%;height:300px;}</style>
-  <p>Now let's do something interesting.</p>
+  <p>Now let's do something interesting:</p>
   <md-tabs md-dynamic-height md-border-bottom md-selected="selectedCodeSample">
     <md-tab label="Get Boards">
       <p>Get my Boards...<md-button ng-click="run(codeContent.getBoards)" class="md-raised md-primary">Execute</md-button></p>
