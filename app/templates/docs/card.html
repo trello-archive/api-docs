@@ -1,0 +1,1795 @@
+<span id="index"></span><h1>card<a class="headerlink" href="#card" title="Permalink to this headline"></a></h1>
+<div class="section" id="get-1-cards-card-id-or-shortlink">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink">/1/cards/[card id or shortlink]</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">actions</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">addAttachmentToCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">addChecklistToCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">addMemberToBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">addMemberToCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">addMemberToOrganization</span></code></li>
+<li><code class="docutils literal"><span class="pre">addToOrganizationBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">commentCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">convertToCardFromCheckItem</span></code></li>
+<li><code class="docutils literal"><span class="pre">copyBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">copyCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">copyCommentCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">createBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">createCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">createList</span></code></li>
+<li><code class="docutils literal"><span class="pre">createOrganization</span></code></li>
+<li><code class="docutils literal"><span class="pre">deleteAttachmentFromCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">deleteBoardInvitation</span></code></li>
+<li><code class="docutils literal"><span class="pre">deleteCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">deleteOrganizationInvitation</span></code></li>
+<li><code class="docutils literal"><span class="pre">disablePowerUp</span></code></li>
+<li><code class="docutils literal"><span class="pre">emailCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">enablePowerUp</span></code></li>
+<li><code class="docutils literal"><span class="pre">makeAdminOfBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">makeNormalMemberOfBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">makeNormalMemberOfOrganization</span></code></li>
+<li><code class="docutils literal"><span class="pre">makeObserverOfBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberJoinedTrello</span></code></li>
+<li><code class="docutils literal"><span class="pre">moveCardFromBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">moveCardToBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">moveListFromBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">moveListToBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">removeChecklistFromCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">removeFromOrganizationBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">removeMemberFromCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">unconfirmedBoardInvitation</span></code></li>
+<li><code class="docutils literal"><span class="pre">unconfirmedOrganizationInvitation</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard:closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard:desc</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard:idList</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard:name</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCheckItemStateOnCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateChecklist</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateList</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateList:closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateList:name</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateMember</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateOrganization</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">actions_entities</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">actions_display</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">actions_limit</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">50</span></code></li>
+<li><strong>Valid Values:</strong> a number from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">1000</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">action_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">data</span></code></li>
+<li><code class="docutils literal"><span class="pre">date</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMemberCreator</span></code></li>
+<li><code class="docutils literal"><span class="pre">type</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">action_memberCreator_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+<li><code class="docutils literal"><span class="pre">bio</span></code></li>
+<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+<li><code class="docutils literal"><span class="pre">initials</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+<li><code class="docutils literal"><span class="pre">products</span></code></li>
+<li><code class="docutils literal"><span class="pre">status</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+<li><code class="docutils literal"><span class="pre">username</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">attachments</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong> A boolean value or &amp;quot;cover&amp;quot; for only card cover attachments</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">attachment_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">bytes</span></code></li>
+<li><code class="docutils literal"><span class="pre">date</span></code></li>
+<li><code class="docutils literal"><span class="pre">edgeColor</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMember</span></code></li>
+<li><code class="docutils literal"><span class="pre">isUpload</span></code></li>
+<li><code class="docutils literal"><span class="pre">mimeType</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">previews</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">members</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">member_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+<li><code class="docutils literal"><span class="pre">bio</span></code></li>
+<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+<li><code class="docutils literal"><span class="pre">initials</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+<li><code class="docutils literal"><span class="pre">products</span></code></li>
+<li><code class="docutils literal"><span class="pre">status</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+<li><code class="docutils literal"><span class="pre">username</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">membersVoted</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">memberVoted_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+<li><code class="docutils literal"><span class="pre">bio</span></code></li>
+<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+<li><code class="docutils literal"><span class="pre">initials</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+<li><code class="docutils literal"><span class="pre">products</span></code></li>
+<li><code class="docutils literal"><span class="pre">status</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+<li><code class="docutils literal"><span class="pre">username</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">checkItemStates</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">checkItemState_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code></li>
+<li><code class="docutils literal"><span class="pre">state</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">checklists</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">all</span></code></li>
+<li><code class="docutils literal"><span class="pre">none</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">checklist_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">idCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">board</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">board_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name,desc,descData,closed,idOrganization,pinned,url,prefs</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+<li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
+<li><code class="docutils literal"><span class="pre">desc</span></code></li>
+<li><code class="docutils literal"><span class="pre">descData</span></code></li>
+<li><code class="docutils literal"><span class="pre">idOrganization</span></code></li>
+<li><code class="docutils literal"><span class="pre">invitations</span></code></li>
+<li><code class="docutils literal"><span class="pre">invited</span></code></li>
+<li><code class="docutils literal"><span class="pre">labelNames</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberships</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pinned</span></code></li>
+<li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
+<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+<li><code class="docutils literal"><span class="pre">starred</span></code></li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">list</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">list_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">stickers</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">sticker_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">image</span></code></li>
+<li><code class="docutils literal"><span class="pre">imageScaled</span></code></li>
+<li><code class="docutils literal"><span class="pre">imageUrl</span></code></li>
+<li><code class="docutils literal"><span class="pre">left</span></code></li>
+<li><code class="docutils literal"><span class="pre">rotate</span></code></li>
+<li><code class="docutils literal"><span class="pre">top</span></code></li>
+<li><code class="docutils literal"><span class="pre">zIndex</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">badges,checkItemStates,closed,dateLastActivity,desc,descData,due,email,idBoard,idChecklists,idLabels,idList,idMembers,idShort,idAttachmentCover,manualCoverAttachment,labels,name,pos,shortUrl,url</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">badges</span></code></li>
+<li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+<li><code class="docutils literal"><span class="pre">desc</span></code></li>
+<li><code class="docutils literal"><span class="pre">descData</span></code></li>
+<li><code class="docutils literal"><span class="pre">due</span></code></li>
+<li><code class="docutils literal"><span class="pre">email</span></code></li>
+<li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">idChecklists</span></code></li>
+<li><code class="docutils literal"><span class="pre">idLabels</span></code></li>
+<li><code class="docutils literal"><span class="pre">idList</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMembersVoted</span></code></li>
+<li><code class="docutils literal"><span class="pre">idShort</span></code></li>
+<li><code class="docutils literal"><span class="pre">labels</span></code></li>
+<li><code class="docutils literal"><span class="pre">manualCoverAttachment</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Examples</strong></li>
+</ul>
+<div class="highlight-URL"><div class="highlight"><pre>https://api.trello.com/1/cards/4eea503d91e31d174600008f?fields=name,idList&amp;member_fields=fullName&amp;key=[application_key]&amp;token=[optional_auth_token]
+</pre></div>
+</div>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea503d91e31d174600008f&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Learn about the Trello API&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;idList&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea4ffc91e31d174600004b&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-field">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-field">/1/cards/[card id or shortlink]/[field]</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-field" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">badges</span></code></li>
+<li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+<li><code class="docutils literal"><span class="pre">desc</span></code></li>
+<li><code class="docutils literal"><span class="pre">descData</span></code></li>
+<li><code class="docutils literal"><span class="pre">due</span></code></li>
+<li><code class="docutils literal"><span class="pre">email</span></code></li>
+<li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">idChecklists</span></code></li>
+<li><code class="docutils literal"><span class="pre">idLabels</span></code></li>
+<li><code class="docutils literal"><span class="pre">idList</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMembersVoted</span></code></li>
+<li><code class="docutils literal"><span class="pre">idShort</span></code></li>
+<li><code class="docutils literal"><span class="pre">labels</span></code></li>
+<li><code class="docutils literal"><span class="pre">manualCoverAttachment</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-actions">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-actions">/1/cards/[card id or shortlink]/actions</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-actions" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">entities</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">display</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">filter</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">commentCard,updateCard:idList</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">addAttachmentToCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">addChecklistToCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">addMemberToBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">addMemberToCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">addMemberToOrganization</span></code></li>
+<li><code class="docutils literal"><span class="pre">addToOrganizationBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">commentCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">convertToCardFromCheckItem</span></code></li>
+<li><code class="docutils literal"><span class="pre">copyBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">copyCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">copyCommentCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">createBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">createCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">createList</span></code></li>
+<li><code class="docutils literal"><span class="pre">createOrganization</span></code></li>
+<li><code class="docutils literal"><span class="pre">deleteAttachmentFromCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">deleteBoardInvitation</span></code></li>
+<li><code class="docutils literal"><span class="pre">deleteCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">deleteOrganizationInvitation</span></code></li>
+<li><code class="docutils literal"><span class="pre">disablePowerUp</span></code></li>
+<li><code class="docutils literal"><span class="pre">emailCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">enablePowerUp</span></code></li>
+<li><code class="docutils literal"><span class="pre">makeAdminOfBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">makeNormalMemberOfBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">makeNormalMemberOfOrganization</span></code></li>
+<li><code class="docutils literal"><span class="pre">makeObserverOfBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberJoinedTrello</span></code></li>
+<li><code class="docutils literal"><span class="pre">moveCardFromBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">moveCardToBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">moveListFromBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">moveListToBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">removeChecklistFromCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">removeFromOrganizationBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">removeMemberFromCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">unconfirmedBoardInvitation</span></code></li>
+<li><code class="docutils literal"><span class="pre">unconfirmedOrganizationInvitation</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard:closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard:desc</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard:idList</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCard:name</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateCheckItemStateOnCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateChecklist</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateList</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateList:closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateList:name</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateMember</span></code></li>
+<li><code class="docutils literal"><span class="pre">updateOrganization</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">data</span></code></li>
+<li><code class="docutils literal"><span class="pre">date</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMemberCreator</span></code></li>
+<li><code class="docutils literal"><span class="pre">type</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">limit</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">50</span></code></li>
+<li><strong>Valid Values:</strong> a number from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">1000</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">format</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">list</span></code></li>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">count</span></code></li>
+<li><code class="docutils literal"><span class="pre">list</span></code></li>
+<li><code class="docutils literal"><span class="pre">minimal</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">since</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A date, <code class="docutils literal"><span class="pre">null</span></code> or <code class="docutils literal"><span class="pre">lastView</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">before</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A date, or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">page</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">0</span></code></li>
+<li><strong>Valid Values:</strong> Page * limit must be less than 1000</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idModels</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> Only return actions related to these model ids</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">member</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">true</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">member_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+<li><code class="docutils literal"><span class="pre">bio</span></code></li>
+<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+<li><code class="docutils literal"><span class="pre">initials</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+<li><code class="docutils literal"><span class="pre">products</span></code></li>
+<li><code class="docutils literal"><span class="pre">status</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+<li><code class="docutils literal"><span class="pre">username</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">memberCreator</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">true</span></code></li>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">memberCreator_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+<li><code class="docutils literal"><span class="pre">bio</span></code></li>
+<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+<li><code class="docutils literal"><span class="pre">initials</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+<li><code class="docutils literal"><span class="pre">products</span></code></li>
+<li><code class="docutils literal"><span class="pre">status</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+<li><code class="docutils literal"><span class="pre">username</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-attachments">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-attachments">/1/cards/[card id or shortlink]/attachments</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-attachments" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">bytes</span></code></li>
+<li><code class="docutils literal"><span class="pre">date</span></code></li>
+<li><code class="docutils literal"><span class="pre">edgeColor</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMember</span></code></li>
+<li><code class="docutils literal"><span class="pre">isUpload</span></code></li>
+<li><code class="docutils literal"><span class="pre">mimeType</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">previews</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">filter</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">true</span></code></li>
+<li><strong>Valid Values:</strong> A boolean value or &amp;quot;cover&amp;quot; for only card cover attachments</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-attachments-idattachment">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-attachments-idattachment">/1/cards/[card id or shortlink]/attachments/[idAttachment]</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-attachments-idattachment" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idAttachment</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the attachment.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">bytes</span></code></li>
+<li><code class="docutils literal"><span class="pre">date</span></code></li>
+<li><code class="docutils literal"><span class="pre">edgeColor</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMember</span></code></li>
+<li><code class="docutils literal"><span class="pre">isUpload</span></code></li>
+<li><code class="docutils literal"><span class="pre">mimeType</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">previews</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-board">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-board">/1/cards/[card id or shortlink]/board</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-board" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+<li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
+<li><code class="docutils literal"><span class="pre">desc</span></code></li>
+<li><code class="docutils literal"><span class="pre">descData</span></code></li>
+<li><code class="docutils literal"><span class="pre">idOrganization</span></code></li>
+<li><code class="docutils literal"><span class="pre">invitations</span></code></li>
+<li><code class="docutils literal"><span class="pre">invited</span></code></li>
+<li><code class="docutils literal"><span class="pre">labelNames</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberships</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pinned</span></code></li>
+<li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
+<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+<li><code class="docutils literal"><span class="pre">starred</span></code></li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-board-field">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-board-field">/1/cards/[card id or shortlink]/board/[field]</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-board-field" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+<li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
+<li><code class="docutils literal"><span class="pre">desc</span></code></li>
+<li><code class="docutils literal"><span class="pre">descData</span></code></li>
+<li><code class="docutils literal"><span class="pre">idOrganization</span></code></li>
+<li><code class="docutils literal"><span class="pre">invitations</span></code></li>
+<li><code class="docutils literal"><span class="pre">invited</span></code></li>
+<li><code class="docutils literal"><span class="pre">labelNames</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberships</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pinned</span></code></li>
+<li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
+<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+<li><code class="docutils literal"><span class="pre">starred</span></code></li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-checkitemstates">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-checkitemstates">/1/cards/[card id or shortlink]/checkItemStates</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-checkitemstates" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code></li>
+<li><code class="docutils literal"><span class="pre">state</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-checklists">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-checklists">/1/cards/[card id or shortlink]/checklists</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-checklists" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">cards</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">all</span></code></li>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">none</span></code></li>
+<li><code class="docutils literal"><span class="pre">open</span></code></li>
+<li><code class="docutils literal"><span class="pre">visible</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">card_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">badges</span></code></li>
+<li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+<li><code class="docutils literal"><span class="pre">desc</span></code></li>
+<li><code class="docutils literal"><span class="pre">descData</span></code></li>
+<li><code class="docutils literal"><span class="pre">due</span></code></li>
+<li><code class="docutils literal"><span class="pre">email</span></code></li>
+<li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">idChecklists</span></code></li>
+<li><code class="docutils literal"><span class="pre">idLabels</span></code></li>
+<li><code class="docutils literal"><span class="pre">idList</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
+<li><code class="docutils literal"><span class="pre">idMembersVoted</span></code></li>
+<li><code class="docutils literal"><span class="pre">idShort</span></code></li>
+<li><code class="docutils literal"><span class="pre">labels</span></code></li>
+<li><code class="docutils literal"><span class="pre">manualCoverAttachment</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">checkItems</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">all</span></code></li>
+<li><code class="docutils literal"><span class="pre">none</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">checkItem_fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name,nameData,pos,state</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">nameData</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+<li><code class="docutils literal"><span class="pre">state</span></code></li>
+<li><code class="docutils literal"><span class="pre">type</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">filter</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">all</span></code></li>
+<li><code class="docutils literal"><span class="pre">none</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">idCard</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-list">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-list">/1/cards/[card id or shortlink]/list</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-list" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-list-field">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-list-field">/1/cards/[card id or shortlink]/list/[field]</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-list-field" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">closed</span></code></li>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-members">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-members">/1/cards/[card id or shortlink]/members</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-members" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+<li><code class="docutils literal"><span class="pre">bio</span></code></li>
+<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+<li><code class="docutils literal"><span class="pre">initials</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+<li><code class="docutils literal"><span class="pre">products</span></code></li>
+<li><code class="docutils literal"><span class="pre">status</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+<li><code class="docutils literal"><span class="pre">username</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-membersvoted">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-membersvoted">/1/cards/[card id or shortlink]/membersVoted</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-membersvoted" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+<li><code class="docutils literal"><span class="pre">bio</span></code></li>
+<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+<li><code class="docutils literal"><span class="pre">initials</span></code></li>
+<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+<li><code class="docutils literal"><span class="pre">products</span></code></li>
+<li><code class="docutils literal"><span class="pre">status</span></code></li>
+<li><code class="docutils literal"><span class="pre">url</span></code></li>
+<li><code class="docutils literal"><span class="pre">username</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-stickers">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-stickers">/1/cards/[card id or shortlink]/stickers</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-stickers" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">image</span></code></li>
+<li><code class="docutils literal"><span class="pre">imageScaled</span></code></li>
+<li><code class="docutils literal"><span class="pre">imageUrl</span></code></li>
+<li><code class="docutils literal"><span class="pre">left</span></code></li>
+<li><code class="docutils literal"><span class="pre">rotate</span></code></li>
+<li><code class="docutils literal"><span class="pre">top</span></code></li>
+<li><code class="docutils literal"><span class="pre">zIndex</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-stickers-idsticker">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-stickers-idsticker">/1/cards/[card id or shortlink]/stickers/[idSticker]</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-stickers-idsticker" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idSticker</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the sticker</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">image</span></code></li>
+<li><code class="docutils literal"><span class="pre">imageScaled</span></code></li>
+<li><code class="docutils literal"><span class="pre">imageUrl</span></code></li>
+<li><code class="docutils literal"><span class="pre">left</span></code></li>
+<li><code class="docutils literal"><span class="pre">rotate</span></code></li>
+<li><code class="docutils literal"><span class="pre">top</span></code></li>
+<li><code class="docutils literal"><span class="pre">zIndex</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink">
+<h2>PUT <span class="target" id="id1">/1/cards/[card id or shortlink]</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">name</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">desc</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">closed</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">labels</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">blue</span></code></li>
+<li><code class="docutils literal"><span class="pre">green</span></code></li>
+<li><code class="docutils literal"><span class="pre">orange</span></code></li>
+<li><code class="docutils literal"><span class="pre">purple</span></code></li>
+<li><code class="docutils literal"><span class="pre">red</span></code></li>
+<li><code class="docutils literal"><span class="pre">yellow</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idMembers</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> Id of the image attachment of this card to use as its cover, or null for no cover</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idList</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> id of the list the card should be moved to</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> id of the board the card should be moved to</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">pos</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">due</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A date, or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">subscribed</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-actions-idaction-comments">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-actions-idaction-comments">/1/cards/[card id or shortlink]/actions/[idAction]/comments</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-actions-idaction-comments" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Notes:</strong> This can only be done by the original author of the comment.</li>
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idAction</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the action.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">text</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-name">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-name">/1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/name</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-name" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idChecklist</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checklist.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checkitem to modify.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-pos">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-pos">/1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/pos</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-pos" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idChecklist</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checklist.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checkitem to modify.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-state">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-state">/1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/state</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-state" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idChecklist</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checklist.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checkitem to modify.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">complete</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+<li><code class="docutils literal"><span class="pre">incomplete</span></code></li>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-checklist-idchecklistcurrent-checkitem-idcheckitem">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-checklist-idchecklistcurrent-checkitem-idcheckitem">/1/cards/[card id or shortlink]/checklist/[idChecklistCurrent]/checkItem/[idCheckItem]</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklistcurrent-checkitem-idcheckitem" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idChecklistCurrent</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checklist.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checkitem to modify.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">name</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">state</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">complete</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+<li><code class="docutils literal"><span class="pre">incomplete</span></code></li>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idChecklist</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> An id, or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">pos</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-closed">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-closed">/1/cards/[card id or shortlink]/closed</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-closed" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-desc">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-desc">/1/cards/[card id or shortlink]/desc</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-desc" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-due">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-due">/1/cards/[card id or shortlink]/due</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-due" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> A date, or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-idattachmentcover">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-idattachmentcover">/1/cards/[card id or shortlink]/idAttachmentCover</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-idattachmentcover" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> Id of the image attachment of this card to use as its cover, or null for no cover</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-idboard">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-idboard">/1/cards/[card id or shortlink]/idBoard</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-idboard" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> id of the board the card should be moved to</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idList</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> id of the list that the card should be moved to on the new board</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-idlist">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-idlist">/1/cards/[card id or shortlink]/idList</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-idlist" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> id of the list the card should be moved to</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-idmembers">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-idmembers">/1/cards/[card id or shortlink]/idMembers</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-idmembers" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-labels">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-labels">/1/cards/[card id or shortlink]/labels</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-labels" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">blue</span></code></li>
+<li><code class="docutils literal"><span class="pre">green</span></code></li>
+<li><code class="docutils literal"><span class="pre">orange</span></code></li>
+<li><code class="docutils literal"><span class="pre">purple</span></code></li>
+<li><code class="docutils literal"><span class="pre">red</span></code></li>
+<li><code class="docutils literal"><span class="pre">yellow</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-name">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-name">/1/cards/[card id or shortlink]/name</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-name" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-pos">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-pos">/1/cards/[card id or shortlink]/pos</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-pos" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-stickers-idsticker">
+<h2>PUT <span class="target" id="id2">/1/cards/[card id or shortlink]/stickers/[idSticker]</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-stickers-idsticker" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idSticker</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the sticker to modify</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">top</span></code> (optional)</li>
+<li><code class="docutils literal"><span class="pre">left</span></code> (optional)</li>
+<li><code class="docutils literal"><span class="pre">zIndex</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> Valid Z values for stickers, must be an integer</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">rotate</span></code> (optional)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-subscribed">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-subscribed">/1/cards/[card id or shortlink]/subscribed</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-subscribed" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong><ul>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards">
+<h2>POST <span class="target" id="cards">/1/cards</span><a class="headerlink" href="#post-1-cards" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">name</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> The name of the new card.  It isn&amp;#39;t required if the name is being copied from provided by a URL, file or card that is being copied.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">desc</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">pos</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">bottom</span></code></li>
+<li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">due</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> A date, or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">labels</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">blue</span></code></li>
+<li><code class="docutils literal"><span class="pre">green</span></code></li>
+<li><code class="docutils literal"><span class="pre">orange</span></code></li>
+<li><code class="docutils literal"><span class="pre">purple</span></code></li>
+<li><code class="docutils literal"><span class="pre">red</span></code></li>
+<li><code class="docutils literal"><span class="pre">yellow</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idList</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> id of the list that the card should be added to</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idMembers</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idLabels</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">urlSource</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> A URL starting with <a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a> or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">fileSource</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A file</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idCardSource</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> The id of the card to copy into a new card.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">keepFromSource</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+<li><strong>Valid Values:</strong> Properties of the card to copy over from the source.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-actions-comments">
+<h2>POST <span class="target" id="cards-card-id-or-shortlink-actions-comments">/1/cards/[card id or shortlink]/actions/comments</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-actions-comments" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> comments</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">text</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-attachments">
+<h2>POST <span class="target" id="id3">/1/cards/[card id or shortlink]/attachments</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-attachments" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">file</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A file</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">url</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A URL starting with <a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a> or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">name</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">256</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">mimeType</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">256</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem">
+<h2>POST <span class="target" id="cards-card-id-or-shortlink-checklist-idchecklist-checkitem">/1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idChecklist</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checklist.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">name</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">pos</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">bottom</span></code></li>
+<li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-converttocard">
+<h2>POST <span class="target" id="cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-converttocard">/1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/convertToCard</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-converttocard" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idChecklist</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checklist.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checkitem to modify.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-checklists">
+<h2>POST <span class="target" id="id4">/1/cards/[card id or shortlink]/checklists</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-checklists" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> The id of the checklist to add to the card, or null to create a new one.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">name</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idChecklistSource</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> The id of the source checklist to copy into a new checklist.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-idlabels">
+<h2>POST <span class="target" id="cards-card-id-or-shortlink-idlabels">/1/cards/[card id or shortlink]/idLabels</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-idlabels" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the label to add</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-idmembers">
+<h2>POST <span class="target" id="id5">/1/cards/[card id or shortlink]/idMembers</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-idmembers" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the member to add to the card</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-labels">
+<h2>POST <span class="target" id="id6">/1/cards/[card id or shortlink]/labels</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-labels" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">color</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> A valid label color or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">name</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-markassociatednotificationsread">
+<h2>POST <span class="target" id="cards-card-id-or-shortlink-markassociatednotificationsread">/1/cards/[card id or shortlink]/markAssociatedNotificationsRead</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-markassociatednotificationsread" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments:</strong> None</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-membersvoted">
+<h2>POST <span class="target" id="id7">/1/cards/[card id or shortlink]/membersVoted</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-membersvoted" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> voting</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the member to vote &amp;#39;yes&amp;#39; on the card</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-cards-card-id-or-shortlink-stickers">
+<h2>POST <span class="target" id="id8">/1/cards/[card id or shortlink]/stickers</span><a class="headerlink" href="#post-1-cards-card-id-or-shortlink-stickers" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">image</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">top</span></code> (required)</li>
+<li><code class="docutils literal"><span class="pre">left</span></code> (required)</li>
+<li><code class="docutils literal"><span class="pre">zIndex</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> Valid Z values for stickers, must be an integer</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">rotate</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">0</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink">
+<h2>DELETE <span class="target" id="id9">/1/cards/[card id or shortlink]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments:</strong> None</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-actions-idaction-comments">
+<h2>DELETE <span class="target" id="id10">/1/cards/[card id or shortlink]/actions/[idAction]/comments</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-actions-idaction-comments" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Notes:</strong> This can only be done by the original author of the comment, or someone with higher permissions than the original author.</li>
+<li><strong>Required permissions:</strong> comments</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idAction</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the action.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-attachments-idattachment">
+<h2>DELETE <span class="target" id="id11">/1/cards/[card id or shortlink]/attachments/[idAttachment]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-attachments-idattachment" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idAttachment</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the attachment to remove from the card.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem">
+<h2>DELETE <span class="target" id="cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem">/1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idChecklist</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checklist.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> the id of the check item to remove</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-checklists-idchecklist">
+<h2>DELETE <span class="target" id="cards-card-id-or-shortlink-checklists-idchecklist">/1/cards/[card id or shortlink]/checklists/[idChecklist]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-checklists-idchecklist" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idChecklist</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checklist to remove from the card</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-idlabels-idlabel">
+<h2>DELETE <span class="target" id="cards-card-id-or-shortlink-idlabels-idlabel">/1/cards/[card id or shortlink]/idLabels/[idLabel]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-idlabels-idlabel" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idLabel</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the label to delete</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-idmembers-idmember">
+<h2>DELETE <span class="target" id="cards-card-id-or-shortlink-idmembers-idmember">/1/cards/[card id or shortlink]/idMembers/[idMember]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-idmembers-idmember" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idMember</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the member to remove from the card</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-labels-color">
+<h2>DELETE <span class="target" id="cards-card-id-or-shortlink-labels-color">/1/cards/[card id or shortlink]/labels/[color]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-labels-color" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">color</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> A valid label color or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-membersvoted-idmember">
+<h2>DELETE <span class="target" id="cards-card-id-or-shortlink-membersvoted-idmember">/1/cards/[card id or shortlink]/membersVoted/[idMember]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-membersvoted-idmember" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> voting</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idMember</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the member whose vote to rescind</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-stickers-idsticker">
+<h2>DELETE <span class="target" id="id12">/1/cards/[card id or shortlink]/stickers/[idSticker]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-stickers-idsticker" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idSticker</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the sticker to remove</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" class="clearfix">
+  <h3>Search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h3><a href="../../index.html">Documentation Home</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">card</a><ul>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink">GET /1/cards/[card id or shortlink]</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-field">GET /1/cards/[card id or shortlink]/[field]</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-actions">GET /1/cards/[card id or shortlink]/actions</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-attachments">GET /1/cards/[card id or shortlink]/attachments</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-attachments-idattachment">GET /1/cards/[card id or shortlink]/attachments/[idAttachment]</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-board">GET /1/cards/[card id or shortlink]/board</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-board-field">GET /1/cards/[card id or shortlink]/board/[field]</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-checkitemstates">GET /1/cards/[card id or shortlink]/checkItemStates</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-checklists">GET /1/cards/[card id or shortlink]/checklists</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-list">GET /1/cards/[card id or shortlink]/list</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-list-field">GET /1/cards/[card id or shortlink]/list/[field]</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-members">GET /1/cards/[card id or shortlink]/members</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-membersvoted">GET /1/cards/[card id or shortlink]/membersVoted</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-stickers">GET /1/cards/[card id or shortlink]/stickers</a></li>
+<li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-stickers-idsticker">GET /1/cards/[card id or shortlink]/stickers/[idSticker]</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink">PUT /1/cards/[card id or shortlink]</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-actions-idaction-comments">PUT /1/cards/[card id or shortlink]/actions/[idAction]/comments</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-name">PUT /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/name</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-pos">PUT /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/pos</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-state">PUT /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/state</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklistcurrent-checkitem-idcheckitem">PUT /1/cards/[card id or shortlink]/checklist/[idChecklistCurrent]/checkItem/[idCheckItem]</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-closed">PUT /1/cards/[card id or shortlink]/closed</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-desc">PUT /1/cards/[card id or shortlink]/desc</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-due">PUT /1/cards/[card id or shortlink]/due</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idattachmentcover">PUT /1/cards/[card id or shortlink]/idAttachmentCover</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idboard">PUT /1/cards/[card id or shortlink]/idBoard</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idlist">PUT /1/cards/[card id or shortlink]/idList</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idmembers">PUT /1/cards/[card id or shortlink]/idMembers</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-labels">PUT /1/cards/[card id or shortlink]/labels</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-name">PUT /1/cards/[card id or shortlink]/name</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-pos">PUT /1/cards/[card id or shortlink]/pos</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-stickers-idsticker">PUT /1/cards/[card id or shortlink]/stickers/[idSticker]</a></li>
+<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-subscribed">PUT /1/cards/[card id or shortlink]/subscribed</a></li>
+<li><a class="reference internal" href="#post-1-cards">POST /1/cards</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-actions-comments">POST /1/cards/[card id or shortlink]/actions/comments</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-attachments">POST /1/cards/[card id or shortlink]/attachments</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem">POST /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-converttocard">POST /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/convertToCard</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-checklists">POST /1/cards/[card id or shortlink]/checklists</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-idlabels">POST /1/cards/[card id or shortlink]/idLabels</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-idmembers">POST /1/cards/[card id or shortlink]/idMembers</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-labels">POST /1/cards/[card id or shortlink]/labels</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-markassociatednotificationsread">POST /1/cards/[card id or shortlink]/markAssociatedNotificationsRead</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-membersvoted">POST /1/cards/[card id or shortlink]/membersVoted</a></li>
+<li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-stickers">POST /1/cards/[card id or shortlink]/stickers</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink">DELETE /1/cards/[card id or shortlink]</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-actions-idaction-comments">DELETE /1/cards/[card id or shortlink]/actions/[idAction]/comments</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-attachments-idattachment">DELETE /1/cards/[card id or shortlink]/attachments/[idAttachment]</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem">DELETE /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-checklists-idchecklist">DELETE /1/cards/[card id or shortlink]/checklists/[idChecklist]</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-idlabels-idlabel">DELETE /1/cards/[card id or shortlink]/idLabels/[idLabel]</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-idmembers-idmember">DELETE /1/cards/[card id or shortlink]/idMembers/[idMember]</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-labels-color">DELETE /1/cards/[card id or shortlink]/labels/[color]</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-membersvoted-idmember">DELETE /1/cards/[card id or shortlink]/membersVoted/[idMember]</a></li>
+<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-stickers-idsticker">DELETE /1/cards/[card id or shortlink]/stickers/[idSticker]</a></li>
+</ul>
+</li>
+</ul>

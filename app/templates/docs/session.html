@@ -1,0 +1,105 @@
+<span id="index"></span><h1>session<a class="headerlink" href="#session" title="Permalink to this headline"></a></h1>
+<div class="section" id="get-1-sessions-socket">
+<h2>GET <span class="target" id="sessions-socket">/1/sessions/socket</span><a class="headerlink" href="#get-1-sessions-socket" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Notes:</strong> This is the route for WebSocket requests.  See the socket API reference for a description of WebSocket usage.</li>
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments:</strong> None</li>
+</ul>
+</div>
+<div class="section" id="put-1-sessions-idsession">
+<h2>PUT <span class="target" id="sessions-idsession">/1/sessions/[idSession]</span><a class="headerlink" href="#put-1-sessions-idsession" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">status</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">active</span></code></li>
+<li><code class="docutils literal"><span class="pre">disconnected</span></code></li>
+<li><code class="docutils literal"><span class="pre">idle</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idSession</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">16</span></code> to <code class="docutils literal"><span class="pre">24</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> The id of the board you&amp;#39;re viewing.  Boards with no viewers will not get updates about members&amp;#39; statuses.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-sessions-idsession-status">
+<h2>PUT <span class="target" id="sessions-idsession-status">/1/sessions/[idSession]/status</span><a class="headerlink" href="#put-1-sessions-idsession-status" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">active</span></code></li>
+<li><code class="docutils literal"><span class="pre">disconnected</span></code></li>
+<li><code class="docutils literal"><span class="pre">idle</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idSession</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">16</span></code> to <code class="docutils literal"><span class="pre">24</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="post-1-sessions">
+<h2>POST <span class="target" id="sessions">/1/sessions</span><a class="headerlink" href="#post-1-sessions" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">status</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">active</span></code></li>
+<li><code class="docutils literal"><span class="pre">disconnected</span></code></li>
+<li><code class="docutils literal"><span class="pre">idle</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idBoard</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> The id of the board you&amp;#39;re viewing.  Boards with no viewers will not get updates about members&amp;#39; statuses.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" class="clearfix">
+  <h3>Search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h3><a href="../../index.html">Documentation Home</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">session</a><ul>
+<li><a class="reference internal" href="#get-1-sessions-socket">GET /1/sessions/socket</a></li>
+<li><a class="reference internal" href="#put-1-sessions-idsession">PUT /1/sessions/[idSession]</a></li>
+<li><a class="reference internal" href="#put-1-sessions-idsession-status">PUT /1/sessions/[idSession]/status</a></li>
+<li><a class="reference internal" href="#post-1-sessions">POST /1/sessions</a></li>
+</ul>
+</li>
+</ul>
