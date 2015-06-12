@@ -156,3 +156,6 @@ app.controller('GetStartedCtrl', function($scope, $location, $anchorScroll) {
 
 });
 
+app.controller('AdvancedReferencePageCtrl', function($scope, $http){
+
+});
