@@ -424,7 +424,64 @@ th {
   padding: 0;
 }
 
-button, html, input, select, textarea {
+button,
+html,
+input,
+select,
+textarea {
   font-family: "jaf-facitweb", sans-serif;
 }
-
+body {
+  color: #4d4d4d;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+b,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+pre {
+  background-color: #edeff0;
+  border-radius: 3px;
+  font-size: .8em;
+  padding: 1em;
+}
+code {
+  background: #edeff0;
+  font-family: "fira-mono", monospace;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+pre > code {
+  background: transparent;
+}
+a {
+  color: #298fca;
+}
+a:hover,
+a:visited:hover {
+  color: #0c3953;
+}
+a:visited {
+  color: #0079bf;
+}
+@media only screen and (max-width: 750px) {
+  body {
+    font-size: 16px;
+  }
+}
