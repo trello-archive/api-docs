@@ -1,4 +1,4 @@
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 /**
  * 1. Set default font family to sans-serif.
@@ -25,7 +25,8 @@ body {
 
 /**
  * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
 
@@ -36,7 +37,9 @@ figcaption,
 figure,
 footer,
 header,
+hgroup,
 main,
+menu,
 nav,
 section,
 summary {
@@ -84,7 +87,7 @@ template {
  */
 
 a {
-  background: transparent;
+  background-color: transparent;
 }
 
 /**
@@ -124,6 +127,15 @@ dfn {
   font-style: italic;
 }
 
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
 
 /**
  * Address styling not present in IE 8/9.
@@ -134,6 +146,13 @@ mark {
   color: #000;
 }
 
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
@@ -178,11 +197,11 @@ svg:not(:root) {
    ========================================================================== */
 
 /**
- * Remove margin
+ * Address margin not present in IE 8/9 and Safari.
  */
 
 figure {
-  margin: 0;
+  margin: 1em 40px;
 }
 
 /**
@@ -354,6 +373,16 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 /**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
@@ -395,11 +424,4 @@ table {
 td,
 th {
   padding: 0;
-}
-
-
-/* Blockquote
-   ========================================================================== */
-blockquote {
-  margin: 0;
 }
