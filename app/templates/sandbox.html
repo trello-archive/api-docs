@@ -18,13 +18,13 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
   (if you don't have one, <a href="https://trello.com/app-key">grab your API key here</a>.)
   
   Then press connect:
-  <md-button class="md-raised md-primary" ng-click="connect()">Connect</md-button>
+  <button ng-click="connect()">Connect</button>
 </div>
 <div ng-show="connected && !authenticated"> 
   <p>Great, we have now included a script tag that looks like this:</p>
   <div class="code">&lt;script src="{{url}}"&gt;&lt;/script&gt;</div>
   <p>We now need to authenticate a user before we can make interesting API calls.</p>
-  <md-button ng-click="authenticate()" class="md-raised md-primary">Authenticate</md-button>
+  <button ng-click="authenticate()">Authenticate</button>
   <p>{{authenticationErrorMessage}}</p>
 </div>
 <div ng-show="authenticated">
@@ -32,27 +32,27 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
   <p>Now let's do something interesting:</p>
   <md-tabs md-dynamic-height md-border-bottom md-selected="selectedCodeSample">
     <md-tab label="Get Boards">
-      <p>Get my Boards...<md-button ng-click="run(codeContent.getBoards)" class="md-raised md-primary">Execute</md-button></p>
+      <p>Get my Boards...<button ng-click="run(codeContent.getBoards)">Execute</button></p>
       <textarea ng-model="codeContent.getBoards"></textarea>
       
     </md-tab>
     <md-tab label="Get Lists">
-      <p>Get lists from a Board... <md-button ng-click="run(codeContent.getLists)" class="md-raised md-primary">Execute</md-button></p>
+      <p>Get lists from a Board... <button ng-click="run(codeContent.getLists)">Execute</button></p>
       <textarea ng-model="codeContent.getLists"></textarea>
       
     </md-tab>
     <md-tab label="Create Card">
-      <p>Create Cards... <md-button ng-click="run(codeContent.createCard)" class="md-raised md-primary">Execute</md-button></p>
+      <p>Create Cards... <button ng-click="run(codeContent.createCard)">Execute</button></p>
       <textarea ng-model="codeContent.createCard"></textarea>
       
     </md-tab>
     <md-tab label="Create Webhook">
-      <p>Create a webhook... <md-button ng-click="run(codeContent.createWebhook)" class="md-raised md-primary">Execute</md-button></p>
+      <p>Create a webhook... <button ng-click="run(codeContent.createWebhook)">Execute</button></p>
       <textarea ng-model="codeContent.createWebhook"></textarea>
       
     </md-tab>
     <md-tab label="Get Webhooks">
-      <p>Get webhooks registered on a token...<md-button ng-click="run(codeContent.getWebhooks)" class="md-raised md-primary">Execute</md-button></p>
+      <p>Get webhooks registered on a token...<button ng-click="run(codeContent.getWebhooks)">Execute</button></p>
       <p style="font-size:12px;">(Your token is {{token}}) </p>
       <textarea ng-model="codeContent.getWebhooks"></textarea>
       
