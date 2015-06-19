@@ -14,22 +14,18 @@
 <h3>3rd Party Wrappers</h3>
 <p>Wrappers make it easier to interact with the Trello API using a number of different programming languages.</p>
 <div class="cardList">
-	<md-card ng-repeat="wrapper in wrappers" ng-click="open(wrapper.url);">
-		<md-card-content>
+	<div ng-repeat="wrapper in wrappers" ng-click="open(wrapper.url);">
 			<h2 class="md-title">{{wrapper.name}}</h2>
 			<p>by {{wrapper.author}}</p>
-		</md-card-content>
-	</md-card>
+	</div>
 </div>
 <h3 style="clear:both;">3rd Party Sample Projects</h3>
 <p>Developers have already built some cool things with Trello. Here are some open source projects that you can use for reference. </p>
 
 <div class="cardList">
-	<md-card ng-repeat="sample in samples" ng-click="open(sample.url);">
-		<md-card-content>
+	<div ng-repeat="sample in samples" ng-click="open(sample.url);">
 			<h2 class="md-title">{{sample.name}}</h2>
 			<p>by {{sample.author}}</p>
 			<p ng-show="sample.clientjs">This project uses client.js</p>
-		</md-card-content>
-	</md-card>
+	</div>
 </div>
