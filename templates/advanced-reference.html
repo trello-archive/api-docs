@@ -1,72 +1,6 @@
-<style>
-main {
-	max-width:none;
-	padding:0px;
-}
-#sideNav ul li{
-	padding:0;
-	font-size:13px;
-	font-weight:bold;
-	margin-top:32px;
-}
-#sideNav ul li li {
-	font-weight:normal;
-	margin-top:0px;
-}
-#sideNav ul {
-	padding:0;
-}
-#sideNav {
-	padding:16px 16px 16px 32px;
-	height:100%;
-	overflow-y:scroll;
-	width:350px;
-	position:fixed;
+<div class="api-ref">
+	<div class="api-ref-nav">
 
-}
-#sideNav h1 {
-	font-size:18px;
-}
-#sideNav a {
-	text-decoration: none;
-}
-#apiDetails {
-	font-size:14px;
-	padding:16px;
-	height:100%;
-	overflow-y:scroll;
-	margin-left:350px;
-	flex-grow: 1;
-}
-
-#apiDetails h1 {
-	font-size:1.3em;
-	font-weight:bold;
-
-}
-#apiDetails h2 {
-	font-size:1.1em;
-	font-weight:bold;
-}
-#apiDetails ul, #apiDetails, ol {
-	font-size:inherit;
-}
-
-footer {
-	display:none;
-}
-
-main {
-	height: calc( 100% - 190px );
-}
-
-</style>
-
-<div style="display:flex;height:100%;">
-	<div id="sideNav">
-
-		<h1>API Reference</h1>
-		<div>
 		<ul>
 		<li><a href="/#/advanced-reference/action">action</a><ul>
 		<li><a href="/#/advanced-reference/action#actions-idaction">GET /actions/[idAction]</a></li>
@@ -438,7 +372,11 @@ main {
 		</ul>
 		</li>
 		</ul>
-		</div>
+
 	</div>
-	<div ui-view id="apiDetails">Select an API to get started.</div>
+
+	<div class="api-ref-main" ui-view>
+		<p>Select an API to get started.</p>
+	</div>
+
 </div>
