@@ -13,35 +13,35 @@
 	<li>Batching</li>
 	<li>Organizations</li>
 </ol>
-<h3>Authentication and Authorization</h3>
+<h2>Authentication and Authorization</h2>
 <p>There are two steps before your application may make a call on behalf of a user. The first is to get your Application Key. This key identifies your application to Trello, and to your users.</p>
 <p>The second step is to perform an authentication and authorization. Trello uses a delegated authentication and authorization flow so that your application never has to deal with storing or handling usernames or passwords. Your application passes control to Trello. Once we have allowed the user to choose an account and sign in, we will hand the user and control back to your application, with the addition of an Authorization Token. This token is based on your Application Key, the user that has logged in, and the set of permissions that have been authorized.</p>
 <p>Every time your application uses this token, the request will be made on behalf of the authenticated user, based on that user's content and permissions. If you try to access a board or make a change for which the user does not have permission, your request will be blocked.</p>
 
-<h3>Boards</h3>
+<h2>Boards</h2>
 <a href="https://trello.com/docs/api/board/index.html">Full Boards API Reference</a>
 <p>Boards are the highest level concept within the Trello workflow. The Boards API allows you to list, view, create, and edit Boards. Each Board has a name, description, a set of members attached, and an ordered array of Lists.</p>
 <p>Boards can be open or closed, starred, and/or subscribed. Each Board belongs to an organization. Each board also has a set of preferences that affect its visual display, and additional features that may have been attached to the Board (such as Power-Ups).</p>
-<h4>Important Methods</h4>
+<h3>Important Methods</h3>
 <ul>
 	<li>GET /1/members/me/boards - Get an array of the Boards of a user</li>
 	<li>GET /1/boards/[board_id]/cards - Get an array of Cards on a board</li>
 	<li>GET /1/boards/[board_id]/lists - Get an array of Lists on a board</li>
 </ul>
 
-<h3>Lists</h3>
+<h2>Lists</h2>
 <a href="https://trello.com/docs/api/list/index.html">Full Lists API Reference</a>
 <p></p>
-<h4>Important Methods</h4>
+<h3>Important Methods</h3>
 <ul>
 	<li>GET /1/lists/[idList]/cards - Get an array of Cards on a List</li>
 	<li>POST /1/cards - Create a new Card on a List</li>
 </ul>
 
-<h3>Cards</h3>
+<h2>Cards</h2>
 <a href="https://trello.com/docs/api/card/index.html">Full Cards API Reference</a>
 <p></p>
-<h4>Important Methods</h4>
+<h3>Important Methods</h3>
 <ul>
 	<li>POST /1/cards - Create a new card on a List</li>
 	<li>PUT /1/cards/[card id or shortlink] - Update the contents of a Card</li>
@@ -49,7 +49,7 @@
 	<li>POST /1/cards/[card id or shortlink]/idMembers - Add a member to a Card</li>
 </ul>
 
-<h4>Child Methods</h4>
+<h3>Child Methods</h3>
 <ul>
 	<li>Actions - Actions are the audit log / record of everything that has been done to a card throughout its history.</li>
 	<li>Labels</li>
@@ -57,9 +57,9 @@
 	<li>Actions</li>
 </ul>
 
-<h3>Webhooks</h3>
+<h2>Webhooks</h2>
 <p>You could theoretically parse a user's Boards, Lists, and Cards in order to get all of the information, but this would mean loading a lot of data that doesn't change very often, using more bandwidth, CPU, and RAM for both you and for our servers. To mitigate this we have built a system that allows your application to hook into updates on various members such as Boards, Lists, and Cards. Whenever a member with a Webhook is changed, we make an HTTP request to the endpoint of your choosing.</p>
-<h4>Important Methods</h4>
+<h3>Important Methods</h3>
 <ul>
 	<li>POST /1/webhooks - Create a Webhook</li>
 	<li>GET /1/tokens/[token]/webhooks - Get an array of the Webhooks associated with your token</li>
@@ -69,9 +69,9 @@
 
 
 
-<h3>Recursion Helpers</h3>
+<h2>Recursion Helpers</h2>
 <p>Several of the core methods allow you to directly access member content. For example, instead of retrieving a list and then recursively requesting each of the cards on the list, you can retrieve this information directly, and optionally supply a filter for the child cards.</p>
-<h4>Example Recursions</h4>
+<h3>Example Recursions</h3>
 <ul>
 	<li>GET /1/lists/[idList]/cards</li>
 	<li>GET /1/lists/[idList]/cards/[filter]</li>
@@ -80,9 +80,13 @@
 </ul>
 
 <h2>Advanced Topics and Optimizations</h2>
-<h3>Deltas</h3>
-<h3>Batching</h3>
+
+<h2>Deltas</h2>
+
+<h2>Batching</h2>
+
 <p>When requesting content from the Trello API, you may want to lookup a lot of information at once. The Trello API has the ability to Batch multiple GET requests at once. You can use this to get the contents of multiple Cards or Lists with a single HTTP transaction, and you can even mix multiple request types.</p>
+
 <h2>OAuth</h2>
 
 </div>
