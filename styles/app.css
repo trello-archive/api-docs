@@ -550,18 +550,6 @@ button.mod-inline {
   font-size: .8em;
   padding: .3em .8em;
 }
-a.expand-button {
-  background-color: #e2e4e6;
-  border-radius: .3em;
-  color: #4d4d4d;
-  padding: .3em 1em;
-}
-.expand-button:hover {
-  background-color: #d6dadc;
-}
-.expand-button:active {
-  background-color: #cdd2d4;
-}
 textarea,
 input[type="text"],
 input[type="email"],
@@ -602,8 +590,8 @@ input[type="password"].error:focus {
 }
 .api-ref {
   position: relative;
-  margin: 1em auto;
-  max-width: 1400px;
+  margin: 2em auto;
+  max-width: 1200px;
 }
 .api-ref-nav {
   background-color: #e4f0f6;
@@ -613,7 +601,7 @@ input[type="password"].error:focus {
   font-size: .8em;
   margin: 0 1em 1em;
   padding: 1em;
-  width: 200px;
+  width: 12em;
   word-wrap: break-word;
 }
 .api-ref-nav ul {
@@ -638,7 +626,7 @@ input[type="password"].error:focus {
 .api-ref-main {
   box-sizing: border-box;
   font-size: .8em;
-  margin-left: 200px;
+  margin-left: 14em;
   padding: 0 1em;
   word-wrap: break-word;
 }
