@@ -37,19 +37,37 @@ button {
 
 // Modifiers
 
-button.mod-primary {
-  background: linear-gradient(to bottom, @green-500 0%, @green-600 100%);
-  box-shadow: 0 2px 0 @green-900;
-  color: #fff;
-}
+  // Primary
 
-  button.mod-primary:not([disabled]):focus,
-  button.mod-primary:not([disabled]):hover {
-    background: linear-gradient(to bottom, @green-600 0%, @green-700 100%);
+  button.mod-primary {
+    background: linear-gradient(to bottom, @green-500 0%, @green-600 100%);
+    box-shadow: 0 2px 0 @green-900;
     color: #fff;
   }
 
-  button.mod-primary:not([disabled]):active {
-    background: linear-gradient(to bottom, @green-700 0%, @green-800 100%);
-    color: #fff;
+    button.mod-primary:not([disabled]):focus,
+    button.mod-primary:not([disabled]):hover {
+      background: linear-gradient(to bottom, @green-600 0%, @green-700 100%);
+      color: #fff;
+    }
+
+    button.mod-primary:not([disabled]):active {
+      background: linear-gradient(to bottom, @green-700 0%, @green-800 100%);
+      color: #fff;
+    }
+
+  // Inline
+
+  button.mod-inline {
+    box-shadow: 0 1px 0 @light-gray-500;
+    display: inline;
+    font-size: .8em;
+    padding: .3em .8em;
   }
+
+    button.mod-inline:not([disabled]):focus,
+    button.mod-inline:not([disabled]):hover {
+    }
+
+    button.mod-inline:not([disabled]):active {
+    }

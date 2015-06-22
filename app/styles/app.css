@@ -429,6 +429,9 @@ th {
   content: "";
   display: table;
 }
+.u-hidden {
+  display: none;
+}
 button,
 html,
 input,
@@ -541,6 +544,24 @@ button.mod-primary:not([disabled]):active {
   background: linear-gradient(to bottom, #519839 0%, #49852e 100%);
   color: #fff;
 }
+button.mod-inline {
+  box-shadow: 0 1px 0 #c4c9cc;
+  display: inline;
+  font-size: .8em;
+  padding: .3em .8em;
+}
+a.expand-button {
+  background-color: #e2e4e6;
+  border-radius: .3em;
+  color: #4d4d4d;
+  padding: .3em 1em;
+}
+.expand-button:hover {
+  background-color: #d6dadc;
+}
+.expand-button:active {
+  background-color: #cdd2d4;
+}
 textarea,
 input[type="text"],
 input[type="email"],
@@ -617,7 +638,6 @@ input[type="password"].error:focus {
 .api-ref-main {
   box-sizing: border-box;
   font-size: .8em;
-  height: 100%;
   margin-left: 200px;
   padding: 0 1em;
   word-wrap: break-word;
