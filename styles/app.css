@@ -485,6 +485,48 @@ a:visited {
     font-size: 16px;
   }
 }
+button {
+  background: linear-gradient(to bottom, #e2e4e6 0%, #d6dadc 100%);
+  border-radius: .3em;
+  box-shadow: 0 2px 0 #959da1;
+  color: #4d4d4d;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: .8em;
+  padding: .6em 1.3em;
+  position: relative;
+  text-decoration: none;
+  border: 0px;
+}
+button:not([disabled]):focus,
+button:not([disabled]):hover {
+  background: linear-gradient(to bottom, #d6dadc 0%, #cdd2d4 100%);
+  color: #4d4d4d;
+}
+button:not([disabled]):active {
+  background: linear-gradient(to bottom, #cdd2d4 0%, #c4c9cc 100%);
+  color: #4d4d4d;
+}
+button[disabled] {
+  background: #e2e4e6;
+  box-shadow: none;
+  color: #4d4d4d;
+  cursor: default;
+}
+button.mod-green {
+  background: linear-gradient(to bottom, #61bd4f 0%, #5aac44 100%);
+  box-shadow: 0 2px 0 #3f6f21;
+  color: #fff;
+}
+button.mod-green:not([disabled]):focus,
+button.mod-green:not([disabled]):hover {
+  background: linear-gradient(to bottom, #5aac44 0%, #519839 100%);
+  color: #fff;
+}
+button.mod-green:not([disabled]):active {
+  background: linear-gradient(to bottom, #519839 0%, #49852e 100%);
+  color: #fff;
+}
 .app-header {
   background-color: #0079bf;
   text-align: center;
