@@ -1,28 +1,32 @@
 <div class="app-content">
 
-<h2>The Best Community Ever</h2>
-<p>Trello is built around a fantastic community of users and developers. Here's a list of some of the top community projects to help you Build with Trello.</p>
-<p>We'd love to hear your experiences with these projects, but unfortunately we cannot provide support for them.</p>
+	<h2>The Best Community Ever</h2>
+	<p>Trello is built around a fantastic community of users and developers. Here's a list
+		of some of the top community projects to help you Build with Trello.</p>
+	<p>We'd love to hear your experiences with these projects, but unfortunately we cannot
+		provide support for them.</p>
 
-<h3>3rd Party Wrappers</h3>
-<p>Wrappers make it easier to interact with the Trello API using a number of different programming languages.</p>
+	<h3>3rd Party Wrappers</h3>
+	<p>Wrappers make it easier to interact with the Trello API using a number of different
+		programming languages.</p>
 
-<div>
-	<div ng-repeat="wrapper in wrappers" ng-click="open(wrapper.url);">
-		<h2 class="md-title">{{wrapper.name}}</h2>
-		<p>by {{wrapper.author}}</p>
+	<div>
+		<div ng-repeat="wrapper in wrappers" ng-click="open(wrapper.url);">
+			<h2 class="md-title">{{wrapper.name}}</h2>
+			<p>by {{wrapper.author}}</p>
+		</div>
 	</div>
-</div>
 
-<h3>3rd Party Sample Projects</h3>
-<p>Developers have already built some cool things with Trello. Here are some open source projects that you can use for reference. </p>
+	<h3>3rd Party Sample Projects</h3>
+	<p>Developers have already built some cool things with Trello. Here are some open source
+		projects that you can use for reference. </p>
 
-<div>
-	<div ng-repeat="sample in samples" ng-click="open(sample.url);">
-		<h2 class="md-title">{{sample.name}}</h2>
-		<p>by {{sample.author}}</p>
-		<p ng-show="sample.clientjs">This project uses client.js</p>
+	<div>
+		<div ng-repeat="sample in samples" ng-click="open(sample.url);">
+			<h2 class="md-title">{{sample.name}}</h2>
+			<p>by {{sample.author}}</p>
+			<p ng-show="sample.clientjs">This project uses client.js</p>
+		</div>
 	</div>
-</div>
 
 </div>
