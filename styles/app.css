@@ -457,7 +457,7 @@ h6 {
 }
 pre {
   background-color: #edeff0;
-  border-radius: 3px;
+  border-radius: .4em;
   font-size: .8em;
   padding: 1em;
 }
@@ -465,10 +465,11 @@ code {
   background: #edeff0;
   font-family: "fira-mono", monospace;
   padding: 0 4px;
-  border-radius: 4px;
+  border-radius: .4em;
 }
 pre > code {
   background: transparent;
+  padding: 0;
 }
 a {
   color: #298fca;
@@ -513,19 +514,57 @@ button[disabled] {
   color: #4d4d4d;
   cursor: default;
 }
-button.mod-green {
+button.mod-primary {
   background: linear-gradient(to bottom, #61bd4f 0%, #5aac44 100%);
   box-shadow: 0 2px 0 #3f6f21;
   color: #fff;
 }
-button.mod-green:not([disabled]):focus,
-button.mod-green:not([disabled]):hover {
+button.mod-primary:not([disabled]):focus,
+button.mod-primary:not([disabled]):hover {
   background: linear-gradient(to bottom, #5aac44 0%, #519839 100%);
   color: #fff;
 }
-button.mod-green:not([disabled]):active {
+button.mod-primary:not([disabled]):active {
   background: linear-gradient(to bottom, #519839 0%, #49852e 100%);
   color: #fff;
+}
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background: #edeff0;
+  border-radius: .2em;
+  border: 1px solid #cdd2d4;
+  box-sizing: border-box;
+  padding: .5em;
+  width: 100%;
+}
+textarea:hover,
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover {
+  border-color: #b6bbbf;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #a5acb0;
+  outline: none;
+  box-shadow: 0 0 6px #cdd2d4;
+}
+textarea.error,
+input[type="text"].error,
+input[type="email"].error,
+input[type="password"].error {
+  background: #fbedeb;
+  border: 1px solid #ec9488;
+}
+textarea.error:focus,
+input[type="text"].error:focus,
+input[type="email"].error:focus,
+input[type="password"].error:focus {
+  box-shadow: 0 0 6px #ec9488;
 }
 .app-header {
   background-color: #0079bf;
@@ -567,8 +606,13 @@ a.app-nav-list-item-link:active {
   padding: 1em;
   max-width: 700px;
 }
+.app-content.mod-full {
+  padding: 0 1em;
+  max-width: 1400px;
+}
 .app-footer {
   color: #8c8c8c;
+  font-size: .9em;
   text-align: center;
   padding: 1em;
 }

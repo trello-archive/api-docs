@@ -1,3 +1,5 @@
+<div class="app-content">
+
 <h2>Start Building with Trello</h2>
 
 <p>Follow this framework to start building an integration with Trello.</p>
@@ -14,12 +16,10 @@
 		<p>There are two steps to using the client.js library. The first is to get your Application Key. This Key identifies your Application to the API and is needed for any authenticated or unauthenticated API Calls.</p>
 		<button ng-href="https://trello.com/app-key" target>Get your Application Key</button>
 
-	<h4>Include the client library and jquery</h4>
+	<h4>Include the client library and jQuery</h4>
 		<p>Now we can include jQuery and the client.js library in the application. Before the body tag, add the following and replace the AppKey:</p>
-		<pre>
-&lt;script src="http://code.jquery.com/jquery-1.7.1.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://api.trello.com/1/client.js?key=[AppKey]"&gt;&lt;/script&gt;
-		</pre>
+<pre>&lt;script src="http://code.jquery.com/jquery-1.7.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://api.trello.com/1/client.js?key=[AppKey]"&gt;&lt;/script&gt;</pre>
 		<p>Now that you have included these two dependencies, you will have access to a global Trello object that has many helper methods.</p>
 
 
@@ -28,15 +28,14 @@
 	<p>It's important to understand that the Authentication Token gives your application the ability to make calls on behalf of your user, from their context. This token grants access to the authenticated user's boards, lists, cards, and other settings, depending on the permissions you requested in the authenticate method.</p>
 	<h4>Define Success and Failure</h4>
 		<p>First, let's define what happens when authentication has finished using success and failure callbacks.</p>
-		<pre>
-var authenticationSuccess = function() {
+
+<pre>var authenticationSuccess = function() {
 	console.log("Successful authentication");
 };
 
 var authenticationFailure = function() {
 	console.log("Failed authentication");
-}
-		</pre>
+}</pre>
 
 	<h4>Authenticate and Authorize your user</h4>
 		<p>Now let's attempt authentication and authorization in one step.</p>
@@ -49,8 +48,7 @@ Trello.authorize({
 	expiration: "never",
 	authenticationSuccess,
 	authenticationFailure
-});
-		</pre>
+});</pre>
 		<p>If authentication was successful, the Trello object will now store and use our valid Authentication Token for all future calls. Handy!</p>
 
 <h3 id="create">03 Create Cards and update information</h3>
@@ -81,3 +79,5 @@ Trello.post("/cards", newCard);</pre>
 
 	<h4>Updating Data</h4>
 		<p>Now that we have created a card and retrieved its ID via the log, we're going to make an update to this card.</p>
+
+</div>
