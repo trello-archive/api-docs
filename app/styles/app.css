@@ -485,3 +485,48 @@ a:visited {
     font-size: 16px;
   }
 }
+.app-header {
+  background-color: #0079bf;
+  text-align: center;
+  padding: 2em;
+}
+.app-header-title {
+  color: #fff;
+}
+.app-nav {
+  background-color: #026aa7;
+  margin: 0 auto;
+  text-align: center;
+}
+.app-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.app-nav-list-item {
+  display: inline;
+}
+a.app-nav-list-item-link {
+  color: #fff;
+  display: inline-block;
+  padding: 1em;
+  text-decoration: none;
+}
+a.app-nav-list-item-link:hover {
+  background-color: #055a8c;
+  color: #fff;
+}
+a.app-nav-list-item-link:active {
+  background-color: #094c72;
+  color: #fff;
+}
+.app-content {
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 700px;
+}
+.app-footer {
+  color: #8c8c8c;
+  text-align: center;
+  padding: 1em;
+}
