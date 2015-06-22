@@ -424,6 +424,11 @@ th {
   padding: 0;
 }
 
+.u-clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
+}
 button,
 html,
 input,
