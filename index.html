@@ -1,90 +1,104 @@
 <!doctype html>
 <html lang="" ng-app="BuildWithTrello">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Build with Trello</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="images/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build with Trello</title>
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Build with Trello">
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="images/favicon.png">
 
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Build with Trello">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
 
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.css">
-    <link rel="stylesheet" href="styles/app.min.css">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#3372DF">
 
-    <script src="//use.typekit.net/wiz2bfq.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.css">
+  <link rel="stylesheet" href="styles/app.min.css">
 
-    <base href="/">
-  </head>
+  <script src="//use.typekit.net/wiz2bfq.js"></script>
+  <script>
+    try {
+      Typekit.load();
+    } catch (e) {}
+  </script>
 
-  <body>
+  <base href="/">
+</head>
 
-    <header class="app-header">
-      <h1 class="app-header-title">Build with Trello</h1>
-      <img class="app-header-image" src="/images/build-with-logo.png" srcset="/images/build-with-logo.png 1x, /images/build-with-logo@2x.png 2x">
-      <p class="app-header-tag">Resources, tutorials, and documentation for Trello developers.</p>
-    </header>
+<body>
 
-    <nav class="app-nav">
-      <ul class="app-nav-list">
-        <li class="app-nav-list-item">
-          <a class="app-nav-list-item-link" ui-sref="overview">Overview</a>
-        </li>
-        <li class="app-nav-list-item">
-          <a class="app-nav-list-item-link" ui-sref="get-started">Get Started</a>
-        </li>
-        <li class="app-nav-list-item">
-          <a class="app-nav-list-item-link" ui-sref="sandbox">Sandbox</a>
-        </li>
-        <li class="app-nav-list-item">
-          <a class="app-nav-list-item-link" ui-sref="apis">APIs</a>
-        </li>
-        <li class="app-nav-list-item">
-          <a class="app-nav-list-item-link" ui-sref="community">Community</a>
-        </li>
-      </ul>
-    </nav>
+  <header class="app-header">
+    <h1 class="app-header-title">Build with Trello</h1>
+    <img class="app-header-image" src="/images/build-with-logo.png" srcset="/images/build-with-logo.png 1x, /images/build-with-logo@2x.png 2x">
+    <p class="app-header-tag">Resources, tutorials, and documentation for Trello developers.</p>
+  </header>
 
-    <main ui-view></main>
+  <nav class="app-nav">
+    <ul class="app-nav-list">
+      <li class="app-nav-list-item">
+        <a class="app-nav-list-item-link" ui-sref="overview">Overview</a>
+      </li>
+      <li class="app-nav-list-item">
+        <a class="app-nav-list-item-link" ui-sref="get-started">Get Started</a>
+      </li>
+      <li class="app-nav-list-item">
+        <a class="app-nav-list-item-link" ui-sref="sandbox">Sandbox</a>
+      </li>
+      <li class="app-nav-list-item">
+        <a class="app-nav-list-item-link" ui-sref="apis">APIs</a>
+      </li>
+      <li class="app-nav-list-item">
+        <a class="app-nav-list-item-link" ui-sref="community">Community</a>
+      </li>
+    </ul>
+  </nav>
 
-    <footer class="app-footer">
-			<p>&copy; Copyright 2015, Trello, Inc. All rights reserved.</p>
-		</footer>
+  <main ui-view></main>
 
-    <!-- build:js scripts/main.min.js -->
-    <script src="scripts/main.js"></script>
-    <script src="scripts/angular.min.js"></script>
-    <script src="scripts/angular-ui-router.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular-aria.min.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.js"></script>
-    <!-- required for sandbox -->
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <!-- endbuild -->
+  <footer class="app-footer">
+    <p>&copy; Copyright 2015, Trello, Inc. All rights reserved.</p>
+  </footer>
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-63640022-1', 'auto');
-      //ga('send', 'pageview');
-    </script>
+  <!-- build:js scripts/main.min.js -->
+  <script src="scripts/main.js"></script>
+  <script src="scripts/angular.min.js"></script>
+  <script src="scripts/angular-ui-router.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.1/angular-aria.min.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.js"></script>
+  <!-- required for sandbox -->
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <!-- endbuild -->
 
-  </body>
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js',
+      'ga');
+    ga('create', 'UA-63640022-1', 'auto');
+    //ga('send', 'pageview');
+  </script>
+
+</body>
+
 </html>
