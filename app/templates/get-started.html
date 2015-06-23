@@ -25,7 +25,7 @@
   <p>Now we can include jQuery and the client.js library in the application. Before
     the body tag, add the following and replace the AppKey:</p>
   <pre>&lt;script src="http://code.jquery.com/jquery-1.7.1.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://api.trello.com/1/client.js?key=[AppKey]"&gt;&lt;/script&gt;</pre>
+&lt;script src="https://api.trello.com/1/client.js?key=[AppKey]"&gt;&lt;/script&gt;</pre>
   <p>Now that you have included these two dependencies, you will have access to a global
     Trello object that has many helper methods.</p>
 
@@ -43,18 +43,23 @@
   <p>First, let's define what happens when authentication has finished using success
     and failure callbacks.</p>
 
-  <pre>var authenticationSuccess = function() { console.log("Successful authentication");
-    }; var authenticationFailure = function() { console.log("Failed authentication");
-    }
-  </pre>
+<pre>var authenticationSuccess = function() { console.log("Successful authentication"); };
+var authenticationFailure = function() { console.log("Failed authentication"); };</pre>
 
   <h4>Authenticate and Authorize your user</h4>
   <p>Now let's attempt authentication and authorization in one step.</p>
-  <pre>
-    Trello.authorize({ type: "popup", name: "Getting Started Application", scope: {read:
-    true, write: true}, expiration: "never", authenticationSuccess, authenticationFailure
-    });
-  </pre>
+
+<pre>Trello.authorize({
+  type: "popup",
+  name: "Getting Started Application",
+  scope: {
+    read: true,
+    write: true },
+  expiration: "never",
+  authenticationSuccess,
+  authenticationFailure
+});</pre>
+
   <p>If authentication was successful, the Trello object will now store and use our
     valid Authentication Token for all future calls. Handy!</p>
 
@@ -82,11 +87,14 @@
   <p>Creating a card is one of the simplest API calls you can make. We just create a
     card object that contains the parameters we want to set, and then POST it to
     the API.</p>
-  <pre>var myList = "INSERT YOUR IDLIST HERE"; var creationSuccess = function(data) {
-    console.log("Card created successfully. Data returne:" + JSON.stringify(data));
-    } var newCard = {name: "New Test Card", desc: "This is the description of our
-    new card.", pos: "top", // Place this card at the top of our list idList: myList,
-    }; Trello.post("/cards", newCard);</pre>
+  <pre>var myList = "INSERT YOUR IDLIST HERE";
+var creationSuccess = function(data) {
+  console.log("Card created successfully. Data returne:" + JSON.stringify(data));
+};
+var newCard = {name: "New Test Card", desc: "This is the description of our
+  new card.", pos: "top", // Place this card at the top of our list idList: myList,
+};
+Trello.post("/cards", newCard);</pre>
 
   <h4>Updating Data</h4>
   <p>Now that we have created a card and retrieved its ID via the log, we're going to
