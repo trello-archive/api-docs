@@ -1,7 +1,7 @@
 var app = angular.module('BuildWithTrelloControllers', []);
 
 app.controller('OverviewCtrl', function($scope) {
-  
+
 });
 
 app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $location) {
@@ -12,17 +12,17 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
   $scope.connect  = function() {
     var scriptZone = document.getElementById('scriptZone');
     var client = document.createElement("script");
-    
+
     $scope.url = "https://api.trello.com/1/client.js?key=" + $scope.key;
     client.src = $scope.url;
-    
+
     scriptZone.appendChild(client);
     $scope.connected = true;
 
     $window.ga('send', 'pageview', { page: ($location.path() + "/connected") });
 
   };
-  
+
   $scope.authenticate = function() {
     Trello.authorize({
       type: 'popup',
@@ -31,9 +31,9 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
       success: $scope.authenticationSuccess,
       error: $scope.authenticationError
     });
-    
+
   };
-  
+
   $scope.authenticationSuccess = function() {
     //$scope.$apply(function() {
 	    $scope.authenticated = true;
@@ -42,14 +42,14 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	//});
  	$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[0]) });
   };
-  
+
   $scope.authenticationError = function(error) {
     $scope.authenticationErrorMessage = error;
   };
-  
+
   var output = function(msg) {
     console.log("Starting output.");
-    
+
     console.log("Scope applying output");
     $scope.outputMessages = $sce.trustAsHtml( syntaxHighlight(msg) );
     console.log("Done output.");
@@ -60,7 +60,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
       output(msg);
     });
   }
-  
+
   $scope.run = function(codeSource) {
     console.log("About to run");
     console.log(codeSource);
@@ -68,20 +68,20 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
     eval(codeSource);
     console.log("Finished running.");
   };
-  
+
   $scope.codeContent = [];
   $scope.codes = ["getBoards", "getLists", "createCard", "createWebhook", "getWebhooks"];
-  
+
   var attachTo = function(codeName) {
     //console.log("Creating attach function.");
     return function(output) {
       //console.log("Executing attach function.");
-      //console.log("HTTP pulled '" + codeName + "': " + output); 
+      //console.log("HTTP pulled '" + codeName + "': " + output);
       $scope.codeContent[codeName] = output;
     };
-    
+
   };
-  
+
   //console.log("Running through codes.");
   for(i = 0;i<$scope.codes.length;i++) {
     //console.log("Running code #" + i);
@@ -89,7 +89,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
       transformResponse: undefined
     }).success( attachTo( $scope.codes[i] ) );
   }
-  
+
 	var syntaxHighlight = function(json) {
 	    if (typeof json != 'string') {
 	         json = JSON.stringify(json, undefined, 4);
@@ -117,7 +117,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	$scope.$watch('selectedCodeSample', function(newValue, oldValue) {
 		$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[newValue]) });
 	});
-      
+
 });
 
 app.controller('CommunityCtrl', function($scope, $window) {
@@ -157,5 +157,25 @@ app.controller('GetStartedCtrl', function($scope, $location, $anchorScroll) {
 });
 
 app.controller('AdvancedReferencePageCtrl', function($scope, $http){
+  // We want to collapse the arguments section so people can more easily scan
+  // the routes. Since we autogenerate the full API reference docs from the
+  // server using Sphinx, doing this client side allows us to add the toggle
+  // without having to modify the HTML from the server.
+
+  var i, len, section, sections;
+
+  var sections = $('.section').find('strong');
+
+  for (i = 0, len = sections.length; i < len; i++) {
+    $section = $(sections[i]);
+    if ($section.text() == "Arguments") {
+      $parent = $section.parent().addClass('js-section');
+      $list = $parent.find('ul').addClass('js-list u-hidden');
+      $button = $("<button>").addClass('mod-inline js-toggle-list').text("Show");
+      $section.append(" ").append($button);
+    };
+  };
+
+  $('.sphinxsidebar').remove();
 
 });
