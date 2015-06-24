@@ -432,6 +432,9 @@ th {
 .u-hidden {
   display: none;
 }
+.u-monospace {
+  font-family: "fira-mono", monospace;
+}
 button,
 html,
 input,
@@ -550,6 +553,9 @@ button.mod-inline {
   font-size: .8em;
   padding: .3em .8em;
 }
+button.mod-wide {
+  padding: .6em 2.6em;
+}
 textarea,
 input[type="text"],
 input[type="email"],
@@ -560,6 +566,7 @@ input[type="password"] {
   box-sizing: border-box;
   padding: .5em;
   width: 100%;
+  max-width: 500px;
 }
 textarea:hover,
 input[type="text"]:hover,
@@ -691,4 +698,103 @@ a.app-nav-list-item-link:active {
   font-size: .9em;
   text-align: center;
   padding: 1em;
+}
+.sandbox {
+  margin: 0 auto;
+  padding: 2em;
+  max-width: 1400px;
+}
+.sandbox-header {
+  margin-bottom: 1em;
+}
+.sandbox-header-title {
+  display: inline;
+  margin: 0 .4em 0 0;
+}
+.sandbox-header-tag {
+  display: inline;
+  margin: 0;
+}
+.sandbox-intro {
+  background-color: #f8f9f9;
+  border-radius: .3em;
+  box-sizing: border-box;
+  display: block;
+  padding: 1em;
+  text-align: center;
+}
+.sandbox-columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-bottom: 1em;
+  min-height: 500px;
+  width: 100%;
+}
+.sandbox-columns-header {
+  margin: 0 0 .5em;
+}
+.sandbox-columns-menu {
+  box-sizing: border-box;
+  flex: 0 0 200px;
+}
+.sandbox-columns-menu-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.sandbox-columns-menu-list-item {
+  margin: 0;
+}
+.sandbox-columns-menu-list-item-link {
+  background-color: #edeff0;
+  border-radius: .3em;
+  color: #4d4d4d;
+  cursor: pointer;
+  display: block;
+  font-size: .8em;
+  margin-bottom: .3em;
+  padding: .4em .6em;
+  text-decoration: none;
+}
+.sandbox-columns-menu-list-item-link:hover {
+  background-color: #d6dadc;
+  color: #4d4d4d;
+}
+.sandbox-columns-menu-list-item-link:active,
+.sandbox-columns-menu-list-item-link.is-active {
+  background-color: #cdd2d4;
+  color: #4d4d4d;
+}
+.sandbox-columns-code {
+  box-sizing: border-box;
+  flex: 1 1;
+  padding: 0 1em;
+}
+.sandbox-columns-code-input {
+  box-sizing: border-box;
+  font-size: .8em;
+  height: 25em;
+  margin-bottom: 1em;
+  width: 100%;
+  max-width: none;
+}
+.sandbox-columns-code-execute {
+  box-sizing: border-box;
+  height: 3em;
+  line-height: 3em;
+  padding: 0;
+  width: 100%;
+}
+.sandbox-columns-results {
+  box-sizing: border-box;
+  flex: 1 1;
+}
+.sandbox-columns-results-output {
+  box-sizing: border-box;
+  font-size: .8em;
+  height: 30em;
+  margin: 0;
+  overflow-y: auto;
+  padding: .5em;
 }
