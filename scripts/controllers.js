@@ -24,6 +24,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
   };
 
   $scope.authenticate = function() {
+	$scope.waitingForResolution = false;
     Trello.authorize({
       type: 'popup',
       name: 'Sandbox Trello Application',
@@ -31,16 +32,23 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
       success: $scope.authenticationSuccess,
       error: $scope.authenticationError
     });
+	$scope.waitingForResolution = true;
 
   };
 
   $scope.authenticationSuccess = function() {
-    //$scope.$apply(function() {
+	var finishAuth = function() {
+			
 	    $scope.authenticated = true;
 	    console.log("Authentication was successful!");
 	    $scope.token = Trello.token();
-	//});
  	$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[0]) });
+	}
+	if($scope.waitingForResolution) {
+		$scope.$apply(finishAuth);
+	} else {
+		finishAuth();
+	}	
   };
 
   $scope.authenticationError = function(error) {
