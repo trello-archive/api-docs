@@ -71,12 +71,14 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 
   $scope.codeContent = [];
   $scope.codes = ["getBoards", "getLists", "createCard", "createWebhook", "getWebhooks"];
+  $scope.codeNames = ["Get Boards", "Get Lists", "Create Card", "Create Webhook", "Get Webhooks"];
 
+  $scope.selectedCodeContent = "";
+
+  // Create a method that generates methods to be called upon sucessful load of Javascript
+  // from the filesystem
   var attachTo = function(codeName) {
-    //console.log("Creating attach function.");
     return function(output) {
-      //console.log("Executing attach function.");
-      //console.log("HTTP pulled '" + codeName + "': " + output);
       $scope.codeContent[codeName] = output;
     };
 
@@ -113,10 +115,14 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	}
 
 
-	// Register the tabs with analytics by watching selected index
-	$scope.$watch('selectedCodeSample', function(newValue, oldValue) {
-		$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[newValue]) });
-	});
+	// Register the tabs with analytics and respond to example selection
+	$scope.selectSample = function(number) {
+		$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[number]) });
+		var name = $scope.codes[number];
+		$scope.selectedCodeContent = $scope.codeContent[name];
+		$scope.selectedCodeIndex = number;
+	};
+	$scope.selectSample(0);
 
 });
 

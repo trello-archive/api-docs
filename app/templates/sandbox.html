@@ -1,3 +1,11 @@
+<style>
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+</style>
+
 <div class="sandbox">
 
   <div class="sandbox-header">
@@ -38,26 +46,9 @@
       <h4 class="sandbox-columns-header">Examples</h4>
 
       <ul class="sandbox-columns-menu-list">
-
-        <li class="sandbox-columns-menu-list-item">
-          <a class="sandbox-columns-menu-list-item-link">Get Boards</a>
-        </li>
-
-        <li class="sandbox-columns-menu-list-item">
-          <a class="sandbox-columns-menu-list-item-link is-active">Get Lists</a>
-        </li>
-
-        <li class="sandbox-columns-menu-list-item">
-          <a class="sandbox-columns-menu-list-item-link">Create Cards</a>
-        </li>
-
-        <li class="sandbox-columns-menu-list-item">
-          <a class="sandbox-columns-menu-list-item-link">Create Webhook</a>
-        </li>
-
-        <li class="sandbox-columns-menu-list-item">
-          <a class="sandbox-columns-menu-list-item-link">Get Webhooks</a>
-        </li>
+      	<li class="sandbox-columns-menu-list-item" ng-repeat="name in codeNames track by $index">
+      		 <a class="sandbox-columns-menu-list-item-link" ng-click="selectSample($index)" ng-class="selectedCodeIndex == $index ? 'is-active' : ''">{{name}}</a>
+      	</li>
 
       </ul>
     </div>
@@ -66,50 +57,8 @@
 
       <h4 class="sandbox-columns-header">Code</h4>
 
-      <textarea class="sandbox-columns-code-input u-monospace" ng-model="codeContent.getLists"></textarea>
-      <button class="sandbox-columns-code-execute" ng-click="run(codeContent.getLists)">Execute</button>
-
-      <div class="u-hidden">
-        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedCodeSample">
-          <md-tab label="Get Boards">
-            <p>Get my Boards...
-              <button ng-click="run(codeContent.getBoards)">Execute</button>
-            </p>
-            <textarea ng-model="codeContent.getBoards"></textarea>
-
-          </md-tab>
-          <md-tab label="Get Lists">
-            <p>Get lists from a Board...
-              <button ng-click="run(codeContent.getLists)">Execute</button>
-            </p>
-            <textarea ng-model="codeContent.getLists"></textarea>
-
-          </md-tab>
-          <md-tab label="Create Card">
-            <p>Create Cards...
-              <button ng-click="run(codeContent.createCard)">Execute</button>
-            </p>
-            <textarea ng-model="codeContent.createCard"></textarea>
-
-          </md-tab>
-          <md-tab label="Create Webhook">
-            <p>Create a webhook...
-              <button ng-click="run(codeContent.createWebhook)">Execute</button>
-            </p>
-            <textarea ng-model="codeContent.createWebhook"></textarea>
-
-          </md-tab>
-          <md-tab label="Get Webhooks">
-            <p>Get webhooks registered on a token...
-              <button ng-click="run(codeContent.getWebhooks)">Execute</button>
-            </p>
-            <p style="font-size:12px;">(Your token is {{token}}) </p>
-            <textarea ng-model="codeContent.getWebhooks"></textarea>
-
-          </md-tab>
-
-        </md-tabs>
-      </div>
+      <textarea class="sandbox-columns-code-input u-monospace" ng-model="selectedCodeContent"></textarea>
+      <button class="sandbox-columns-code-execute" ng-click="run(selectedCodeContent)">Execute</button>
 
     </div>
 
