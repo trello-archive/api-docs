@@ -73,8 +73,6 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
   $scope.codes = ["getBoards", "getLists", "createCard", "createWebhook", "getWebhooks"];
   $scope.codeNames = ["Get Boards", "Get Lists", "Create Card", "Create Webhook", "Get Webhooks"];
 
-  $scope.selectedCodeContent = "";
-
   // Create a method that generates methods to be called upon sucessful load of Javascript
   // from the filesystem
   var attachTo = function(codeName) {
@@ -119,7 +117,6 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	$scope.selectSample = function(number) {
 		$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[number]) });
 		var name = $scope.codes[number];
-		$scope.selectedCodeContent = $scope.codeContent[name];
 		$scope.selectedCodeIndex = number;
 	};
 	$scope.selectSample(0);
