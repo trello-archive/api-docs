@@ -1,0 +1,122 @@
+// Sandbox
+
+.sandbox {
+  margin: 0 auto;
+  padding: 2em;
+  max-width: 1400px;
+}
+
+  .sandbox-header {
+    margin-bottom: 1em;
+  }
+
+    .sandbox-header-title {
+      display: inline;
+      margin: 0 .4em 0 0;
+    }
+
+    .sandbox-header-tag {
+      display: inline;
+      margin: 0;
+    }
+
+  .sandbox-intro {
+    background-color: @light-gray-50;
+    border-radius: .3em;
+    box-sizing: border-box;
+    display: block;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .sandbox-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 1em;
+    min-height: 500px;
+    width: 100%;
+  }
+
+    .sandbox-columns-header {
+      margin: 0 0 .5em;
+    }
+
+    .sandbox-columns-menu {
+      box-sizing: border-box;
+      flex: 0 0 200px;
+    }
+
+      .sandbox-columns-menu {
+      }
+
+        .sandbox-columns-menu-list {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+        }
+
+          .sandbox-columns-menu-list-item {
+            margin: 0;
+          }
+
+            .sandbox-columns-menu-list-item-link {
+              background-color: @light-gray-100;
+              border-radius: .3em;
+              color: @default-font-color;
+              cursor: pointer;
+              display: block;
+              font-size: .8em;
+              margin-bottom: .3em;
+              padding: .4em .6em;
+              text-decoration: none;
+
+              &:hover {
+                background-color: @light-gray-300;
+                color: @default-font-color;
+              }
+
+              &:active,
+              &.is-active {
+                background-color: @light-gray-400;
+                color: @default-font-color;
+              }
+
+            }
+
+    .sandbox-columns-code {
+      box-sizing: border-box;
+      flex: 1 1;
+      padding: 0 1em;
+    }
+
+      .sandbox-columns-code-input {
+        box-sizing: border-box;
+        font-size: .8em;
+        height: 25em;
+        margin-bottom: 1em;
+        width: 100%;
+        max-width: none;
+      }
+
+      .sandbox-columns-code-execute {
+        box-sizing: border-box;
+        height: 3em;
+        line-height: 3em;
+        padding: 0;
+        width: 100%;
+      }
+
+    .sandbox-columns-results {
+      box-sizing: border-box;
+      flex: 1 1;
+    }
+
+      .sandbox-columns-results-output {
+        box-sizing: border-box;
+        font-size: .8em;
+        height: 30em;
+        margin: 0;
+        overflow-y: auto;
+        padding: .5em;
+      }

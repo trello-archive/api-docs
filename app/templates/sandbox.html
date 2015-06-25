@@ -1,84 +1,72 @@
-<div class="app-content">
+<style>
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
+</style>
 
-  <h2>Sandbox</h2>
+<div class="sandbox">
 
-  <div ng-show="!connected">
-    <p>The API Sandbox allows you to get started with working code samples that run
-      directly in the browser.</p>
+  <div class="sandbox-header">
+    <h2 class="sandbox-header-title">Sandbox</h2>
+    <p class="sandbox-header-tag">Working code samples in the browser.</p>
+  </div>
+
+  <div class="sandbox-intro" ng-show="!connected">
     <p>
-      Enter your Trello API Key to get started:
+      To get started, enter your Trello API Key:
     </p>
 
-    <input type="text" ng-model="key" placeholder="167e44d08df6c0cb0dbc7e2f274bd654"
-    style="width:400px;">
+
+    <input class="u-monospace" type="text" ng-model="key" placeholder="167e44d08df6c0cb0dbc7e2f274bd654" style="width:450px;">
 
     <p>
       If you don't have one, <a href="https://trello.com/app-key">grab your API key here</a>.
-      Then press connect:
     </p>
 
-    <button class='mod-primary' ng-click="connect()">Connect</button>
+    <p>
+      Got it? Okay, press connect.
+    </p>
+
+    <button class="mod-primary mod-wide" ng-click="connect()">Connect</button>
 
   </div>
 
-  <div ng-show="connected && !authenticated">
+  <div class="sandbox-intro" ng-show="connected && !authenticated">
     <p>Great, we have now included a script tag that looks like this:</p>
-    <div class="code">&lt;script src="{{url}}"&gt;&lt;/script&gt;</div>
+    <p><code>&lt;script src="{{url}}"&gt;&lt;/script&gt;</code></p>
     <p>We now need to authenticate a user before we can make interesting API calls.</p>
-    <button ng-click="authenticate()">Authenticate</button>
+    <button class="mod-primary mod-wide" ng-click="authenticate()">Authenticate</button>
     <p>{{authenticationErrorMessage}}</p>
   </div>
 
-  <div ng-show="authenticated">
-    <style>
-      textarea {
-        width: 100%;
-        height: 300px;
-      }
-    </style>
+  <div class="sandbox-columns" ng-show="authenticated">
 
-    <p>Now let's do something interesting:</p>
-    <md-tabs md-dynamic-height md-border-bottom md-selected="selectedCodeSample">
-      <md-tab label="Get Boards">
-        <p>Get my Boards...
-          <button ng-click="run(codeContent.getBoards)">Execute</button>
-        </p>
-        <textarea ng-model="codeContent.getBoards"></textarea>
+    <div class="sandbox-columns-menu">
+      <h4 class="sandbox-columns-header">Examples</h4>
 
-      </md-tab>
-      <md-tab label="Get Lists">
-        <p>Get lists from a Board...
-          <button ng-click="run(codeContent.getLists)">Execute</button>
-        </p>
-        <textarea ng-model="codeContent.getLists"></textarea>
+      <ul class="sandbox-columns-menu-list">
+      	<li class="sandbox-columns-menu-list-item" ng-repeat="name in codeNames track by $index">
+      		 <a class="sandbox-columns-menu-list-item-link" ng-click="selectSample($index)" ng-class="selectedCodeIndex == $index ? 'is-active' : ''">{{name}}</a>
+      	</li>
 
-      </md-tab>
-      <md-tab label="Create Card">
-        <p>Create Cards...
-          <button ng-click="run(codeContent.createCard)">Execute</button>
-        </p>
-        <textarea ng-model="codeContent.createCard"></textarea>
+      </ul>
+    </div>
 
-      </md-tab>
-      <md-tab label="Create Webhook">
-        <p>Create a webhook...
-          <button ng-click="run(codeContent.createWebhook)">Execute</button>
-        </p>
-        <textarea ng-model="codeContent.createWebhook"></textarea>
+    <div class="sandbox-columns-code">
 
-      </md-tab>
-      <md-tab label="Get Webhooks">
-        <p>Get webhooks registered on a token...
-          <button ng-click="run(codeContent.getWebhooks)">Execute</button>
-        </p>
-        <p style="font-size:12px;">(Your token is {{token}}) </p>
-        <textarea ng-model="codeContent.getWebhooks"></textarea>
+      <h4 class="sandbox-columns-header">Code</h4>
 
-      </md-tab>
+      <textarea class="sandbox-columns-code-input u-monospace" ng-model="codeContent[codes[selectedCodeIndex]]"></textarea>
+      <button class="sandbox-columns-code-execute" ng-click="run(codeContent[codes[selectedCodeIndex]])">Execute</button>
 
-    </md-tabs>
+    </div>
 
-    <pre ng-bind-html="outputMessages"></pre>
+    <div class="sandbox-columns-results">
+      <h4 class="sandbox-columns-header">Result</h4>
+      <pre class="sandbox-columns-results-output" ng-bind-html="outputMessages"><code class="u-quiet">// Results</code></pre>
+    </div>
 
   </div>
 
