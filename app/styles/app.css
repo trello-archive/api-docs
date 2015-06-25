@@ -595,6 +595,33 @@ input[type="email"].error:focus,
 input[type="password"].error:focus {
   box-shadow: 0 0 6px #ec9488;
 }
+table {
+  margin-bottom: 1em;
+  width: 100%;
+}
+table,
+td,
+th {
+  vertical-align: top;
+  border-top: 1px solid #d6dadc;
+  border-left: 1px solid #d6dadc;
+}
+td,
+th {
+  padding: .4em .6em;
+  border-right: 1px solid #d6dadc;
+  border-bottom: 1px solid #d6dadc;
+  text-align: left;
+}
+th {
+  font-weight: bold;
+}
+thead {
+  background: linear-gradient(to bottom, #ffffff 0%, #edeff0 100%);
+}
+tbody {
+  background-color: #fff;
+}
 .api-ref {
   position: relative;
   margin: 2em auto;
