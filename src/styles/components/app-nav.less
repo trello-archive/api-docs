@@ -19,10 +19,12 @@
       a.app-nav-list-item-link {
         color: #fff;
         display: inline-block;
+        outline: 0;
         padding: 1em;
         text-decoration: none;
 
-        &:hover {
+        &:hover,
+        &:focus {
           background-color: @trello-blue-700;
           color: #fff;
         }
