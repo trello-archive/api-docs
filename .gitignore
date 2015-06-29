@@ -1,2 +1,4 @@
 node_modules
 npm-debug.log
+app/styles/app.css
+app/styles/app.min.css
