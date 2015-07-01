@@ -40,7 +40,7 @@
 		your request will be blocked.</p>
 
 	<h2>Boards</h2>
-	<a href="https://trello.com/docs/api/board/index.html">Full Boards API Reference</a>
+	<a href="#/advanced-reference/board">Full Boards API Reference</a>
 	<p>Boards are the highest level concept within the Trello workflow. The Boards API
 		allows you to list, view, create, and edit Boards. Each Board has a name, description,
 		a set of members attached, and an ordered array of Lists.</p>
@@ -56,7 +56,7 @@
 	</ul>
 
 	<h2>Lists</h2>
-	<a href="https://trello.com/docs/api/list/index.html">Full Lists API Reference</a>
+	<a href="#/advanced-reference/list">Full Lists API Reference</a>
 	<p></p>
 	<h3>Important Methods</h3>
 	<ul>
@@ -65,7 +65,7 @@
 	</ul>
 
 	<h2>Cards</h2>
-	<a href="https://trello.com/docs/api/card/index.html">Full Cards API Reference</a>
+	<a href="#/advanced-reference/card">Full Cards API Reference</a>
 	<p></p>
 	<h3>Important Methods</h3>
 	<ul>
@@ -116,9 +116,10 @@
 		<li>DELETE /1/cards/[card id or shortlink]/labels/[color]</li>
 	</ul>
 
+	<!--
 	<h2>Advanced Topics and Optimizations</h2>
 
-	<h2>Deltas</h2>
+	<h2>Deltas</h2>-->
 
 	<h2>Batching</h2>
 
@@ -126,7 +127,9 @@
 		at once. The Trello API has the ability to Batch multiple GET requests at once.
 		You can use this to get the contents of multiple Cards or Lists with a single HTTP
 		transaction, and you can even mix multiple request types.</p>
+	<h3>Example Batch Request</h3>
+	<pre>GET /1/batch?urls[]=/1/lists/[idList]&amp;urls[]=/1/lists/[other idList]</pre>
 
-	<h2>OAuth</h2>
+	<!--<h2>OAuth</h2>-->
 
 </div>
