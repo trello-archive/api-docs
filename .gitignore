@@ -1,4 +1,5 @@
 node_modules
 npm-debug.log
+#Don't include app.min.css, as we need this for gh pages
 app/styles/app.css
-app/styles/app.min.css
+#app/styles/app.min.css
