@@ -5,10 +5,7 @@ app.controller('OverviewCtrl', function($scope) {
 });
 
 app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $location) {
-  // Get rid of this in production
-  $scope.key = "167e94d08df6c0cb0dbc7e2f274bd654";
-
-
+  
   $scope.connect  = function() {
     var scriptZone = document.getElementById('scriptZone');
     var client = document.createElement("script");
