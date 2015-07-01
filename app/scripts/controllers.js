@@ -131,18 +131,18 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 app.controller('CommunityCtrl', function($scope, $window) {
   $scope.wrappers = [
     {'name':'Ruby',author:'Jeremy Tregunna', url: 'https://github.com/jeremytregunna/ruby-trello'}
-    , {name:'Node', author:'L Matteis', url: 'https://github.com/lmatteis/node-trello'}
-    , {name:'Python', author:'Sarumont', url: 'https://github.com/sarumont/py-trello '}
-    , {name:'Python', author:'Plish', url: 'https://github.com/plish/Trolly'}
-    , {name:'Python', author:'btubs', url: 'https://bitbucket.org/btubbs/trollop'}
-    , {name:'.NET', author:'greggs dennis', url: 'https://bitbucket.org/gregsdennis/manatee.trello'}
+    , {name:'Node', author:'Luca Matteis', url: 'https://github.com/lmatteis/node-trello'}
+    , {name:'Python', author:'Richard Kolkovich', url: 'https://github.com/sarumont/py-trello '}
+    , {name:'Python', author:'Luke Rigby', url: 'https://github.com/plish/Trolly'}
+    , {name:'Python', author:'Brent Tubbs', url: 'https://bitbucket.org/btubbs/trollop'}
+    , {name:'.NET', author:'Greg Dennis', url: 'https://bitbucket.org/gregsdennis/manatee.trello'}
   ];
 
   $scope.samples = [
     {name:'Trello Calendar', author:'Francois Metz',url:'https://github.com/francois2metz/trello-calendar'},
     {name:'Cardorizer', author:'Mark Drago',url:'https://github.com/markdrago/cardorizer'},
-    {name:'Trello Bookmarklet', author:'danlec',url:'https://github.com/danlec/Trello-Bookmarklet'},
-    {name:'Trellobo', author:'oisin',url:'https://github.com/oisin/trellobo'},
+    {name:'Trello Bookmarklet', author:'Daniel LeCheminant',url:'https://github.com/danlec/Trello-Bookmarklet'},
+    {name:'Trellobo', author:'Oisín Hurley',url:'https://github.com/oisin/trellobo'},
     {name:'taskboards', author:'Jake Ginnivan',url:'https://bitbucket.org/JakeGinnivan/taskboards'}
   ];
 
