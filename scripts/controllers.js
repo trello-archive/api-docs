@@ -1,5 +1,15 @@
 var app = angular.module('BuildWithTrelloControllers', []);
 
+app
+.run(['$rootScope', '$location', '$window', function($rootScope, $location, $window){
+  $rootScope.$on('$stateChangeSuccess', function(event){
+    var virtualPath = $location.protocol() + '//' + $location.host() + $location.path();
+    if ($window.sp) {
+      $window.sp('trackPageView', virtualPath);
+    }
+  });
+}]);
+
 app.controller('OverviewCtrl', function($scope) {
 
 });
