@@ -1,14 +1,5 @@
 var app = angular.module('BuildWithTrelloControllers', []);
 
-app
-.run(['$rootScope', '$location', '$window', function($rootScope, $location, $window){
-  $rootScope.$on('$stateChangeSuccess', function(event){
-    var virtualPath = $location.protocol() + '//' + $location.host() + $location.path();
-    if ($window.sp) {
-      $window.sp('trackPageView', virtualPath);
-    }
-  });
-}]);
 
 app.controller('OverviewCtrl', function($scope) {
 
@@ -34,6 +25,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
     $scope.connected = true;
 
     $window.ga('send', 'pageview', { page: ($location.path() + "/connected") });
+    $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/connected" );
 
   };
   
@@ -65,11 +57,12 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 
   $scope.authenticationSuccess = function() {
 	var finishAuth = function() {
-			
+
 	    $scope.authenticated = true;
 	    console.log("Authentication was successful!");
 	    $scope.token = Trello.token();
  	$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[0]) });
+  $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/" + $scope.codes[0] );
 	}
 	if($scope.waitingForResolution) {
 		$scope.$apply(finishAuth);
@@ -151,6 +144,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	// Register the tabs with analytics and respond to example selection
 	$scope.selectSample = function(number) {
 		$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[number]) });
+    $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/" + $scope.codes[number] );
 		var name = $scope.codes[number];
 		$scope.selectedCodeIndex = number;
 	};
