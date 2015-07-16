@@ -20,7 +20,7 @@
 
 
     <input class="u-monospace" type="text" ng-model="key" id="applicationKey" placeholder="167e44d08df6c0cb0dbc7e2f274bd654" style="width:450px;">
-
+    <p ng-show="error" class="sandbox-error">{{error}}</p>
     <p>
       If you don't have one, <a href="https://trello.com/app-key">grab your API key here</a>.
     </p>
@@ -39,6 +39,8 @@
     <p>We now need to authenticate a user before we can make interesting API calls.</p>
     <button class="mod-primary mod-wide" ng-click="authenticate()">Authenticate</button>
     <p>{{authenticationErrorMessage}}</p>
+    <p ng-hide="saved">You can also choose to <a ng-click="saveKey();">save this key</a> in your browser's local storage.</p>
+    <p ng-hide="!saved"><a ng-click="clearKey();">Clear this key</a> from your browser's local storage.</p>
   </div>
 
   <div class="sandbox-columns" ng-show="authenticated">
