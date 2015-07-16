@@ -5,25 +5,22 @@
 	<p>The Trello API is extremely powerful. We use the same API in the official web and
 		mobile clients.</p>
 
-	<p>You might also be looking for the
-		<a href="" ui-sref="advanced-reference">full API documentation</a>.
-	</p>
-
 	<p>Building a full application with Trello means getting to know the various concepts
 		and models in Trello. The following are the most important concepts, listed in
 		rough order of importance.</p>
 
 	<ol>
-		<li>Authentication and Authorization</li>
-		<li>Boards</li>
-		<li>Lists</li>
-		<li>Cards</li>
-		<li>Actions</li>
-		<li>Webhooks</li>
-		<li>Batching</li>
+		<li><a href="#/apis#authentication">Authentication and Authorization</a></li>
+		<li><a href="#/apis#boards">Boards</a></li>
+		<li><a href="#/apis#lists">Lists</a></li>
+		<li><a href="#/apis#cards">Cards</a></li>
+		<li><a href="#/apis#actions">Actions</a></li>
+		<li><a href="#/apis#webhooks">Webhooks</a></li>
+		<li><a href="#/apis#recursion">Recursion Helpers</a></li>
+		<li><a href="#/apis#batching">Batching</a></li>
 	</ol>
 
-	<h2>Authentication and Authorization</h2>
+	<h2 id="authentication">Authentication and Authorization</h2>
 	<p>There are two steps before your application may make a call on behalf of a user.
 		The first is to get your Application Key. This key identifies your application
 		to Trello, and to your users.</p>
@@ -39,7 +36,7 @@
 		try to access a board or make a change for which the user does not have permission,
 		your request will be blocked.</p>
 
-	<h2>Boards</h2>
+	<h2 id="boards">Boards</h2>
 	<a href="#/advanced-reference/board">Full Boards API Reference</a>
 	<p>Boards are the highest level concept within the Trello workflow. The Boards API
 		allows you to list, view, create, and edit Boards. Each Board has a name, description,
@@ -55,7 +52,7 @@
 		<li>GET /1/boards/[board_id]/lists - Get an array of Lists on a board</li>
 	</ul>
 
-	<h2>Lists</h2>
+	<h2 id="lists">Lists</h2>
 	<a href="#/advanced-reference/list">Full Lists API Reference</a>
 	<p>A List is a collection of Cards. In the standard Trello interface, Lists are stacked horizontally and are ordered on a board.</p>
 	<h3>Important Methods</h3>
@@ -64,7 +61,7 @@
 		<li>POST /1/cards - Create a new Card on a List</li>
 	</ul>
 
-	<h2>Cards</h2>
+	<h2 id="cards">Cards</h2>
 	<a href="#/advanced-reference/card">Full Cards API Reference</a>
 	<p>A Card is the most basic unit of information in Trello. Cards have a name, description, labels, members, and a set of historical actions that have been taken on the card, including any comments.</p>
 	<h3>Important Methods</h3>
@@ -79,15 +76,16 @@
 	<ul>
 		<li>Actions - Actions are the audit log / record of everything that has been done to
 			a card throughout its history, including any comments that have been made.</li>
-		<li>Labels - Labels can be as simple as colors attached to a card, or Labels can have names.</li>
+		<li>Labels - Labels can be as simple as colors attached to a Card, or Labels can have names.</li>
 	</ul>
 	
-	<h2>Actions</h2>
+	<h2 id="actions">Actions</h2>
 	<a href="#/advanced-reference/action">Full Actions API Reference</a>
-	<p></p>
-  <p>The API limits Action queries to 1000 at a time. Actions can be queried at the Board or at the Card level. To retreive the full list of actions, multiple requests must be made using the <pre>since</pre> and <pre>before</pre> parameters.</p>
-	<h2>Webhooks</h2>
-	<p>You could theoretically parse a user's Boards, Lists, and Cards in order to get
+	<p>Actions contain each of the actions that have been taken on a Card or Board, including  updates to the labels or members of a Card. Comments are also stored as a special type of Action on a card.</p>
+  <p>The API limits Action queries to 1000 at a time. Actions can be queried at the Board or at the Card level. To retreive the full list of actions when there are more then 1000, multiple requests must be made using the <pre style="display:inline;">since</pre> and <pre style="display:inline;">before</pre> parameters.</p>
+  
+	<h2 id="webhooks">Webhooks</h2>
+	<p>A developer could theoretically parse a user's Boards, Lists, and Cards in order to get
 		all of the information, but this would mean loading a lot of data that doesn't
 		change very often, using more bandwidth, CPU, and RAM for both you and for our
 		servers. To mitigate this we have built a system that allows your application to
@@ -105,7 +103,7 @@
 
 
 
-	<h2>Recursion Helpers</h2>
+	<h2 id="recursion">Recursion Helpers</h2>
 	<p>Several of the core methods allow you to directly access member content. For example,
 		instead of retrieving a list and then recursively requesting each of the cards
 		on the list, you can retrieve this information directly, and optionally supply
@@ -123,7 +121,7 @@
 
 	<h2>Deltas</h2>-->
 
-	<h2>Batching</h2>
+	<h2 id="batching">Batching</h2>
 
 	<p>When requesting content from the Trello API, you may want to lookup a lot of information
 		at once. The Trello API has the ability to Batch multiple GET requests at once.
