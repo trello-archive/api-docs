@@ -5,7 +5,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   //$locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/overview');
-  
+
 
 
   $stateProvider
@@ -39,7 +39,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('advanced-reference.page', {
     	url: '/{page}',
-    	templateUrl: 
+    	templateUrl:
     		//'templates/advanced-reference-page.html',
     		function(stateParams) {
     			return 'templates/docs/' + stateParams.page + '.html';
@@ -49,13 +49,15 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 });
 
 app.run(['$rootScope', '$location', '$window', function($rootScope, $location, $window){
-     $rootScope
-        .$on('$stateChangeSuccess',
-            function(event){
- 
-                if (!$window.ga)
-                    return;
- 
-                $window.ga('send', 'pageview', { page: $location.path() });
+  $rootScope
+    .$on('$stateChangeSuccess',
+      function(event){
+          if( $window.ga ) {
+            $window.ga('send', 'pageview', { page: $location.path() });
+          }
+
+          if ($window.sp) {
+            $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() )
+          }
         });
 }]);
