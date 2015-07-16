@@ -18,9 +18,9 @@
 		<li>Boards</li>
 		<li>Lists</li>
 		<li>Cards</li>
+		<li>Actions</li>
 		<li>Webhooks</li>
 		<li>Batching</li>
-		<li>Organizations</li>
 	</ol>
 
 	<h2>Authentication and Authorization</h2>
@@ -57,7 +57,7 @@
 
 	<h2>Lists</h2>
 	<a href="#/advanced-reference/list">Full Lists API Reference</a>
-	<p></p>
+	<p>A List is a collection of Cards. In the standard Trello interface, Lists are stacked horizontally and are ordered on a board.</p>
 	<h3>Important Methods</h3>
 	<ul>
 		<li>GET /1/lists/[idList]/cards - Get an array of Cards on a List</li>
@@ -66,7 +66,7 @@
 
 	<h2>Cards</h2>
 	<a href="#/advanced-reference/card">Full Cards API Reference</a>
-	<p></p>
+	<p>A Card is the most basic unit of information in Trello. Cards have a name, description, labels, members, and a set of historical actions that have been taken on the card, including any comments.</p>
 	<h3>Important Methods</h3>
 	<ul>
 		<li>POST /1/cards - Create a new card on a List</li>
@@ -78,12 +78,14 @@
 	<h3>Child Methods</h3>
 	<ul>
 		<li>Actions - Actions are the audit log / record of everything that has been done to
-			a card throughout its history.</li>
-		<li>Labels</li>
-		<li>Actions</li>
-		<li>Actions</li>
+			a card throughout its history, including any comments that have been made.</li>
+		<li>Labels - Labels can be as simple as colors attached to a card, or Labels can have names.</li>
 	</ul>
-
+	
+	<h2>Actions</h2>
+	<a href="#/advanced-reference/action">Full Actions API Reference</a>
+	<p></p>
+  <p>The API limits Action queries to 1000 at a time. Actions can be queried at the Board or at the Card level. To retreive the full list of actions, multiple requests must be made using the <pre>since</pre> and <pre>before</pre> parameters.</p>
 	<h2>Webhooks</h2>
 	<p>You could theoretically parse a user's Boards, Lists, and Cards in order to get
 		all of the information, but this would mean loading a lot of data that doesn't
