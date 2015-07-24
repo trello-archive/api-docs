@@ -40,11 +40,21 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('advanced-reference.page', {
     	url: '/{page}',
     	templateUrl:
-    		//'templates/advanced-reference-page.html',
     		function(stateParams) {
     			return 'templates/docs/' + stateParams.page + '.html';
     		},
     	controller: 'AdvancedReferencePageCtrl'
+    })
+    .state('tutorials', {
+    	url: '/tutorials',
+    	templateUrl: 'templates/tutorials.html'
+    })
+    .state('tutorial-page', {
+    	url: '/tutorials/{page}',
+    	templateUrl:
+    		function(stateParams) {
+    			return 'templates/tutorials/' + stateParams.page + '.html';
+    		}
     });
 });
 
