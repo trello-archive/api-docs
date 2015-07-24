@@ -1,9 +1,11 @@
 {
-  "name": "build-with-trello",
-  "version": "0.0.1",
+  "name": "developers-docs",
+  "version": "0.1.0",
   "scripts": {
     "gulp": "tools/gulp"
   },
+  "repository": "",
+  "license": "AGPL",
   "dependencies": {
     "coffee-script": "~1.9.1",
     "gulp": "~3.8.11",
