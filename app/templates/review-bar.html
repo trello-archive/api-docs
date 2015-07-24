@@ -1,9 +1,4 @@
-<style>
-.filled {color:red;font-weight:bold;}
-.review-bar {position:absolute;right:16px;top:36px;font-size:12px;text-align:right;}
-.review-bar .ask-for-more { border:1px solid #CCC;border-radius:15px;background-color:white;padding:16px;}
-</style>
-<div ng-mouseleave="noHover()" class="review-bar" style="">
+<div ng-mouseleave="noHover()">
 	<span ng-repeat="star in stars" ng-click="toggle($index)" ng-mouseover="hover($index)" ng-class="star">★</span>
 	<div ng-show="description" style="font-size:10px;">{{description}}</div>
 	<div ng-show="askForMore" class="ask-for-more" >

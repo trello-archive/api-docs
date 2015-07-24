@@ -33,16 +33,18 @@ angular.module('ReviewBarDirective', [])
 					$http.put('https://trevelopers-reviews.firebaseio.com/reviews/'+scope.reviewId+'.json', review)
 						.success(function(data) {
 							//console.log("PUT was successful " + data.name);
+							scope.askForMore = true;
 						});
 				} else {
 					$http.post('https://trevelopers-reviews.firebaseio.com/reviews.json', review)
 						.success(function(data) {
 							//console.log("POST was successful " + data.name);
 							scope.reviewId = data.name;
+
+							scope.askForMore = true;
 						});
 				}
 				scope.permanent = index+1;
-				scope.askForMore = true;
 			}
 
 			scope.sendFeedback = function() {
