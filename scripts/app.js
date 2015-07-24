@@ -1,4 +1,4 @@
-app = angular.module('BuildWithTrello', ['BuildWithTrelloControllers', 'ui.router','ngMaterial']);
+app = angular.module('BuildWithTrello', ['BuildWithTrelloControllers', 'ReviewBarDirective', 'ui.router','ngMaterial']);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   // Not supported yet until we can serve the same index.html from all URLs

@@ -1,0 +1,11 @@
+<style>
+.filled {color:red;font-weight:bold;}
+</style>
+<div ng-mouseleave="noHover()" style="float:right;">
+	<span ng-repeat="star in stars" ng-click="toggle($index)" ng-mouseover="hover($index)" ng-class="star">*</span>
+	<div ng-show="description" style="font-size:10px;position:absolute;">{{description}}</div>
+	<div ng-show="askForMore">
+		<textarea ng-model="moreFeedback" placeholder="How can we improve our documentation?"></textarea>
+		<button type="submit" ng-click="sendFeedback();">Send feedback</button>
+		<button ng-click="askForMore = false;">Cancel</button>
+</div>
