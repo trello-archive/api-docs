@@ -1,7 +1,5 @@
 angular.module('ReviewBarDirective', [])
 .directive('reviewBar', function( $location, $http) {
-	//$scope.path = $location.path();
-	console.log($location.path());
 	return {
 		templateUrl: 'templates/review-bar.html',
 		scope: {

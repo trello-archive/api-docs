@@ -195,7 +195,7 @@ app.controller('GetStartedCtrl', function($scope, $location, $anchorScroll) {
 
 });
 
-app.controller('AdvancedReferencePageCtrl', function($scope, $http){
+app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location){
   // We want to collapse the arguments section so people can more easily scan
   // the routes. Since we autogenerate the full API reference docs from the
   // server using Sphinx, doing this client side allows us to add the toggle
@@ -216,5 +216,12 @@ app.controller('AdvancedReferencePageCtrl', function($scope, $http){
   };
 
   $('.sphinxsidebar').remove();
+
+  $('.headerlink').each(
+  	function(i) {
+  		$(this).attr('href',"#" + $location.path() + $(this).attr('href') ); 
+  		$(this).text('link');
+  	}
+  );
 
 });
