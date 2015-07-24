@@ -1,15 +1,23 @@
 var app = angular.module('BuildWithTrelloControllers', []);
 
+
 app.controller('OverviewCtrl', function($scope) {
 
 });
 
 app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $location) {
-  
+  $scope.key = localStorage["applicationKey"];
+
   $scope.connect  = function() {
+    if(!$scope.key) {
+      $scope.error = "You must enter a valid key to proceed.";
+      return;
+    }
+    
+    
     var scriptZone = document.getElementById('scriptZone');
     var client = document.createElement("script");
-
+    
     $scope.url = "https://api.trello.com/1/client.js?key=" + $scope.key;
     client.src = $scope.url;
 
@@ -17,8 +25,22 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
     $scope.connected = true;
 
     $window.ga('send', 'pageview', { page: ($location.path() + "/connected") });
+    $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/connected" );
 
   };
+  
+  $scope.saveKey = function() {
+    localStorage["applicationKey"] = $scope.key;
+    $scope.saved = true;
+  }
+  
+  $scope.clearKey = function() {
+    localStorage["applicationKey"]
+    $scope.saved = false;
+    localStorage.removeItem("applicationKey");
+    $scope.key = "";
+    $scope.connected = false;
+  }
 
   $scope.authenticate = function() {
 	$scope.waitingForResolution = false;
@@ -35,17 +57,18 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 
   $scope.authenticationSuccess = function() {
 	var finishAuth = function() {
-			
+
 	    $scope.authenticated = true;
 	    console.log("Authentication was successful!");
 	    $scope.token = Trello.token();
  	$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[0]) });
+  $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/" + $scope.codes[0] );
 	}
 	if($scope.waitingForResolution) {
 		$scope.$apply(finishAuth);
 	} else {
 		finishAuth();
-	}	
+	}
   };
 
   $scope.authenticationError = function(error) {
@@ -121,10 +144,18 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	// Register the tabs with analytics and respond to example selection
 	$scope.selectSample = function(number) {
 		$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[number]) });
+    $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/" + $scope.codes[number] );
 		var name = $scope.codes[number];
 		$scope.selectedCodeIndex = number;
 	};
 	$scope.selectSample(0);
+
+  // Handle key loading / saving on load
+  if($scope.key) {
+    $scope.saved = true;
+    $scope.connect();
+  }
+
 
 });
 
