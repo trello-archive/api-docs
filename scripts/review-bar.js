@@ -50,6 +50,7 @@ angular.module('ReviewBarDirective', [])
 						.success(function(data) {
 							//console.log("PUT was successful " + data.name);
 						});
+						scope.askForMore = false;
 			}
 
 			scope.hover = function(index) {

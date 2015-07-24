@@ -1,11 +1,14 @@
 <style>
 .filled {color:red;font-weight:bold;}
+.review-bar {position:absolute;right:16px;top:36px;font-size:12px;text-align:right;}
+.review-bar .ask-for-more { border:1px solid #CCC;border-radius:15px;background-color:white;padding:16px;}
 </style>
-<div ng-mouseleave="noHover()" style="float:right;">
-	<span ng-repeat="star in stars" ng-click="toggle($index)" ng-mouseover="hover($index)" ng-class="star">*</span>
-	<div ng-show="description" style="font-size:10px;position:absolute;">{{description}}</div>
-	<div ng-show="askForMore">
+<div ng-mouseleave="noHover()" class="review-bar" style="">
+	<span ng-repeat="star in stars" ng-click="toggle($index)" ng-mouseover="hover($index)" ng-class="star">★</span>
+	<div ng-show="description" style="font-size:10px;">{{description}}</div>
+	<div ng-show="askForMore" class="ask-for-more" >
 		<textarea ng-model="moreFeedback" placeholder="How can we improve our documentation?"></textarea>
 		<button type="submit" ng-click="sendFeedback();">Send feedback</button>
 		<button ng-click="askForMore = false;">Cancel</button>
+  </div>
 </div>
