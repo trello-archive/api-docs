@@ -39,14 +39,20 @@
 import json
 import pprint
 
-client = trolly.client.Client(settings.API_KEY, settings.TOKEN)</pre>
+client = trolly.client.Client(API_KEY, TOKEN)</pre>
 	<p>Now using the client variable, we can make any sort of pure RESTful call we want to with the following method that is provided to us:</p>
-	<pre>fetch_json(uri_path, http_method='GET', query_params=None, body=None, headers=None)</pre>
+	<p><strong>fetch_json(uri_path, http_method='GET', query_params=None, body=None, headers=None)</strong></p>
 	<p>You may note that there's an = in the last 4 parametesr, these mean that these are optional. If you don't supply these when making a call, they will default to the stated default.</p>
 
 	<h3>Get Authenticated Users' Boards</h3>
-	<pre>print client.fetch_json("/member/me/boards")</pre>
-	<p>OMG! What is all of this stuff! This is raw unformatted JSON. To do something useful with it, let's update our code to iterate through it and then print it nicely. To use this we'll use <strong>pprint</strong>.</p>
+	<pre>import trolly
+import json
+import pprint
+
+client = trolly.client.Client(API_KEY, TOKEN)
+
+print client.fetch_json("/member/me/boards")</pre>
+	<p>Let's run it and look at the what is printed on the screen. OMG! What is all of this stuff! This is raw unformatted JSON. To do something useful with it, let's update our code to iterate through it and then print it nicely. To use this we'll use <strong>pprint</strong>.</p>
 	<pre>data = client.fetch_json("/member/me/boards")
 
 printer = pprint.PrettyPrinter(indent=4)

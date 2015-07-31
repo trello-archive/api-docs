@@ -19,6 +19,7 @@
 		<li><a href="#/apis#webhooks">Webhooks</a></li>
 		<li><a href="#/apis#recursion">Recursion Helpers</a></li>
 		<li><a href="#/apis#batching">Batching</a></li>
+		<li><a href="#/apis#search">Search</a></li>
 	</ol>
 
 	<h2 id="authentication">Authentication and Authorization</h2>
@@ -131,6 +132,11 @@
 	<h3>Example Batch Request</h3>
 	<pre>GET /1/batch?urls[]=/1/lists/[idList]&amp;urls[]=/1/lists/[other idList]</pre>
 
-	<!--<h2>OAuth</h2>-->
+	<h2 id="search">Search</h2>
+	<p>The Trello API offers the ability to search all the actions, boards, cards, members, and organizations. While you can't control which fields you want to search, you can specify which fields you want your search to return. By passing in a single string, we will look at all of the relevant fields and return a list of all those matching models.</p>
+	<h3>Example Search Request</h3>
+	<pre>GET /1/search?query=Wedding</pre>
+	<p>This search will return a list of actions, boards, cards, members, and organizations that match "Wedding".</p>
+
 
 </div>
