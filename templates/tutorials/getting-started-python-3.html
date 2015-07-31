@@ -1,0 +1,42 @@
+<div class="app-content">
+
+	<h2>Getting Started with Python - Part 3</h2>
+	<review-bar></review-bar>
+
+<pre>
+import trolly
+import json
+import pprint
+
+client = trolly.client.Client('352206beeb5228a44a7663d5304cb675', '35da3d405c6fb92a0e6c663f0dfe41f23ab31b80f811e16d71c46ca6b87a67b3')
+
+boards = client.fetch_json("/member/me/boards", 'GET', {'fields':'name'})
+
+for index,board in enumerate(boards):
+	print "Board %s: %s" % (index+1, board['name'])
+
+print "Select a board by its number:"
+n = int(raw_input())
+
+n -= 1
+
+print
+print "Are you sure you want to CONFIDENTIAL all of the cards on %s?" % (boards[n]['name'])
+print "This cannot be undone."
+print "Type 'YES' to continue."
+
+approval = str(raw_input())
+if approval == "YES":
+	print "PROCESSING"
+	cards = client.fetch_json("/boards/%s/cards" % (boards[n]['id']), 'GET', {'fields':'name'})
+	for card in cards:
+		if not card['name'].startswith('CONFIDENTIAL: '):
+			# We only confidential cards that are not already confidential
+			result = client.fetch_json("/cards/%s" % (card['id']), 'PUT', {'name':'CONFIDENTIAL: %s' % (card['name'])})
+			print result
+
+
+else:
+	print "not processing"</pre>
+
+</div>

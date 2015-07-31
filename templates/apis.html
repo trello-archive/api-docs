@@ -129,8 +129,10 @@
 		at once. The Trello API has the ability to Batch multiple GET requests at once.
 		You can use this to get the contents of multiple Cards or Lists with a single HTTP
 		transaction, and you can even mix multiple request types.</p>
+	<p>The Batching API will only let you batch up to 20 urls in a single request. You can either use an array of URL parameters, or a comma separated list</p>
 	<h3>Example Batch Request</h3>
 	<pre>GET /1/batch?urls[]=/1/lists/[idList]&amp;urls[]=/1/lists/[other idList]</pre>
+	<pre>GET /1/batch?urls=/1/lists/[idList],/1/lists/[other idList]</pre>
 
 	<h2 id="search">Search</h2>
 	<p>The Trello API offers the ability to search all the actions, boards, cards, members, and organizations. While you can't control which fields you want to search, you can specify which fields you want your search to return. By passing in a single string, we will look at all of the relevant fields and return a list of all those matching models.</p>

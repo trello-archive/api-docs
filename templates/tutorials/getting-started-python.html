@@ -1,6 +1,6 @@
 <div class="app-content">
 
-	<h2>Getting Started with Python</h2>
+	<h2>Getting Started with Python - Part 1</h2>
 	<review-bar></review-bar>
 
 	<h3>Purpose</h3>
@@ -26,7 +26,7 @@
 	<pre>git clone https://github.com/plish/Trolly.git</pre>
 	<p>We'll follow the steps from Trolly's <a href="https://github.com/plish/Trolly">github page</a>. Start by making sure you have httplib2 installed on your system and your <a href="https://trello.com/app-key">API key</a> somewhere easily accessible.</p>
 	<pre>cd Trolly && sudo python setup.py install && cd ../</pre>
-	<pre>python Trolly/trolly/authorise.py -a KEY 'PythonTutorial' 1day</pre>
+	<pre>python Trolly/trolly/authorise.py -a KEY 'PythonTutorial' 30days</pre>
 	<p>This will give you a URL which you will have to put into a web browser. Once you authorize your application, you will get back a token.</p>
 	<p>The token that Trello gives you uniquely identifies your application and the holder of the token is allowed to perform actions AS the user who authorized it.</p>
 	<p>We've just finished two steps, Authentication, and Authorization. These two terms are often confused. Authentication refers to the process by which Trello figures out WHO you are. Trello takes care of this for developers, and in general there's nothing for you to do. The second step, Authorization, refers to the prompt that Trello shows to the user to make sure that the application is ALLOWED to access your data.</p>
@@ -62,6 +62,10 @@ printer.pprint(data)</pre>
 
 	<h3>Add a Parameter</h3>
 	<pre>data = client.fetch_json("/member/me/boards", "GET", {'filter':"starred"})</pre>
+
+	<a href="#/tutorials/getting-started-python-2">Move on to Part 2</a>
+
+
 
 
 </div>
