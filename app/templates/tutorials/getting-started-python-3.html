@@ -8,7 +8,7 @@ import trolly
 import json
 import pprint
 
-client = trolly.client.Client('352206beeb5228a44a7663d5304cb675', '35da3d405c6fb92a0e6c663f0dfe41f23ab31b80f811e16d71c46ca6b87a67b3')
+client = trolly.client.Client('KEY', 'TOKEN')
 
 boards = client.fetch_json("/member/me/boards", 'GET', {'fields':'name'})
 
