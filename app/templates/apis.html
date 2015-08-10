@@ -86,7 +86,8 @@
 	<p>Actions contain each of the actions that have been taken on a Card or Board, including  updates to the labels or members of a Card. Comments are also stored as a special type of Action on a card.</p>
   <p>The API limits Action queries to 1000 at a time. Actions can be queried at the Board or at the Card level. To retreive the full list of actions when there are more then 1000, multiple requests must be made using the <pre style="display:inline;">since</pre> and <pre style="display:inline;">before</pre> parameters.</p>
   
-	<h2 id="webhooks">Webhooks</h2>
+	<h2 id="webhooks"><a href="#/apis/webhooks">Webhooks</a></h2>
+	<a href="#/advanced-reference/webhook">Full Webhooks API Reference</a>
 	<p>A developer could theoretically parse a user's Boards, Lists, and Cards in order to get
 		all of the information, but this would mean loading a lot of data that doesn't
 		change very often, using more bandwidth, CPU, and RAM for both you and for our
@@ -101,7 +102,8 @@
 			token</li>
 		<li>DELETE /1/webhooks/[idWebhook] - Delete a Webhook</li>
 	</ul>
-	<p><a href="https://trello.com/docs/gettingstarted/webhooks.html">Learn more about Webhooks</a></p>
+	<p><a href="#/apis/webhooks">Learn more about Webhooks</a></p>
+	
 
 
 

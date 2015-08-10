@@ -23,6 +23,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/apis',
       templateUrl: 'templates/apis.html'
     })
+    .state('apis-page', {
+      url: '/apis/{page}',
+      templateUrl:
+    		function(stateParams) {
+    			return 'templates/apis/' + stateParams.page + '.html';
+    		}
+    })
     .state('sandbox', {
       url: '/sandbox',
       templateUrl: 'templates/sandbox.html',
@@ -67,7 +74,7 @@ app.run(['$rootScope', '$location', '$window', function($rootScope, $location, $
           }
 
           if ($window.sp) {
-            $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() )
+            $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() );
           }
         });
 }]);
