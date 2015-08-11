@@ -48,6 +48,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
       type: 'popup',
       name: 'Sandbox Trello Application',
       scope: {read: true, write: true, account: true},
+      expiration: "never",
       success: $scope.authenticationSuccess,
       error: $scope.authenticationError
     });
