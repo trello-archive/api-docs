@@ -6,7 +6,7 @@ app.controller('OverviewCtrl', function($scope) {
 });
 
 app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $location) {
-  $scope.key = localStorage["applicationKey"];
+  $scope.key = localStorage.applicationKey;
 
   $scope.connect  = function() {
     if(!$scope.key) {
@@ -30,17 +30,16 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
   };
   
   $scope.saveKey = function() {
-    localStorage["applicationKey"] = $scope.key;
+    localStorage.applicationKey = $scope.key;
     $scope.saved = true;
-  }
+  };
   
   $scope.clearKey = function() {
-    localStorage["applicationKey"]
     $scope.saved = false;
     localStorage.removeItem("applicationKey");
     $scope.key = "";
     $scope.connected = false;
-  }
+  };
 
   $scope.authenticate = function() {
 	$scope.waitingForResolution = false;
@@ -64,7 +63,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	    $scope.token = Trello.token();
  	$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[0]) });
   $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/" + $scope.codes[0] );
-	}
+	};
 	if($scope.waitingForResolution) {
 		$scope.$apply(finishAuth);
 	} else {
@@ -88,7 +87,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
     $scope.$apply(function() {
       output(msg);
     });
-  }
+  };
 
   $scope.run = function(codeSource) {
     console.log("About to run");
@@ -139,7 +138,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	        }
 	        return '<span class="' + cls + '">' + match + '</span>';
 	    });
-	}
+	};
 
 
 	// Register the tabs with analytics and respond to example selection
@@ -162,12 +161,12 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 
 app.controller('CommunityCtrl', function($scope, $window) {
   $scope.wrappers = [
-    {'name':'Ruby',author:'Jeremy Tregunna', url: 'https://github.com/jeremytregunna/ruby-trello'}
-    , {name:'Node', author:'Luca Matteis', url: 'https://github.com/lmatteis/node-trello'}
-    , {name:'Python', author:'Richard Kolkovich', url: 'https://github.com/sarumont/py-trello '}
-    , {name:'Python', author:'Luke Rigby', url: 'https://github.com/plish/Trolly'}
-    , {name:'Python', author:'Brent Tubbs', url: 'https://bitbucket.org/btubbs/trollop'}
-    , {name:'.NET', author:'Greg Dennis', url: 'https://bitbucket.org/gregsdennis/manatee.trello'}
+    {'name':'Ruby',author:'Jeremy Tregunna', url: 'https://github.com/jeremytregunna/ruby-trello'},
+    {name:'Node', author:'Luca Matteis', url: 'https://github.com/lmatteis/node-trello'},
+    {name:'Python', author:'Richard Kolkovich', url: 'https://github.com/sarumont/py-trello '},
+    {name:'Python', author:'Luke Rigby', url: 'https://github.com/plish/Trolly'},
+    {name:'Python', author:'Brent Tubbs', url: 'https://bitbucket.org/btubbs/trollop'},
+    {name:'.NET', author:'Greg Dennis', url: 'https://bitbucket.org/gregsdennis/manatee.trello'}
   ];
 
   $scope.samples = [
@@ -181,17 +180,21 @@ app.controller('CommunityCtrl', function($scope, $window) {
   $scope.open = function(url) {
     console.log("opening the url: " + url);
     $window.open(url, '_blank');
-  }
+  };
 
 });
 
 
 
-app.controller('GetStartedCtrl', function($scope, $location, $anchorScroll) {
+app.controller('GetStartedCtrl', function($scope, $location, $window, $anchorScroll) {
 	$scope.scrollTo = function(destination) {
 		$location.hash(destination);
 		$anchorScroll();
-	}
+	};
+
+	$scope.openAppKey = function() {
+		$window.open('https://trello.com/app-key','_blank');
+	};
 
 
 });
@@ -213,8 +216,8 @@ app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location){
       $list = $parent.find('ul').addClass('js-list u-hidden');
       $button = $("<button>").addClass('mod-inline js-toggle-list').text("Show");
       $section.append(" ").append($button);
-    };
-  };
+    }
+  }
 
   $('.sphinxsidebar').remove();
 
