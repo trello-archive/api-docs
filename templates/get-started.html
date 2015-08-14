@@ -21,7 +21,7 @@
     Key. This Key identifies your Application to the API and is needed for any authenticated
     or unauthenticated API Calls.</p>
 
-  <button ng-href="https://trello.com/app-key" target>Get your Application Key</button>
+  <button ng-click="openAppKey();">Get your Application Key</button>
 
   <h4>Include the client library and jQuery</h4>
   <p>Now we can include jQuery and the client.js library in the application. Before
@@ -100,6 +100,7 @@ Trello.post("/cards", newCard);</pre>
 
   <h4>Updating Data</h4>
   <p>Now that we have created a card and retrieved its ID via the log, we're going to
-    make an update to this card.</p>
+    make an update to this card. To do so, we will PUT a new name for it.</p>
+  <pre>Trello.put("/cards/[ID]", {name: "New Test Card"});</pre>
 
 </div>
