@@ -23,6 +23,18 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/apis',
       templateUrl: 'templates/apis.html'
     })
+    .state('clientjs', {
+      url: '/clientjs',
+      templateUrl: 'templates/clientjs.html'
+    })
+    .state('oauth', {
+      url: '/oauth',
+      templateUrl: 'templates/oauth.html'
+    })
+    .state('authorize', {
+      url: '/authorize',
+      templateUrl: 'templates/authorize.html'
+    })
     .state('apis-page', {
       url: '/apis/{page}',
       templateUrl:

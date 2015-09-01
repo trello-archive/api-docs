@@ -175,23 +175,29 @@ app.controller('CommunityCtrl', function($scope, $window) {
     {name:'Cardorizer', author:'Mark Drago',url:'https://github.com/markdrago/cardorizer'},
     {name:'Trello Bookmarklet', author:'Daniel LeCheminant',url:'https://github.com/danlec/Trello-Bookmarklet'},
     {name:'Trellobo', author:'Oisín Hurley',url:'https://github.com/oisin/trellobo'},
-    {name:'taskboards', author:'Jake Ginnivan',url:'https://bitbucket.org/JakeGinnivan/taskboards'}
+    {name:'taskboards', author:'Jake Ginnivan',url:'https://bitbucket.org/JakeGinnivan/taskboards'},
+    {name:'Read Cards jsfiddle', author: 'Daniel LeCheminant',url:'http://jsfiddle.net/nNesx/'},
+    {name:'Add Comment jsfiddle', author: 'Daniel LeCheminant',url:'http://jsfiddle.net/E4rLn/'}
   ];
 
   $scope.open = function(url) {
     console.log("opening the url: " + url);
     $window.open(url, '_blank');
-  }
+  };
 
 });
 
 
 
-app.controller('GetStartedCtrl', function($scope, $location, $anchorScroll) {
+app.controller('GetStartedCtrl', function($scope, $location, $anchorScroll, $window) {
 	$scope.scrollTo = function(destination) {
 		$location.hash(destination);
 		$anchorScroll();
-	}
+	};
+
+	$scope.openAppKey = function() {
+		$window.open('https://trello.com/app-key', '_blank');
+	};
 
 
 });

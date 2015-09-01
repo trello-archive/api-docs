@@ -1,0 +1,75 @@
+<div class="app-content">
+
+    <h2>Client.js
+  <review-bar></review-bar></h2>
+
+  <p>Learn about using client.js in our <a href="#/get-started">Getting Started Guide</a></p>
+
+    <h3>Authorizing</h3>
+    <p>Call Trello.authorize(opts) with the following options:</p>
+
+    <h4>type</h4>
+    <li><span class="code">"redirect"</span> or <span class="code">"popup"</span></li>
+    <li>default is <span class="code">"redirect"</span></li>
+    <li>Whether authorization should be done in a new window, or by leaving the current page</li>
+    <h4>name</h4>
+    <li>name of your application, which is displayed during the authorization process</li>
+    <h4>persist</h4>
+    <li><span class="code">true</span> or <span class="code">false</span></li>
+    <li>Default is <span class="code">true</span></li>
+    <li>If <span class="code">true</span>, the token will be saved to local storage.</li>
+    <h4>interactive</h4>
+    <li><span class="code">true</span> or <span class="code">false</span></li>
+    <li>Default is <span class="code">true</span></li>
+    <li>If <span class="code">false</span>, don’t redirect or popup, only use the stored token</li>
+    <h4>scope</h4>
+    <li>Object like <span class="code">{ read: allowRead, write: allowWrite, account: allowAccount }</span></li>
+    <li>Default is read-only, i.e. <span class="code">{ read: true, write: false, account: false }</span></li>
+    <li>Each permission is a boolean</li>
+    <h4>expiration</h4>
+    <li><span class="code">"1hour"</span>, <span class="code">"1day"</span>, <span class="code">"30days"</span>, <span class="code">"never"</span></li>
+    <li>Default is <span class="code">"30days"</span></li>
+    <li>When the token should expire</li>
+    <h4>success</h4>
+    <li>Optional function to be called on success</li>
+    <h4>error</h4>
+    <li>Optional function to be called on error</li>
+    <li>If using type: <span class="code">"redirect"</span>, the token will be returned to the current location.href. When it is returned, call authorize with interactive: false to get the token.</li>
+
+    <h2>Using the API</h2>
+    <p>You can use the API via a single call: <span class="code">Trello.rest(method, path[, params], success, error)</span></p>
+
+    <h4>method</h4>
+    <li><span class="code">"GET"</span>, <span class="code">"POST"</span>, <span class="code">"PUT"</span>, <span class="code">"DELETE"</span></li>
+    <h4>path</h4>
+    <li>API path to use, such as <span class="code">"members/me"</span></li>
+    <h4>params</h4>
+    <li>Parameters to the API path, such as <span class="code">{ fields: "username,fullName" }</span></li>
+    <li>Default is <span class="code">{}</span></li>
+    <h4>success</h4>
+    <li>Optional function to be called on success</li>
+    <h4>error</h4>
+    <li>Optional function to be called on error</li>
+
+    <p>There are also a number of convenience methods, with similar signatures. One for each HTTP method:</p>
+
+    <ul class="code">
+    <li>Trello.get(path[, params], success, error)</li>
+    <li>Trello.post(path[, params], success, error)</li>
+    <li>Trello.put(path[, params], success, error)</li>
+    <li>Trello.delete(path[, params], success, error)</li>
+    An alias for delete:
+
+    <li>Trello.del(path[, params], success, error)</li>
+    And one for ``GET``ting on each collection:
+
+    <li>Trello.actions.get(id[, params], success, error)</li>
+    <li>Trello.cards.get(id[, params], success, error)</li>
+    <li>Trello.checklists.get(id[, params], success, error)</li>
+    <li>Trello.boards.get(id[, params], success, error)</li>
+    <li>Trello.lists.get(id[, params], success, error)</li>
+    <li>Trello.members.get(id[, params], success, error)</li>
+    <li>Trello.organizations.get(id[, params], success, error)</li>
+
+    </ul>
+</div>
