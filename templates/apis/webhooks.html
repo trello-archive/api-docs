@@ -84,6 +84,9 @@
    }
 }</pre>
 
+<p>If for some reason the connection is disrupted, or unavailable, the webhook will retry 3 times before stopping.</p>
+
+<h3>Webhook Signatures</h3>
 <p>Trello also signs webhook requests so you can optionally verify that they originated from Trello. Each webhook trigger contains the HTTP header X-Trello-Webhook. The header is a base64 digest of an HMAC-SHA1 hash. The hashed content is the concatenation of the full request body and the callbackURL exactly as it was provided during webhook creation. The key used to sign this text is your application’s secret.</p>
 
 <p>Here is some sample code for checking the validity of a request using Node.js:</p>
@@ -102,7 +105,13 @@ function verifyTrelloWebhookRequest(request, secret, callbackURL) {
   return doubleHash == headerHash;
 }</pre>
 
-<p>If for some reason the connection is disrupted, or unavailable, the webhook will retry 3 times before stopping.</p>
+<p>Because of certain defaults in the crypto utilities in node, the payloads that we sign are treated as binary strings, not utf-8. For example, if you take the en-dash character (U+2013 or 8211 in decimal), and create a binary buffer out of it in Node, it will show up as a buffer of [19], which are the 8 least significant bits of 8211. That is the value that is being used in the digest to compute the SHA-1.</p>
+
+<p>If you are using Ruby and need to mimic this behavior, one solution might bebody.unpack('U*').pack('c*').</p>
+
+<p>Though this isn't ideal, we cannot change the way we sign webhooks without breaking backwards compatibility.</p>
+
+
 
 <h3>Deleting Webhooks</h3>
 <p>There are three ways to delete webhooks.</p>
