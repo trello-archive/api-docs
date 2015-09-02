@@ -979,18 +979,7 @@
 </li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">labels</span></code> (optional)<ul>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">blue</span></code></li>
-<li><code class="docutils literal"><span class="pre">green</span></code></li>
-<li><code class="docutils literal"><span class="pre">orange</span></code></li>
-<li><code class="docutils literal"><span class="pre">purple</span></code></li>
-<li><code class="docutils literal"><span class="pre">red</span></code></li>
-<li><code class="docutils literal"><span class="pre">yellow</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
+
 <li><code class="docutils literal"><span class="pre">idMembers</span></code> (optional)<ul>
 <li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
 </ul>
@@ -1252,27 +1241,6 @@
 </li>
 </ul>
 </div>
-<div class="section" id="put-1-cards-card-id-or-shortlink-labels">
-<h2>PUT <span class="target" id="cards-card-id-or-shortlink-labels">/1/cards/[card id or shortlink]/labels</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-labels" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> write</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">blue</span></code></li>
-<li><code class="docutils literal"><span class="pre">green</span></code></li>
-<li><code class="docutils literal"><span class="pre">orange</span></code></li>
-<li><code class="docutils literal"><span class="pre">purple</span></code></li>
-<li><code class="docutils literal"><span class="pre">red</span></code></li>
-<li><code class="docutils literal"><span class="pre">yellow</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
 <div class="section" id="put-1-cards-card-id-or-shortlink-name">
 <h2>PUT <span class="target" id="cards-card-id-or-shortlink-name">/1/cards/[card id or shortlink]/name</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-name" title="Permalink to this headline"></a></h2>
 <ul class="simple">
@@ -1358,18 +1326,7 @@
 <li><strong>Valid Values:</strong> A date, or <code class="docutils literal"><span class="pre">null</span></code></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">labels</span></code> (optional)<ul>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">blue</span></code></li>
-<li><code class="docutils literal"><span class="pre">green</span></code></li>
-<li><code class="docutils literal"><span class="pre">orange</span></code></li>
-<li><code class="docutils literal"><span class="pre">purple</span></code></li>
-<li><code class="docutils literal"><span class="pre">red</span></code></li>
-<li><code class="docutils literal"><span class="pre">yellow</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
+
 <li><code class="docutils literal"><span class="pre">idList</span></code> (required)<ul>
 <li><strong>Valid Values:</strong> id of the list that the card should be added to</li>
 </ul>
@@ -1677,19 +1634,6 @@
 </li>
 </ul>
 </div>
-<div class="section" id="delete-1-cards-card-id-or-shortlink-labels-color">
-<h2>DELETE <span class="target" id="cards-card-id-or-shortlink-labels-color">/1/cards/[card id or shortlink]/labels/[color]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-labels-color" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> write</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">color</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> A valid label color or <code class="docutils literal"><span class="pre">null</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
 <div class="section" id="delete-1-cards-card-id-or-shortlink-membersvoted-idmember">
 <h2>DELETE <span class="target" id="cards-card-id-or-shortlink-membersvoted-idmember">/1/cards/[card id or shortlink]/membersVoted/[idMember]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-membersvoted-idmember" title="Permalink to this headline"></a></h2>
 <ul class="simple">
@@ -1763,7 +1707,6 @@
 <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idboard">PUT /1/cards/[card id or shortlink]/idBoard</a></li>
 <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idlist">PUT /1/cards/[card id or shortlink]/idList</a></li>
 <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idmembers">PUT /1/cards/[card id or shortlink]/idMembers</a></li>
-<li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-labels">PUT /1/cards/[card id or shortlink]/labels</a></li>
 <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-name">PUT /1/cards/[card id or shortlink]/name</a></li>
 <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-pos">PUT /1/cards/[card id or shortlink]/pos</a></li>
 <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-stickers-idsticker">PUT /1/cards/[card id or shortlink]/stickers/[idSticker]</a></li>
@@ -1787,7 +1730,6 @@
 <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-checklists-idchecklist">DELETE /1/cards/[card id or shortlink]/checklists/[idChecklist]</a></li>
 <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-idlabels-idlabel">DELETE /1/cards/[card id or shortlink]/idLabels/[idLabel]</a></li>
 <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-idmembers-idmember">DELETE /1/cards/[card id or shortlink]/idMembers/[idMember]</a></li>
-<li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-labels-color">DELETE /1/cards/[card id or shortlink]/labels/[color]</a></li>
 <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-membersvoted-idmember">DELETE /1/cards/[card id or shortlink]/membersVoted/[idMember]</a></li>
 <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-stickers-idsticker">DELETE /1/cards/[card id or shortlink]/stickers/[idSticker]</a></li>
 </ul>
