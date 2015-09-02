@@ -89,4 +89,8 @@ app.run(['$rootScope', '$location', '$window', function($rootScope, $location, $
             $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() );
           }
         });
+
+
+  // Check to see if they want to subscribe
+  // http://eepurl.com/bvmnGP
 }]);
