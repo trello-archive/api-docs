@@ -59,12 +59,12 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
   $scope.authenticationSuccess = function() {
 	var finishAuth = function() {
 
-	    $scope.authenticated = true;
-	    console.log("Authentication was successful!");
-	    $scope.token = Trello.token();
- 	$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[0]) });
-  $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/" + $scope.codes[0] );
-	}
+		$scope.authenticated = true;
+		$scope.token = Trello.token();
+		console.log("Authentication was successful! (Token: " + $scope.token + ")");
+		$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[0]) });
+		$window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/" + $scope.codes[0] );
+	};
 	if($scope.waitingForResolution) {
 		$scope.$apply(finishAuth);
 	} else {
@@ -86,9 +86,14 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 
   var asyncOutput = function(msg) {
     $scope.$apply(function() {
+    	if(msg && msg.status === 401) {
+    		Trello.deauthorize();
+    		$scope.authenticated = false;
+    		console.warn("Clearing token and logging the user out based on expired token.");
+    	}
       output(msg);
     });
-  }
+  };
 
   $scope.run = function(codeSource) {
     console.log("About to run");
