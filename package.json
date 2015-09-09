@@ -2,7 +2,8 @@
   "name": "trello-developers-docs",
   "version": "0.1.0",
   "scripts": {
-    "gulp": "tools/gulp"
+    "gulp": "tools/gulp",
+    "start": "node app.js"
   },
   "repository": "",
   "license": "AGPL",
