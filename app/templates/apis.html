@@ -11,14 +11,14 @@
 		rough order of importance.</p>
 
 	<ol>
-		<li><a href="#/apis#authentication">Authentication and Authorization</a></li>
-		<li><a href="#/apis#boards">Boards</a></li>
-		<li><a href="#/apis#lists">Lists</a></li>
-		<li><a href="#/apis#cards">Cards</a></li>
-		<li><a href="#/apis#actions">Actions</a></li>
-		<li><a href="#/apis#webhooks">Webhooks</a></li>
-		<li><a href="#/apis#recursion">Recursion Helpers</a></li>
-		<li><a href="#/apis#search">Search</a></li>
+		<li><a href="/apis#authentication">Authentication and Authorization</a></li>
+		<li><a href="/apis#boards">Boards</a></li>
+		<li><a href="/apis#lists">Lists</a></li>
+		<li><a href="/apis#cards">Cards</a></li>
+		<li><a href="/apis#actions">Actions</a></li>
+		<li><a href="/apis#webhooks">Webhooks</a></li>
+		<li><a href="/apis#recursion">Recursion Helpers</a></li>
+		<li><a href="/apis#search">Search</a></li>
 	</ol>
 
 	<h2 id="authentication">Authentication and Authorization</h2>
@@ -38,7 +38,7 @@
 		your request will be blocked.</p>
 
 	<h2 id="boards">Boards</h2>
-	<a href="#/advanced-reference/board">Full Boards API Reference</a>
+	<a href="/advanced-reference/board">Full Boards API Reference</a>
 	<p>Boards are the highest level concept within the Trello workflow. The Boards API
 		allows you to list, view, create, and edit Boards. Each Board has a name, description,
 		a set of members attached, and an ordered array of Lists.</p>
@@ -48,29 +48,29 @@
 		as Power-Ups).</p>
 	<h3>Important Methods</h3>
 	<ul>
-		<li><a href="#/advanced-reference/member#get-1-members-idmember-or-username-boards">GET /1/members/me/boards</a> - Get an array of the Boards of a user</li>
-		<li><a href="#/advanced-reference/board#get-1-boards-board-id-cards">GET /1/boards/[board_id]/cards</a> - Get an array of Cards on a board</li>
-		<li><a href="#/advanced-reference/board#get-1-boards-board-id-lists">GET /1/boards/[board_id]/lists</a> - Get an array of Lists on a board</li>
+		<li><a href="/advanced-reference/member#get-1-members-idmember-or-username-boards">GET /1/members/me/boards</a> - Get an array of the Boards of a user</li>
+		<li><a href="/advanced-reference/board#get-1-boards-board-id-cards">GET /1/boards/[board_id]/cards</a> - Get an array of Cards on a board</li>
+		<li><a href="/advanced-reference/board#get-1-boards-board-id-lists">GET /1/boards/[board_id]/lists</a> - Get an array of Lists on a board</li>
 	</ul>
 
 	<h2 id="lists">Lists</h2>
-	<a href="#/advanced-reference/list">Full Lists API Reference</a>
+	<a href="/advanced-reference/list">Full Lists API Reference</a>
 	<p>A List is a collection of Cards. In the standard Trello interface, Lists are stacked horizontally and are ordered on a board.</p>
 	<h3>Important Methods</h3>
 	<ul>
-		<li><a href="#/advanced-reference/list#get-1-lists-idlist-cards">GET /1/lists/[idList]/cards</a> - Get an array of Cards on a List</li>
-		<li><a href="#/advanced-reference/card#post-1-cards">POST /1/cards</a> - Create a new Card on a List</li>
+		<li><a href="/advanced-reference/list#get-1-lists-idlist-cards">GET /1/lists/[idList]/cards</a> - Get an array of Cards on a List</li>
+		<li><a href="/advanced-reference/card#post-1-cards">POST /1/cards</a> - Create a new Card on a List</li>
 	</ul>
 
 	<h2 id="cards">Cards</h2>
-	<a href="#/advanced-reference/card">Full Cards API Reference</a>
+	<a href="/advanced-reference/card">Full Cards API Reference</a>
 	<p>A Card is the most basic unit of information in Trello. Cards have a name, description, labels, members, and a set of historical actions that have been taken on the card, including any comments.</p>
 	<h3>Important Methods</h3>
 	<ul>
-		<li><a href="#/advanced-reference/card#post-1-cards">POST /1/cards</a> - Create a new card on a List</li>
-		<li><a href="#/advanced-reference/card#put-1-cards-card-id-or-shortlink">PUT /1/cards/[card id or shortlink]</a> - Update the contents of a Card</li>
-		<li><a href="#/advanced-reference/card#post-1-cards-card-id-or-shortlink-actions-comments">POST /1/cards/[card id or shortlink]/actions/comments</a> - Add a comment to a Card</li>
-		<li><a href="#/advanced-reference/card#post-1-cards-card-id-or-shortlink-idmembers">POST /1/cards/[card id or shortlink]/idMembers</a> - Add a member to a Card</li>
+		<li><a href="/advanced-reference/card#post-1-cards">POST /1/cards</a> - Create a new card on a List</li>
+		<li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink">PUT /1/cards/[card id or shortlink]</a> - Update the contents of a Card</li>
+		<li><a href="/advanced-reference/card#post-1-cards-card-id-or-shortlink-actions-comments">POST /1/cards/[card id or shortlink]/actions/comments</a> - Add a comment to a Card</li>
+		<li><a href="/advanced-reference/card#post-1-cards-card-id-or-shortlink-idmembers">POST /1/cards/[card id or shortlink]/idMembers</a> - Add a member to a Card</li>
 	</ul>
 
 	<h3>Child Methods</h3>
@@ -81,12 +81,12 @@
 	</ul>
 	
 	<h2 id="actions">Actions</h2>
-	<a href="#/advanced-reference/action">Full Actions API Reference</a>
+	<a href="/advanced-reference/action">Full Actions API Reference</a>
 	<p>Actions contain each of the actions that have been taken on a Card or Board, including  updates to the labels or members of a Card. Comments are also stored as a special type of Action on a card.</p>
   <p>The API limits Action queries to 1000 at a time. Actions can be queried at the Board or at the Card level. To retreive the full list of actions when there are more then 1000, multiple requests must be made using the <pre style="display:inline;">since</pre> and <pre style="display:inline;">before</pre> parameters.</p>
   
-	<h2 id="webhooks"><a href="#/apis/webhooks">Webhooks</a></h2>
-	<a href="#/advanced-reference/webhook">Full Webhooks API Reference</a>
+	<h2 id="webhooks"><a href="/apis/webhooks">Webhooks</a></h2>
+	<a href="/advanced-reference/webhook">Full Webhooks API Reference</a>
 	<p>A developer could theoretically parse a user's Boards, Lists, and Cards in order to get
 		all of the information, but this would mean loading a lot of data that doesn't
 		change very often, using more bandwidth, CPU, and RAM for both you and for our
@@ -96,12 +96,12 @@
 		your choosing.</p>
 	<h3>Important Methods</h3>
 	<ul>
-		<li><a href="#/advanced-reference/webhook#post-1-webhooks">POST /1/webhooks</a> - Create a Webhook</li>
-		<li><a href="#/advanced-reference/token#get-1-tokens-token-webhooks">GET /1/tokens/[token]/webhooks</a> - Get an array of the Webhooks associated with your
+		<li><a href="/advanced-reference/webhook#post-1-webhooks">POST /1/webhooks</a> - Create a Webhook</li>
+		<li><a href="/advanced-reference/token#get-1-tokens-token-webhooks">GET /1/tokens/[token]/webhooks</a> - Get an array of the Webhooks associated with your
 			token</li>
-		<li><a href="#/advanced-reference/webhook#delete-1-webhooks-idwebhook">DELETE /1/webhooks/[idWebhook]</a> - Delete a Webhook</li>
+		<li><a href="/advanced-reference/webhook#delete-1-webhooks-idwebhook">DELETE /1/webhooks/[idWebhook]</a> - Delete a Webhook</li>
 	</ul>
-	<p><a href="#/apis/webhooks">Learn more about Webhooks</a></p>
+	<p><a href="/apis/webhooks">Learn more about Webhooks</a></p>
 	
 
 
@@ -113,8 +113,8 @@
 		a filter for the child cards.</p>
 	<h3>Example Recursions</h3>
 	<ul>
-		<li><a href="#/advanced-reference/member#get-1-members-idmember-or-username-boards">GET /1/member/me/boards/?actions=all</a></li>
-		<li><a href="#/advanced-reference/list#get-1-lists-idlist-cards-filter">GET /1/lists/[idList]/cards/[filter]</a></li>
+		<li><a href="/advanced-reference/member#get-1-members-idmember-or-username-boards">GET /1/member/me/boards/?actions=all</a></li>
+		<li><a href="/advanced-reference/list#get-1-lists-idlist-cards-filter">GET /1/lists/[idList]/cards/[filter]</a></li>
 	</ul>
 
 	<h2 id="search">Search</h2>
