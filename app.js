@@ -1,6 +1,7 @@
 var path     = require('path'),
     express  = require('express'),
-    app      = express()
+    app      = express(),
+    port = process.env.PORT || 3000;
 
 // these need to go first:
 app.use("/scripts", express.static(__dirname + "/app/scripts"));
