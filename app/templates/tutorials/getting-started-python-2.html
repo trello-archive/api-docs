@@ -11,7 +11,7 @@
 	
 	<h3>Counting the cards on a board</h3>
 	<p>Let's imagine for a moment that we want to print a list of the boards of a member, and with each board, show how many cards are on it.</p>
-	<p>To do this, let's first look for an API call that will get us all of the cards and the boards of a member. Fortunately we can find this API call by looking at the <strong>Boards</strong> of a <strong>Member</strong> using <a href="#/advanced-reference/member#get-1-members-idmember-or-username-boards"><strong>GET /1/members/[idMember or username]/boards</strong></a>. Unfortunately if we look at the arguments this method allows, there is no option to make it give us all of the cards of these boards. To do this, we will need to make another query to the API for each board to get its cards.</p>
+	<p>To do this, let's first look for an API call that will get us all of the cards and the boards of a member. Fortunately we can find this API call by looking at the <strong>Boards</strong> of a <strong>Member</strong> using <a href="/advanced-reference/member#get-1-members-idmember-or-username-boards"><strong>GET /1/members/[idMember or username]/boards</strong></a>. Unfortunately if we look at the arguments this method allows, there is no option to make it give us all of the cards of these boards. To do this, we will need to make another query to the API for each board to get its cards.</p>
 
 	<h3>Getting the boards</h3>
 	<p>To make sure we have a common starting ground, make sure your python program looks like this, and update the fields so that we are only returning the name and ID of the users boards:</p>
