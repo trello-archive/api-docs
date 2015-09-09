@@ -231,7 +231,7 @@ app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location){
 
   $('.headerlink').each(
   	function(i) {
-  		$(this).attr('href',"#" + $location.path() + $(this).attr('href') ); 
+  		$(this).attr('href',$location.path() + $(this).attr('href') ); 
   		$(this).text('link');
   	}
   );
