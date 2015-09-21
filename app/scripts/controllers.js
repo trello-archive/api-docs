@@ -256,3 +256,21 @@ app.factory('ExtraNavBar', function(){
 	};
 	return tool;
 });
+
+app.directive('title', ['$rootScope', '$timeout', function($rootScope, $timeout) {
+	return {
+		link: function() {
+
+			var listener = function(event, toState) {
+				//console.log("State changed.");
+				$timeout(function() {
+					$rootScope.title = (toState.data && toState.data.pageTitle) 
+					? toState.data.pageTitle + " | Trello Developers" 
+					: 'Trello Developers';
+				});
+			};
+
+			$rootScope.$on('$stateChangeSuccess', listener);
+		}
+		};
+}]);

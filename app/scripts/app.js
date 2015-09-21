@@ -16,45 +16,54 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('get-started', {
       url: '/get-started',
       templateUrl: 'templates/get-started.html',
-      controller: 'GetStartedCtrl'
+      controller: 'GetStartedCtrl',
+      data : { pageTitle: 'Get Started' }
     })
     .state('apis', {
       url: '/apis',
-      templateUrl: 'templates/apis.html'
+      templateUrl: 'templates/apis.html',
+      data : { pageTitle: 'APIs' }
     })
     .state('clientjs', {
       url: '/clientjs',
-      templateUrl: 'templates/clientjs.html'
+      templateUrl: 'templates/clientjs.html',
+      data : { pageTitle: 'Client.js' }
     })
     .state('oauth', {
       url: '/oauth',
-      templateUrl: 'templates/oauth.html'
+      templateUrl: 'templates/oauth.html',
+      data : { pageTitle: 'OAuth' }
     })
     .state('authorize', {
       url: '/authorize',
-      templateUrl: 'templates/authorize.html'
+      templateUrl: 'templates/authorize.html',
+      data : { pageTitle: 'Authorizing' }
     })
     .state('apis-page', {
       url: '/apis/{page}',
       templateUrl:
     		function(stateParams) {
     			return 'templates/apis/' + stateParams.page + '.html';
-    		}
+    		},
+      data : { pageTitle: 'API Reference' }
     })
     .state('sandbox', {
       url: '/sandbox',
       templateUrl: 'templates/sandbox.html',
-      controller: 'SandboxCtrl'
+      controller: 'SandboxCtrl',
+      data : { pageTitle: 'Sandbox' }
     })
     .state('community', {
       url: '/community',
       templateUrl: 'templates/community.html',
-      controller: 'CommunityCtrl'
+      controller: 'CommunityCtrl',
+      data : { pageTitle: 'Community' }
     })
     .state('advanced-reference', {
       url: '/advanced-reference',
       templateUrl: 'templates/advanced-reference.html',
-      controller: 'AdvancedReferenceCtrl'
+      controller: 'AdvancedReferenceCtrl',
+      data : { pageTitle: 'API Reference' }
     })
     .state('advanced-reference.page', {
     	url: '/{page}',
@@ -66,7 +75,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('tutorials', {
     	url: '/tutorials',
-    	templateUrl: 'templates/tutorials.html'
+    	templateUrl: 'templates/tutorials.html',
+      data : { pageTitle: 'Tutorials' }
     })
     .state('tutorial-page', {
     	url: '/tutorials/{page}',
