@@ -207,33 +207,52 @@ app.controller('GetStartedCtrl', function($scope, $location, $anchorScroll, $win
 
 });
 
-app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location){
-  // We want to collapse the arguments section so people can more easily scan
-  // the routes. Since we autogenerate the full API reference docs from the
-  // server using Sphinx, doing this client side allows us to add the toggle
-  // without having to modify the HTML from the server.
 
-  var i, len, section, sections;
+app.controller('AdvancedReferenceCtrl', function($scope, $http, $location, $stateParams, ExtraNavBar){
+	$scope.navBar = ExtraNavBar;
+});
 
-  var sections = $('.section').find('strong');
+app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location, $anchorScroll, $stateParams, ExtraNavBar){
+	// We want to collapse the arguments section so people can more easily scan
+	// the routes. Since we autogenerate the full API reference docs from the
+	// server using Sphinx, doing this client side allows us to add the toggle
+	// without having to modify the HTML from the server.
+	var i, len, section, sections;
 
-  for (i = 0, len = sections.length; i < len; i++) {
-    $section = $(sections[i]);
-    if ($section.text() == "Arguments") {
-      $parent = $section.parent().addClass('js-section');
-      $list = $parent.find('ul').addClass('js-list u-hidden');
-      $button = $("<button>").addClass('mod-inline js-toggle-list').text("Show");
-      $section.append(" ").append($button);
-    };
-  };
+	ExtraNavBar.setPage($stateParams.page);
 
-  $('.sphinxsidebar').remove();
+	sections = $('.section').find('strong');
 
-  $('.headerlink').each(
-  	function(i) {
-  		$(this).attr('href',$location.path() + $(this).attr('href') ); 
-  		$(this).text('link');
-  	}
-  );
+	for (i = 0, len = sections.length; i < len; i++) {
+		$section = $(sections[i]);
+		if ($section.text() == "Arguments") {
+		  $parent = $section.parent().addClass('js-section');
+		  $list = $parent.find('ul').addClass('js-list u-hidden');
+		  $button = $("<button>").addClass('mod-inline js-toggle-list').text("Show");
+		  $section.append(" ").append($button);
+		}
+	}
 
+	$('.sphinxsidebar').remove();
+
+	$('.headerlink').each(
+		function(i) {
+			$(this).attr('href',$location.path() + $(this).attr('href') ); 
+			$(this).text('link');
+		}
+	);
+
+	$anchorScroll();
+});
+
+
+app.factory('ExtraNavBar', function(){
+	tool = {
+		page: "",
+		setPage: function(page) {
+			tool.page = page;
+			console.log("Set page to be " + page);
+		}
+	};
+	return tool;
 });

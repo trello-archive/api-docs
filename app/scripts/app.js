@@ -3,13 +3,13 @@ app = angular.module('BuildWithTrello', ['BuildWithTrelloControllers', 'ReviewBa
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/overview');
+  $urlRouterProvider.otherwise('/');
 
 
 
   $stateProvider
     .state('overview', {
-      url: '/overview',
+      url: '/',
       templateUrl: 'templates/overview.html',
       controller: 'OverviewCtrl'
     })
@@ -53,7 +53,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('advanced-reference', {
       url: '/advanced-reference',
-      templateUrl: 'templates/advanced-reference.html'
+      templateUrl: 'templates/advanced-reference.html',
+      controller: 'AdvancedReferenceCtrl'
     })
     .state('advanced-reference.page', {
     	url: '/{page}',
