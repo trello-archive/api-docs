@@ -14,7 +14,7 @@
 
 <p>Example setup from a web client:</p>
 
-<pre>$.post("https://trello.com/1/tokens/[USER_TOKEN]/webhooks/?key=[APPLICATION_KEY]", {
+<pre>$.post("https://api.trello.com/1/tokens/[USER_TOKEN]/webhooks/?key=[APPLICATION_KEY]", {
   description: "My first webhook",
   callbackURL: "http://www.mywebsite.com/trelloCallback",
   idModel: "4d5ea62fd76aa1136000000c",
@@ -118,7 +118,7 @@ function verifyTrelloWebhookRequest(request, secret, callbackURL) {
 
 <ol>
 <li>Using the DELETE route on webhooks</li>
-DELETE https://trello.com/1/webhooks/[WEBHOOK_ID]?key=[APPLICATION_KEY]&token=[USER_TOKEN]
+DELETE https://api.trello.com/1/webhooks/[WEBHOOK_ID]?key=[APPLICATION_KEY]&token=[USER_TOKEN]
 <li>If the webhook request from Trello, when POSTing to the callbackURL, receives an HTTP 410 Gone response, the webhook will be deleted.</li>
 <li>If the token that the webhook is bound to is revoked or expires, then the webhook will be deleted</li>
 </ol>
