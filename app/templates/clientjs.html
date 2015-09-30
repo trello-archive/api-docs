@@ -1,9 +1,9 @@
 <div class="app-content">
 
-    <h2>Client.js
-  <review-bar></review-bar></h2>
+	<h2>Client.js
+	<review-bar></review-bar></h2>
 
-  <p>Learn about using client.js in our <a href="/get-started">Getting Started Guide</a></p>
+	<p>Learn about using client.js in our <a href="/get-started">Getting Started Guide</a>. You can also find the <a href="https://trello.com/1/client.coffee">full source code for client.js</a> in its original CoffeScript</a>.</p>
 
     <h3>Authorizing</h3>
     <p>Call Trello.authorize(opts) with the following options:</p>
@@ -36,7 +36,7 @@
     <li>Optional function to be called on error</li>
     <li>If using type: <span class="code">"redirect"</span>, the token will be returned to the current location.href. When it is returned, call authorize with interactive: false to get the token.</li>
 
-    <h2>Using the API</h2>
+    <h3>Using the API</h3>
     <p>You can use the API via a single call: <span class="code">Trello.rest(method, path[, params], success, error)</span></p>
 
     <h4>method</h4>
@@ -72,4 +72,7 @@
     <li>Trello.organizations.get(id[, params], success, error)</li>
 
     </ul>
+
+    <h3>Add Card</h3>
+    <p>Another capability of the client.js library is the ability to share URLs directly into a Trello member's account without needing to authenticate. This functions similarly to Facebook's support for sharing URLs. <a href="/add-card">Learn more about Add Card capabilities</a>.</p>
 </div>

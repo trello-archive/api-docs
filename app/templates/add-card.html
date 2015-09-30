@@ -1,0 +1,47 @@
+<div class="app-content">
+	<h2>Add Card (aka Share Intent)</h2>
+	<review-bar></review-bar>
+
+	<p>We have added the ability to share generic web content directly to a visitor's Trello account by passing in a URL. When using this capability, you do not get access to the user's account, and no authorization step is required.</p>
+	<p>Recently we made an update to our <a href="http://developers.trello.com/clientjs">client.js Javascript library</a> and backend that provides this new mechanism for integration. You can see one use of this functionality by looking at how it allows you to <a href="https://trello.com/add-card">create a Trello card from any webpage</a>.</p>
+	<h3>Using client.js</h3>
+	<p>You may already be familiar with our Javscript library known as <a href="http://developers.trello.com/clientjs">client.js</a> which provides authentication mechanisms, storage, and wrappers for GET/POST/PUT/DELETE requests that make interacting with the <a href="http://developers.trello.com/advanced-reference">Trello API</a> easier. With this update, we have added the <span class="code">addCard</span> method.</p>
+	<p>This method takes a required <span class="code">Options</span> object, and an optional callback URL. If no callback URL is provided, the method will attempt to return a promise, if supported by the current browser.</p>
+	<h4>Options</h4>
+	<ul>
+	<li><span class="code">url</span> - <strong>Required</strong> URL you would like to share</li>
+	<li><span class="code">mode</span> - Currently only <span class="code">"popup"</span> is supported</li>
+	<li><span class="code">source</span> - The originating URL of your request</li>
+	<li><span class="code">name</span> - The name that you want to give the card</li>
+	<li><span class="code">idList</span> - The ID of the List where you want to add the new card</li>
+	<li><span class="code">idBoard</span> - The ID of the Board where you want to add the new card</li>
+	<li><span class="code">width</span> - The width in pixels of the popup</li>
+	<li><span class="code">height</span> - The height in pixels of the popup</li>
+	<li><span class="code">left</span> - The distance from the left edge of the user's screen in pixels for the popup</li>
+	<li><span class="code">top</span> - The distance from the top edge of the user's screen in pixels for the popup</li>
+	</ul>
+	<p>Once you have included client.js on your page, you can call:</p>
+	<div><span class="code">Trello.addCard({url:'http://example.com'})</span></div>
+	<!--<button onclick="Trello.addCard({url:'https://developers.trello.com'});">See This in the Sandbox</button>-->
+	<p>This will create a popup that will share the specified URL.</p>
+	<div>
+	<span class="code"></span>
+	</div>
+
+	<h3>Using URL Parameters</h3>
+	<p>You can also achieve this functionality directly via its URL. By taking a member to a specially constructed URL, the Trello member will be able to make a choice regarding his or her boards and lists, and be able to decide where to store the new Card and URL that is being shared.</p>
+	<p>The URL looks like this:</p>
+	<div><span class="code">
+	https://trello.com/add-card?url=<strong>https://developers.trello.com/</strong>&amp;name=<strong>Trello%20Developers</strong>
+	</span></div>
+
+	<h4>Parameters</h4>
+	<ul>
+	<li><span class="code">source</span> - The originating URL of your request</li>
+	<li><span class="code">name</span> - The name that you want to give the card</li>
+	<li><span class="code">idList</span> - The ID of the List where you want to add the new card</li>
+	<li><span class="code">idBoard</span> - The ID of the Board where you want to add the new card</li>
+	</ul>
+
+</div>
+

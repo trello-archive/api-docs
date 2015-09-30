@@ -29,6 +29,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'templates/clientjs.html',
       data : { pageTitle: 'Client.js' }
     })
+    .state('add-card', {
+      url: '/add-card',
+      templateUrl: 'templates/add-card.html',
+      data : { pageTitle: 'Add Card Share Intent' }
+    })
     .state('oauth', {
       url: '/oauth',
       templateUrl: 'templates/oauth.html',
@@ -49,6 +54,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('sandbox', {
       url: '/sandbox',
+      templateUrl: 'templates/sandbox.html',
+      controller: 'SandboxCtrl',
+      data : { pageTitle: 'Sandbox' }
+    })
+    .state('sandbox-key', {
+      url: '/sandbox/{key}',
       templateUrl: 'templates/sandbox.html',
       controller: 'SandboxCtrl',
       data : { pageTitle: 'Sandbox' }
