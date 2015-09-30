@@ -5,9 +5,8 @@ app.controller('OverviewCtrl', function($scope) {
 
 });
 
-app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $location) {
-  $scope.key = localStorage["applicationKey"];
-
+app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $location, $stateParams) {
+  
   $scope.connect  = function() {
     if(!$scope.key) {
       $scope.error = "You must enter a valid key to proceed.";
@@ -150,17 +149,20 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	// Register the tabs with analytics and respond to example selection
 	$scope.selectSample = function(number) {
 		$window.ga('send', 'pageview', { page: ($location.path() + "/" + $scope.codes[number]) });
-    $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/" + $scope.codes[number] );
+	$window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() + "/" + $scope.codes[number] );
 		var name = $scope.codes[number];
 		$scope.selectedCodeIndex = number;
 	};
 	$scope.selectSample(0);
 
-  // Handle key loading / saving on load
-  if($scope.key) {
-    $scope.saved = true;
-    $scope.connect();
-  }
+	if($stateParams.key) {
+		$scope.key = $stateParams.key;
+	$scope.connect();
+	} else {
+		$scope.key = localStorage["applicationKey"];
+		$scope.saved = true;
+	$scope.connect();
+	}
 
 
 });
