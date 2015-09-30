@@ -104,8 +104,8 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
   };
 
   $scope.codeContent = [];
-  $scope.codes = ["getBoards", "getLists", "createCard", "createWebhook", "getWebhooks"];
-  $scope.codeNames = ["Get Boards", "Get Lists", "Create Card", "Create Webhook", "Get Webhooks"];
+  $scope.codes = ["getBoards", "getLists", "createCard", "createWebhook", "getWebhooks", "addCard"];
+  $scope.codeNames = ["Get Boards", "Get Lists", "Create Card", "Create Webhook", "Get Webhooks", "Add Card"];
 
   // Create a method that generates methods to be called upon sucessful load of Javascript
   // from the filesystem
@@ -144,7 +144,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 	        }
 	        return '<span class="' + cls + '">' + match + '</span>';
 	    });
-	}
+	};
 
 
 	// Register the tabs with analytics and respond to example selection
