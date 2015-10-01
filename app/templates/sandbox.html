@@ -4,6 +4,7 @@
 .boolean { color: blue; }
 .null { color: magenta; }
 .key { color: red; }
+.code {font-family: monospace;}
 </style>
 
 <div class="sandbox">
@@ -17,16 +18,15 @@
     <p>
       To get started, enter your Trello API Key:
     </p>
-
-
+    
     <input class="u-monospace" type="text" ng-model="key" id="applicationKey" placeholder="167e44d08df6c0cb0dbc7e2f274bd654" style="width:450px;">
     <p ng-show="error" class="sandbox-error">{{error}}</p>
-    <p>
+    <p ng-show="!autoConnected">
       If you don't have one, <a href="https://trello.com/app-key" target="_blank">grab your API key here</a>.
     </p>
 
     <p>
-      Got it? Okay, press connect.
+      Got it? Okay, press connect and we'll add the <a href="/clientjs">client.js</a> library to the page.
     </p>
 
     <button class="mod-primary mod-wide" ng-click="connect()">Connect</button>
@@ -34,8 +34,13 @@
   </div>
 
   <div class="sandbox-intro" ng-show="connected && !authenticated">
-    <p>Great, we have now included a script tag that looks like this:</p>
-    <p><code>&lt;script src="{{url}}"&gt;&lt;/script&gt;</code></p>
+    <div ng-show="!autoConnected">
+	    <p>Great, we have now included a script tag that looks like this:</p>
+	    <p><code>&lt;script src="{{url}}"&gt;&lt;/script&gt;</code></p>
+	</div>
+	<p ng-show="autoConnected">
+      Using your application key '{{key}}', we have added the Trello <a href="/clientjs">client.js</a> library to the page. This will allow us to make calls using the global <span class="code">Trello</span> object.
+    </p>
     <p>We now need to authenticate a user before we can make interesting API calls.</p>
     <button class="mod-primary mod-wide" ng-click="authenticate()">Authenticate</button>
     <p>{{authenticationErrorMessage}}</p>

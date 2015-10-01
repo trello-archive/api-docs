@@ -12,6 +12,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
       $scope.error = "You must enter a valid key to proceed.";
       return;
     }
+    $scope.automatic = true;
     
     
     var scriptZone = document.getElementById('scriptZone');
@@ -29,17 +30,16 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
   };
   
   $scope.saveKey = function() {
-    localStorage["applicationKey"] = $scope.key;
+    localStorage.applicationKey = $scope.key;
     $scope.saved = true;
-  }
+  };
   
   $scope.clearKey = function() {
-    localStorage["applicationKey"]
     $scope.saved = false;
     localStorage.removeItem("applicationKey");
     $scope.key = "";
     $scope.connected = false;
-  }
+  };
 
   $scope.authenticate = function() {
 	$scope.waitingForResolution = false;
@@ -157,11 +157,13 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 
 	if($stateParams.key) {
 		$scope.key = $stateParams.key;
-	$scope.connect();
-	} else {
-		$scope.key = localStorage["applicationKey"];
+		$scope.connect();
+		$scope.autoConnected = true;
+	} else if ( localStorage.getItem('applicationKey') ) {
+		$scope.key = localStorage.applicationKey;
 		$scope.saved = true;
-	$scope.connect();
+		$scope.connect();
+		$scope.autoConnected = true;
 	}
 
 

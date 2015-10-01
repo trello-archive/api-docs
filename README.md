@@ -1,4 +1,9 @@
-The new Build with Trello documentation.
+The Trello Developers documentation and reference site.
+
+# I want to host the website
+
+1. `npm start`
+2. Navigate to http://localhost:3333
 
 # I want to build the styles.
 
