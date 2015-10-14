@@ -504,25 +504,8 @@
 <li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">idCard</span></code> (optional)<ul>
-<li><strong>Valid Values:</strong> The id of the card that the checklist is on</li>
-</ul>
-</li>
 <li><code class="docutils literal"><span class="pre">pos</span></code> (optional)<ul>
 <li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="put-1-checklists-idchecklist-idcard">
-<h2>PUT <span class="target" id="checklists-idchecklist-idcard">/1/checklists/[idChecklist]/idCard</span><a class="headerlink" href="#put-1-checklists-idchecklist-idcard" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> write</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> The id of the card that the checklist is on</li>
 </ul>
 </li>
 </ul>
@@ -560,16 +543,16 @@
 <ul class="simple">
 <li><strong>Required permissions:</strong> write</li>
 <li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">idCard</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> id of the card that the checklist should be added to</li>
+</ul>
+</li>
 <li><code class="docutils literal"><span class="pre">name</span></code> (optional)<ul>
 <li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
 </ul>
 </li>
 <li><code class="docutils literal"><span class="pre">idBoard</span></code> (optional)<ul>
 <li><strong>Valid Values:</strong> id of the board that the checklist should be added to</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">idCard</span></code> (optional)<ul>
-<li><strong>Valid Values:</strong> id of the card that the checklist should be added to</li>
 </ul>
 </li>
 <li><code class="docutils literal"><span class="pre">pos</span></code> (optional)<ul>
@@ -636,37 +619,3 @@
 
 
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" class="clearfix">
-  <h3>Search</h3>
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-  <h3><a href="../../index.html">Documentation Home</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">checklist</a><ul>
-<li><a class="reference internal" href="#get-1-checklists-idchecklist">GET /1/checklists/[idChecklist]</a></li>
-<li><a class="reference internal" href="#get-1-checklists-idchecklist-field">GET /1/checklists/[idChecklist]/[field]</a></li>
-<li><a class="reference internal" href="#get-1-checklists-idchecklist-board">GET /1/checklists/[idChecklist]/board</a></li>
-<li><a class="reference internal" href="#get-1-checklists-idchecklist-board-field">GET /1/checklists/[idChecklist]/board/[field]</a></li>
-<li><a class="reference internal" href="#get-1-checklists-idchecklist-cards">GET /1/checklists/[idChecklist]/cards</a></li>
-<li><a class="reference internal" href="#get-1-checklists-idchecklist-cards-filter">GET /1/checklists/[idChecklist]/cards/[filter]</a></li>
-<li><a class="reference internal" href="#get-1-checklists-idchecklist-checkitems">GET /1/checklists/[idChecklist]/checkItems</a></li>
-<li><a class="reference internal" href="#get-1-checklists-idchecklist-checkitems-idcheckitem">GET /1/checklists/[idChecklist]/checkItems/[idCheckItem]</a></li>
-<li><a class="reference internal" href="#put-1-checklists-idchecklist">PUT /1/checklists/[idChecklist]</a></li>
-<li><a class="reference internal" href="#put-1-checklists-idchecklist-idcard">PUT /1/checklists/[idChecklist]/idCard</a></li>
-<li><a class="reference internal" href="#put-1-checklists-idchecklist-name">PUT /1/checklists/[idChecklist]/name</a></li>
-<li><a class="reference internal" href="#put-1-checklists-idchecklist-pos">PUT /1/checklists/[idChecklist]/pos</a></li>
-<li><a class="reference internal" href="#post-1-checklists">POST /1/checklists</a></li>
-<li><a class="reference internal" href="#post-1-checklists-idchecklist-checkitems">POST /1/checklists/[idChecklist]/checkItems</a></li>
-<li><a class="reference internal" href="#delete-1-checklists-idchecklist">DELETE /1/checklists/[idChecklist]</a></li>
-<li><a class="reference internal" href="#delete-1-checklists-idchecklist-checkitems-idcheckitem">DELETE /1/checklists/[idChecklist]/checkItems/[idCheckItem]</a></li>
-</ul>
-</li>
-</ul>
