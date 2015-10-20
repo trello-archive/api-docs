@@ -58,8 +58,8 @@ var authenticationFailure = function() { console.log("Failed authentication"); }
     read: true,
     write: true },
   expiration: "never",
-  authenticationSuccess,
-  authenticationFailure
+  success: authenticationSuccess,
+  error: authenticationFailure
 });</pre>
 
   <p>If authentication was successful, the Trello object will now store and use our
