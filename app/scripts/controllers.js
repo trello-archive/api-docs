@@ -186,7 +186,8 @@ app.controller('CommunityCtrl', function($scope, $window) {
     {name:'Trellobo', author:'Oisín Hurley',url:'https://github.com/oisin/trellobo'},
     {name:'taskboards', author:'Jake Ginnivan',url:'https://bitbucket.org/JakeGinnivan/taskboards'},
     {name:'Read Cards jsfiddle', author: 'Daniel LeCheminant',url:'http://jsfiddle.net/nNesx/'},
-    {name:'Add Comment jsfiddle', author: 'Daniel LeCheminant',url:'http://jsfiddle.net/E4rLn/'}
+    {name:'Add Comment jsfiddle', author: 'Daniel LeCheminant',url:'http://jsfiddle.net/E4rLn/'},
+    {name:'Web Clipper for Trello', author: 'Oskar Jakiela',url:'https://github.com/oskarjakiela/trello-web-clipper'}
   ];
 
   $scope.open = function(url) {
