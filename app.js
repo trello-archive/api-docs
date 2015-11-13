@@ -25,6 +25,9 @@ app.use("/favicon.ico", express.static(__dirname + "/app/favicon.ico"));
 app.use("/google14ced388f548c29a.html", express.static(__dirname + "/app/google14ced388f548c29a.html"));
 app.use("/robots.txt", express.static(__dirname + "/app/robots.txt"));
 
+// Sample Power-Up
+app.use("/sample-power-up", express.static(__dirname + "/app/sample-power-up"));
+
 // any other routes:
 app.all("/*", function(req, res, next) {
     res.sendFile("index.html", { root: __dirname + "/app" });

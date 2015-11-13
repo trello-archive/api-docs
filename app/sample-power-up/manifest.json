@@ -1,0 +1,26 @@
+{
+  "name": "Sample Power-Up",
+  "description": "This is a Sample Power-Up demonstrating various capabilities",
+  "details":"Details about the power-up.",
+  "icon": {
+    "url": "./images/trello-icon.png"
+  },
+  "author": "Trello Inc",
+  "capabilities": [
+    "board-buttons",
+    "card-buttons",
+    "format-url",
+    "attachment-thumbnail",
+    "callback"
+  ],
+  "connectors": {
+    "iframe": {
+      "url": "./"
+    }
+  },
+  "recommend": {
+    "urls": [
+      "https://trello.com"
+    ]
+  }
+}

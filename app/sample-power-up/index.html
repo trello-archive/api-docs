@@ -1,0 +1,58 @@
+<html>
+<head>
+<script src="trello-powerup.min.js"></script>
+<script>
+TrelloPowerUp.initialize({
+	'board-buttons': function(t, board) {
+		console.log(board);
+		return [
+			{
+				icon: './images/trello-icon.png',
+				text: "Sample Power-Up",
+				url: 'https://developers.trello.com/'
+			}
+		];
+	},
+
+	'card-buttons': function(t, card) {
+		return [{
+			icon: './images/trello-icon.png',
+			text: "Sample Power-Up",
+			url: 'https://developers.trello.com/'
+		}];
+	},
+
+	'attachment-thumbnail': function(t, attachment) {
+ 		return {
+ 			url: "https://developers.trello.com/",
+      		openText: "Open With Sample",
+      		image: {
+        		url: './images/trello-icon.png',
+        		logo: './images/trello-icon.png'
+        	},
+			initialize: {
+				type: 'iframe',
+				url: t.signUrl(TrelloPowerUp.util.relativeUrl('authorize-link.html'))
+			}
+        };
+	},
+
+	'format-url': function(t, options) {
+		if(options.url.length > 20) {
+			return {
+				icon: './images/trello-icon.png'
+				
+			};
+		} else {
+			throw t.NotHandled("Not a handled URL");
+		}
+	},
+
+});
+
+</script>
+</head>
+<body>
+<!-- Not rendered -->
+</body>
+</html>
