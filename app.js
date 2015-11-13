@@ -16,6 +16,12 @@ if (env === 'production') {
 	app.use('*', forceSsl);
 }
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // these need to go first:
 app.use("/scripts", express.static(__dirname + "/app/scripts"));
 app.use("/images", express.static(__dirname + "/app/images"));
