@@ -176,6 +176,7 @@ app.controller('CommunityCtrl', function($scope, $window) {
     , {name:'Python', author:'Richard Kolkovich', url: 'https://github.com/sarumont/py-trello '}
     , {name:'Python', author:'Luke Rigby', url: 'https://github.com/plish/Trolly'}
     , {name:'Python', author:'Brent Tubbs', url: 'https://bitbucket.org/btubbs/trollop'}
+    , {name:'Python3', author:'Wayne Werner', url: 'https://github.com/waynew/trello3'}
     , {name:'.NET', author:'Greg Dennis', url: 'https://bitbucket.org/gregsdennis/manatee.trello'}
   ];
 
