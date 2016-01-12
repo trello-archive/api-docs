@@ -1,0 +1,67 @@
+<div class="app-content">
+<h2>Power-Up Capabilities</h2>
+<p>There are currently 10 capabilities. Capabilities represent areas of the UX that you can hook into. For each capability you state that you support, the web application will make a request to your Power-Up for UX and functionality to be rendered within Trello, at the time when that UX item would normally be rendered.</p>
+
+
+	<ol>
+	<li><strong>board-buttons</strong>
+	<ul>
+	<li>Add a single button to a board at the top of the screen</li>
+	</ul>
+	</li>
+
+	<li><strong>card-badges</strong>
+	<ul>
+	<li>Allows you to add a badges to the front of cards</li>
+	<li>Called when opening a board.</li>
+	<li>Card badges are also refreshed on an interval that you specify to keep the UI fresh</li>
+	</ul></li>
+
+
+	<li><strong>card-detail-badges </strong>
+	<ul>
+	<li>Allows you to add badges on the back of cards</li>
+	<li>rendered when on the back of the card</li>
+	</ul></li>
+
+	<li><strong>attachment-sections </strong>
+	<ul>
+	<li>Allows you to add sections to back of a card, each containing an iFrame</li>
+	<li>Called when opening a card.</li>
+	<li>You will need to iterate through a list of Card attachments stored in options.entries</li>
+	<li>Return list of URLs that you are claiming</li>
+	</ul></li>
+
+	<li><strong>attachment-thumbnail</strong>
+	<ul>
+	<li>Allows you to improve the attachment preview on the back of a card, for when you don't need a whole iFrame,</li>
+	<li>Called when opening viewing the back of a card</li>
+	<li>Specify the link, the text shown for “opening” the attachment, and the thumbnail</li>
+	</ul></li>
+
+	<li><strong>card-buttons</strong>
+	<ul>
+	<li>Rendered when on the back of the card</li>
+	<li>return list of buttons { icon, text, callback -> method}</li>
+	</ul></li>
+
+	<li><strong>format-url </strong>
+	<ul>
+	<li>Allows you to modify the rendering of activity on the sidebar, and any time we would display a URL</li>
+	<li>Rendered in the sidebar, in markdown, and anywhere else URLs are shown</li>
+	<li>Make URLs nicer</li>
+	<li>Return an update icon and text</li>
+	</ul></li>
+
+	<li><strong>card-from-url</strong>
+	<ul>
+	<li>Use information that you know (via authentication or algorithmically), to handle drag and dropped URLs</li>
+	<li>Set the name and description of the card based on the URL being dropped</li>
+	</ul></li>
+
+	<li><strong>show-settings</strong>
+	<ul>
+	<li>If you want a gear icon in the menu bar for configuring your Power-Up.</li>
+	<li>If you are setting board-level attributes such as which GitHub repository is on a board</li>
+	</ul></li>
+</div>

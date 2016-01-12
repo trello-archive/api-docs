@@ -1,0 +1,85 @@
+<div class="app-content">
+
+<h3>Menus</h3>
+<p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked as the callback when a member clicks on the card-button returned as part of the plugin initialization. 
+Initially the callback runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create an overlay via t.overlay that loads the appropriate interface in a new iFrame.</p>
+<p>Below is a sample callback from our Dropbox integration:</p>
+<pre>var attachFile = function(t) {
+  return t.overlay({
+    url: 'attach.html'
+  })
+  .then(function(){
+    return t.closePopup();
+  })
+}
+
+var attachFolder = function(t) {
+  return t.overlay({
+    url: 'attach-folder.html'
+  })
+  .then(function(){
+    return t.closePopup();
+  })
+}
+
+module.exports = function(t) {
+  return t.popup({
+    title: 'Dropbox',
+    items: [
+      {
+        text: "Attach a File…",
+        callback: attachFile
+      },
+      {
+        text: "Attach a Folder…",
+        callback: attachFolder
+      }
+    ]
+  });
+}</pre>
+<p>Popups can be nested, which will automatically provide a back button in the corner of the popup. You can also request that search be allowed on the popup. This will provide native web client functionality for performing full text searches of your supplied items.
+</p>
+<p>Alternatively, popups can be created containing an iFrame by supplying a title, URL, and height instead of a set of items.</p>
+
+<h3>Attachment</h3>
+<p>Attachments can be created with the t.attach method, but they can only be removed by the user using the standard web experience in the attachments section, or by clicking in the upper right hand corner of any attachment-section claiming an attachment.</p>
+<p>The names of each attachment in the “Remove Attachments” popup are rendered using format-url.</p>
+
+
+<h3>Authentication</h3>
+<p>You should only require authentication when it is required by the user. Here are some samples of ways that Power-Ups can trigger an authentication workflow:
+</p>
+
+<h3>What's the "context"?</h3>
+<p>When the Trello web client initiates a request to a Power-Up, the request is made with a certain context. The context may include things like a board, card or DOM element. When the Power-Up asks the Trello web client to do something, like get the data for a card, it provides the context as part of the request, so Trello knows which card it's providing data for. This means that a Power-Up is only able to get information about cards that the web client initiated a request about.</p>
+<p>A Power-Up's response to a request might contain information about an iframe that the Power-Up wants Trello to display to the user; it's possible that the Power-Up will be passing its context to that iframe. This means that the context can be long lived, i.e. the iframe might later ask about the card that it was created for.</p>
+<p>Things get a little tricky with regards to the element that's part of the context. We don't want to have to keep a reference to a part of the DOM forever; that could take up a lot of memory … so we say that the element is part of the "immediate context". While a Power-Up could respond to an attachment-sections request by creating an iframe that eventually asks about the card in context, a Power-Up is only able to do something using the element in context while the initial request is active; once the initial request has resolved, the element is no longer available. (Think of this like how some browsers will only let you spawn a new window in direct response to a click event)</p>
+<p>From the Power-Up perspective, the context is opaque; it shouldn't try to directly extract any data from it, instead it should just supply it verbatim when making requests to trello.</p>
+<h4>Example context</h4>
+<pre>{
+context: Object
+board: "564221b82fee99aa3b593502"
+card: "564221c32fee99aa3b593518"
+command: "card-buttons"
+Power-Up: "55a5d917446f51777421000f"
+__proto__: Object
+locale: "en-US"
+}</pre>
+
+<h3>What are calbacks?</h3>
+<p>Sometimes a Power-Up wants the web client to create a bit of UI, and the Power-Up wants to know when the user interacts with that UI (e.g. when the user clicks on a button)
+For example, the Trello web client might run card-button on a Power-Up, and the Power-Up could respond with</p>
+<pre>{
+    icon: … url of an icon to display …
+    text: "Activate"
+    callback: … a callback to run when the button is clicked …
+}</pre>
+
+<h3>How are callbacks used?</h3>
+<p>For example, a Power-Up might request that a popover list be displayed, with, say 20 items in it. Each of the items has a callback associated with it, but only the one corresponding to the thing that gets clicked on would be called. Or maybe the popup would just get closed and none of them would get called.</p>
+<p>Callbacks can also be used to e.g. supply the most recent state of the badge on a card (in that case, the same callback might be called many times) … or a callback could be associated with the button in the board header (and the same callback would be triggered every time the button was clicked).</p>
+
+
+
+
+</div>

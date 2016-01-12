@@ -1,0 +1,30 @@
+<div class="app-content">
+<h2>Power-Up File Structure</h2>
+<p>Virtually everything about Power-Ups is configurable (outside of the manifest) in terms of filenames and structure.</p>
+<h3>manifest.json</h3>
+<p>We load your Manifest each time a user tries to add or manage their power-ups. Your Manifest identifies and describes your Power-Up, and it determines which capabilities we attempt to execute from your Power-Up.</p>
+<pre>{
+  "name": "Appear.in",
+  "description": "",
+  "details": "The [Appear.in](https://appear.in) Power-Up attaches a persistent video chat to the board via a link in the board header.",
+  "icon": {
+    "url": "./images/appearin.png"
+  },
+  "author": "Trello Inc",
+  "capabilities": [
+    "board-buttons"
+  ],
+  "connectors": {
+    "iframe": {
+      "url": "./"
+    }
+  }
+}</pre>
+<p>Your manifest location will be one of the things required as part of setting up your Power-Up. You should consider a separate location for a development Manifest, as well as a production Manifest. Additionally, all files hosted on your servers must be served over HTTPS.</p>
+<p>The URL referenced within connectors.iframe.url is relative to the path of your manifest.json file.</p>
+<p>Please supply support information as part of your Power-Up description.</p>
+<h3>Index Connector</h3>
+<p>Once a user has added your plugin to one of their boards, each time the board is loaded, we will load your specified connector URL in an iFrame. It is this page that we will be using to expose functionality, and to invoke capabilities.</p>
+
+
+</div>

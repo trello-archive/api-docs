@@ -15,33 +15,33 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('get-started', {
       url: '/get-started',
-      templateUrl: 'templates/get-started.html',
+      templateUrl: 'templates/apis/get-started.html',
       controller: 'GetStartedCtrl',
       data : { pageTitle: 'Get Started' }
     })
-    .state('apis', {
-      url: '/apis',
-      templateUrl: 'templates/apis.html',
-      data : { pageTitle: 'APIs' }
+    .state('intro', {
+      url: '/intro',
+      templateUrl: 'templates/apis/intro.html',
+      data : { pageTitle: 'API Introduction' }
     })
     .state('clientjs', {
       url: '/clientjs',
-      templateUrl: 'templates/clientjs.html',
+      templateUrl: 'templates/apis/clientjs.html',
       data : { pageTitle: 'Client.js' }
     })
     .state('add-card', {
       url: '/add-card',
-      templateUrl: 'templates/add-card.html',
+      templateUrl: 'templates/apis/add-card.html',
       data : { pageTitle: 'Add Card Share Intent' }
     })
     .state('oauth', {
       url: '/oauth',
-      templateUrl: 'templates/oauth.html',
+      templateUrl: 'templates/apis/oauth.html',
       data : { pageTitle: 'OAuth' }
     })
     .state('authorize', {
       url: '/authorize',
-      templateUrl: 'templates/authorize.html',
+      templateUrl: 'templates/apis/authorize.html',
       data : { pageTitle: 'Authorizing' }
     })
     .state('apis-page', {
@@ -54,25 +54,25 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('sandbox', {
       url: '/sandbox',
-      templateUrl: 'templates/sandbox.html',
+      templateUrl: 'templates/apis/sandbox.html',
       controller: 'SandboxCtrl',
       data : { pageTitle: 'Sandbox' }
     })
     .state('sandbox-key', {
       url: '/sandbox/{key}',
-      templateUrl: 'templates/sandbox.html',
+      templateUrl: 'templates/apis/sandbox.html',
       controller: 'SandboxCtrl',
       data : { pageTitle: 'Sandbox' }
     })
     .state('community', {
       url: '/community',
-      templateUrl: 'templates/community.html',
+      templateUrl: 'templates/apis/community.html',
       controller: 'CommunityCtrl',
       data : { pageTitle: 'Community' }
     })
     .state('advanced-reference', {
       url: '/advanced-reference',
-      templateUrl: 'templates/advanced-reference.html',
+      templateUrl: 'templates/apis/advanced-reference.html',
       controller: 'AdvancedReferenceCtrl',
       data : { pageTitle: 'API Reference' }
     })
@@ -86,7 +86,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('tutorials', {
     	url: '/tutorials',
-    	templateUrl: 'templates/tutorials.html',
+    	templateUrl: 'templates/api/tutorials.html',
       data : { pageTitle: 'Tutorials' }
     })
     .state('tutorial-page', {
@@ -95,7 +95,52 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     		function(stateParams) {
     			return 'templates/tutorials/' + stateParams.page + '.html';
     		}
-    });
+    })
+    .state('power-ups', {
+		url: '/power-ups/',
+		templateUrl: 'templates/power-ups/index.html',
+		data : { pageTitle: 'Power-Ups Documentation' }
+    })
+	.state('power-ups.overview', {
+		url: 'overview',
+		templateUrl: 'templates/power-ups/overview.html',
+		data : { pageTitle: 'Power-Ups Overview' }
+	})
+	.state('power-ups.architecture', {
+		url: 'architecture',
+		templateUrl: 'templates/power-ups/architecture.html',
+		data : { pageTitle: 'Power-Ups Architecture' }
+	})
+	.state('power-ups.capabilities', {
+		url: 'capabilities',
+		templateUrl: 'templates/power-ups/capabilities.html',
+		data : { pageTitle: 'Power-Ups Capabilities' }
+	})
+	.state('power-ups.client-library', {
+		url: 'client-library',
+		templateUrl: 'templates/power-ups/client-library.html',
+		data : { pageTitle: 'Power-Ups Client Library' }
+	})
+	.state('power-ups.file-structure', {
+		url: 'file-structure',
+		templateUrl: 'templates/power-ups/file-structure.html',
+		data : { pageTitle: 'Power-Ups File Structure' }
+	})
+	.state('power-ups.samples', {
+		url: 'samples',
+		templateUrl: 'templates/power-ups/samples.html',
+		data : { pageTitle: 'Power-Ups Samples' }
+	})
+	.state('power-ups.topics', {
+		url: 'topics',
+		templateUrl: 'templates/power-ups/topics.html',
+		data : { pageTitle: 'Power-Ups Topics' }
+	})
+	.state('power-ups.troubleshooting', {
+		url: 'troubleshooting',
+		templateUrl: 'templates/power-ups/troubleshooting.html',
+		data : { pageTitle: 'Power-Ups Troubleshooting' }
+	});
 });
 
 app.run(['$rootScope', '$location', '$window', function($rootScope, $location, $window){

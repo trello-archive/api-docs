@@ -1,0 +1,65 @@
+<div class="app-content">
+	<h2>Power-Up Client Library</h2>
+	<p>We provide and host a Javascript library for all Power-Ups. This Library gives you access to a standardized communication structure between your Power-Up and the Trello web experience. </p>
+	<p>By using this library, your application-specific code can be simplified to the set of capabilities that you wish to expose.
+	The library is hosted here:</p>
+	<a href="https://trello.com/power-ups/power-up.min.js" target="_blank">https://trello.com/power-ups/power-up.min.js</a>
+	<a href="https://trello.com/power-ups/power-up.js" target="_blank">https://trello.com/power-ups/power-up.js</a>
+
+
+<h3>UX Methods</h3>
+<ul>
+<li><strong>render(function renderer)</strong>
+Define a method that is called by the web client when there are updates, such as a new attachment. Attachment-Sections (and other capabilities) are not re-initialized upon changes to content such as attachments of a card to prevent flashing.
+
+render is also an important method because we may not know the Member’s locale at time of initialization, but we will know it at render time.
+</li>
+<li><strong>popup(options)</strong> Use this method to have Trello display a popup. It will be displayed adjacent to the element in the current context. Pop-ups are designed for lists of capabilities or content that a member is expected to click on.
+The options object can contain:
+title
+callback
+url
+items
+search</li>
+<li><strong>closePopup()</strong> This method should be used within a popup callback to close the current popup</li>
+<li><strong>back()</strong> This method should be used within a popup callback to return to the prior popup, if it exists.</li>
+<li><strong>overlay({url:’’})</strong> Place an iFrame on top of the Member’s experience</li>
+<li><strong>loseOverlay()</strong> This method should be used within an overlay to close the existing overlay.</li>
+<li><strong>boardBar(options)</strong> Used to render an iFrame that is visible at the bottom of the standard board view. This option is currently under development.</li>
+The options object can contain:
+url
+args - A list of arguments to be passed to the iFrame as query parameters
+height
+<li><strong>closeBoardBar()</strong> Used to close the bottom Board Bar</li>
+<li><strong>authorize(urlWithSecret, options)</strong> Pass a URL to open as a new window for OAuth authentication purposes.</li>
+NOTE: This must be run within an onclick event from one of your iframes, otherwise the browser popup blocker will be triggered and may break your ability to communicate between your authorization window and the parent Trello window.
+<li><strong>sizeTo(selector)</strong> - Sizes the current iframe based on the height of the element referenced via your selector.</li>
+</ul>
+
+<h3>Data Methods</h3>
+<ul>
+<li><strong>iframe()</strong> Get access to the t object within an iframe
+set(scope, visibility, name, value)</strong> Used to store some persistent data in Trello's database. The Power-Up provides a scope (organization,board or card) and the visibility of the data (i.e. whether it's ‘shared’ with everyone that can see the org/board/card or if it's ‘private’) and a string to store. (Power-Ups are allowed to store 1K of data for each scope/visibility pair … the current Power-Ups store stringified JSON)
+
+Using t.set will re-initialize your Power-Up in it’s entirety by re-execute all capabilities.</li>
+<li><strong>get(scope, visibility, name, defaultValue)</strong> Used to get all of the stored data for the Power-Up</li>
+<li><strong>localizeKey(key, data)</strong> Localize a string by key</li>
+<li><strong>localizeKeys(keys)</strong> Localize an list of strings or objects</li>
+<li><strong>board([requestedField1],[requestedField2],[…])</strong> Returns a promise with information about the board for the current context
+Valid fields include: 'id', 'name', 'url', 'shortLink'</li>
+<li><strong>list([requestedField1],[requestedField2],[…])</strong> Returns a promise with information about the list for the current context
+Valid fields include: 'id', 'name'</li>
+<li><strong>card([requestedField1],[requestedField2],[…])</strong> Returns a promise with information about the card for the current context
+Valid fields include: 'id', 'name', 'desc', 'cover', 'attachments', 'members', 'labels', 'url', 'shortLink'</li>
+</ul>
+<p>
+<li><strong>t.closePopup</strong>, <strong>t.closeOverlay</strong>, <strong>t.iframe</strong> can only be called within an appropriate context.
+</p>
+<p>
+<li><strong>t.popup</strong> can only be called within a capability, not currently from an iframe such as an attachment-section. This is due to the relative placement of the popup to an item within the Trello Web Client.
+</p>
+
+
+
+
+</div>
