@@ -8,7 +8,7 @@
 <p>The second requirement for a webhook is a callbackURL parameter. When a model with a webhook changes, the update is fired via an HTTP POST request from Trello to the URL provided. The body of the post will be a JSON payload of the action (the action that changed the model), and the updated model. It may be helpful for you to add your own parameters to the callbackURL if you’ll be using multiple webhooks, such as</p>
 
 <pre>https://mycallback.com/trelloCallbacks/?memberID=14&mainModel=true</pre>
-<p>The provided callbackURL must be a valid URL during the creation of the webhook. We run a quick HTTP HEAD request on the URL, and a 200 status code is not returned in the response, then the webhook will not be created.</p>
+<p>The provided callbackURL must be a valid URL during the creation of the webhook. We run a quick HTTP HEAD request on the URL, and if a 200 status code is not returned in the response, then the webhook will not be created.</p>
 
 <p>And lastly, you’ll need the id of a model to watch. This can be the id of a member, card, board, or anything that actions apply to. Any event involving this model will trigger the webhook.</p>
 
@@ -20,7 +20,7 @@
   idModel: "4d5ea62fd76aa1136000000c",
 });</pre>
 
-<p>Your APPLICATION_KEY can be found here</p>
+<p>Get your <a href="https://trello.com/app-key">APPLICATION_KEY</a> on Trello.</p>
 
 <h3>Triggering Webhooks</h3>
 <p>Now that the webhook is set up, whenever a change on the model occurs, we will send an HTTP POST request to the provided endpoint.</p>
