@@ -1,9 +1,9 @@
-  <nav class="app-subnav">
-  	<a ui-sref=".architecture">Architecture</a>
-	<a ui-sref=".capabilities">Capabilities</a>
-	<a ui-sref=".samples">Samples</a>
-	<a ui-sref=".topics">Topics</a>
-	<a ui-sref=".client-library">Client Library</a>
+  <nav class="app-subnav" ng-controller="NavCtrl">
+  	<a ui-sref=".architecture" ng-class="navClass('power-ups.architecture')">Architecture</a>
+	<a ui-sref=".capabilities" ng-class="navClass('power-ups.capabilities')">Capabilities</a>
+	<a ui-sref=".samples" ng-class="navClass('power-ups.samples')">Samples</a>
+	<a ui-sref=".topics" ng-class="navClass('power-ups.topics')">Topics</a>
+	<a ui-sref=".client-library" ng-class="navClass('power-ups.client-library')">Client Library</a>
 	
   </nav>
 
