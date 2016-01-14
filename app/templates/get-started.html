@@ -1,5 +1,6 @@
-<div class="app-subnav" ng-controller="NavCtrl">
-	<a ui-sref=".start-building" ng-class="navClass('get-started.start-building')">Start Building</a>
-	<a ui-sref=".intro" ng-class="navClass('get-started.intro')">API Introduction</a>
-</div>
+<nav class="app-subnav" ng-controller="NavCtrl">
+	<a class="app-subnav-link" ui-sref=".start-building" ng-class="navClass('get-started.start-building')">Start Building</a>
+	<a class="app-subnav-link" ui-sref=".intro" ng-class="navClass('get-started.intro')">API Introduction</a>
+</nav>
+
 <ui-view></ui-view>

@@ -32,32 +32,27 @@
 
 <body>
 
-  <header class="app-header" ng-controller="NavCtrl">
-    <h1 class="app-header-title">Trello Developers</h1>
-    <img class="app-header-image" src="images/trello-developers-logo.png" srcset="images/trello-developers-logo.png 1x, images/trello-developers-logo@2x.png 2x" alt="Trello Developers">
-    <p class="app-header-tag" ng-show="header">Everything you need to build with</p>
-    <nav class="app-nav">
-    <ul class="app-nav-list">
-      <li class="app-nav-list-item">
-        <a class="app-nav-list-item-link" ui-sref="overview" ng-class="navClass('overview')">Overview</a>
-      </li>
-      <li class="app-nav-list-item">
-        <a class="app-nav-list-item-link" ui-sref="get-started.start-building" ng-class="navClass('get-started.start-building')">Get Started</a>
-      </li>
-      <li class="app-nav-list-item">
-        <a class="app-nav-list-item-link" ui-sref="sandbox" ng-class="navClass('sandbox')">Sandbox</a>
-      </li>
-      <li class="app-nav-list-item">
-        <a class="app-nav-list-item-link" ui-sref="advanced-reference" ng-class="navClass('advanced-reference')">API</a>
-      </li>
-      <li class="app-nav-list-item">
-        <a class="app-nav-list-item-link" ui-sref="power-ups.architecture" ng-class="navClass('power-ups.architecture')">Power-Ups</a>
-      </li>
-    </ul>
-    </nav>
+  <header class="global-header mod-dark-background" ng-controller="NavCtrl">
+    <div class="global-header-section">
+
+      <a class="global-header-section-logo" ui-sref="overview">
+        <img class="global-header-section-logo-image"
+          src="images/trello-developers-logo.png"
+          srcset="images/trello-developers-logo.png 1x, images/trello-developers-logo@2x.png 2x"
+          alt="Trello Developers">
+      </a>
+
+      <nav class="global-header-section-links">
+        <a class="global-header-section-link" ui-sref="overview" ng-class="navClass('overview')">Overview</a>
+        <a class="global-header-section-link" ui-sref="get-started.start-building" ng-class="navClass('get-started.start-building')">Get Started</a>
+        <a class="global-header-section-link" ui-sref="sandbox" ng-class="navClass('sandbox')">Sandbox</a>
+        <a class="global-header-section-link" ui-sref="advanced-reference" ng-class="navClass('advanced-reference')">API</a>
+        <a class="global-header-section-link" ui-sref="power-ups.architecture" ng-class="navClass('power-ups.architecture')">Power-Ups</a>
+      </nav>
+
+    </div>
   </header>
 
-  
 
   <main ui-view style="position:relative;"></main>
 

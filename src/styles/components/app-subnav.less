@@ -1,0 +1,32 @@
+// For In-Section Navigation
+
+.app-subnav {
+	margin: 1em auto 0;
+	display: flex;
+  justify-content: center;
+}
+
+	.app-subnav-link {
+		margin: .5em .75em;
+		padding: .5em 1.25em;
+		border-radius: .3em;
+		color: @default-font-color;
+		text-decoration: none;
+		background-color: @green-50;
+	}
+
+  	.app-subnav-link:visited,
+  	.app-subnav-link:hover:visited {
+  		color: @default-font-color;
+    }
+
+  	.app-subnav-link:hover {
+  		background-color: @green-50;
+  		color: @default-font-color;
+    }
+
+  	.app-subnav-link.is-active,
+  	.app-subnav-link:active {
+  		background-color: @green-100;
+  		color: @default-font-color;
+    }
