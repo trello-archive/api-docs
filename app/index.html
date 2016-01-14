@@ -34,39 +34,37 @@
 
   <header class="app-header">
     <h1 class="app-header-title">Trello Developers</h1>
-    <img class="app-header-image" src="images/trello-developers-logo.png" srcset="images/trello-developers-logo.png 1x, images/trello-developers-logo@2x.png 2x">
-    <p class="app-header-tag">Resources, tutorials, and documentation for people building with Trello.</p>
-  </header>
-
-  <nav class="app-nav">
+    <img class="app-header-image" src="images/trello-developers-logo.png" srcset="images/trello-developers-logo.png 1x, images/trello-developers-logo@2x.png 2x" alt="Trello Developers">
+    <p class="app-header-tag" ng-show="header">Everything you need to build with</p>
+    <nav class="app-nav">
     <ul class="app-nav-list">
       <li class="app-nav-list-item">
         <a class="app-nav-list-item-link" ui-sref="overview">Overview</a>
       </li>
       <li class="app-nav-list-item">
-        <a class="app-nav-list-item-link" ui-sref="get-started">Get Started</a>
+        <a class="app-nav-list-item-link" ui-sref="get-started.start-building">Get Started</a>
       </li>
       <li class="app-nav-list-item">
         <a class="app-nav-list-item-link" ui-sref="sandbox">Sandbox</a>
       </li>
       <li class="app-nav-list-item">
-        <a class="app-nav-list-item-link" ui-sref="intro">API Intro</a>
+        <a class="app-nav-list-item-link" ui-sref="advanced-reference">API</a>
       </li>
       <li class="app-nav-list-item">
-        <a class="app-nav-list-item-link" ui-sref="advanced-reference">API Reference</a>
-      </li>
-      <li class="app-nav-list-item">
-        <a class="app-nav-list-item-link" ui-sref="community">Community</a>
+        <a class="app-nav-list-item-link" ui-sref="power-ups.architecture">Power-Ups</a>
       </li>
     </ul>
-  </nav>
+    </nav>
+  </header>
+
+  
 
   <main ui-view style="position:relative;"></main>
 
   <footer class="global-footer">
 
     <p class="global-footer-detail">
-      &copy; Copyright 2015, Trello, Inc. All rights reserved.
+      &copy; Copyright 2016, Trello, Inc. All rights reserved.
     </p>
 
   </footer>

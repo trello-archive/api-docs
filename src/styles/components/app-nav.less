@@ -1,15 +1,15 @@
 // App Nav
 
 .app-nav {
-  background-color: @trello-blue-600;
-  margin: 0 auto;
   text-align: center;
+  display:inline
 }
 
   .app-nav-list {
     list-style: none;
+    display:inline;
     margin: 0;
-    padding: 0;
+    padding: 0 1em;
   }
 
     .app-nav-list-item {
@@ -18,20 +18,38 @@
 
       a.app-nav-list-item-link {
         color: #fff;
+        font-weight:bold;
         display: inline-block;
         outline: 0;
         padding: 1em;
         text-decoration: none;
+        border-radius:8px;
 
         &:hover,
         &:focus {
-          background-color: @trello-blue-700;
+          background-color: @green-400;
           color: #fff;
         }
 
         &:active {
-          background-color: @trello-blue-800;
+          background-color: @green-300;
           color: #fff;
         }
-
       }
+
+.app-subnav {
+	margin:1em auto;
+	display: flex;
+    justify-content: center;
+
+}
+	.app-subnav a {
+		margin:1em;
+		padding:16px 32px;
+		border-radius:8px;
+		color:black;
+		text-decoration:none;
+		background-color: @green-50;
+	}
+
+

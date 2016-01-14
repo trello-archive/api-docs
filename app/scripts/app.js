@@ -14,16 +14,22 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'OverviewCtrl'
     })
     .state('get-started', {
-      url: '/get-started',
-      templateUrl: 'templates/apis/get-started.html',
+      url: '/get-started/',
+      templateUrl: 'templates/get-started.html',
       controller: 'GetStartedCtrl',
       data : { pageTitle: 'Get Started' }
     })
-    .state('intro', {
-      url: '/intro',
-      templateUrl: 'templates/apis/intro.html',
-      data : { pageTitle: 'API Introduction' }
-    })
+	    .state('get-started.start-building', {
+	      url: 'start-building',
+	      templateUrl: 'templates/apis/start-building.html',
+	      controller: 'GetStartedCtrl',
+	      data : { pageTitle: 'Start Building' }
+	    })
+	    .state('get-started.intro', {
+	      url: 'intro',
+	      templateUrl: 'templates/apis/intro.html',
+	      data : { pageTitle: 'API Introduction' }
+	    })
     .state('clientjs', {
       url: '/clientjs',
       templateUrl: 'templates/apis/clientjs.html',
@@ -98,49 +104,35 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('power-ups', {
 		url: '/power-ups/',
-		templateUrl: 'templates/power-ups/index.html',
+		abstract:true,
+		templateUrl: 'templates/power-ups.html',
 		data : { pageTitle: 'Power-Ups Documentation' }
     })
-	.state('power-ups.overview', {
-		url: 'overview',
-		templateUrl: 'templates/power-ups/overview.html',
-		data : { pageTitle: 'Power-Ups Overview' }
-	})
-	.state('power-ups.architecture', {
-		url: 'architecture',
-		templateUrl: 'templates/power-ups/architecture.html',
-		data : { pageTitle: 'Power-Ups Architecture' }
-	})
-	.state('power-ups.capabilities', {
-		url: 'capabilities',
-		templateUrl: 'templates/power-ups/capabilities.html',
-		data : { pageTitle: 'Power-Ups Capabilities' }
-	})
-	.state('power-ups.client-library', {
-		url: 'client-library',
-		templateUrl: 'templates/power-ups/client-library.html',
-		data : { pageTitle: 'Power-Ups Client Library' }
-	})
-	.state('power-ups.file-structure', {
-		url: 'file-structure',
-		templateUrl: 'templates/power-ups/file-structure.html',
-		data : { pageTitle: 'Power-Ups File Structure' }
-	})
-	.state('power-ups.samples', {
-		url: 'samples',
-		templateUrl: 'templates/power-ups/samples.html',
-		data : { pageTitle: 'Power-Ups Samples' }
-	})
-	.state('power-ups.topics', {
-		url: 'topics',
-		templateUrl: 'templates/power-ups/topics.html',
-		data : { pageTitle: 'Power-Ups Topics' }
-	})
-	.state('power-ups.troubleshooting', {
-		url: 'troubleshooting',
-		templateUrl: 'templates/power-ups/troubleshooting.html',
-		data : { pageTitle: 'Power-Ups Troubleshooting' }
-	});
+		.state('power-ups.architecture', {
+			url: 'architecture',
+			templateUrl: 'templates/power-ups/architecture.html',
+			data : { pageTitle: 'Power-Ups Architecture' }
+		})
+		.state('power-ups.capabilities', {
+			url: 'capabilities',
+			templateUrl: 'templates/power-ups/capabilities.html',
+			data : { pageTitle: 'Power-Ups Capabilities' }
+		})
+		.state('power-ups.client-library', {
+			url: 'client-library',
+			templateUrl: 'templates/power-ups/client-library.html',
+			data : { pageTitle: 'Power-Ups Client Library' }
+		})
+		.state('power-ups.samples', {
+			url: 'samples',
+			templateUrl: 'templates/power-ups/samples.html',
+			data : { pageTitle: 'Power-Ups Samples' }
+		})
+		.state('power-ups.topics', {
+			url: 'topics',
+			templateUrl: 'templates/power-ups/topics.html',
+			data : { pageTitle: 'Power-Ups Topics' }
+		});
 });
 
 app.run(['$rootScope', '$location', '$window', function($rootScope, $location, $window){

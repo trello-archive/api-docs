@@ -38,11 +38,12 @@ NOTE: This must be run within an onclick event from one of your iframes, otherwi
 
 <h3>Data Methods</h3>
 <ul>
-<li><strong>iframe()</strong> Get access to the t object within an iframe
-set(scope, visibility, name, value)</strong> Used to store some persistent data in Trello's database. The Power-Up provides a scope (organization,board or card) and the visibility of the data (i.e. whether it's ‘shared’ with everyone that can see the org/board/card or if it's ‘private’) and a string to store. (Power-Ups are allowed to store 1K of data for each scope/visibility pair … the current Power-Ups store stringified JSON)
+<li><strong>iframe()</strong> Get access to the t object within an iframe</li>
+<li><strong>set(scope, visibility, name, value)</strong> Used to store some persistent data in Trello's database. The Power-Up provides a scope (organization,board or card) and the visibility of the data (i.e. whether it's ‘shared’ with everyone that can see the org/board/card or if it's ‘private’) and a string to store. (Power-Ups are allowed to store 1K of data for each scope/visibility pair … the current Power-Ups store stringified JSON)
 
-Using t.set will re-initialize your Power-Up in it’s entirety by re-execute all capabilities.</li>
+Using t.set will re-initialize your Power-Up in it’s entirety by re-executing all capabilities.</li>
 <li><strong>get(scope, visibility, name, defaultValue)</strong> Used to get all of the stored data for the Power-Up</li>
+<li><strong>attach({url:URL})</strong> Attach a new URL to the card in the current context.</li>
 <li><strong>localizeKey(key, data)</strong> Localize a string by key</li>
 <li><strong>localizeKeys(keys)</strong> Localize an list of strings or objects</li>
 <li><strong>board([requestedField1],[requestedField2],[…])</strong> Returns a promise with information about the board for the current context

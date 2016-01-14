@@ -1,9 +1,9 @@
 <div class="app-content">
 
-<h3>Menus</h3>
-<p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked as the callback when a member clicks on the card-button returned as part of the plugin initialization. 
-Initially the callback runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create an overlay via t.overlay that loads the appropriate interface in a new iFrame.</p>
-<p>Below is a sample callback from our Dropbox integration:</p>
+	<h3>Menus</h3>
+	<p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked as the callback when a member clicks on the card-button returned as part of the plugin initialization. 
+	Initially the callback runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create an overlay via t.overlay that loads the appropriate interface in a new iFrame.</p>
+	<p>Below is a sample callback from our Dropbox integration:</p>
 <pre>var attachFile = function(t) {
   return t.overlay({
     url: 'attach.html'
@@ -37,25 +37,127 @@ module.exports = function(t) {
     ]
   });
 }</pre>
-<p>Popups can be nested, which will automatically provide a back button in the corner of the popup. You can also request that search be allowed on the popup. This will provide native web client functionality for performing full text searches of your supplied items.
-</p>
-<p>Alternatively, popups can be created containing an iFrame by supplying a title, URL, and height instead of a set of items.</p>
+	<p>Popups can be nested, which will automatically provide a back button in the corner of the popup. You can also request that search be allowed on the popup. This will provide native web client functionality for performing full text searches of your supplied items.
+	</p>
+	<p>Alternatively, popups can be created containing an iFrame by supplying a title, URL, and height instead of a set of items.</p>
 
-<h3>Attachment</h3>
-<p>Attachments can be created with the t.attach method, but they can only be removed by the user using the standard web experience in the attachments section, or by clicking in the upper right hand corner of any attachment-section claiming an attachment.</p>
-<p>The names of each attachment in the “Remove Attachments” popup are rendered using format-url.</p>
+	<h3>Attachment</h3>
+	<p>Attachments can be created with the <strong>t.attach</strong> method, but they can only be removed by the user using the standard web experience in the attachments section, or by clicking in the upper right hand corner of any attachment-section claiming an attachment.</p>
+	<pre>t.attach({ url: url });</pre>
+	<img src="/images/content/sample-remove-attachments.png" alt="Remove attachments via popup"/>
+	<p>The names of each attachment in the “Remove Attachments” popup are rendered using <strong>format-url</strong>.</p>
 
 
-<h3>Authentication</h3>
-<p>You should only require authentication when it is required by the user. Here are some samples of ways that Power-Ups can trigger an authentication workflow:
-</p>
+	<h3>Authentication</h3>
+	<p>You should only require authentication when it is required by the user. Here are some samples of ways that Power-Ups can trigger an authentication workflow:
+	</p>
+	<p>1. For our Dropbox Power-Up, “Show Details from Dropbox…” has been added to the attachment-thumbnail by detecting that the link to Dropbox has not been initialized for this member. Once the Power-Up has been initialized and authenticated, we show a true thumbnail.</p>
+	<img src="/images/content/sample-authentication-attachment-thumbnail.png"/>
+	<p>For our Github Power-Up, the attachment-sections iframe managed by the Power-Up includes a prompt to authenticate to see additional information.</p>
+	<img src="/images/content/sample-authentication-attachment-section.png"/>
+	<p>We also trigger authentication after a user attempts to perform an action that requires it, such as when attaching a GitHub Issue to a card.</p>
+	<img src="/images/content/sample-authentication-popup.png"/>
+	<p>When developing a Power-Up that requires authentication, try to offer as much functionality in a non-authenticated state as possible, and add non-intrusive links to authenticate the user to provide more functionality.</p>
+	<p>To achieve Authentication, you will often need to use the t.authenticate method. Here’s a code sample of how we handle the OAuth workflow from within the DropBox Power-Up authentication Iframe.</p>
+	<pre>var t = TrelloPowerUp.iframe();
+handleAuthorize(t);
 
-<h3>What's the "context"?</h3>
-<p>When the Trello web client initiates a request to a Power-Up, the request is made with a certain context. The context may include things like a board, card or DOM element. When the Power-Up asks the Trello web client to do something, like get the data for a card, it provides the context as part of the request, so Trello knows which card it's providing data for. This means that a Power-Up is only able to get information about cards that the web client initiated a request about.</p>
-<p>A Power-Up's response to a request might contain information about an iframe that the Power-Up wants Trello to display to the user; it's possible that the Power-Up will be passing its context to that iframe. This means that the context can be long lived, i.e. the iframe might later ask about the card that it was created for.</p>
-<p>Things get a little tricky with regards to the element that's part of the context. We don't want to have to keep a reference to a part of the DOM forever; that could take up a lot of memory … so we say that the element is part of the "immediate context". While a Power-Up could respond to an attachment-sections request by creating an iframe that eventually asks about the card in context, a Power-Up is only able to do something using the element in context while the initial request is active; once the initial request has resolved, the element is no longer available. (Think of this like how some browsers will only let you spawn a new window in direct response to a click event)</p>
-<p>From the Power-Up perspective, the context is opaque; it shouldn't try to directly extract any data from it, instead it should just supply it verbatim when making requests to trello.</p>
-<h4>Example context</h4>
+handleAuthorize = function(t, selector){
+  selector = selector || '#authorize';
+  var el = document.querySelector(selector);
+  if(!el) {
+    return;
+  }
+  return new Promise(function(resolve){
+    el.addEventListener('click', function(){
+      t.authorize(function(secret) {
+        return './auth?secret=' + secret;
+      })
+      .then(function(token){
+        return t.set('organization', 'private', 'token', token)
+        .catch(t.NotHandled, function(){
+          return t.set('board', 'private', 'token', token)
+        })
+      })
+      .then(resolve)
+      .done();
+    })
+  })
+}</pre>
+	
+	<h3>Data Storage</h3>
+	<p>There are various scopes that can be used to store data. These scopes are determined by the visibility level, and the entity it is attached to.</p>
+	<table>
+	<thead>
+		<tr><th></th><th>Card ('card')</th><th>Board ('board')</th><th>Organization ('organization')</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Private ('private')</th>
+			<td>This data is available to only this member on this card.</td>
+			<td>This data is available to only this member on this board.</td>
+			<td>This data is only available to this member on any board belonging to the current organization.</td>
+		</tr>
+		<tr>
+			<th>Shared ('shared')</th>
+			<td>This data is available to any member with access to this card.</td>
+			<td>This data is available to any member with access to this board.</td>
+			<td>This data is available to any member on any board belonging to the current organization.</td>
+		</tr>
+	</tbody>
+	</table>
+	<p>You can store data two ways:</p>
+	<pre>t.set('board', 'private', 'key', value)</pre>
+	<p>or</p>
+	<pre>t.set('board', 'private', { key1: value1, key2: value2 })</pre>
+	<p>Currently, there is no external API for accessing Power-Up data. Power-Up stored data can only be retrieved when the UI is loaded by the member with the Power-Up enabled.</p>
+	<p>Members can reset their private data at any time via the Power-Ups menu.</p>
+
+	<h3>Recoloring</h3>
+	<p>Several of the images and icons rendered by Trello are passed a query string parameter color with each load. This parameter is designed to ensure that icons have great usability even when the background behind an image may change.</p>
+	<p>For example, card badge icons are expected to be grey (#999) in their default state, but when a color is applied to the badge (such as ‘red’), the icon is passed <strong>?color=fff</strong>. This behavior means that the icon should be recolored such that the primary color used is white, ensuring the image will look good and have good usability on a red background.</p>
+
+	<h3>Timeouts</h3>
+	<p>Your Power-Up should respond within 1 second to all capability methods. If your method takes more than 1 second to complete, we will consider the callback as failed.</p>
+
+	<h3>Internationalization</h3>
+	<p>Trello Power-Ups were designed with Internationalization in mind. When creating a plugin or iframe, you can optionally pass in the options argument one of the following:</p>
+	<p>localization object</p>
+<pre>localization: {
+  defaultLocale: 'en',
+  supportedLocales: ['en', 'fr'],
+  resourceUrl: './strings/{locale}.json'
+}</pre>
+	<p>localizer object</p>
+<pre>localizer: {
+  localize: function(key, data){
+    ... synchronously returns a localized string for the given key and data ...
+  }
+}</pre>
+	<p>loadLocalizer function</p>
+<pre>loadLocalizer: function(locale){
+    ... returns a Promise that resolves to a localizer object ...
+  }</pre>
+  	<p>Additionally, you can set window.localizer to your own custom localizer and the HostHandlers will use it.</p>
+	<p>Once a localizer has been initialized, you can call the following new handlers (which behind the scenes make use of the localizer).  We make the current user locale available to you via window.locale. Additionally, you can grab it off the options object from any of the interfaces or callbacks as well.</p>
+	<p><strong>localizeKey(key, data)</strong> synchronously returns the output of window.localizer.localize(key, data)</p>
+	<p><strong>localizeKeys(key)</strong> synchronously localizes multiple keys. Input can be either an array of keys ['key1', 'key2'] or an arrary of key, data arrays [['key1', data1], ['key2', data2]]</p>
+	<p><strong>localizeNode(node)</strong> synchronously inserts localized texts into DOM nodes starting at the provided node and all of it's children. Tag a node in your HTML with data-i18n-id="key" for its text content to be replaced based on that key. You can pass args with data-i18n-args='{ "arg1": "data" }'. You can also have placeholder text replaced with data-i18n-attrs='{ "placeholder": "key" }'. This will also use the args defined in data-i18n-args.</p>
+	<p>Currently there is no support for dot notation when replacing args.</p>
+	<p>Argument replacement assumes that your resource file follows this format:</p>
+	<pre>{
+	"key": "value with replaceable {arguments}"
+}</pre>
+	<p>Again, dot notation is not supported for arguments. This also limits how you can use braces {} in that there is no escaping currently supported.</p>
+
+
+
+	<h3>What's the "context"?</h3>
+	<p>When the Trello web client initiates a request to a Power-Up, the request is made with a certain context. The context may include things like a board, card or DOM element. When the Power-Up asks the Trello web client to do something, like get the data for a card, it provides the context as part of the request, so Trello knows which card it's providing data for. This means that a Power-Up is only able to get information about cards that the web client initiated a request about.</p>
+	<p>A Power-Up's response to a request might contain information about an iframe that the Power-Up wants Trello to display to the user; it's possible that the Power-Up will be passing its context to that iframe. This means that the context can be long lived, i.e. the iframe might later ask about the card that it was created for.</p>
+	<p>Things get a little tricky with regards to the element that's part of the context. We don't want to have to keep a reference to a part of the DOM forever; that could take up a lot of memory … so we say that the element is part of the "immediate context". While a Power-Up could respond to an attachment-sections request by creating an iframe that eventually asks about the card in context, a Power-Up is only able to do something using the element in context while the initial request is active; once the initial request has resolved, the element is no longer available. (Think of this like how some browsers will only let you spawn a new window in direct response to a click event)</p>
+	<p>From the Power-Up perspective, the context is opaque; it shouldn't try to directly extract any data from it, instead it should just supply it verbatim when making requests to trello.</p>
+	<h4>Example context</h4>
 <pre>{
 context: Object
 board: "564221b82fee99aa3b593502"
@@ -66,20 +168,40 @@ __proto__: Object
 locale: "en-US"
 }</pre>
 
-<h3>What are calbacks?</h3>
-<p>Sometimes a Power-Up wants the web client to create a bit of UI, and the Power-Up wants to know when the user interacts with that UI (e.g. when the user clicks on a button)
-For example, the Trello web client might run card-button on a Power-Up, and the Power-Up could respond with</p>
-<pre>{
-    icon: … url of an icon to display …
-    text: "Activate"
-    callback: … a callback to run when the button is clicked …
+	<h3>What are callbacks?</h3>
+	<p>Sometimes a Power-Up wants the web client to create a bit of UI, and the Power-Up wants to know when the user interacts with that UI (e.g. when the user clicks on a button)
+	For example, the Trello web client might run card-button on a Power-Up, and the Power-Up could respond with</p>
+	<pre>{
+	icon: … url of an icon to display …
+	text: "Activate"
+	callback: … a callback to run when the button is clicked …
 }</pre>
 
-<h3>How are callbacks used?</h3>
-<p>For example, a Power-Up might request that a popover list be displayed, with, say 20 items in it. Each of the items has a callback associated with it, but only the one corresponding to the thing that gets clicked on would be called. Or maybe the popup would just get closed and none of them would get called.</p>
-<p>Callbacks can also be used to e.g. supply the most recent state of the badge on a card (in that case, the same callback might be called many times) … or a callback could be associated with the button in the board header (and the same callback would be triggered every time the button was clicked).</p>
+	<h3>How are callbacks used?</h3>
+	<p>For example, a Power-Up might request that a popover list be displayed, with, say 20 items in it. Each of the items has a callback associated with it, but only the one corresponding to the thing that gets clicked on would be called. Or maybe the popup would just get closed and none of them would get called.</p>
+	<p>Callbacks can also be used to e.g. supply the most recent state of the badge on a card (in that case, the same callback might be called many times) … or a callback could be associated with the button in the board header (and the same callback would be triggered every time the button was clicked).</p>
 
+	<h3>Webhooks &amp; Offline Access</h3>
+	<p>Webhooks and Offline Access are not currently part of the Power-Up architecture. Power-Ups are only active while a member is in the Trello web client experience. It is possible for your Power-Up and service to access a user’s information and create Webhooks using the standard API.</p>
+	<p>The way to accomplish this is for you to Authorize your application to the Trello API as a part of your Authorization flow, or in response to a user action. You would then need your service to use the standard Trello API to make offline requests.</p>
+	<p>For example, if you were building a Power-Up where you wanted to react to any change made to a card, the member’s experience could be as follows.</p>
+	<ol>
 
+		<li>Trello Member enables <strong>Magic Service</strong> Power-Up</li>
+		<li>Trello Member clicks on the <strong>card-button</strong> to attach a <strong>Magic Service</strong> to a card.</li>
+		<li>You prompt the member via an <strong>overlay</strong> iframe to authorize your service to access the member’s Trello account</li>
+		<li>Your service stores the user’s token as part of a one-time authorization step</li>
+		<li>Your service stores the Card’s ID as part of your <strong>card-button</strong> callback</li>
+		<li>Your service creates a webhook based on Card ID</li>
+		<li>Your Power-Up renders a new <strong>card-button</strong> for any cards that are already attached to your service</li>
+		<li>When the user clicks the “detach” <strong>card-button</strong>, your service deletes the webhook</li>
+	</ol>
+
+	<h2>Power-Ups Troubleshooting</h2>
+	<p>As our platform grows, we are working on identifying the most common mistakes and problems.</p>
+	<p><strong>Uncaught PluginRunner::NotHandled: attempt to run callback on plugin 55a5d917446f51777421000f failed(anonymous function) @ ltp.js:40603(anonymous function) @ ltp.js:37845</strong>
+	<p>ltp.js:38699 ^--- With additional stack trace: PluginRunner::NotHandled: attempt to run callback on plugin 55a5d917446f51777421000f failed</p>
+	<p><strong>Solution:</strong> Make sure you are specifying “callback” as one of your capabilities in your manifest.json file.</p>
 
 
 </div>
