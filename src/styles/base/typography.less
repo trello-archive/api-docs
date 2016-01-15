@@ -1,42 +1,91 @@
 // Typography
 
 button, html, input, select, textarea {
-  font-family: "jaf-facitweb", sans-serif;
+  font-family: "jaf-facitweb", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
-  color: hsl(0, 0%, 30%);
+  color: @default-font-color;
   font-size: 20px;
   font-weight: 300;
   line-height: 1.5;
 }
 
+
+// Headers
+
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
+  line-height: 1.25;
+  margin: 1.3rem 0;
 }
+
+h1 {
+  font-size: 1.9em;
+}
+
+h2 {
+  font-size: 1.45em;
+}
+
+h3 {
+  font-size: 1.15em;
+}
+
+h4, h5, h6 {
+  font-size: 1em;
+}
+
+
+// Bold
 
 b, strong, h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+
+// Block Quotes
+
+blockquote {
+  border-left: 2px solid @light-gray-300;
+  padding-left: 1em;
+  margin: 1em 0;
+}
+
+
+// Pre / Code
+
 pre {
-  background-color: @light-gray-100;
+  background-color: @light-gray-50;
+  border: 1px solid @light-gray-200;
   border-radius: .4em;
   font-size: .8em;
-  padding: 1em;
+  overflow: auto;
+  padding: .6em .8em;
+  word-wrap: normal;
 }
 
 code {
-  background: @light-gray-100;
+  background-color: @light-gray-50;
+  border: 1px solid @light-gray-200;
+  border-radius: .2em;
+  color: @red-400;
   font-family: "fira-mono", monospace;
-  padding: 0 4px;
-  border-radius: .4em;
+  padding: 0 .3em;
+  margin: 0 .1em;
+  border-radius: .2em;
 }
 
   pre > code {
-    background: transparent;
+    background-color: none;
+    border: none;
+    border-radius: 0;
+    color: @default-font-color;
+    margin: 0;
     padding: 0;
   }
+
+
+// Links
 
 a {
   color: @trello-blue-400;
@@ -51,14 +100,28 @@ a {
     color: @trello-blue-500;
   }
 
+
+// Horizontal Rule
+
 hr {
   display: block;
   height: 1px;
   border: 0;
   border-top: 1px solid @light-gray-300;
-  margin: 1em 0;
+  margin: 2em 0;
   padding: 0;
 }
+
+
+// Selection
+
+::selection {
+  background: @trello-blue-100;
+  text-shadow: none;
+}
+
+
+// Smaller Screens
 
 @media @small {
 

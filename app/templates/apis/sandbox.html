@@ -10,16 +10,17 @@
 <div class="sandbox">
 
   <div class="sandbox-header">
-    <h2 class="sandbox-header-title">Sandbox <review-bar></review-bar></h2>
+    <h2 class="sandbox-header-title">Sandbox</h2>
     <p class="sandbox-header-tag">Working code samples in the browser.</p>
+    <review-bar></review-bar>
   </div>
 
   <div class="sandbox-intro" ng-show="!connected">
     <p>
       To get started, enter your Trello API Key:
     </p>
-    
-    <input class="u-monospace" type="text" ng-model="key" id="applicationKey" placeholder="167e44d08df6c0cb0dbc7e2f274bd654" style="width:450px;">
+
+    <input class="sandbox-intro-input" class="u-monospace" type="text" ng-model="key" id="applicationKey" placeholder="167e44d08df6c0cb0dbc7e2f274bd654" style="width:450px;">
     <p ng-show="error" class="sandbox-error">{{error}}</p>
     <p ng-show="!autoConnected">
       If you don't have one, <a href="https://trello.com/app-key" target="_blank">grab your API key here</a>.
@@ -29,7 +30,7 @@
       Got it? Okay, press connect and we'll add the <a href="/clientjs">client.js</a> library to the page.
     </p>
 
-    <button class="mod-primary mod-wide" ng-click="connect()">Connect</button>
+    <button class="mod-primary mod-no-margin" ng-click="connect()">Connect</button>
 
   </div>
 
