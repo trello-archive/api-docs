@@ -3,7 +3,7 @@
 .api-ref {
   position: relative;
   margin: 2em auto;
-  max-width: 1200px;
+  max-width: 1350px;
 }
 
 .api-ref-nav {
@@ -14,7 +14,7 @@
   font-size: .8em;
   margin: 0 1em 1em;
 	padding: 1em;
-	width: 26em;
+	width: 24em;
   word-wrap: break-word;
 
   ul {
@@ -30,7 +30,7 @@
   }
 
   ul li li {
-    
+
   	font-weight: normal;
     list-style-type: none;
     margin-left: 0 0 0 1em;
@@ -45,7 +45,7 @@
 .api-ref-main {
   box-sizing: border-box;
   font-size: .8em;
-	margin-left: 26em;
+	margin-left: 24em;
 	padding: 0 1em;
   word-wrap: break-word;
 
@@ -65,4 +65,28 @@ a.headerlink {
 
 .section a.headerlink {
 	display:inline;
+}
+
+
+// Media Queries
+
+@media @medium, @small {
+
+  .api-ref {
+    padding: 0 1em;
+  }
+
+  .api-ref-nav {
+    float: none;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .api-ref-main {
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+
 }
