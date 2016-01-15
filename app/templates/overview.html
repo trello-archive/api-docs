@@ -1,28 +1,45 @@
-<div class="app-content overview">
+<div class="app-content mod-full">
 
-	<div style="display:flex;align-items:stretch">
-		<div>
+	<div class="overview-header">
+		<h1 class="overview-header-text">
+			Start building with Trello.
+		</h1>
+	</div>
+
+	<div class="overview-list">
+
+		<div class="overview-list-item">
 			<h2>Learn in 5 Minutes</h2>
 			<p>New to the Trello API? Get started with our 5 minute introduction.</p>
-			<button ui-sref="get-started">Get Started in 5 Minutes</button>
+			<button class="mod-primary" ui-sref="get-started">Get Started</button>
 		</div>
 
-		<div>
+		<div class="overview-list-item">
 			<h2>API Docs</h2>
 			<p>Trello API Pro? Find a route, argument, or permission in our API reference docs.</p>
-			<button ui-sref="advanced-reference">Get Started in 5 Minutes</button>
+			<button class="mod-primary" ui-sref="advanced-reference">Visit Docs</button>
 		</div>
-		<div>
+
+		<div class="overview-list-item">
 			<h2>Power-Ups</h2>
 			<p>Building Power-Ups for your team? Check out hte Power-Ups Platform documentation.</p>
-			<button ui-sref="power-ups">Build Power-Ups</button>
+			<button class="mod-primary" ui-sref="power-ups">Build Power-Ups</button>
 		</div>
+
 	</div>
 
 	<div class="overview-community">
-		<h2>Community</h2>
-		<p>Trello is built around a fantastic community of users and developers. See all the top community projects to help you build with Trello.</p>
-		<button ui-sref="community">See Community Projects</button>
+		<div class="overview-community-content">
+			<h2>Community</h2>
+			<p>Trello is built around a fantastic community of users and developers. See all the top community projects to help you build with Trello.</p>
+			<button class="mod-transparent mod-light-background" ui-sref="community">See Community Projects</button>
+		</div>
 	</div>
-	<p>Sign up for the <a href="http://trello.us9.list-manage.com/subscribe?u=5cb712992a906406c5eae28a7&id=1754ca72bf">Developer Newsletter</a> to stay up to date on all updates and announcements for developers.</p>
+
+	<div class="overview-newsletter">
+		<div class="overview-newsletter-content">
+			<p>Sign up for the <a href="http://trello.us9.list-manage.com/subscribe?u=5cb712992a906406c5eae28a7&id=1754ca72bf">Developer Newsletter</a> to stay up to date on all updates and announcements for developers.</p>
+		</div>
+	</div>
+
 </div>

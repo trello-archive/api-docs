@@ -1,11 +1,62 @@
 // Overview
 
-.overview {
-	text-align:center;
+// Header
+
+.overview-header {
+	background:
+		linear-gradient(to bottom, @green-500 0%, fadeOut(@green-500, 100%) 2em),
+		url("/images/overview-header-background.png"),
+		@green-500;
+	background-repeat: 		no-repeat, repeat, repeat;
+	background-position: 	top, center, 0%;
+	background-size: 			auto, auto, 0%;
+	padding: 8em 2em;
+	text-align: center;
+	color: #fff;
 }
 
-	.overview-community {
-		background-color: @green-50;
-		padding:1em 1em;
-		margin:3em 0;
+	.overview-header-text {
+		text-shadow: 0 2px 0 @green-900;
+	}
+
+
+// The three big sections at the top
+
+.overview-list {
+	margin: 2em auto;
+	text-align: center;
+	vertical-align: top;
+}
+
+	.overview-list-item {
+		display: inline-block;
+		width: 300px;
+		padding: 0 2em 1em;
+	}
+
+
+// Community
+
+.overview-community {
+	background-color: @green-100;
+	text-align: center;
+}
+
+	.overview-community-content {
+		margin: 0 auto;
+		padding: 2em 1em;
+		max-width: 700px;
+	}
+
+
+// Newsletter
+
+.overview-newsletter {
+	text-align: center;
+}
+
+	.overview-newsletter-content {
+		margin: 0 auto;
+		padding: 2em 1em;
+		max-width: 700px;
 	}
