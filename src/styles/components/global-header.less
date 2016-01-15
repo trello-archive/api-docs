@@ -3,19 +3,14 @@
 .global-header {
   background-color: @green-500;
   height: 2em;
-  padding: 1em .75em;
+  padding: .75em;
   z-index: 100;
 }
 
-  .global-header-section {
-    float: left;
-  }
-
     .global-header-section-logo {
-      display: block;
-      float: left;
+      display: inline-block;
       height: 2em;
-      margin-right: .75em;
+      margin-right: 1em;
 
       &:hover {
         opacity: .8;
@@ -37,184 +32,75 @@
 
     a.global-header-section-link {
       border-radius: .4em;
-      color: @default-font-color;
+      color: #fff;
       display: inline-block;
-      float: left;
       font-size: .8em;
       font-weight: 600;
       line-height: 1.1em;
-      margin: 0 .2em 0 0;
+      margin: 0 .15em;
       opacity: 1;
       padding: .7em .9em;
       text-decoration: none;
       vertical-align: top;
 
       &:visited {
-        color: @default-font-color;
+        color: #fff;
       }
 
       &:focus,
       &:hover {
-        color: @default-font-color;
         background-color: hsla(0, 0%, 0%, 0.1);
-        opacity: 1;
+        color: #fff;
       }
 
       &.is-active,
       &:active {
-        color: @default-font-color;
         background-color: hsla(0, 0%, 0%, 0.2);
-        opacity: 1;
+        color: #fff;
       }
 
     }
-
-    a.global-header-section-button {
-      // What's with the padding and height?
-      // the padding and line-height multiplied by the font-size is the height
-      // of the global header, or in math: `(.7 + .7 + 1.1) * .8 = 2em`
-      background-color: @light-gray-200;
-      border-radius: .4em;
-      box-shadow: 0 2px 0 @light-gray-400;
-      color: @default-font-color;
-      display: inline-block;
-      font-size: .8em;
-      line-height: 1.1em;
-      margin: 0 .25em;
-      padding: .7em 1.3em;
-      text-decoration: none;
-      vertical-align: top;
-
-      &:visited {
-        color: @default-font-color;
-      }
-
-      &:focus,
-      &:hover {
-        color: @default-font-color;
-        background-color: @light-gray-300;
-        box-shadow: 0 2px 0 @light-gray-500;
-      }
-
-      &:active {
-        color: @default-font-color;
-        background-color: @light-gray-400;
-        box-shadow: 0 2px 0 @light-gray-600;
-      }
-
-    }
-
-
-// Modifiers
-
-.global-header-section.mod-left {
-  float: left;
-}
-
-.global-header-section.mod-right {
-  float: right;
-}
-
-.global-header-section-logo.mod-black {
-  opacity: .3;
-
-  &:hover {
-    opacity: .5;
-  }
-
-  &:active {
-    opacity: .6;
-  }
-
-}
-
-.global-header.mod-dark-background {
-
-  a.global-header-section-button {
-    background-color: hsla(0, 0%, 0%, .15);
-    box-shadow: 0 2px 0 hsla(0, 0%, 0%, .3);
-    color: #fff;
-
-    &:visited {
-      color: #fff;
-    }
-
-    &:focus,
-    &:hover {
-      color: #fff;
-      background-color: hsla(0, 0%, 0%, .25);
-      box-shadow: 0 2px 0 hsla(0, 0%, 0%, .4);
-    }
-
-    &:active {
-      color: #fff;
-      background-color: hsla(0, 0%, 0%, .35);
-      box-shadow: 0 2px 0 hsla(0, 0%, 0%, .5);
-    }
-
-  }
-
-  a.global-header-section-link {
-    color: #fff;
-
-    &:visited,
-    &:focus,
-    &:hover,
-    &:active {
-      color: #fff;
-    }
-
-  }
-
-}
-
-.global-header-section-button.mod-primary {
-  background: linear-gradient(to bottom, @green-500 0%, @green-600 100%);
-  box-shadow: 0 2px 0 @green-900;
-  color: #fff;
-  font-weight: bold;
-
-  &:visited {
-    color: #fff;
-  }
-
-  &:focus,
-  &:hover {
-    color: #fff;
-    background: linear-gradient(to bottom, @green-600 0%, @green-700 100%);
-    box-shadow: 0 2px 0 @green-900;
-  }
-
-  &:active {
-    color: #fff;
-    background: linear-gradient(to bottom, @green-700 0%, @green-800 100%);
-    box-shadow: 0 2px 0 @green-900;
-  }
-
-}
 
 
 // Media Queries
 
-@media @small {
+@media @small, @medium {
 
-  .global-header-section-links {
-    display: none;
+  .global-header {
+    height: auto;
+    padding-left: .2em;
+    padding-right: .2em;
   }
 
-  a.global-header-section-button {
-    padding-left: 1em;
-    padding-right: 1em;
+  .global-header-section {
+    margin: 0 auto;
   }
+
+    .global-header-section-logo {
+      display: block;
+      text-align: center;
+      margin: 0 auto .5em;
+    }
+
+    .global-header-section-links {
+      display: block;
+      text-align: center;
+    }
+
+      a.global-header-section-link {
+        font-weight: 300;
+        margin: 0;
+        padding: .4em .4em;
+      }
 
 }
 
-@media print {
+@media @medium {
 
-  // Don't worry about printing the header.
-
-  .global-header {
-    display: none;
+  a.global-header-section-link {
+    font-weight: 300;
+    margin: 0;
+    padding: .5em .8em;
   }
 
 }
