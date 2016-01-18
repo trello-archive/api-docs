@@ -116,7 +116,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		.state('power-ups.capabilities', {
 			url: 'capabilities',
 			templateUrl: 'templates/power-ups/capabilities.html',
-			data : { pageTitle: 'Power-Ups Capabilities' }
+			data : { pageTitle: 'Power-Ups Capabilities' },
+			controller: 'CapabilitiesCtrl'
 		})
 		.state('power-ups.client-library', {
 			url: 'client-library',

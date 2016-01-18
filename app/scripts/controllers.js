@@ -252,6 +252,10 @@ app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location, $
 	$anchorScroll();
 });
 
+app.controller('CapabilitiesCtrl', function($scope, $anchorScroll) {
+	$anchorScroll();
+});
+
 
 app.factory('ExtraNavBar', function(){
 	tool = {
