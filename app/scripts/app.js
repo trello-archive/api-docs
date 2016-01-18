@@ -136,18 +136,20 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		});
 });
 
-app.run(['$rootScope', '$location', '$window', function($rootScope, $location, $window){
+app.run(['$rootScope', '$location', '$window', '$anchorScroll', function($rootScope, $location, $window, $anchorScroll){
   $rootScope
     .$on('$stateChangeSuccess',
       function(event){
-          if( $window.ga ) {
-            $window.ga('send', 'pageview', { page: $location.path() });
-          }
+        $anchorScroll();
+        if( $window.ga ) {
+          $window.ga('send', 'pageview', { page: $location.path() });
+        }
 
-          if ($window.sp) {
+        if ($window.sp) {
             $window.sp('trackPageView', $location.protocol() + '//' + $location.host() + $location.path() );
           }
-        });
+      });
+
 
 
   // Check to see if they want to subscribe
