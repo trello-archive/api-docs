@@ -27,7 +27,7 @@
 	<li><strong>closePopup()</strong> This method should be used within a popup callback to close the current popup</li>
 	<li><strong>back()</strong> This method should be used within a popup callback to return to the prior popup, if it exists.</li>
 	<li><strong>overlay({url:’’})</strong> Place an iframe on top of the Member’s experience</li>
-	<li><strong>loseOverlay()</strong> This method should be used within an overlay to close the existing overlay.</li>
+	<li><strong>closeOverlay()</strong> This method should be used within an overlay to close the existing overlay.</li>
 	<li><strong>boardBar(options)</strong> Used to render an iframe that is visible at the bottom of the standard board view. This option is currently under development.</li>
 	The options object can contain:
 	url
@@ -46,7 +46,7 @@
 
 	Using t.set will re-initialize your Power-Up in it’s entirety by re-executing all capabilities.</li>
 	<li><strong>get(scope, visibility, name, defaultValue)</strong> Used to get all of the stored data for the Power-Up</li>
-	<li><strong>attach({url:URL})</strong> Attach a new URL to the card in the current context.</li>
+	<li><strong>attach({url:URL, name:Name})</strong> Attach a new URL to the card in the current context.</li>
 	<li><strong>signUrl(URL)</strong> Sign a URL for use with <strong>attachment-sections</strong> only.</li>
 	<li><strong>localizeKey(key, data)</strong> Localize a string by key</li>
 	<li><strong>localizeKeys(keys)</strong> Localize an list of strings or objects</li>
