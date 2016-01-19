@@ -47,6 +47,7 @@
 	Using t.set will re-initialize your Power-Up in it’s entirety by re-executing all capabilities.</li>
 	<li><strong>get(scope, visibility, name, defaultValue)</strong> Used to get all of the stored data for the Power-Up</li>
 	<li><strong>attach({url:URL})</strong> Attach a new URL to the card in the current context.</li>
+	<li><strong>signUrl(URL)</strong> Sign a URL for use with <strong>attachment-sections</strong> only.</li>
 	<li><strong>localizeKey(key, data)</strong> Localize a string by key</li>
 	<li><strong>localizeKeys(keys)</strong> Localize an list of strings or objects</li>
 	<li><strong>board([requestedField1],[requestedField2],[…])</strong> Returns a promise with information about the board for the current context
@@ -60,7 +61,7 @@
 	<li><strong>t.closePopup</strong>, <strong>t.closeOverlay</strong>, <strong>t.iframe</strong> can only be called within an appropriate context.
 	</p>
 	<p>
-	<li><strong>t.popup</strong> can only be called within a capability, not currently from an iframe such as an attachment-section. This is due to the relative placement of the popup to an item within the Trello Web Client.
+	<li><strong>t.popup</strong> can only be called within a capability, not currently from an iframe such as an attachment-section. This is due to the relative placement of the popup to an item within the Trello Web Client.</li>
 	</p>
 
 

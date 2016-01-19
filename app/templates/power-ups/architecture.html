@@ -1,12 +1,6 @@
 <div class="app-content">
 	<h2>Power-Ups Architecture</h2>
-	<p>Power-Ups are powerful independent modules that allow developers to modify the Trello experience while still maintaining member control. Power-Ups represent the ability to enrich the experience of members by modifying and improving their interactions with Boards and Cards. Power-Ups are currently only available to members as part of Business Class or Enterprise.
-	</p>
-	<p>
-	Some great examples of Power-Ups are available as part of Business Class. Learn more about our <a href="http://blog.trello.com/github-and-trello-integrate-your-commits/?utm_source=integrations&utm_medium=web">Github Power-Up</a>, or our <a href="http://blog.trello.com/trello-salesforce-integration/?utm_source=integrations&utm_medium=web">SalesForce Power-Up</a>.</p>
-
-	<h2>How They Work</h2>
-	<p>Fundamentally, Power-Ups are run client-side within the Trello experience. Power-Ups are registered within the Trello server, which makes them available to users. Each time a member looks at the list of available Power-Ups, we reload the manifest of your Power-Up and render this information to the member.</p>
+	<p>Fundamentally, Power-Ups are run client-side within the Trello experience. Power-Ups are registered within the Trello server, which makes them available to members. Each time a member looks at the list of available Power-Ups, we reload the manifest of your Power-Up and render this information to the member.</p>
 	<p>Once a user has chosen to add a Power-Up to a board, the Power-Up’s functionality is loaded via an iFrame. The Trello client posts messages to your Power-Up’s iFrame and expects any declared capabilities to be handled in a reasonable timeframe.</p>
 	<p>With each message that we post to your Power-Up, we will also give you access to a Trello object that allows you to interact with member content, and limited data storage.</p>
 	<p>The current Power-Ups architecture makes extensive use of callbacks and promises because the core Trello web architecture is heavily asynchronous, taking advantage of both asynchronous XHR requests and web sockets. You will most often be defining methods that Trello will invoke at appropriate times, and you will need to supply and handle promises that are provided to you.</p>
@@ -17,22 +11,22 @@
 	<h3>manifest.json</h3>
 	<p>We load your Manifest each time a user tries to add or manage their power-ups. Your Manifest identifies and describes your Power-Up, and it determines which capabilities we attempt to execute from your Power-Up.</p>
 	<pre>{
-	  "name": "Appear.in",
-	  "description": "",
-	  "details": "The [Appear.in](https://appear.in) Power-Up attaches a persistent video chat to the board via a link in the board header.",
-	  "icon": {
-	    "url": "./images/appearin.png"
-	  },
-	  "author": "Trello Inc",
-	  "capabilities": [
-	    "board-buttons"
-	  ],
-	  "connectors": {
-	    "iframe": {
-	      "url": "./"
-	    }
-	  }
-	}</pre>
+  "name": "Appear.in",
+  "description": "",
+  "details": "The [Appear.in](https://appear.in) Power-Up attaches a persistent video chat to the board via a link in the board header.",
+  "icon": {
+    "url": "./images/appearin.png"
+  },
+  "author": "Trello Inc",
+  "capabilities": [
+    "board-buttons"
+  ],
+  "connectors": {
+    "iframe": {
+      "url": "./"
+    }
+  }
+}</pre>
 	<p>Your manifest location will be one of the things required as part of setting up your Power-Up. You should consider a separate location for a development Manifest, as well as a production Manifest. Additionally, all files hosted on your servers must be served over HTTPS.</p>
 	<p>The URL referenced within connectors.iframe.url is relative to the path of your manifest.json file.</p>
 	<p>Please supply support information as part of your Power-Up description.</p>
