@@ -2,7 +2,7 @@
 
 	<h2>Menus</h2>
 	<p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked as the callback when a member clicks on the card-button returned as part of the plugin initialization. 
-	Initially the callback runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create an overlay via t.overlay that loads the appropriate interface in a new iFrame.</p>
+	Initially the callback runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create an overlay via t.overlay that loads the appropriate interface in a new iframe.</p>
 	<p>Below is a sample callback from our Dropbox integration:</p>
 <pre>var attachFile = function(t) {
   return t.overlay({
@@ -39,7 +39,7 @@ module.exports = function(t) {
 }</pre>
 	<p>Popups can be nested, which will automatically provide a back button in the corner of the popup. You can also request that search be allowed on the popup. This will provide native web client functionality for performing full text searches of your supplied items.
 	</p>
-	<p>Alternatively, popups can be created containing an iFrame by supplying a title, URL, and height instead of a set of items.</p>
+	<p>Alternatively, popups can be created containing an iframe by supplying a title, URL, and height instead of a set of items.</p>
 
 	<h3>Attachment</h3>
 	<p>Attachments can be created with the <strong>t.attach</strong> method, but they can only be removed by the user using the standard web experience in the attachments section, or by clicking in the upper right hand corner of any attachment-section claiming an attachment.</p>

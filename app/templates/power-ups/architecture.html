@@ -1,7 +1,7 @@
 <div class="app-content">
 	<h2>Power-Ups Architecture</h2>
 	<p>Fundamentally, Power-Ups are run client-side within the Trello experience. Power-Ups are registered within the Trello server, which makes them available to members. Each time a member looks at the list of available Power-Ups, we reload the manifest of your Power-Up and render this information to the member.</p>
-	<p>Once a user has chosen to add a Power-Up to a board, the Power-Up’s functionality is loaded via an iFrame. The Trello client posts messages to your Power-Up’s iFrame and expects any declared capabilities to be handled in a reasonable timeframe.</p>
+	<p>Once a user has chosen to add a Power-Up to a board, the Power-Up’s functionality is loaded via an iframe. The Trello client posts messages to your Power-Up’s iframe and expects any declared capabilities to be handled in a reasonable timeframe.</p>
 	<p>With each message that we post to your Power-Up, we will also give you access to a Trello object that allows you to interact with member content, and limited data storage.</p>
 	<p>The current Power-Ups architecture makes extensive use of callbacks and promises because the core Trello web architecture is heavily asynchronous, taking advantage of both asynchronous XHR requests and web sockets. You will most often be defining methods that Trello will invoke at appropriate times, and you will need to supply and handle promises that are provided to you.</p>
 	<p>All hosted assets must be hosted over HTTPS.</p>
@@ -9,7 +9,7 @@
 	<h2>Power-Up File Structure</h2>
 	<p>Virtually everything about Power-Ups is configurable (outside of the manifest) in terms of filenames and structure.</p>
 	<h3>manifest.json</h3>
-	<p>We load your Manifest each time a user tries to add or manage their power-ups. Your Manifest identifies and describes your Power-Up, and it determines which capabilities we attempt to execute from your Power-Up.</p>
+	<p>We load your Manifest each time a user tries to add or manage their Power-Ups. Your Manifest identifies and describes your Power-Up, and it determines which capabilities we attempt to execute from your Power-Up.</p>
 	<pre>{
   "name": "Appear.in",
   "description": "",
@@ -31,5 +31,5 @@
 	<p>The URL referenced within connectors.iframe.url is relative to the path of your manifest.json file.</p>
 	<p>Please supply support information as part of your Power-Up description.</p>
 	<h3>Index Connector</h3>
-	<p>Once a user has added your plugin to one of their boards, each time the board is loaded, we will load your specified connector URL in an iFrame. It is this page that we will be using to expose functionality, and to invoke capabilities.</p>
+	<p>Once a user has added your Power-Up to one of their boards, each time the board is loaded, we will load your specified connector URL in an iframe. It is this page that we will be using to expose functionality, and to invoke capabilities.</p>
 </div>
