@@ -9,7 +9,7 @@
   <ol>
     <li><a href="" ng-click="scrollTo('connect');">Connect to the client.js library</a></li>
     <li><a href="" ng-click="scrollTo('authenticate');">Authenticate your user</a></li>
-    <li><a href="" ng-click="scrollTo('create');">Create cards and update information</a></li>
+    <li><a href="" ng-click="scrollTo('create');">Create Cards and update information</a></li>
   </ol>
 
   <h3 id="connect">1. Connect to the client.js library</h3>
@@ -39,25 +39,25 @@
     ID and the user who is executing the flow.</p>
   <p>It's important to understand that the Authentication Token gives your application
     the ability to make calls on behalf of your user, from their context. This token
-    grants access to the authenticated user's boards, lists, cards, and other settings,
+    grants access to the authenticated user's boards, lists, Cards, and other settings,
     depending on the permissions you requested in the authenticate method.</p>
   <h4>Define Success and Failure</h4>
   <p>First, let's define what happens when authentication has finished using success
     and failure callbacks.</p>
 
-<pre>var authenticationSuccess = function() { console.log("Successful authentication"); };
-var authenticationFailure = function() { console.log("Failed authentication"); };</pre>
+<pre>var authenticationSuccess = function() { console.log(Successful authentication); };
+var authenticationFailure = function() { console.log(Failed authentication); };</pre>
 
   <h4>Authenticate and Authorize your user</h4>
   <p>Now let's attempt authentication and authorization in one step.</p>
 
 <pre>Trello.authorize({
-  type: "popup",
-  name: "Getting Started Application",
+  type: popup,
+  name: Getting Started Application,
   scope: {
     read: true,
     write: true },
-  expiration: "never",
+  expiration: never,
   success: authenticationSuccess,
   error: authenticationFailure
 });</pre>
@@ -74,8 +74,8 @@ var authenticationFailure = function() { console.log("Failed authentication"); }
     a List ID that belongs to a user. There are a few ways of doing this depending
     on your skillsets. One such way is to use the Chrome Dev Tools to watch network
     traffic from the official client.</p>
-  <p>To try to make this easy, we'll be dumping the JSON from a known card. Open the
-    official Trello web client and find a card from a list that you want to use as
+  <p>To try to make this easy, we'll be dumping the JSON from a known Card. Open the
+    official Trello web client and find a Card from a list that you want to use as
     your target.</p>
   <p>It should have a short URL that looks like
     <pre>https://trello.com/c/DcqBrqdx/1-target-card</pre>
@@ -83,24 +83,28 @@ var authenticationFailure = function() { console.log("Failed authentication"); }
   <p>Take that URL and add .json to the end as follows:</p>
   <pre>https://trello.com/c/DcqBrqdx/1-target-card.json</pre>
   <p>Within the raw JSON dump you get when pulling up this new URL, you will see a field
-    called "idList". We're about to use this to create a new card in the same list.</p>
+    called idList. We're about to use this to create a new Card in the same list.</p>
 
-  <h4>Creating a card</h4>
-  <p>Creating a card is one of the simplest API calls you can make. We just create a
-    card object that contains the parameters we want to set, and then POST it to
+  <h4>Creating a Card</h4>
+  <p>Creating a Card is one of the simplest API calls you can make. We just create a
+    Card object that contains the parameters we want to set, and then POST it to
     the API.</p>
-  <pre>var myList = "INSERT YOUR IDLIST HERE";
+  <pre>var myList = INSERT YOUR IDLIST HERE';
 var creationSuccess = function(data) {
-  console.log("Card created successfully. Data returned:" + JSON.stringify(data));
+  console.log('Card created successfully. Data returned:' + JSON.stringify(data));
 };
-var newCard = {name: "New Test Card", desc: "This is the description of our
-  new card.", pos: "top", // Place this card at the top of our list idList: myList,
+var newCard = {
+  name: 'New Test Card', 
+  desc: 'This is the description of our new card.',
+  // Place this card at the top of our list 
+  idList: myList,
+  pos: 'top'
 };
-Trello.post("/cards", newCard, creationSuccess);</pre>
+Trello.post('/cards/', newCard, creationSuccess);</pre>
 
   <h4>Updating Data</h4>
   <p>Now that we have created a card and retrieved its ID via the log, we're going to
     make an update to this card. To do so, we will PUT a new name for it.</p>
-  <pre>Trello.put("/cards/[ID]", {name: "New Test Card"});</pre>
+  <pre>Trello.put('/cards/[ID]', {name: 'New Test Card'});</pre>
 
 </div>
