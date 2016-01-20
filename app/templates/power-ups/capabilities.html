@@ -6,63 +6,59 @@
 	<ol>
 	<li><strong><a href="#board-buttons">board-buttons</a></strong>
 	<ul>
-	<li>Add a single button to a Board at the top of the screen</li>
+	<li>Allows you to add one or more buttons to a Board at the top right of the screen</li>
 	</ul>
 	</li>
 
 	<li><strong><a href="#card-badges">card-badges</a></strong>
 	<ul>
-	<li>Allows you to add a badges to the front of cards</li>
-	<li>Called when opening a Board</li>
-	<li>Card badges are also refreshed on an interval that you specify to keep the UI fresh</li>
+	<li>Allows you to add badges to the front of cards</li>
+	<li>Card badges can also be refreshed on an interval that you specify</li>
 	</ul></li>
 
 
 	<li><strong><a href="#card-detail-badges">card-detail-badges</a></strong>
 	<ul>
 	<li>Allows you to add badges on the back of cards</li>
-	<li>Rendered when on the back of the card</li>
+  <li>Card detail badges can also be refreshed on an interval that you specify</li>
 	</ul></li>
 
 	<li><strong><a href="#attachment-sections">attachment-sections</a></strong>
 	<ul>
-	<li>Allows you to add sections to back of a card, each containing an iframe</li>
-	<li>Called when opening a card</li>
+	<li>Allows you to add sections to the back of a card, each containing an iframe</li>
 	<li>You will need to iterate through a list of Card attachments stored in options.entries</li>
-	<li>Return list of URLs that you are claiming</li>
+	<li>Return list of attachments that you are claiming per section</li>
 	</ul></li>
 
 	<li><strong><a href="#attachment-thumbnail">attachment-thumbnail</a></strong>
 	<ul>
 	<li>Allows you to improve the attachment preview on the back of a card, for when you don't need a whole iframe</li>
-	<li>Called when opening viewing the back of a card</li>
 	<li>Specify the link, the text shown for “opening” the attachment, and the thumbnail</li>
 	</ul></li>
 
 	<li><strong><a href="#card-buttons">card-buttons</a></strong>
 	<ul>
-	<li>Rendered when on the back of the card</li>
-	<li>Return list of buttons { icon, text, callback -> method}</li>
+	<li>Allows you to add one or more buttons on the back of cards</li>
+	<li>Each button should have { icon, text, callback -> method }</li>
 	</ul></li>
 
 	<li><strong><a href="#format-url">format-url</a> </strong>
 	<ul>
-	<li>Allows you to modify the rendering of activity on the sidebar, and any time we would display a URL</li>
+	<li>Allows you to modify the rendering of a URL any time we would display a URL such as in a Card comment</li>
 	<li>Rendered in the sidebar, in markdown, and anywhere else URLs are shown</li>
-	<li>Make URLs nicer</li>
-	<li>Return an update icon and text</li>
+	<li>Make URLs nicer and easier to understand by replacing the raw URL with an icon and text</li>
 	</ul></li>
 
 	<li><strong><a href="#card-from-url">card-from-url</a></strong>
 	<ul>
-	<li>Use information that you know (via authentication or algorithmically), to handle drag and dropped URLs</li>
+	<li>Allows you to use information that you know (via authentication or algorithmically), to handle drag and dropped URLs</li>
 	<li>Set the name and description of the card based on the URL being dropped</li>
 	</ul></li>
 
 	<li><strong><a href="#show-settings">show-settings</a></strong>
 	<ul>
-	<li>If you want a gear icon in the menu bar for configuring your Power-Up</li>
-	<li>If you are setting Board-level attributes such as which GitHub repository is on a Board</li>
+	<li>Allows you to have a gear button in the menu bar for configuring your Power-Up</li>
+	<li>Useful if you are setting Board-level attributes such as which GitHub repository is on a Board</li>
 	</ul></li>
 	<hr/>
 
@@ -287,7 +283,7 @@
 		return {
 			icon: './images/trello-icon.png',
 			text: options.url
-			
+
 		};
 	} else {
 		throw t.NotHandled("Not a handled URL");
