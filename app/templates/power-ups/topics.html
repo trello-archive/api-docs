@@ -58,7 +58,7 @@ module.exports = function(t) {
 	<p>We also trigger authentication after a user attempts to perform an action that requires it, such as when attaching a GitHub Issue to a card.</p>
 	<img src="/images/content/sample-authentication-popup.png"/>
 	<p>When developing a Power-Up that requires authentication, try to offer as much functionality in a non-authenticated state as possible, and add non-intrusive links to authenticate the user to provide more functionality.</p>
-	<p>To achieve Authentication, you will often need to use the t.authenticate method. Here’s a code sample of how we handle the OAuth workflow from within the DropBox Power-Up authentication Iframe.</p>
+	<p>To achieve Authentication, you will often need to use the t.authenticate method. Here’s a code sample of how we handle the OAuth workflow from within the Dropbox Power-Up authentication iframe.</p>
   <p>Client side we need to wire up what should happen when the authenticate button or link is clicked, which is handled by the following code. Here we rely primarily on postMessage to get the token back, and fallback to localStorage in the event we are unable to postMessage the token back.</p>
 	<pre>var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
