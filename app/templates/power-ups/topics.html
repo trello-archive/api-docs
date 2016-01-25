@@ -1,7 +1,7 @@
 <div class="app-content">
 
 	<h2>Menus</h2>
-	<p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked as the callback when a member clicks on the card-button returned as part of the plugin initialization. 
+	<p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked as the callback when a member clicks on the card-button returned as part of the plugin initialization.
 	Initially the callback runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create an overlay via t.overlay that loads the appropriate interface in a new iframe.</p>
 	<p>Below is a sample callback from our Dropbox integration:</p>
 <pre>var attachFile = function(t) {
@@ -59,10 +59,29 @@ module.exports = function(t) {
 	<img src="/images/content/sample-authentication-popup.png"/>
 	<p>When developing a Power-Up that requires authentication, try to offer as much functionality in a non-authenticated state as possible, and add non-intrusive links to authenticate the user to provide more functionality.</p>
 	<p>To achieve Authentication, you will often need to use the t.authenticate method. Here’s a code sample of how we handle the OAuth workflow from within the DropBox Power-Up authentication Iframe.</p>
-	<pre>var t = TrelloPowerUp.iframe();
-handleAuthorize(t);
+  <p>Client side we need to wire up what should happen when the authenticate button or link is clicked, which is handled by the following code. Here we rely primarily on postMessage to get the token back, and fallback to localStorage in the event we are unable to postMessage the token back.</p>
+	<pre>var Promise = TrelloPowerUp.Promise;
+var t = TrelloPowerUp.iframe();
 
-handleAuthorize = function(t, selector){
+var storageEventHandler = function(t, resolve){
+  var handler = function(e){
+    if(e.key == 'token' && e.newValue){
+      return t.set('organization', 'private', 'token', e.newValue)
+      .catch(t.NotHandled, function(){
+        return t.set('board', 'private', 'token', e.newValue)
+      })
+      .then(function(){
+        window.removeEventListener('storage', handler, false);
+        localStorage.removeItem('token');
+      })
+      .then(resolve)
+      .done();
+    }
+  };
+  return handler;
+};
+
+var handleAuthorize = function(t, selector){
   selector = selector || '#authorize';
   var el = document.querySelector(selector);
   if(!el) {
@@ -70,9 +89,10 @@ handleAuthorize = function(t, selector){
   }
   return new Promise(function(resolve){
     el.addEventListener('click', function(){
+      window.addEventListener('storage', storageEventHandler(t, resolve), false);
       t.authorize(function(secret) {
         return './auth?secret=' + secret;
-      })
+      }, { width: 600, height: 680 })
       .then(function(token){
         return t.set('organization', 'private', 'token', token)
         .catch(t.NotHandled, function(){
@@ -83,8 +103,40 @@ handleAuthorize = function(t, selector){
       .done();
     })
   })
-}</pre>
-	
+};
+
+handleAuthorize(t);</pre>
+<p>Server side we handle the OAuth flow, and upon receiving the token, return the following page to the client. Note that this server side sample is written in CoffeeScript and uses node.js and express. To be able to use TrelloPowerUp.PostMessageIO, you need to ensure you hold onto the secret that was sent from t.authorize().</p>
+<pre>_returnToken: (res, secret, token) ->
+  secret = (secret || "").replace(/[^a-zA-Z0-9]/g, '')
+  if /[&lt;&gt;]/.test(token)
+    return res.sendStatus(500)
+
+  res.send """
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="https://trello.com/power-ups/power-up.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+      IO = new TrelloPowerUp.PostMessageIO({
+        local: window,
+        remote: window.opener,
+        targetOrigin: location.href.replace(/^([^\\/]*\\/\\/[^\\/]*).*/, '$1'),
+        secret: '#{ secret }'
+      });
+      IO.request('value', #{ JSON.stringify({ token }) })
+      .timeout(1000)
+      .then(function(){
+        window.close();
+      })
+      .catch(function(){
+        localStorage.setItem('token', #{ JSON.stringify(token) });
+        window.close();
+      });
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;/html&gt;
+"""</pre>
+
 	<h3>Data Storage</h3>
 	<p>There are various scopes that can be used to store data. These scopes are determined by the visibility level, and the entity it is attached to.</p>
 	<table>
