@@ -32,4 +32,28 @@
 	<p>Please supply support information as part of your Power-Up description.</p>
 	<h3>Index Connector</h3>
 	<p>Once a user has added your Power-Up to one of their boards, each time the board is loaded, we will load your specified connector URL in an iframe. It is this page that we will be using to expose functionality, and to invoke capabilities.</p>
+  <p>Your index connector will need to include the Trello hosted Power-Up script from https://trello.com/power-ups/power-up.min.js which will put a TrelloPowerUp object on the window scope.</p>
+  <p>Your index connector is also responsible for initializing your Power-Up and providing the callback functions for each of your supported capabilities.</p>
+  <pre>TrelloPowerUp.initialize({
+  'board-buttons': function(t, options){
+    return [{
+    icon: './images/icon-white.svg',
+    text: 'My Button',
+    callback: function(t){
+      // do something when the button is clicked
+    }}];
+  },
+  'show-settings': function(t, options){
+    return t.popup({
+      title: 'Settings',
+      url: './settings.html',
+      height: 184
+    });
+  }
+});</pre>
+<h3>Additional iframes</h3>
+<p>Your Power-Up will often need to show additional iframes, such as when using t.overlay() or t.popup(). These pages should also include the Power-Up client library script in order to enable communications with Trello.</p>
+<p>To initialize the Power-Up from an iframe other than your connector you should call:</p>
+<pre>var t = TrelloPowerUp.iframe();</pre>
+<p>After you have initialzed the Power-Up in your iframe, you can use all of the t helper methods such as t.render(), t.sizeTo(), t.get(), etc.</p>
 </div>
