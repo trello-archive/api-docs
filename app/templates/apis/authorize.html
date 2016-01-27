@@ -2,7 +2,8 @@
 
     <h2>Authorizing a Client
   <review-bar></review-bar></h2>
-  <p>There are two ways to authorize a client. The first is via our authorize route, the second is via basic OAuth.</p>
+  <p>There are two ways to authorize a client and receive a User Token. The first is via our authorize route, the second is via basic OAuth.</p>
+  <p>You must ask your users for permission using your Application Key to get access to a Token. If you are building a server application, you can get a single purpose token by authorizing access to your personal data at a url such as: <pre>https://trello.com/1/authorize?expiration=never&name=SinglePurposeToken&key=REPLACEWITHYOURKEY</pre></p>
 
   <h3>Using the Authorize Route</h3>
 
