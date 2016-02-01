@@ -17,6 +17,7 @@
 		<li><a href="#cards">Cards</a></li>
 		<li><a href="#actions">Actions</a></li>
 		<li><a href="#webhooks">Webhooks</a></li>
+		<li><a href="#paging">Paging</a></li>
 		<li><a href="#recursion">Recursion Helpers</a></li>
 		<li><a href="#search">Search</a></li>
 	</ol>
@@ -103,7 +104,10 @@
 	</ul>
 	<p><a href="/apis/webhooks">Learn more about Webhooks</a></p>
 	
-
+	<h2 id="paging">Paging</h2>
+	<p>When querying for long lists, such as a list of Cards, or a list of Actions, the Trello API limits you to at most 1000 results. Because these lists can have members added or removed at any time, the right way to iterate through more than 1000 results is to use the <strong>before</strong> and <strong>since</strong> parameters.</p>
+	<p>These parameters operate on the creation date of the Card or Action. The API expects a ISO 8601 date format. Because we use standard Mongo IDs, you can actually derive the Card creation date from the Card ID. (Here is one such tool: <a href="https://steveridout.github.io/mongo-object-time/">https://steveridout.github.io/mongo-object-time/</a>). As a convenience, you can also pass in the ID of a Card or Action and we will derive the date for you.</p>
+	<p>This means to page through the Actions on a large Board, you should request the Actions and then pass the ID of the last Action as the <strong>before</strong> parameter.</p>
 
 
 	<h2 id="recursion">Recursion Helpers</h2>
