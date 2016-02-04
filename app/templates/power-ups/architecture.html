@@ -32,7 +32,7 @@
 
 	<h3 id="index-connector">Index Connector</h3>
 	<p>Once a user has added your Power-Up to one of their boards, each time the board is loaded, we will load your specified connector URL in an iframe. It is this page that we will be using to expose functionality, and to invoke capabilities.</p>
-  <p>Your index connector should use a &lt;script;&gt; tag to include the Trello hosted <a ui-sref="power-ups.client-library">Power-Up library</a>.</p>
+  <p>Your index connector should use a &lt;script&gt; tag to include the Trello hosted <a ui-sref="power-ups.client-library">Power-Up library</a>.</p>
   <p>Your index connector is also responsible for initializing your Power-Up and providing the callback functions for each of your supported capabilities.</p>
   <pre>TrelloPowerUp.initialize({
   'board-buttons': function(t, options){

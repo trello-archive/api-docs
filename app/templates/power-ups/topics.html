@@ -166,7 +166,7 @@ handleAuthorize(t);</pre>
 	<p>Members can reset their private data at any time via the Power-Ups menu.</p>
 
 	<h3>Recoloring</h3>
-	<p>Several of the images and icons rendered by Trello are passed a query string parameter color with each load. This parameter is designed to ensure that icons have great usability even when the background behind an image may change.</p>
+	<p>Trello expects you to change the color of any icons you use based on a query parameter that we will provide. This parameter is designed to ensure that icons have great usability even when the background behind an image may change.</p>
 	<p>For example, card badge icons are expected to be grey (#999) in their default state, but when a color is applied to the badge (such as ‘red’), the icon is passed <strong>?color=fff</strong>. This behavior means that the icon should be recolored such that the primary color used is white, ensuring the image will look good and have good usability on a red background.</p>
 
 	<h3>Timeouts</h3>
@@ -201,24 +201,6 @@ handleAuthorize(t);</pre>
 	"key": "value with replaceable {arguments}"
 }</pre>
 	<p>Again, dot notation is not supported for arguments. This also limits how you can use braces {} in that there is no escaping currently supported.</p>
-
-
-
-	<h3>What's the "context"?</h3>
-	<p>When the Trello web client initiates a request to a Power-Up, the request is made with a certain context. The context may include things like a board, card or DOM element. When the Power-Up asks the Trello web client to do something, like get the data for a card, it provides the context as part of the request, so Trello knows which card it's providing data for. This means that a Power-Up is only able to get information about cards that the web client initiated a request about.</p>
-	<p>A Power-Up's response to a request might contain information about an iframe that the Power-Up wants Trello to display to the user; it's possible that the Power-Up will be passing its context to that iframe. This means that the context can be long lived, i.e. the iframe might later ask about the card that it was created for.</p>
-	<p>Things get a little tricky with regards to the element that's part of the context. We don't want to have to keep a reference to a part of the DOM forever; that could take up a lot of memory … so we say that the element is part of the "immediate context". While a Power-Up could respond to an attachment-sections request by creating an iframe that eventually asks about the card in context, a Power-Up is only able to do something using the element in context while the initial request is active; once the initial request has resolved, the element is no longer available. (Think of this like how some browsers will only let you spawn a new window in direct response to a click event)</p>
-	<p>From the Power-Up perspective, the context is opaque; it shouldn't try to directly extract any data from it, instead it should just supply it verbatim when making requests to trello.</p>
-	<h4>Example context</h4>
-<pre>{
-context: Object
-board: "564221b82fee99aa3b593502"
-card: "564221c32fee99aa3b593518"
-command: "card-buttons"
-Power-Up: "55a5d917446f51777421000f"
-__proto__: Object
-locale: "en-US"
-}</pre>
 
 	<h3>What are callbacks?</h3>
 	<p>Sometimes a Power-Up wants the web client to create a bit of UI, and the Power-Up wants to know when the user interacts with that UI (e.g. when the user clicks on a button)
