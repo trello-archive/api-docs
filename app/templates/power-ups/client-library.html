@@ -1,7 +1,7 @@
 <div class="app-content">
 	<h2>Power-Up Client Library</h2>
 	<p>We provide and host a Javascript library for all Power-Ups. This Library gives you access to a standardized communication structure between your Power-Up and the Trello web experience. </p>
-	<p>By using this library, your application-specific code can be simplified to the set of capabilities that you wish to expose.
+	<p>By using this library, your application-specific code can be simplified to the set of <a ui-sref="power-ups.capabilities)">capabilities that you wish to expose.
 	The library is hosted here:</p>
 	<a href="https://trello.com/power-ups/power-up.min.js" target="_blank">https://trello.com/power-ups/power-up.min.js</a>
 	<a href="https://trello.com/power-ups/power-up.js" target="_blank">https://trello.com/power-ups/power-up.js</a>
@@ -9,7 +9,67 @@
 	<p>We also provide a CSS file which you should use to automatically achieve a consistent style with Trello:</p>
 	<a href="https://trello.com/power-ups/power-up.css" target="_blank">https://trello.com/power-ups/power-up.css</a>
 
-
+	<h3>initialize({'[capability-name]':function() {}, ...})</h3>
+	<p>The most important method of the Client Library which is required for all Power-Ups, is the <strong>initialize</strong> method. This method should be called within your <a ui-sref="power-ups.architecture({'#':'index-connector'})">index connector</a>. Initialize accepts only one parameter, a JavaScript object containing any of the <a ui-sref="power-ups.capabilities">capabilities</a> you wish to use in your Power-Up, with the name of the capability as the key, and the function you would like us to call when a capability is executed as the value.</p>
+	<pre>TrelloPowerUp.initialize({
+  'board-buttons': function(t, options){
+    return [{
+    icon: './images/icon-white.svg',
+    text: 'My Button',
+    callback: function(t){
+      // do something when the button is clicked
+    }}];
+  },
+  'show-settings': function(t, options){
+    return t.popup({
+      title: 'Settings',
+      url: './settings.html',
+      height: 184
+    });
+  }
+});</pre>
+	<p>Each capability that you include in your initialization will take a reference to the <strong>t</strong> object and a options or context object. This object will include various things depending on the capability.</p>
+	<p>Board Capability Options</p>
+	<pre>{
+  "context":{
+    "board":"55db14fd3e105ac84105bd75",
+    "command":"board-buttons",
+    "plugin":"564ddf493f183488ea5ddc0e"
+  },
+  "locale":"en-US"
+}</pre>
+	<p>Card Capability Options</p>
+	<pre>{
+  "context":{
+    "board":"55db14fd3e104ac8b105bd75",
+    "card":"563b532e4e998440d0d88e62",
+    "command":"card-detail-badges",
+    "plugin":"564ddf493f184b88ea5ddc0e"
+  },
+  "locale":"en-US"
+} </pre>
+	<p>Attachment Sections Options</p>
+	<pre>{
+  "entries":[
+  	{"id":"56a2467476812315cbbbcbe4","url":"https://example.org/url","name":"https://example.org/url"},
+  	...
+  	{"id":"569e5ab156d89775e853ebb4","url":"https://example.org/url","name":"Attachment Name"}
+  ],
+  "context":{
+    "board":"55db14fd3e105ac8b105bd75",
+    "card":"569d3e15729379ff9b9f6f90",
+    "command":"attachment-sections",
+    "options":{
+      "entries":[
+        {"id":"56a2467476812315cbbbcbe4","url":"https://example.org/url","name":"https://example.org/url"},
+  	    ...
+  	    {"id":"569e5ab156d89775e853ebb4","url":"https://example.org/url","name":"Attachment Name"}
+      ]
+    },
+    "plugin":"564ddf493f183b88ea5ddc0e"
+  },
+  "locale":"en-US"
+}</pre>
 	<h3>UX Methods</h3>
 	<ul>
 	<li><strong>render(function renderer)</strong>

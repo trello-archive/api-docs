@@ -1,23 +1,23 @@
 <div class="app-content">
-	<h2>Power-Ups Architecture</h2>
-	<p>Fundamentally, Power-Ups are run client-side within the Trello experience. Power-Ups are registered within the Trello server, which makes them available to members. Each time a member looks at the list of available Power-Ups, we reload the manifest of your Power-Up and render this information to the member.</p>
-	<p>Once a user has chosen to add a Power-Up to a board, the Power-Up’s functionality is loaded via an iframe. The Trello client posts messages to your Power-Up’s iframe and expects any declared capabilities to be handled in a reasonable timeframe.</p>
-	<p>With each message that we post to your Power-Up, we will also give you access to a Trello object that allows you to interact with member content, and limited data storage.</p>
-	<p>The current Power-Ups architecture makes extensive use of callbacks and promises because the core Trello web architecture is heavily asynchronous, taking advantage of both asynchronous XHR requests and web sockets. You will most often be defining methods that Trello will invoke at appropriate times, and you will need to supply and handle promises that are provided to you.</p>
-	<p>All hosted assets must be hosted over HTTPS.</p>
+  <h2>Power-Ups Architecture</h2>
+  <p>Fundamentally, Power-Ups are run client-side within the Trello experience. Power-Ups are registered within the Trello server, which makes them available to members. Each time a member looks at the list of available Power-Ups, we reload the manifest of your Power-Up and render this information to the member.</p>
+  <p>Once a user has chosen to add a Power-Up to a board, the Power-Up’s functionality is loaded via an iframe. The Trello client posts messages to your Power-Up’s iframe and expects any declared <a ui-sref="power-ups.capabilities">capabilities</a> to be handled in a reasonable timeframe.</p>
+  <p>With each message that we post to your Power-Up, we will also give you access to a Trello object that allows you to interact with member content, and limited data storage.</p>
+  <p>The current Power-Ups architecture makes extensive use of callbacks and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">promises</a> because the core Trello web architecture is heavily asynchronous. You will most often be defining methods that Trello will invoke at appropriate times, and you will need to supply and handle promises that are provided to you.</p>
+  <p>All hosted assets must be hosted over HTTPS.</p>
 
-	<h2>Power-Up File Structure</h2>
-	<p>Virtually everything about Power-Ups is configurable (outside of the manifest) in terms of filenames and structure.</p>
-	<h3>manifest.json</h3>
-	<p>We load your Manifest each time a user tries to add or manage their Power-Ups. Your Manifest identifies and describes your Power-Up, and it determines which capabilities we attempt to execute from your Power-Up.</p>
+  <h2>Power-Up File Structure</h2>
+  <p>Virtually everything about Power-Ups is configurable (outside of the manifest) in terms of filenames and structure.</p>
+  <h3 id="manifest">manifest.json</h3>
+  <p>We load your Manifest each time a member tries to add or manage their Power-Ups, or every time your Power-Up is activated by a Member loading a board. Your manifest determines which <a ui-sref="power-ups.capabilities">capabilities</a> we attempt to execute from your Power-Up.</p>
+  <p>We require <strong>name</strong>, <strong>details</strong>, <strong>icon</strong>, <strong>author</strong>, <strong>capabilities</strong>, and <strong>connectors</strong> parameters as shown in this sample:</p>
 	<pre>{
-  "name": "Appear.in",
-  "description": "",
-  "details": "The [Appear.in](https://appear.in) Power-Up attaches a persistent video chat to the board via a link in the board header.",
+  "name": "Power-Up Name",
+  "details": "The [Power-Up Name](https://example.org) is awesome because it can...",
   "icon": {
-    "url": "./images/appearin.png"
+    "url": "./images/icon.png"
   },
-  "author": "Trello Inc",
+  "author": "Your Name Here",
   "capabilities": [
     "board-buttons"
   ],
@@ -27,12 +27,12 @@
     }
   }
 }</pre>
-	<p>Your manifest location will be one of the things required as part of setting up your Power-Up. You should consider a separate location for a development Manifest, as well as a production Manifest. Additionally, all files hosted on your servers must be served over HTTPS.</p>
-	<p>The URL referenced within connectors.iframe.url is relative to the path of your manifest.json file.</p>
-	<p>Please supply support information as part of your Power-Up description.</p>
-	<h3>Index Connector</h3>
+	<p>Your manifest location will be one of the things required as part of setting up your Power-Up. You will not be able to change your manifest location after it is set. Additionally, all files hosted on your servers must be served over HTTPS.</p>
+	<p>The URL referenced within <strong>connectors.iframe.url</strong> is relative to the path of your manifest.json file.</p>
+
+	<h3 id="index-connector">Index Connector</h3>
 	<p>Once a user has added your Power-Up to one of their boards, each time the board is loaded, we will load your specified connector URL in an iframe. It is this page that we will be using to expose functionality, and to invoke capabilities.</p>
-  <p>Your index connector will need to include the Trello hosted Power-Up script from https://trello.com/power-ups/power-up.min.js which will put a TrelloPowerUp object on the window scope.</p>
+  <p>Your index connector should use a &lt;script;&gt; tag to include the Trello hosted <a ui-sref="power-ups.client-library">Power-Up library</a>.</p>
   <p>Your index connector is also responsible for initializing your Power-Up and providing the callback functions for each of your supported capabilities.</p>
   <pre>TrelloPowerUp.initialize({
   'board-buttons': function(t, options){
@@ -52,8 +52,161 @@
   }
 });</pre>
 <h3>Additional iframes</h3>
-<p>Your Power-Up will often need to show additional iframes, such as when using t.overlay() or t.popup(). These pages should also include the Power-Up client library script in order to enable communications with Trello.</p>
+<p>Your Power-Up will often need to show additional iframes, such as when using <strong>t.overlay()</strong> or <strong>t.popup()</strong>. These pages should also include the Power-Up client library script in order to enable communications with Trello.</p>
 <p>To initialize the Power-Up from an iframe other than your connector you should call:</p>
 <pre>var t = TrelloPowerUp.iframe();</pre>
-<p>After you have initialzed the Power-Up in your iframe, you can use all of the t helper methods such as t.render(), t.sizeTo(), t.get(), etc.</p>
-</div>
+<p>After you have initialzed the Power-Up in your iframe, you can use all of the <strong>t</strong> helper methods such as <strong>t.render()</strong>, <strong>t.sizeTo()</strong>, <strong>t.get()</strong>, etc.</p>
+
+
+<h3>Examined Power-Up - Appear.in</h3>
+<p>
+To understand the general architecture of Capabilities, we will use a sample Appear.in plugin to demonstrate one of the simplest Capabilities, “board-buttons”. This Capability adds a button to the top of the board. 
+</p>
+<pre>var AppearIn = require('appearin-sdk');
+
+var appearin = new AppearIn();
+var roomUrl = function(path) {
+  return "https://appear.in/trello.com/" + path;
+}
+
+
+// Initialize the Trello PowerUp with our capabilities
+TrelloPowerUp.initialize({
+  // Specify the board-buttons method to call, taking both
+  // a “t” object that exposes Trello member information and
+  // a reference to the board context for any potential buttons
+  'board-buttons': function(t, board) {
+
+    // We verify via the Appear.in SDK that the member is 
+    // capable of using Appear.in. If not, show no button
+    if(!appearin.isWebRtcCompatible()) {
+      return [];
+    }
+
+
+    // We create a button by specifying that when the board 
+    // details promise has been resolved, we return an object 
+    // with the contents of the button once the board details 
+    // have been loaded
+    return t.board()
+    .then(function(board){
+      var url = roomUrl('b/' + board.id);
+      return [
+        {
+          icon: './images/icon.svg',
+          text: "Appear.in",
+          url: url,
+          target: url
+        }
+      ]
+    })
+  }
+})</pre>
+
+<h3>Examined Power-Up - Dropbox</h3>
+<p>Dropbox is a more complex Power-Up. Our Dropbox Power-Up takes advantage of attachment-sections, attachment-thumbnail, format-url, and card-buttons.
+</p>
+<pre>
+var api = require('src/api');
+var dataForUrl = require('src/data-for-url');
+var dropboxButton = require('src/dropbox-button');
+var DropboxError = require('src/dropbox-error');
+var DropboxUrls = require('src/dropbox-urls');
+var xtend = require('xtend');
+
+var Promise = Trello.Promise;
+
+var ICON_SVG = './images/icon.svg';
+
+var uniqueClaims = function(list) {
+  var seen = {};
+  return list.filter(function(entry){
+    if(!seen[entry.url]) {
+      seen[entry.url] = true;
+      return true;
+    }
+    return false;
+  });
+}
+
+TrelloPowerUp.initialize({
+  'attachment-sections': function(t, options) {
+    var entries = options.entries;
+
+    var claimed = entries.filter(function(entry){
+      return DropboxUrls.isFolder(entry.url);
+    })
+
+    if(claimed.length == 0) {
+      return [];
+    }
+
+    return Promise.map(uniqueClaims(claimed), function(claim){
+      var parsed = DropboxUrls.parse(claim.url);
+
+      var eventualTitle = dataForUrl(t, claim.url, claim.name)
+      .get('title')
+      .then(function(title){
+        if(title && !/^https:/.test(title)) {
+          return title;
+        } else {
+          return "Dropbox Folder";
+        }
+      });
+
+      return {
+        claimed: [ claim ],
+        icon: ICON_SVG,
+        title: function(){
+          return eventualTitle
+        },
+        content: {
+          type: 'iframe',
+          url: t.signUrl('./folder.html', { url: claim.url })
+        }
+      }
+    })
+  },
+  'attachment-thumbnail': function(t, options) {
+    return dataForUrl(t, options.url, options.name, { thumbnail: true })
+    .then(function(data){
+      data.url = options.url;
+      data.openText = "Open in Dropbox";
+      data.image = {
+        url: data.thumbnail || ICON_SVG,
+        logo: !data.thumbnail
+      }
+      if(data.uninitialized) {
+        data.initialize = {
+          type: 'iframe',
+          url: t.signUrl(TrelloPowerUp.util.relativeUrl('authorize-link.html'))
+        }
+      }
+
+      return data;
+    })
+    .catch(DropboxError, function(){
+      throw t.NotHandled();
+    })
+  },
+  'format-url': function(t, options) {
+    return dataForUrl(t, options.url, options.name)
+    .then(function(data){
+      return {
+        icon: ICON_SVG,
+        text: data.title
+      }
+    })
+    .catch(DropboxError, function(){
+      throw t.NotHandled();
+    })
+  },
+  'card-buttons': function(t) {
+    return [{
+      icon: ICON_SVG,
+      text: 'Dropbox',
+      callback: dropboxButton
+    }]
+  }
+});
+</pre>

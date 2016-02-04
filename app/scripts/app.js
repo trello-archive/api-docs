@@ -1,6 +1,12 @@
-app = angular.module('BuildWithTrello', ['BuildWithTrelloControllers', 'ReviewBarDirective', 'ui.router','ngMaterial']);
+app = angular.module('BuildWithTrello', ['BuildWithTrelloControllers', 'ReviewBarDirective', 'ui.router','ngMaterial', 'ngOpbeat']);
 
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $opbeatProvider) {
+  $opbeatProvider.config({
+    debug: false,
+    orgId: '411adc346fa34378a00c88e9de15c529',
+    appId: '2428462d71'
+  });
+
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
@@ -130,11 +136,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 			url: 'client-library',
 			templateUrl: 'templates/power-ups/client-library.html',
 			data : { pageTitle: 'Power-Ups Client Library' }
-		})
-		.state('power-ups.samples', {
-			url: 'samples',
-			templateUrl: 'templates/power-ups/samples.html',
-			data : { pageTitle: 'Power-Ups Samples' }
 		})
 		.state('power-ups.topics', {
 			url: 'topics',
