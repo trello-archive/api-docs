@@ -1,5 +1,7 @@
 <span id="index"></span><h1>search<a class="headerlink" href="#search" title="Permalink to this headline"></a></h1>
 <div class="section" id="get-1-search">
+<p>The Search API allows you to perform the same search that is available within Trello at the top of the window. This means that you can use modifiers such as <strong>edited:day</strong> within the query to modify the results you get back. For more information on modifiers, click "Learn More" within the Trello search popup.</p>
+<p>Certain types of modifiers will restrict the types of objects that are returned with your search. One example of this is the <strong>edited</strong> modifier which will meant that your search will only contain <strong>Cards</strong>.</p>
 <h2>GET <span class="target" id="id1">/1/search</span><a class="headerlink" href="#get-1-search" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><strong>Arguments</strong><ul>
@@ -12,7 +14,7 @@
 <li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">idOrganizations</span></code> (required)<ul>
+<li><code class="docutils literal"><span class="pre">idOrganizations</span></code> (optional)<ul>
 <li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
 </ul>
 </li>
@@ -197,7 +199,10 @@
 <li><strong>Valid Values:</strong> a number from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">1000</span></code></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">partial</span></code> (optional)<ul>
+<li><code class="docutils literal"><span class="pre">partial</span></code> (optional)
+<p>By default, Trello searches for each word in your query against exactly matching words within Member content. Specifying <strong>partial</strong> to be <strong>true</strong> means that we will look for content that <em>starts with</em> any of the words in your query.</p>
+<p>If you are looking for a Card titled "<strong>My Development Status Report</strong>", by default you would need to search for "<strong>Development</strong>". If you have partial enabled, you will be able to search for "<strong>dev</strong>" but not "<strong>velopment</strong>". 
+<ul>
 <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
 <li><strong>Valid Values:</strong><ul>
 <li><code class="docutils literal"><span class="pre">true</span></code></li>
