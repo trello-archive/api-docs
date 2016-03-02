@@ -111,6 +111,16 @@ function verifyTrelloWebhookRequest(request, secret, callbackURL) {
 
 <p>Though this isn't ideal, we cannot change the way we sign webhooks without breaking backwards compatibility.</p>
 
+<p>Here is some sample code provided by Doug Kirk for Java:</p>
+
+<pre>public static byte[] toNodejsBinaryEncoding(final String s) {
+  final int count = s.length();
+  final byte[] result = new byte[count];
+  for (int i = 0; i < count; i++) result = (byte)(s.codePointAt(i) & 0xff);
+    return result;
+  }
+}</pre>
+
 
 
 <h3>Deleting Webhooks</h3>
