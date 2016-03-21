@@ -1,0 +1,20 @@
+<div class="app-content" ng-controller="AttachFilesCtrl">
+<h2>Attaching a File</h2>
+<p>Typically when attempting to attach a file to a Card, you will use the <a href="https://developers.trello.com/advanced-reference/card#post-1-cards-card-id-or-shortlink-attachments">POST /1/cards/[card id or shortlink]/attachments</a> route. Within your POST data, we expect you to send us a file.</p>
+<p>Currently the <a href="/clientjs">client.js</a> library provided by Trello does not support file uploads out of the box.</p>
+<h3>What type of <strong>file</strong> is Trello expecting?</h3>
+<p>Trello is expecting a multipart encoded file as part of a <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData object</a>.</p>
+<p>This generally means that the Request Payload as part of your POST will look something like this:</p>
+<pre>------WebKitFormBoundaryEeLAQ7WFZ54jDCko
+Content-Disposition: form-data; name="token"
+
+55bfd3d17144f1f19e679687/dKfxnyEha63XfdKfxnyEha63XfdKfxnyEha63XfdKfxnyEha63XfEQWKwqMiLbCG
+------WebKitFormBoundaryEeLAQ7WFZ54jDCko
+Content-Disposition: form-data; name="file"; filename="My-File-Name.png"
+Content-Type: image/png
+
+
+------WebKitFormBoundaryEeLAQ7WFZ54jDCko--</pre>
+<h3>Sample Upload</h3>
+<p>Check out our <a href="https://plnkr.co/edit/TMCtuY">Working Upload Sample</a>, but don't forget to fill in your Application Key, your Token, and the destination Card.</p>
+</div>
