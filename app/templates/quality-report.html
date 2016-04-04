@@ -1,0 +1,22 @@
+<div class="app-content mod-full">
+	<table>
+		<thead>
+			<tr>
+				<th>Page</th>
+				<th>Average Score</th>
+				<th>Feedback</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(id,review) in reviews">
+				<td>{{review.page}}</td>
+				<td><strong>{{review.rating | number:2}}</strong><br/>from {{review.ratings}} reviews</td>
+				<td>
+					<ul>
+						<li ng-repeat="message in review.messages">{{message}}</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

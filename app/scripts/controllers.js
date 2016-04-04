@@ -257,6 +257,56 @@ app.controller('CapabilitiesCtrl', function($scope, $anchorScroll) {
 });
 
 
+app.controller('QualityReportCtrl', function($scope, $http) {
+	var connection = $http.get('https://trevelopers-reviews.firebaseio.com/reviews.json');
+	var reviews = {};
+	connection.then(function(result) {
+		// Process the data into aggregate information
+		var data = result.data;
+		for(var reviewName in data) {
+			if(data.hasOwnProperty(reviewName)) {
+
+				var review = data[reviewName];
+				if(!reviews[review.page]) {
+					reviews[review.page] = {ratings:0,rating:0,messages:[],page:review.page};
+				}
+				r = reviews[review.page];
+				r.ratings++;
+				r.rating = (r.rating * (r.ratings-1.0) + review.rating) / r.ratings;
+				if(review.details && review.details.message) {
+					r.messages.push(review.details.message);
+				}
+			}
+		}
+
+		// Sort it nicely
+		sortable = [];
+		console.log(reviews);
+		for(reviewName in reviews) {
+			if(reviews.hasOwnProperty(reviewName)) {
+				sortable.push(reviews[reviewName]);
+			}
+		}
+
+		var compareRatings = function(a,b) {
+			if (a.ratings < b.ratings) {
+				return 1;
+			} else if (a.ratings > b.ratings) {
+				return -1;
+			} else {
+				return 0;
+			}
+		};
+
+		sortable.sort(compareRatings);
+
+		// Make it visible
+		$scope.reviews = sortable;
+
+	});
+
+});
+
 app.factory('ExtraNavBar', function(){
 	tool = {
 		page: "",

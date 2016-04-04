@@ -141,7 +141,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $opbe
 			url: 'topics',
 			templateUrl: 'templates/power-ups/topics.html',
 			data : { pageTitle: 'Power-Ups Topics' }
-		});
+		})
+    .state('quality-report', {
+      url: '/quality-report',
+      controller: 'QualityReportCtrl',
+      templateUrl: 'templates/quality-report.html',
+      data : { pageTitle: 'Documentation Quality Report' }
+    });
 });
 
 app.run(['$rootScope', '$location', '$window', '$anchorScroll', function($rootScope, $location, $window, $anchorScroll){
