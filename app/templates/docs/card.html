@@ -807,6 +807,31 @@
 </li>
 </ul>
 </div>
+<div class="section" id="get-1-cards-card-id-or-shortlink-checkitem">
+<h2>GET <span class="target" id="cards-card-id-or-shortlink-checkitem">/1/cards/[card id or shortlink]/checkItem/[idCheckItem]</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-checkitem" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> read</li>
+<li><strong>Arguments</strong><ul>
+<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
+<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name,nameData,pos,state</span></code></li>
+<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+<li><code class="docutils literal"><span class="pre">nameData</span></code></li>
+<li><code class="docutils literal"><span class="pre">pos</span></code></li>
+<li><code class="docutils literal"><span class="pre">state</span></code></li>
+<li><code class="docutils literal"><span class="pre">type</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> id of the checkitem to retrieve</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="get-1-cards-card-id-or-shortlink-list">
 <h2>GET <span class="target" id="cards-card-id-or-shortlink-list">/1/cards/[card id or shortlink]/list</span><a class="headerlink" href="#get-1-cards-card-id-or-shortlink-list" title="Permalink to this headline"></a></h2>
 <ul class="simple">
@@ -1108,6 +1133,41 @@
 <li><strong>Valid Values:</strong> The id of the checklist.</li>
 </ul>
 </li>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> The id of the checkitem to modify.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">name</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">state</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> One of:<ul>
+<li><code class="docutils literal"><span class="pre">complete</span></code></li>
+<li><code class="docutils literal"><span class="pre">false</span></code></li>
+<li><code class="docutils literal"><span class="pre">incomplete</span></code></li>
+<li><code class="docutils literal"><span class="pre">true</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">idChecklist</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> An id, or <code class="docutils literal"><span class="pre">null</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">pos</span></code> (optional)<ul>
+<li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-checkitem">
+<h2>PUT <span class="target" id="cards-card-id-or-shortlink-checkitem">/1/cards/[card id or shortlink]/checkItem/[idCheckItem]</span><a class="headerlink" href="#put-1-cards-card-id-or-shortlink-checkitem" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
 <li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
 <li><strong>Valid Values:</strong> The id of the checkitem to modify.</li>
 </ul>
@@ -1583,6 +1643,19 @@
 <li><strong>Valid Values:</strong> The id of the checklist.</li>
 </ul>
 </li>
+<li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
+<li><strong>Valid Values:</strong> the id of the check item to remove</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="delete-1-cards-card-id-or-shortlink-checkitem">
+<h2>DELETE <span class="target" id="cards-card-id-or-shortlink-checkitem">/1/cards/[card id or shortlink]/checkItem/[idCheckItem]</span><a class="headerlink" href="#delete-1-cards-card-id-or-shortlink-checkitem" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><strong>Required permissions:</strong> write</li>
+<li><strong>Arguments</strong><ul>
 <li><code class="docutils literal"><span class="pre">idCheckItem</span></code> (required)<ul>
 <li><strong>Valid Values:</strong> the id of the check item to remove</li>
 </ul>
