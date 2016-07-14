@@ -142,6 +142,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $opbe
 			templateUrl: 'templates/power-ups/topics.html',
 			data : { pageTitle: 'Power-Ups Topics' }
 		})
+    .state('power-ups.style', {
+      url: 'style',
+      templateUrl: 'templates/power-ups/style.html',
+      data : { pageTitle: 'Style' }
+    })
     .state('quality-report', {
       url: '/quality-report',
       controller: 'QualityReportCtrl',
