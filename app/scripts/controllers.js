@@ -178,6 +178,7 @@ app.controller('CommunityCtrl', function($scope, $window) {
     , {name:'Python', author:'Brent Tubbs', url: 'https://bitbucket.org/btubbs/trollop'}
     , {name:'Python3', author:'Wayne Werner', url: 'https://github.com/waynew/trello3'}
     , {name:'.NET', author:'Greg Dennis', url: 'https://bitbucket.org/gregsdennis/manatee.trello'}
+    , {name:'Elixir', author: 'Chris Yammine', url: 'https://github.com/ChrisYammine/ex_trello'}
   ];
 
   $scope.samples = [
