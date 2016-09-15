@@ -10,6 +10,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $opbe
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.when('/power-ups', '/power-ups/intro');
   $urlRouterProvider.when('/power-ups/', '/power-ups/intro');
 
 
@@ -109,12 +110,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $opbe
     		}
     })
     .state('power-ups', {
-		url: '/power-ups/',
-		abstract:true,
-		redirectTo: 'power-ups.intro',
-		templateUrl: 'templates/power-ups.html',
-		data : { pageTitle: 'Power-Ups Documentation' }
-
+  		url: '/power-ups/',
+  		abstract:true,
+  		redirectTo: 'power-ups.intro',
+  		templateUrl: 'templates/power-ups.html',
+  		data : { pageTitle: 'Power-Ups Documentation' }
     })
 		.state('power-ups.intro', {
 			url: 'intro',
