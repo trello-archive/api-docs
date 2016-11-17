@@ -377,6 +377,7 @@
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
                 <li><code class="docutils literal"><span class="pre">descData</span></code></li>
                 <li><code class="docutils literal"><span class="pre">due</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dueComplete</span></code></li>
                 <li><code class="docutils literal"><span class="pre">email</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
@@ -433,6 +434,7 @@
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
                 <li><code class="docutils literal"><span class="pre">descData</span></code></li>
                 <li><code class="docutils literal"><span class="pre">due</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dueComplete</span></code></li>
                 <li><code class="docutils literal"><span class="pre">email</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
@@ -868,6 +870,7 @@
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
                 <li><code class="docutils literal"><span class="pre">descData</span></code></li>
                 <li><code class="docutils literal"><span class="pre">due</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dueComplete</span></code></li>
                 <li><code class="docutils literal"><span class="pre">email</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
@@ -1219,6 +1222,16 @@
             <li><strong>Valid Values:</strong> A date, or <code class="docutils literal"><span class="pre">null</span></code></li>
           </ul>
         </li>
+        <li><code class="docutils literal"><span class="pre">dueComplete</span></code> (optional)
+          <ul>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><code class="docutils literal"><span class="pre">subscribed</span></code> (optional)
           <ul>
             <li><strong>Valid Values:</strong>
@@ -1497,6 +1510,23 @@
     </li>
   </ul>
 </div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-dueComplete">
+  <h2>PUT <span class="target" id="cards-card-id-or-shortlink-dueComplete">/1/cards/[card id or shortlink]/dueComplete</span>
+    <a class="headerlink" href="#put-1-cards-card-id-or-shortlink-dueComplete" title="Permalink to this headline"></a>
+  </h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">value</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">true</span></code> or <code class="docutils literal"><span class="pre">false</span></code></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
 <div class="section" id="put-1-cards-card-id-or-shortlink-idattachmentcover">
   <h2>PUT <span class="target" id="cards-card-id-or-shortlink-idattachmentcover">/1/cards/[card id or shortlink]/idAttachmentCover</span>
     <a class="headerlink" href="#put-1-cards-card-id-or-shortlink-idattachmentcover" title="Permalink to this headline"></a>
@@ -1675,12 +1705,16 @@
             <li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
           </ul>
         </li>
-        <li><code class="docutils literal"><span class="pre">due</span></code> (required)
+        <li><code class="docutils literal"><span class="pre">due</span></code> (optional)
           <ul>
             <li><strong>Valid Values:</strong> A date, or <code class="docutils literal"><span class="pre">null</span></code></li>
           </ul>
         </li>
-
+        <li><code class="docutils literal"><span class="pre">dueComplete</span></code> (optional)
+          <ul>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">true</span></code> or <code class="docutils literal"><span class="pre">false</span></code></li>
+          </ul>
+        </li>
         <li><code class="docutils literal"><span class="pre">idList</span></code> (required)
           <ul>
             <li><strong>Valid Values:</strong> id of the list that the card should be added to</li>
@@ -2181,6 +2215,7 @@
           <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-closed">PUT /1/cards/[card id or shortlink]/closed</a></li>
           <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-desc">PUT /1/cards/[card id or shortlink]/desc</a></li>
           <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-due">PUT /1/cards/[card id or shortlink]/due</a></li>
+          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-dueComplete">PUT /1/cards/[card id or shortlink]/dueComplete</a></li>
           <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idattachmentcover">PUT /1/cards/[card id or shortlink]/idAttachmentCover</a></li>
           <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idboard">PUT /1/cards/[card id or shortlink]/idBoard</a></li>
           <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idlist">PUT /1/cards/[card id or shortlink]/idList</a></li>
