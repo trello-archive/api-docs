@@ -1748,7 +1748,17 @@
         <li><code class="docutils literal"><span class="pre">keepFromSource</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> Properties of the card to copy over from the source.</li>
+            <li><strong>Valid Values:</strong> A string containing one or more of the following values, separated by commas:
+              <code class="docutils literal"><span class="pre">"attachments"</span></code>,
+              <code class="docutils literal"><span class="pre">"checklists"</span></code>,
+              <code class="docutils literal"><span class="pre">"comments"</span></code>,
+              <code class="docutils literal"><span class="pre">"due"</span></code>,
+              <code class="docutils literal"><span class="pre">"labels"</span></code>,
+              <code class="docutils literal"><span class="pre">"members"</span></code>,
+              <code class="docutils literal"><span class="pre">"stickers"</span></code>
+            </li>
+            <li><strong>Note:</strong> Checklist items are always unchecked and due dates are never marked as complete regardless of their corresponding values in the source card.
+            </li>
           </ul>
         </li>
       </ul>
