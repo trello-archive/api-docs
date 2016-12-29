@@ -1310,7 +1310,7 @@
                 <li><code class="docutils literal"><span class="pre">fullName</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
                 <li><code class="docutils literal"><span class="pre">initials</span></code></li>
-                <li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberType</span></code> - Return values will be <i>normal</i> or <i>ghost</i>. A <i>ghost</i> member is an individual who has been invited to join a board but has not yet created a Trello account.</li>
                 <li><code class="docutils literal"><span class="pre">products</span></code></li>
                 <li><code class="docutils literal"><span class="pre">status</span></code></li>
                 <li><code class="docutils literal"><span class="pre">url</span></code></li>
@@ -1367,10 +1367,8 @@
               <ul>
                 <li><code class="docutils literal"><span class="pre">admins</span></code></li>
                 <li><code class="docutils literal"><span class="pre">all</span></code></li>
-                <li><code class="docutils literal"><span class="pre">none</span></code></li>
-                <li><code class="docutils literal"><span class="pre">normal</span></code></li>
-                <li><code class="docutils literal"><span class="pre">owners</span></code></li>
-              </ul>
+                <li><code class="docutils literal"><span class="pre">normal</span></code> - Returns all members with a <i>memberType</i> of <i>normal</i> (excluding <i>memberType</i>s of <i>ghost</i>.</li>
+                </ul>
             </li>
           </ul>
         </li>
