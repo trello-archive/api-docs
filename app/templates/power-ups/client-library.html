@@ -102,10 +102,10 @@ TrelloPowerUp.initialize({
   <li><strong>localizeKeys(keys)</strong> Localize a list of strings or objects. You can read more about internationalizationa and localization in the <a ui-sref="power-ups.topics({'#':'internationalization'})">topics section</a>.</li>
   <li><strong>board(field1, field2, ...)</strong>
 	Returns a promise with information about the board for the current context.
-	Valid fields include: 'id', 'name', 'url', 'shortLink'</li>
+	Valid fields include: 'id', 'name', 'url', 'shortLink', 'members'</li>
 	<li><strong>list(field1, field2, ...)</strong>
 	Returns a promise with information about the list for the current context
-	Valid fields include: 'id', 'name'</li>
+	Valid fields include: 'id', 'name', 'cards'</li>
 	<li><strong>card(field1, field2, ...)</strong>
 	Returns a promise with information about the card for the current context. The information available is only when a specific card is in context. For instance, this function will return information about a card successfully inside of the capabilities 'attachment-sections' and 'card-badges', but not 'show-settings' nor 'board-buttons'. The latter are not within the context of a single card.
 	Valid fields include: 'id', 'name', 'desc', 'due', 'closed', 'cover', 'attachments', 'members', 'labels', 'url', 'shortLink', 'idList'<br /><br />
@@ -113,6 +113,10 @@ TrelloPowerUp.initialize({
 <pre>t.card('id', 'name', 'url').then(function(promiseResult){console.log(promiseResult)});
 // <- {id:"72hejh3iuruyr87rhiu", name: "Card Name", url: "https://trello.com/c/38UCRu1a/card-name"}</pre>
 	</li>
+  <li><strong>t.lists</strong>
+  Takes same args as <i>t.list</i> but gives back all open lists on the board</li>
+  <li><strong>t.member</strong> Accepted fields: 'id', 'fullName', 'username'. This is an easy way to get information about active members.</li>
+  <li><strong>t.cards</strong> Takes same args as <i>t.card</i> but gives back all open cards on the board.
 	<li><strong>t.closePopup</strong>, <strong>t.closeOverlay</strong>, <strong>t.iframe</strong> can only be called within an appropriate context.</li>
 	<li><strong>t.popup</strong> can only be called within a capability, not currently from an iframe such as an attachment-section. This is due to the relative placement of the popup to an item within the Trello Web Client.</li>
 </ul>
@@ -129,15 +133,23 @@ TrelloPowerUp.initialize({
   "locale":"en-US"
 }</pre>
   <p>Card Capability Options</p>
-  <pre>{
-  "context":{
-    "board":"55db14fd3e104ac8b105bd75",
-    "card":"563b532e4e998440d0d88e62",
-    "command":"card-detail-badges",
-    "plugin":"564ddf493f184b88ea5ddc0e"
+  <pre>
+"{
+  "context": {
+    "member": "556c8537a1928ba745504ad8",
+    "permissions": {
+      "board": "write",
+      "organization": "write",
+      "card": "write"
+    },
+    "board": "5834bb5fb7d8021c5b51a8de",
+    "card": "5858482d9c1c35c230d475ba",
+    "command": "card-buttons",
+    "__insecure_signature": "69eda4985e3fa8c7286cf626-f65bc7b"
   },
-  "locale":"en-US"
-} </pre>
+  "locale": "en-US"
+}"
+  </pre>
   <p>Attachment Sections Options</p>
   <pre>{
   "entries":[
