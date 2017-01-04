@@ -124,14 +124,22 @@ TrelloPowerUp.initialize({
 <h3 id="capability-options">Capability Options</h3>
 <p>Each capability that you include in your initialization will take a reference to the <strong>t</strong> object and a options or context object. This object will include various things depending on the capability.</p>
   <p>Board Capability Options</p>
-  <pre>{
-  "context":{
-    "board":"55db14fd3e105ac84105bd75",
-    "command":"board-buttons",
-    "plugin":"564ddf493f183488ea5ddc0e"
+  <pre>
+"{
+  "context": {
+    "member": "556c8537a1928ba745504ad8",
+    "permissions": {
+      "board": "write",
+      "organization": "write",
+      "card": "write"
+    },
+    "board": "5834bb5fb7d8021c5b51a8de",
+    "command": "board-buttons",
+    "__insecure_signature": "69eda4985e3fa8c7286cf626-f65bc7b"
   },
-  "locale":"en-US"
-}</pre>
+  "locale": "en-US"
+}"
+</pre>
   <p>Card Capability Options</p>
   <pre>
 "{
