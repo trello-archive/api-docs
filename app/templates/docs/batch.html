@@ -1,36 +1,47 @@
-<span id="index"></span><h1>batch<a class="headerlink" href="#batch" title="Permalink to this headline"></a></h1>
+<span id="index"></span>
+<h1>batch<a class="headerlink" href="#batch" title="Permalink to this headline"></a></h1>
 <div class="section" id="get-1-batch">
-<h2>GET <span class="target" id="id1">/1/batch</span><a class="headerlink" href="#get-1-batch" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">urls</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> list of API v1 GET routes, not including the version prefix</li>
+  <h2>GET <span class="target" id="id1">/1/batch</span><a class="headerlink" href="#get-1-batch" title="Permalink to this headline"></a></h2>
+  <p>The batch endpoint allows you to make multiple GET requests to the Trello API in a single request. By batching GET requests together, you can reduce the volume of calls you are making to the API and more easily stay within your API rate limit. The batch endpoint can not be called recursively; requests containing the batch url will be ignored.
+  <ul class="simple">
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">urls</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> list of API v1 GET routes. The routes should begin with a forward slash and should not include the API version number - e.g. "urls=/members/trello,/cards/[cardId]"</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><strong>Example Request</strong></li>
+    <li>
+      <div class="highlight-URL">
+        <div class="highlight">
+          <pre>https://api.trello.com/1/batch/?urls=/members/trello/,boards/4eea4ffc91e31d1746000046,cards/74836e2c91e31d1746008921/pluginData&amp;key=[application_key]&amp;token=[optional_auth_token]</pre>
+        </div>
+    </div>
+  </li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 
-
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" class="clearfix">
-  <h3>Search</h3>
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-  <h3><a href="../../index.html">Documentation Home</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">batch</a><ul>
-<li><a class="reference internal" href="#get-1-batch">GET /1/batch</a></li>
-</ul>
-</li>
-</ul>
+<div class="sphinxsidebar">
+  <div class="sphinxsidebarwrapper">
+    <div id="searchbox" style="display: none" class="clearfix">
+      <h3>Search</h3>
+      <form class="search" action="../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+    <script type="text/javascript">
+    $('#searchbox').show(0);
+    </script>
+    <h3><a href="../../index.html">Documentation Home</a></h3>
+    <ul>
+      <li><a class="reference internal" href="#">batch</a>
+        <ul>
+          <li><a class="reference internal" href="#get-1-batch">GET /1/batch</a></li>
+        </ul>
+      </li>
+    </ul>
