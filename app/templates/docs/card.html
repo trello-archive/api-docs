@@ -1787,6 +1787,7 @@
     <a class="headerlink" href="#post-1-cards-card-id-or-shortlink-attachments" title="Permalink to this headline"></a>
   </h2>
   <ul class="simple">
+    <p>The attachments endpoint should be used to add an attachment to a card. Cards are limited to having 100 attachments. You can only add a single attachment to a card at a time.</p>
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments</strong>
       <ul>
@@ -1811,10 +1812,13 @@
           </ul>
         </li>
       </ul>
+      <li><strong>Examples</strong></li>
+        <div class="highlight">Bash: <pre>curl -D -X POST -F "file=@[path/to/file]" https://api.trello.com/1/cards/[cardId]/attachments?key=[yourKey]&token=[yourToken]</pre>
+        </div>
     </li>
     <li><strong>Errors</strong>
       <ul>
-        <li><strong> Unprocessable entity</strong> (<code class="docutils literal"><span class="pre">422</span></code>): when an attempt is made to attach more than <code class="docutils literal"><span class="pre">100</span></code> files to a single card</li>
+        <li><strong> Unprocessable entity</strong> (<code class="docutils literal"><span class="pre">422</span></code>): This error occurs when an attempt is made to add another attachment to card that already has <code class="docutils literal"><span class="pre">100</span></code> attachments.</li>
       </ul>
     </li>
   </ul>
