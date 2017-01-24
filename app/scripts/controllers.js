@@ -5,6 +5,19 @@ app.controller('OverviewCtrl', function($scope) {
 
 });
 
+app.controller('SubmitYourAppCtrl', function($scope) {
+
+  $scope.scrollTo = function(destination) {
+    $location.hash(destination);
+    $anchorScroll();
+  };
+
+  $scope.openAppKey = function() {
+    $window.open('https://trello.com/app-key', '_blank');
+  };
+
+});
+
 app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $location, $stateParams) {
   
   $scope.connect  = function() {
