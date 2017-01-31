@@ -12,16 +12,16 @@
   <h3>Attachment Sections</h3>
   <b>Dos:</b>
   <ul>
-    <li>Use this to show additional information about an attachment that your service knows about</li>
-    <li>Make it obvious what attachments have been pulled out into your sections</li>
-    <li>Make it clear how the user could navigate to the original content at the URL(s) that were claimed for the section</li>
-    <li>Names for attachment sections should be unique and easy to understand</li>
+    <li>Use this to show additional information about an attachment that your service knows about.</li>
+    <li>Make it obvious what attachments have been pulled out into your sections.</li>
+    <li>Make it clear how the user could navigate to the original content at the URL(s) that were claimed for the section.</li>
+    <li>Names for attachment sections should be unique and easy to understand.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Use attachment-sections when the information you are adding can be handled by attachment-thumbnails</li>
-    <li>Re-render the entire section if an item is added to or removed from it, this leads to flashing</li>
-    <li>Use more vertical space than is required for the content</li>
+    <li>Use attachment-sections when the information you are adding can be handled by attachment-thumbnails.</li>
+    <li>Re-render the entire section if an item is added to or removed from it, this leads to flashing.</li>
+    <li>Use more vertical space than is required for the content.</li>
   </ul>
   <h3>Attachment Thumbnails</h3>
   <b>Dos:</b>
@@ -30,143 +30,146 @@
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Respond to attachment-thumbnail requests for attachments your integration doesn’t logically provide additional useful information for</li>
+    <li>Respond to attachment-thumbnail requests for attachments your integration doesn’t logically provide additional useful information for.</li>
   </ul>
   <h3>Board Buttons</h3>
   <b>Dos:</b>
   <ul>
-    <li>Use this when you have common actions that are applicable to the entire board</li>
+    <li>Use this when you have common actions that are applicable to the entire board.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Provide more board buttons than is necessary, this clutters the header space</li>
-    Provide a colored icon
+    <li>Provide more board buttons than is necessary, this clutters the header space.</li>
+    <li>Provide a board button that has the same functionality as a card button.</li>
+    <li>Provide a colored icon.</li>
   </ul>
   <h3>Card Buttons</h3>
   <b>Dos:</b>
   <ul>
-    <li>Use when you have actions that are applicable at a card level, such as searching for and attaching content to a card</li>
+    <li>Use when you have actions that are applicable at a card level, such as searching for and attaching content to a card.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Provide more buttons than is necessary. If necessary use a single button that opens a popup with a list of further options</li>
-    <li>Provide a colored icon</li>
+    <li>Provide more buttons than is necessary. Most Power-Ups need only one button. If necessary use a single button that opens a popup with a list of further options.</li>
+    <li>Provide a colored icon.</li>
   </ul>
   <h3>Card Badges</h3>
   <b>Dos:</b>
   <ul>
-    <li>Use to provide high level context on cards, individually relevant to the cards</li>
+    <li>Use to provide high level context on cards, individually relevant to the cards.</li>
+    <li>Create badges that provide at-a-glance information that is useful to the user.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Provide badge content that is so long it clips</li>
-    <li>Refresh on an interval shorter than is necessary</li>
-    <li>Use badge colors when not logical</li>
-    <li>Provide more badges than necessary</li>
+    <li>Provide badge content that is so long it clips.</li>
+    <li>Refresh on an interval shorter than is necessary.</li>
+    <li>Use badge colors when not logical.</li>
+    <li>Provide more badges than necessary. Most Power-Ups only require adding a single badge to cards.</li>
   </ul>
   <h3>Card Detail Badges</h3>
   <b>Dos:</b>
   <ul>
-    <li>Use to provide high level context on cards, individually relevant to the cards</li>
-    <li>Provide a popup or a url for click of badges where logical (see: custom fields)</li>
-    <li>Provide a sensible, and short title for each badge</li>
+    <li>Use to provide high level context on cards, individually relevant to the cards.</li>
+    <li>Provide a popup or a url for click the badge where logical (see: custom fields).</li>
+    <li>Provide a sensible and short title for each badge.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Abuse colors where not logical</li>
-    <li>Provide more badges than necessary</li>
-    <li>Refresh on an interval shorter than is necessary</li>
+    <li>Abuse colors where not logical.</li>
+    <li>Provide more badges than necessary.</li>
+    <li>Refresh on an interval shorter than is necessary.</li>
   </ul>
   <h3>Card From URL</h3>
   <b>Dos:</b>
   <ul>
-    <li>Use to create new cards from URLs that your service knows about, especially if the information requires some form ofauthentication</li>
+    <li>Use to create new cards from URLs that your service knows about, especially if the information requires some form of authentication.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Create cards for URLs not obviously associated with your Power-Up</li>
-    <li>Clutter the card by adding more content to the description or title than makes sense and is necessary</li>
+    <li>Create cards for URLs not obviously associated with your Power-Up.</li>
+    <li>Clutter the card by adding more content to the description or title than makes sense and is necessary.</li>
   </ul>
   <h3>Format URL</h3>
   <b>Dos:</b>
   <ul>
-    <li>Try to account for the different variations a url may have to represent a single entity. /item/123 and ?item=123 mayrepresent the same item in some cases.</li>
-    <li>Provide an appropriate icon with the URL where possible, especially for banding purposes (make sure you own the copyright where applicable)</li>
+    <li>Try to account for the different variations a url may have to represent a single entity. /item/123 and ?item=123 may represent the same item in some cases.</li>
+    <li>Provide an appropriate icon with the URL where possible, especially for branding purposes (make sure you own the copyright where applicable)</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Return the URL largely as is, but just with an icon, this adds little value</li>
-    <li>Return content for URLs that aren’t logically associated with your Power-Up functionality (the Google Drive Power-Up doesn’t try to format Dropbox URLs)</li>
-    <li>Return a colored icon</li>
+    <li>Return the URL largely as is, but just with an icon. Your Power-Up should add value.</li>
+    <li>Return content for URLs that aren’t logically associated with your Power-Up functionality (the Google Drive Power-Up doesn’t try to format Dropbox URLs).</li>
+    <li>Return a colored icon.</li>
   </ul>
   <h3>Show Settings</h3>
   <b>Dos:</b>
   <ul>
-    <li>Less is more, keep the number of settings / preferences to a minimum</li>
-    <li>Provide helpful details and information about any settings</li>
-    <li>Provide the ability to edit settings once they have been configured</li>
+    <li>Less is more, keep the number of settings / preferences to a minimum.</li>
+    <li>Provide helpful details and information about any settings.</li>
+    <li>Provide the ability to edit settings once they have been configured.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Use this for content or functionality that are core to the Power-Up (your Power-Up should function well by default without the user ever needing to go here)</li>
+    <li>Use this for content or functionality that are core to the Power-Up. Your Power-Up should function well by default without the user ever needing to go here.</li>
   </ul>
   <h2>Controls</h2>
 
   <h3>In General:</h3>
   <b>Dos:</b>
   <ul>
-    <li>Keep it clean & simple</li>
-    <li>Performance is important, try to make your experiences feel “native”</li>
-    <li>Use Trello’s provided CSS: https://trello.com/power-ups/power-up.css</li>
+    <li>Keep it clean and simple.</li>
+    <li>Performance is important, try to make your experiences feel “native.”</li>
+    <li>Use Trello’s provided CSS: <a href="https://trello.com/power-ups/power-up.css">https://trello.com/power-ups/power-up.css</a></li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Override Trello’s CSS except where necessary, for example to preserve certain band identity</li>
+    <li>Override Trello’s CSS except where necessary. For example, to preserve certain brand identity.</li>
   </ul>
   <h3>Popup</h3>
   <b>Dos:</b>
   <ul>
-    <li>Prefer this control over overlay, whenever possible as it maintains context better</li>
-    <li>Minimize the number of height resizes you do</li>
-    <li>When using a popup for search, make use of the inbuilt search functionality instead of using your own custom search iframe</li>
+    <li>Prefer this control over overlay, whenever possible because it maintains context better.</li>
+    <li>Minimize the number of height resizes you do.</li>
+    <li>When using a popup for search, make use of the built-in search functionality instead of using your own custom search iframe.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Have horizontally scrolling content in the popup</li>
-    <li>Have vertically scrolling content in the popup (except where long lists make sense)</li>
-    <li>Have a background color for your iframe</li>
+    <li>Have horizontally scrolling content in the popup.</li>
+    <li>Have vertically scrolling content in the popup (except where long lists make sense).</li>
+    <li>Have a background color for your iframe.</li>
   </ul>
   <h3>Board Bar</h3>
   <b>Dos:</b>
   <ul>
-    <li>Resize to the perfect height for your content</li>
-    <li>Keep the height as minimal as possible for the content</li>
+    <li>Resize to the perfect height for your content.</li>
+    <li>Keep the height as minimal as possible for the content.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Make the content in the board bar distracting from the board</li>
-    <li>Open a board bard arbitrarily (not the result of a direct user interaction)</li>
+    <li>Make the content in the board bar distracting from the board. A board bar should not be so large that it covers the entire Trello web view.</li>
+    <li>Open a board bar arbitrarily. A board bar should only be opened in response to a user's action.</li>
   </ul>
   <h3>Overlay</h3>
   <b>Dos:</b>
   <ul>
-    <li>Make it easy to close, and obvious how to close</li>
-    <li>Keep it as small both vertically and horizontally as possible</li>
+    <li>Make it easy to close, and obvious how to close.</li>
+    <li>Keep it as small as possible - both vertically and horizontally.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Cover the entire viewport of the Trello board</li>
+    <li>Cover the entire Trello board.</li>
   </ul>
+
   <h2>General Topics</h2>
   <h3>Data Storage</h3>
   <b>Dos:</b>
   <ul>
-    <li>Make use of t.set and t.get for storing simpler data such as settings/preferences</li>
-    <li>When storing more complex data, store a reference to it externally with t.set</li>
-    <li>When storing confidential or sensitive information such as tokens, use the ‘private’ scope</li>
+    <li>Make use of <pre>t.set</pre> and <pre>t.get</pre> for storing simpler data such as settings/preferences.</li>
+    <li>When storing more complex data, store a reference to it externally with <pre>t.set</pre>.</li>
+    <li>Use the ‘private’ scope when storing confidential or sensitive information, such as tokens.</li>
   </ul>
   <b>Don’ts:</b>
   <ul>
-    <li>Store data in other Trello fields like card descriptions or comments</li>
+    <li>Store data in other Trello fields like card descriptions or comments.</li>
   </ul>
 </div>
