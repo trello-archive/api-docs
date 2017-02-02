@@ -1,131 +1,106 @@
 <div class="app-content">
 
-	<h2>API Introduction
+  <h2>API Introduction
   <review-bar></review-bar></h2>
 
-	<p>The Trello API is extremely powerful. We use the same API in the official web and
-		mobile clients.</p>
+  <p>The Trello API is extremely powerful. We use the same API in the official web and mobile clients.</p>
 
-	<p>Building a full application with Trello means getting to know the various concepts
-		and models in Trello. The following are the most important concepts, listed in
-		rough order of importance.</p>
+  <p>Building a full application with Trello means getting to know the various concepts and models in Trello. The following are the most important concepts, listed in rough order of importance.</p>
 
-	<ol>
-		<li><a href="#authentication">Authentication and Authorization</a></li>
-		<li><a href="#boards">Boards</a></li>
-		<li><a href="#lists">Lists</a></li>
-		<li><a href="#cards">Cards</a></li>
-		<li><a href="#actions">Actions</a></li>
-		<li><a href="#webhooks">Webhooks</a></li>
-		<li><a href="#paging">Paging</a></li>
-		<li><a href="#recursion">Recursion Helpers</a></li>
-		<li><a href="#search">Search</a></li>
-	</ol>
+  <ol>
+    <li><a href="#authentication">Authentication and Authorization</a></li>
+    <li><a href="#boards">Boards</a></li>
+    <li><a href="#lists">Lists</a></li>
+    <li><a href="#cards">Cards</a></li>
+    <li><a href="#actions">Actions</a></li>
+    <li><a href="#webhooks">Webhooks</a></li>
+    <li><a href="#paging">Paging</a></li>
+    <li><a href="#recursion">Recursion Helpers</a></li>
+    <li><a href="#search">Search</a></li>
+    <li><a href="#rate-limiting">API Rate Limits</a></li>
+  </ol>
 
-	<h2 id="authentication">Authentication and Authorization</h2>
-	<p>There are two steps before your application may make a call on behalf of a user.
-		The first is to get your Application Key. This key identifies your application
-		to Trello, and to your users.</p>
-	<p>The second step is to perform an authentication and authorization. Trello uses a
-		delegated authentication and authorization flow so that your application never
-		has to deal with storing or handling usernames or passwords. Your application passes
-		control to Trello. Once we have allowed the user to choose an account and sign
-		in, we will hand the user and control back to your application, with the addition
-		of an Authorization Token. This token is based on your Application Key, the user
-		that has logged in, and the set of permissions that have been authorized.</p>
-	<p>Every time your application uses this token, the request will be made on behalf
-		of the authenticated user, based on that user's content and permissions. If you
-		try to access a board or make a change for which the user does not have permission,
-		your request will be blocked.</p>
+  <h2 id="authentication">Authentication and Authorization</h2>
+  <p>There are two steps before your application may make a call on behalf of a user. The first is to get your Application Key. This key identifies your application to Trello, and to your users.</p>
+  <p>The second step is to perform an authentication and authorization. Trello uses a delegated authentication and authorization flow so that your application never has to deal with storing or handling usernames or passwords. Your application passes control to Trello. Once we have allowed the user to choose an account and sign in, we will hand the user and control back to your application, with the addition of an Authorization Token. This token is based on your Application Key, the user that has logged in, and the set of permissions that have been authorized.</p>
+  <p>Every time your application uses this token, the request will be made on behalf of the authenticated user, based on that user's content and permissions. If you try to access a board or make a change for which the user does not have permission, your request will be blocked.</p>
 
-	<h2 id="boards">Boards</h2>
-	<a href="/advanced-reference/board">Full Boards API Reference</a>
-	<p>Boards are the highest level concept within the Trello workflow. The Boards API
-		allows you to list, view, create, and edit Boards. Each Board has a name, description,
-		a set of members attached, and an ordered array of Lists.</p>
-	<p>Boards can be open or closed, starred, and/or subscribed. Each Board belongs to
-		an organization. Each board also has a set of preferences that affect its visual
-		display, and additional features that may have been attached to the Board (such
-		as Power-Ups).</p>
-	<h3>Important Methods</h3>
-	<ul>
-		<li><a href="/advanced-reference/member#get-1-members-idmember-or-username-boards">GET /1/members/me/boards</a> - Get an array of the Boards of a user</li>
-		<li><a href="/advanced-reference/board#get-1-boards-board-id-cards">GET /1/boards/[board_id]/cards</a> - Get an array of Cards on a board</li>
-		<li><a href="/advanced-reference/board#get-1-boards-board-id-lists">GET /1/boards/[board_id]/lists</a> - Get an array of Lists on a board</li>
-	</ul>
+  <h2 id="boards">Boards</h2>
+  <a href="/advanced-reference/board">Full Boards API Reference</a>
+  <p>Boards are the highest level concept within the Trello workflow. The Boards API allows you to list, view, create, and edit Boards. Each Board has a name, description, a set of members attached, and an ordered array of Lists.</p>
+  <p>Boards can be open or closed, starred, and/or subscribed. Each Board belongs to an organization. Each board also has a set of preferences that affect its visual display, and additional features that may have been attached to the Board (such as Power-Ups).</p>
+  <h3>Important Methods</h3>
+  <ul>
+    <li><a href="/advanced-reference/member#get-1-members-idmember-or-username-boards">GET /1/members/me/boards</a> - Get an array of the Boards of a user</li>
+    <li><a href="/advanced-reference/board#get-1-boards-board-id-cards">GET /1/boards/[board_id]/cards</a> - Get an array of Cards on a board</li>
+    <li><a href="/advanced-reference/board#get-1-boards-board-id-lists">GET /1/boards/[board_id]/lists</a> - Get an array of Lists on a board</li>
+  </ul>
 
-	<h2 id="lists">Lists</h2>
-	<a href="/advanced-reference/list">Full Lists API Reference</a>
-	<p>A List is a collection of Cards. In the standard Trello interface, Lists are stacked horizontally and are ordered on a board.</p>
-	<h3>Important Methods</h3>
-	<ul>
-		<li><a href="/advanced-reference/list#get-1-lists-idlist-cards">GET /1/lists/[idList]/cards</a> - Get an array of Cards on a List</li>
-		<li><a href="/advanced-reference/card#post-1-cards">POST /1/cards</a> - Create a new Card on a List</li>
-	</ul>
+  <h2 id="lists">Lists</h2>
+  <a href="/advanced-reference/list">Full Lists API Reference</a>
+  <p>A List is a collection of Cards. In the standard Trello interface, Lists are stacked horizontally and are ordered on a board.</p>
+  <h3>Important Methods</h3>
+  <ul>
+    <li><a href="/advanced-reference/list#get-1-lists-idlist-cards">GET /1/lists/[idList]/cards</a> - Get an array of Cards on a List</li>
+    <li><a href="/advanced-reference/card#post-1-cards">POST /1/cards</a> - Create a new Card on a List</li>
+  </ul>
 
-	<h2 id="cards">Cards</h2>
-	<a href="/advanced-reference/card">Full Cards API Reference</a>
-	<p>A Card is the most basic unit of information in Trello. Cards have a name, description, labels, members, and a set of historical actions that have been taken on the card, including any comments.</p>
-	<h3>Important Methods</h3>
-	<ul>
-		<li><a href="/advanced-reference/card#post-1-cards">POST /1/cards</a> - Create a new card on a List</li>
-		<li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink">PUT /1/cards/[card id or shortlink]</a> - Update the contents of a Card</li>
-		<li><a href="/advanced-reference/card#post-1-cards-card-id-or-shortlink-actions-comments">POST /1/cards/[card id or shortlink]/actions/comments</a> - Add a comment to a Card</li>
-		<li><a href="/advanced-reference/card#post-1-cards-card-id-or-shortlink-idmembers">POST /1/cards/[card id or shortlink]/idMembers</a> - Add a member to a Card</li>
-	</ul>
+  <h2 id="cards">Cards</h2>
+  <a href="/advanced-reference/card">Full Cards API Reference</a>
+  <p>A Card is the most basic unit of information in Trello. Cards have a name, description, labels, members, and a set of historical actions that have been taken on the card, including any comments.</p>
+  <h3>Important Methods</h3>
+  <ul>
+    <li><a href="/advanced-reference/card#post-1-cards">POST /1/cards</a> - Create a new card on a List</li>
+    <li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink">PUT /1/cards/[card id or shortlink]</a> - Update the contents of a Card</li>
+    <li><a href="/advanced-reference/card#post-1-cards-card-id-or-shortlink-actions-comments">POST /1/cards/[card id or shortlink]/actions/comments</a> - Add a comment to a Card</li>
+    <li><a href="/advanced-reference/card#post-1-cards-card-id-or-shortlink-idmembers">POST /1/cards/[card id or shortlink]/idMembers</a> - Add a member to a Card</li>
+  </ul>
 
-	<h3>Child Methods</h3>
-	<ul>
-		<li>Actions - Actions are the audit log / record of everything that has been done to
-			a card throughout its history, including any comments that have been made.</li>
-		<li>Labels - Labels can be as simple as colors attached to a Card, or Labels can have names.</li>
-	</ul>
-	
-	<h2 id="actions">Actions</h2>
-	<a href="/advanced-reference/action">Full Actions API Reference</a>
-	<p>Actions contain each of the actions that have been taken on a Card or Board or members of a Card. Comments are also stored as a special type of Action on a card.</p>
+  <h3>Child Methods</h3>
+  <ul>
+    <li>Actions - Actions are the audit log / record of everything that has been done to a card throughout its history, including any comments that have been made.</li>
+    <li>Labels - Labels can be as simple as colors attached to a Card, or Labels can have names.</li>
+  </ul>
+
+  <h2 id="actions">Actions</h2>
+  <a href="/advanced-reference/action">Full Actions API Reference</a>
+  <p>Actions contain each of the actions that have been taken on a Card or Board or members of a Card. Comments are also stored as a special type of Action on a card.</p>
   <p>The API limits Action queries to 1000 at a time. Actions can be queried at the Board or at the Card level. To retreive the full list of actions when there are more then 1000, multiple requests must be made using the <pre style="display:inline;">since</pre> and <pre style="display:inline;">before</pre> parameters.</p>
-  
-	<h2 id="webhooks"><a href="/apis/webhooks">Webhooks</a></h2>
-	<a href="/advanced-reference/webhook">Full Webhooks API Reference</a>
-	<p>A developer could theoretically parse a user's Boards, Lists, and Cards in order to get
-		all of the information, but this would mean loading a lot of data that doesn't
-		change very often, using more bandwidth, CPU, and RAM for both you and for our
-		servers. To mitigate this we have built a system that allows your application to
-		hook into updates on various members such as Boards, Lists, and Cards. Whenever
-		a member with a Webhook is changed, we make an HTTP request to the endpoint of
-		your choosing.</p>
-	<h3>Important Methods</h3>
-	<ul>
-		<li><a href="/advanced-reference/webhook#post-1-webhooks">POST /1/webhooks</a> - Create a Webhook</li>
-		<li><a href="/advanced-reference/token#get-1-tokens-token-webhooks">GET /1/tokens/[token]/webhooks</a> - Get an array of the Webhooks associated with your
-			token</li>
-		<li><a href="/advanced-reference/webhook#delete-1-webhooks-idwebhook">DELETE /1/webhooks/[idWebhook]</a> - Delete a Webhook</li>
-	</ul>
-	<p><a href="/apis/webhooks">Learn more about Webhooks</a></p>
-	
-	<h2 id="paging">Paging</h2>
-	<p>When querying for long lists, such as a list of Cards, or a list of Actions, the Trello API limits you to at most 1000 results. Because these lists can have members added or removed at any time, the right way to iterate through more than 1000 results is to use the <strong>before</strong> and <strong>since</strong> parameters.</p>
-	<p>These parameters operate on the creation date of the Card or Action. The API expects a ISO 8601 date format. Because we use standard Mongo IDs, you can actually derive the Card creation date from the Card ID. (Here is one such tool: <a href="https://steveridout.github.io/mongo-object-time/">https://steveridout.github.io/mongo-object-time/</a>). As a convenience, you can also pass in the ID of a Card or Action and we will derive the date for you.</p>
-	<p>This means to page through the Actions on a large Board, you should request the Actions and then pass the ID of the last Action as the <strong>before</strong> parameter.</p>
 
+  <h2 id="webhooks"><a href="/apis/webhooks">Webhooks</a></h2>
+  <a href="/advanced-reference/webhook">Full Webhooks API Reference</a>
+  <p>A developer could theoretically parse a user's Boards, Lists, and Cards in order to get all of the information, but this would mean loading a lot of data that doesn't change very often, using more bandwidth, CPU, and RAM for both you and for our servers. To mitigate this we have built a system that allows your application to hook into updates on various members such as Boards, Lists, and Cards. Whenever a member with a Webhook is changed, we make an HTTP request to the endpoint of your choosing.</p>
+  <h3>Important Methods</h3>
+  <ul>
+    <li><a href="/advanced-reference/webhook#post-1-webhooks">POST /1/webhooks</a> - Create a Webhook</li>
+    <li><a href="/advanced-reference/token#get-1-tokens-token-webhooks">GET /1/tokens/[token]/webhooks</a> - Get an array of the Webhooks associated with your token
+    </li>
+    <li><a href="/advanced-reference/webhook#delete-1-webhooks-idwebhook">DELETE /1/webhooks/[idWebhook]</a> - Delete a Webhook</li>
+  </ul>
+  <p><a href="/apis/webhooks">Learn more about Webhooks</a></p>
 
-	<h2 id="recursion">Recursion Helpers</h2>
-	<p>Several of the core methods allow you to directly access member content. For example,
-		instead of retrieving a list and then recursively requesting each of the cards
-		on the list, you can retrieve this information directly, and optionally supply
-		a filter for the child cards.</p>
-	<h3>Example Recursions</h3>
-	<ul>
-		<li><a href="/advanced-reference/member#get-1-members-idmember-or-username-boards">GET /1/member/me/boards/?actions=all</a></li>
-		<li><a href="/advanced-reference/list#get-1-lists-idlist-cards-filter">GET /1/lists/[idList]/cards/[filter]</a></li>
-	</ul>
+  <h2 id="paging">Paging</h2>
+  <p>When querying for long lists, such as a list of Cards, or a list of Actions, the Trello API limits you to at most 1000 results. Because these lists can have members added or removed at any time, the right way to iterate through more than 1000 results is to use the <strong>before</strong> and <strong>since</strong> parameters.</p>
+  <p>These parameters operate on the creation date of the Card or Action. The API expects a ISO 8601 date format. Because we use standard Mongo IDs, you can actually derive the Card creation date from the Card ID. (Here is one such tool: <a href="https://steveridout.github.io/mongo-object-time/">https://steveridout.github.io/mongo-object-time/</a>). As a convenience, you can also pass in the ID of a Card or Action and we will derive the date for you.</p>
+  <p>This means to page through the Actions on a large Board, you should request the Actions and then pass the ID of the last Action as the <strong>before</strong> parameter.</p>
 
-	<h2 id="search">Search</h2>
-	<p>The Trello API offers the ability to search all the actions, boards, cards, members, and organizations. While you can't control which fields you want to search, you can specify which fields you want your search to return. By passing in a single string, we will look at all of the relevant fields and return a list of all those matching models.</p>
-	<h3>Example Search Request</h3>
-	<pre>GET /1/search?query=Wedding</pre>
-	<p>This search will return a list of actions, boards, cards, members, and organizations that match "Wedding".</p>
+  <h2 id="recursion">Recursion Helpers</h2>
+  <p>Several of the core methods allow you to directly access member content. For example, instead of retrieving a list and then recursively requesting each of the cards on the list, you can retrieve this information directly, and optionally supply a filter for the child cards.</p>
+  <h3>Example Recursions</h3>
+  <ul>
+    <li><a href="/advanced-reference/member#get-1-members-idmember-or-username-boards">GET /1/member/me/boards/?actions=all</a></li>
+    <li><a href="/advanced-reference/list#get-1-lists-idlist-cards-filter">GET /1/lists/[idList]/cards/[filter]</a></li>
+  </ul>
 
+  <h2 id="search">Search</h2>
+  <p>The Trello API offers the ability to search all the actions, boards, cards, members, and organizations. While you can't control which fields you want to search, you can specify which fields you want your search to return. By passing in a single string, we will look at all of the relevant fields and return a list of all those matching models.</p>
+  <h3>Example Search Request</h3>
+  <pre>GET /1/search?query=Wedding</pre>
+  <p>This search will return a list of actions, boards, cards, members, and organizations that match "Wedding".</p>
+
+  <h2 id="rate-limiting">API Rate Limits</h2>
+  <p>To help prevent strain on Trello’s servers, our API imposes rate limits per API key for all issued tokens. There is a limit of 300 requests per 10 seconds for each API key and no more than 100 requests per 10 second interval for each token. If a request exceeds the limit, Trello will return a 429 error.</p>
+  <p>There are a few different ways to reduce the number of calls your application is making in a short period of time. The first option we’d suggest is to decrease the polling frequency within your app—rather than making a call to Trello’s API every time your application needs to POST new information, for example, you could batch the calls together every minute or so.  Our batch documentation is located <a href="https://developers.trello.com/advanced-reference/batch">here</a>.</p>
+	<p>Longer term, the best option is often to use our webhooks infrastructure instead of polling Trello’s API. There is no limit to the number of webhooks you can set up in Trello. Our webhook documentation is located <a href="https://developers.trello.com/advanced-reference/webhook">here</a>.</p>
 
 </div>
