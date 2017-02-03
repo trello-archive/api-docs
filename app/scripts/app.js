@@ -153,6 +153,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $opbe
       templateUrl: 'templates/power-ups/style.html',
       data : { pageTitle: 'Style' }
     })
+    .state('power-ups.guidelines', {
+      url: 'guidelines',
+      templateUrl: 'templates/power-ups/guidelines.html',
+      data : { pageTitle: 'Power-Ups Guidelines' }
+    })
     .state('quality-report', {
       url: '/quality-report',
       controller: 'QualityReportCtrl',
