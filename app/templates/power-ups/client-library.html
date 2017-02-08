@@ -108,7 +108,7 @@ TrelloPowerUp.initialize({
 	Valid fields include: 'id', 'name', 'cards'</li>
 	<li><strong>card(field1, field2, ...)</strong>
 	Returns a promise with information about the card for the current context. The information available is only when a specific card is in context. For instance, this function will return information about a card successfully inside of the capabilities 'attachment-sections' and 'card-badges', but not 'show-settings' nor 'board-buttons'. The latter are not within the context of a single card.
-	Valid fields include: 'id', 'name', 'desc', 'due', 'closed', 'cover', 'attachments', 'members', 'labels', 'url', 'shortLink', 'idList'<br /><br />
+	Valid fields include: 'id', 'name', 'desc', 'due', 'closed', 'cover', 'attachments', 'members', 'labels', 'url', 'shortLink', 'idList', 'idShort'<br /><br />
 	Example usage:
 <pre>t.card('id', 'name', 'url').then(function(promiseResult){console.log(promiseResult)});
 // <- {id:"72hejh3iuruyr87rhiu", name: "Card Name", url: "https://trello.com/c/38UCRu1a/card-name"}</pre>
