@@ -203,7 +203,8 @@ app.controller('CommunityCtrl', function($scope, $window) {
     {name:'Read Cards jsfiddle', author: 'Daniel LeCheminant',url:'http://jsfiddle.net/nNesx/'},
     {name:'Add Comment jsfiddle', author: 'Daniel LeCheminant',url:'http://jsfiddle.net/E4rLn/'},
     {name:'Web Clipper for Trello', author: 'Oskar Jakiela',url:'https://github.com/oskarjakiela/trello-web-clipper'},
-    {name:'Node Trello to Slides', author: 'Jonalyn Valencia',url: 'https://github.com/olynvalencia/node-trello-to-slides'}
+    {name:'Node Trello to Slides', author: 'Jonalyn Valencia',url: 'https://github.com/olynvalencia/node-trello-to-slides'},
+    {name:'Trello bot in Node.js', author: 'Karl Pokus',url: 'https://github.com/karlpokus/trobot'},
   ];
 
   $scope.open = function(url) {
