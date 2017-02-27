@@ -192,7 +192,7 @@
   </li>
   <li>
     <strong>title (detail-badges only)</strong>
-    <div>Title to show above te badge</div>
+    <div>Title to show above the badge. Note: it is not possible to have a detail-badge that contains an anchor tag that links out of Trello. A user clicking on the detail badge will always result in showing the user the card back.<div>
   </li>
   <li>
     <strong>color (optional)</strong>
@@ -419,7 +419,7 @@
     return new TrelloPowerUp.Promise((resolve) => 
       resolve({ authorized: false })
     )</pre>
-  <p>Your should return a promise that resolves to the object with a property 'authorized' that is either true or false. You may also return the object synchronously if you know the answer synchronously.</p>
+  <p>You should return a promise that resolves to the object with a property 'authorized' that is either true or false. You may also return the object synchronously if you know the answer synchronously.</p>
   <h4>Fields</h4>
   <ul>
   <li>
