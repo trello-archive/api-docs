@@ -280,7 +280,7 @@
             <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">closed</span></code></li>
-                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code> - The datetime of the last activity on the card. <b>Note:</b> There are activities that update <i>dateLastActivity</i> that do not create a corresponding action. For instance, updating the <i>name</i> field of a checklist item on a card does not create an action but does update the card and board's <i>dateLastActivity</i> value.</li>
                 <li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
                 <li><code class="docutils literal"><span class="pre">descData</span></code></li>
@@ -373,7 +373,7 @@
                 <li><code class="docutils literal"><span class="pre">badges</span></code></li>
                 <li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
                 <li><code class="docutils literal"><span class="pre">closed</span></code></li>
-                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code> - The datetime of the last activity on the card. <b>Note:</b> There are activities that update <i>dateLastActivity</i> that do not create a corresponding action. For instance, updating the <i>name</i> field of a checklist item on a card does not create an action but does update the card and board's <i>dateLastActivity</i> value.</li>
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
                 <li><code class="docutils literal"><span class="pre">descData</span></code></li>
                 <li><code class="docutils literal"><span class="pre">due</span></code></li>
@@ -1537,7 +1537,7 @@
       <ul>
         <li><code class="docutils literal"><span class="pre">value</span></code> (required)
           <ul>
-            <li><strong>Valid Values:</strong> Id of the image attachment of this card to use as its cover, or null for no cover</li>
+            <li><strong>Valid Values:</strong> Id of the image attachment of this card to use as its cover, or an empty string for no cover</li>
           </ul>
         </li>
       </ul>
@@ -1748,7 +1748,17 @@
         <li><code class="docutils literal"><span class="pre">keepFromSource</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> Properties of the card to copy over from the source.</li>
+            <li><strong>Valid Values:</strong> A string containing one or more of the following values, separated by commas:
+              <code class="docutils literal"><span class="pre">"attachments"</span></code>,
+              <code class="docutils literal"><span class="pre">"checklists"</span></code>,
+              <code class="docutils literal"><span class="pre">"comments"</span></code>,
+              <code class="docutils literal"><span class="pre">"due"</span></code>,
+              <code class="docutils literal"><span class="pre">"labels"</span></code>,
+              <code class="docutils literal"><span class="pre">"members"</span></code>,
+              <code class="docutils literal"><span class="pre">"stickers"</span></code>
+            </li>
+            <li><strong>Note:</strong> Checklist items are always unchecked and due dates are never marked as complete regardless of their corresponding values in the source card.
+            </li>
           </ul>
         </li>
       </ul>
@@ -1777,6 +1787,7 @@
     <a class="headerlink" href="#post-1-cards-card-id-or-shortlink-attachments" title="Permalink to this headline"></a>
   </h2>
   <ul class="simple">
+    <p>The attachments endpoint should be used to add an attachment to a card. Cards are limited to having 100 attachments. You can only add a single attachment to a card at a time.</p>
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments</strong>
       <ul>
@@ -1801,10 +1812,13 @@
           </ul>
         </li>
       </ul>
+      <li><strong>Examples</strong></li>
+        <div class="highlight">Bash: <pre>curl -D -X POST -F "file=@[path/to/file]" https://api.trello.com/1/cards/[cardId]/attachments?key=[yourKey]&token=[yourToken]</pre>
+        </div>
     </li>
     <li><strong>Errors</strong>
       <ul>
-        <li><strong> Unprocessable entity</strong> (<code class="docutils literal"><span class="pre">422</span></code>): when an attempt is made to attach more than <code class="docutils literal"><span class="pre">100</span></code> files to a single card</li>
+        <li><strong> Unprocessable entity</strong> (<code class="docutils literal"><span class="pre">422</span></code>): This error occurs when an attempt is made to add another attachment to card that already has <code class="docutils literal"><span class="pre">100</span></code> attachments.</li>
       </ul>
     </li>
   </ul>

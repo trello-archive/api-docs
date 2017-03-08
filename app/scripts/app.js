@@ -20,6 +20,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $opbe
       templateUrl: 'templates/overview.html',
       controller: 'OverviewCtrl'
     })
+    .state('submit-your-app', {
+      url: '/submit-your-app',
+      templateUrl: 'templates/apis/submit-your-app.html',
+      controller: 'SubmitYourAppCtrl',
+      data : { pageTitle: 'Submit Your App' }
+    })
     .state('get-started', {
       url: '/get-started/',
       templateUrl: 'templates/get-started.html',
@@ -146,6 +152,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $opbe
       url: 'style',
       templateUrl: 'templates/power-ups/style.html',
       data : { pageTitle: 'Style' }
+    })
+    .state('power-ups.guidelines', {
+      url: 'guidelines',
+      templateUrl: 'templates/power-ups/guidelines.html',
+      data : { pageTitle: 'Power-Ups Guidelines' }
     })
     .state('quality-report', {
       url: '/quality-report',
