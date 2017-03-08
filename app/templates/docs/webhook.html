@@ -1,7 +1,7 @@
 <span id="index"></span>
 <h1>webhook<a class="headerlink" href="#webhook" title="Permalink to this headline"></a></h1>
 <p>Webhooks should be placed on models such as Cards or Boards that you wish to monitor for changes. Upon creation, the destination you supply will be tested for validity (a 200 response to a HEAD request) before returning to you the ID of the newly created webhook.</p>
-<p>If the provided callback URL does not produce a response within 30 secornds, Trello will consider it an unsuccessful POST and try again. The webhook will retry 3 times before stopping.</p>
+<p>If the provided callback URL does not produce a response within 30 seconds, Trello will consider it an unsuccessful POST and try again. The webhook will retry 3 times before stopping.</p>
 <p>You can find a walkthrough of Trello's webhooks and how to use them <a href="https://developers.trello.com/apis/webhooks">here.</a></p>
 <div class="section" id="get-1-webhooks-idwebhook">
   <h2>GET <span class="target" id="webhooks-idwebhook">/1/webhooks/[idWebhook]/</span><a class="headerlink" href="#get-1-webhooks-idwebhook" title="Permalink to this headline"></a></h2>
