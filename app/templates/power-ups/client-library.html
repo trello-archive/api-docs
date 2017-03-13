@@ -115,7 +115,7 @@ TrelloPowerUp.initialize({
 	</li>
   <li><strong>t.lists</strong>
   Takes same args as <i>t.list</i> but gives back all open lists on the board</li>
-  <li><strong>t.member</strong> Accepted fields: 'id', 'fullName', 'username'. This is an easy way to get information about active members.</li>
+  <li><strong>t.member</strong> Accepted fields: 'id', 'fullName', 'username', 'avatar'. This is an easy way to get information about active members. 'avatar' returns the complete URL for the 50px png file.</li>
   <li><strong>t.cards</strong> Takes same args as <i>t.card</i> but gives back all open cards on the board.
 	<li><strong>t.closePopup</strong>, <strong>t.closeOverlay</strong>, <strong>t.iframe</strong> can only be called within an appropriate context.</li>
 	<li><strong>t.popup</strong> can only be called within a capability, not currently from an iframe such as an attachment-section. This is due to the relative placement of the popup to an item within the Trello Web Client.</li>
