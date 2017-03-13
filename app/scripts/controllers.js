@@ -236,9 +236,7 @@ app.controller('AdvancedReferenceCtrl', function($scope, $http, $location, $stat
 
 app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location, $anchorScroll, $stateParams, ExtraNavBar){
 	// We want to collapse the arguments section so people can more easily scan
-	// the routes. Since we autogenerate the full API reference docs from the
-	// server using Sphinx, doing this client side allows us to add the toggle
-	// without having to modify the HTML from the server.
+	// the routes.
 	var i, len, section, sections;
 
 	ExtraNavBar.setPage($stateParams.page);
@@ -254,8 +252,6 @@ app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location, $
 		  $section.append(" ").append($button);
 		}
 	}
-
-	$('.sphinxsidebar').remove();
 
 	$('.headerlink').each(
 		function(i) {
@@ -327,7 +323,7 @@ app.factory('ExtraNavBar', function(){
 		page: "",
 		setPage: function(page) {
 			tool.page = page;
-			console.log("Set page to be " + page);
+			// console.log("Set page to be " + page);
 		}
 	};
 	return tool;
