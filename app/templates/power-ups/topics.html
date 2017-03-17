@@ -228,21 +228,16 @@ setTimeout(function(){ window.close(); }, 1000);
   <pre>{
   "key": "value with replaceable {arguments}"
 }</pre>
-  <p>Again, dot notation is not supported for arguments. This also limits how you can use braces {} in that there is no escapingcurrently supported.</p>
+  <p>Again, dot notation is not supported for arguments. This also limits how you can use braces {} in that there is no escaping currently supported.</p>
   <hr/>
 
   <h2 id="callbacks">Callbacks</h2>
   <h3>What are callbacks?</h3>
-  <p>Sometimes a Power-Up wants the web client to create a bit of UI, and the Power-Up wants to know when the user interacts with that UI (e.g. when the user clicks on a button) For example, the Trello web client might run card-button on a Power-Up, and the Power-Up could respond with</p>
-  <pre>{
-  icon: … url of an icon to display …
-  text: "Activate"
-  callback: … a callback to run when the button is clicked …
-}</pre>
-
+  <p>Callbacks are functions that get called in response to a user taking an action within a capability. Trello provides a number of capabilities with default UI. For instance, the <a href="/power-ups/capabilities#card-detail-badges">'card-detail-badges' capability</a> allows you to create a badge on a card with a given set of parameters. Trello takes care of rendering the badge appropriately. If you want something to happen when the user clicks the badge, you can provide a callback to be called.</p>
+  
   <h3>How are callbacks used?</h3>
-  <p>For example, a Power-Up might request that a popover list be displayed, with, say 20 items in it. Each of the items has a callback associated with it, but only the one corresponding to the thing that gets clicked on would be called. Or maybe the popup would just get closed and none of them would get called.</p>
-  <p>Callbacks can also be used to e.g. supply the most recent state of the badge on a card (in that case, the same callback might be called many times) … or a callback could be associated with the button in the board header (and the same callback would be triggered every time the button was clicked).</p>
+  <p>For example, a Power-Up might request that a popover list be displayed with 20 items in it. Each of the items has a callback associated with it, but only the one corresponding to the thing that gets clicked on would be called.</p>
+  <p>Callbacks can also be used to supply the most recent state of the badge on a card (in that case, the same callback might be called many times). Or a callback could be associated with the button in the board header and the same callback would be triggered every time the button was clicked.</p>
   <hr/>
 
   <h2 id="webhooks-and-offline-access">Webhooks &amp; Offline Access</h2>
