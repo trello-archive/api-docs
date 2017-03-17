@@ -15,11 +15,7 @@
   </ul>
 
   <h2 id="cors">CORS Settings</h2>
-  <p>It looks like your Power-Up can't be loaded because the CORS settings on your server. Because the request for this file is coming from trello.com, your server will need to allow for cross-origin requests from our domain.</p>
-
-  <p>Hosting it on Github pages works because they allow cross-site requests: http://stackoverflow.com/questions/26416727/cross-origin-resource-sharing-on-github-pages</p>
-
-  <p>If you're not sure how to change CORS settings, I'm happy to help you figure it out - just let me know what type of server you're running. The gomix example shows how to set CORS in the server.js file: https://gomix.com/#!/project/rune-friend</p>
+  <p>Power-Ups run inside of the Trello web client. They will be making requests to your server (for example, to retrieve the manifest.json file) from the trello.com domain. Your server will need to have CORS settings that allow Trello.com to successfully make that request. Your server should have Access-Control-Allow-Origin: 'https://trello.com' or Access-Control-Allow-Origin: '*'.</p>
 
   <p>Most programming languages have a package that helps you configure CORS:
     <table>
