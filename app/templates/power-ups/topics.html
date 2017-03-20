@@ -15,7 +15,7 @@
   </ul>
 
   <h2 id="cors">CORS Settings</h2>
-  <p>Power-Ups run inside of the Trello web client. They will be making requests to your server (for example, to retrieve the manifest.json file) from the trello.com domain. Your server will need to have CORS settings that allow Trello.com to successfully make that request. Your server should have Access-Control-Allow-Origin: 'https://trello.com' or Access-Control-Allow-Origin: '*'.</p>
+  <p>Power-Ups run inside of the Trello web client. They will be making requests to your server (for example, to retrieve the manifest.json file) from the trello.com domain. Your server will need to have CORS settings that allow Trello.com to successfully make that request. Your server should respond to requests with an Access-Control-Allow-Origin header of either: Access-Control-Allow-Origin: 'https://trello.com' or Access-Control-Allow-Origin: '*'.</p>
 
   <p>Most programming languages have a package that helps you configure CORS:
     <table>
@@ -86,7 +86,9 @@ module.exports = function(t) {
   <hr/>
 
   <h2 id="attachments">Attachments</h2>
-  <p>Attachments can be created with the <strong>t.attach</strong> method, but they can only be removed by the user using the standard web experience in the attachments section, or by clicking in the upper right hand corner of an attachment-section claiming an attachment.</p>
+  <p>Attachments can be created with the <strong>t.attach</strong> method, but they can only be removed by the user using the standard web experience in the attachments section, or by clicking in the upper right hand corner of an attachment-section claiming an attachment. `t.attach` will fail if the member (on whose behalf the Power-Up is making the request) does not have write access to the board. Your Power-Up can check this ahead of time using the permissions object in the context. If permissions.card === 'write' you should be good to go. To access the context when using `TrelloPowerUp.iframe()`, you can do so like: <br />
+  `const canEdit = t.args[0].context.permissions.board === 'write';`</p>
+  <p>The context has a permissions property, with sub-properties of card, board, and organization. If you look at the context and look at permissions.card and see that it is 'write' then you can generally expect this call will succeed. Power-Ups may want to alter their behavior (for example not even showing a button at all) based on the permissions of the current user.</p>
   <pre>t.attach({ url: url });</pre>
   <img src="/images/content/sample-remove-attachments.png" alt="Remove attachments via popup" />
   <p>The names of each attachment in the “Remove Attachments” popup are rendered using <strong>format-url</strong>.</p>
@@ -189,10 +191,6 @@ setTimeout(function(){ window.close(); }, 1000);
   <h2 id="recoloring">Recoloring</h2>
   <p>Trello expects you to change the color of any icons you use based on a query parameter that we will provide. This parameter is designed to ensure that icons have great usability even when the background behind an image may change.</p>
   <p>For example, card badge icons are expected to be grey (#999) in their default state, but when a color is applied to the badge (such as ‘red’), the icon is passed <strong>?color=fff</strong>. This behavior means that the icon should be recolored such that the primary color used is white, ensuring the image will look good and have good usability on a red background.</p>
-  <hr/>
-
-  <h2 id="timeouts">Timeouts</h2>
-  <p>Your Power-Up should respond within 1 second to all capability methods. If your method takes more than 1 second to complete, we will consider the callback as failed.</p>
   <hr/>
 
   <h2 id="internationalization">Internationalization</h2>
