@@ -185,7 +185,7 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 app.controller('CommunityCtrl', function($scope, $window) {
   $scope.wrappers = [
     {'name':'Ruby',author:'Jeremy Tregunna', url: 'https://github.com/jeremytregunna/ruby-trello'}
-    , {name:'Node', author:'Luca Matteis', url: 'https://github.com/lmatteis/node-trello'}
+    , {name:'Node', author:'Andrew Dunkman', url: 'https://github.com/adunkman/node-trello'}
     , {name:'Python', author:'Richard Kolkovich', url: 'https://github.com/sarumont/py-trello '}
     , {name:'Python', author:'Luke Rigby', url: 'https://github.com/plish/Trolly'}
     , {name:'Python', author:'Brent Tubbs', url: 'https://bitbucket.org/btubbs/trollop'}
