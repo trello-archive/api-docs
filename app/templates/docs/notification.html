@@ -1,741 +1,775 @@
-<span id="index"></span><h1>notification<a class="headerlink" href="#notification" title="Permalink to this headline"></a></h1>
+<span id="index"></span>
+<h1>notification<a class="headerlink" href="#notification" title="Permalink to this headline"></a></h1>
 <div class="section" id="get-1-notifications-idnotification">
-<h2>GET <span class="target" id="notifications-idnotification">/1/notifications/[idNotification]</span><a class="headerlink" href="#get-1-notifications-idnotification" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">display</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">entities</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">data</span></code></li>
-<li><code class="docutils literal"><span class="pre">date</span></code></li>
-<li><code class="docutils literal"><span class="pre">idMemberCreator</span></code></li>
-<li><code class="docutils literal"><span class="pre">type</span></code></li>
-<li><code class="docutils literal"><span class="pre">unread</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">memberCreator</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">true</span></code></li>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">memberCreator_fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">bio</span></code></li>
-<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
-<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
-<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
-<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
-<li><code class="docutils literal"><span class="pre">initials</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
-<li><code class="docutils literal"><span class="pre">products</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-<li><code class="docutils literal"><span class="pre">username</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">board</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">board_fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">closed</span></code></li>
-<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
-<li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
-<li><code class="docutils literal"><span class="pre">desc</span></code></li>
-<li><code class="docutils literal"><span class="pre">descData</span></code></li>
-<li><code class="docutils literal"><span class="pre">idOrganization</span></code></li>
-<li><code class="docutils literal"><span class="pre">invitations</span></code></li>
-<li><code class="docutils literal"><span class="pre">invited</span></code></li>
-<li><code class="docutils literal"><span class="pre">labelNames</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberships</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">pinned</span></code></li>
-<li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
-<li><code class="docutils literal"><span class="pre">starred</span></code></li>
-<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">list</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">card</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">card_fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">badges</span></code></li>
-<li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
-<li><code class="docutils literal"><span class="pre">closed</span></code></li>
-<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
-<li><code class="docutils literal"><span class="pre">desc</span></code></li>
-<li><code class="docutils literal"><span class="pre">descData</span></code></li>
-<li><code class="docutils literal"><span class="pre">due</span></code></li>
-<li><code class="docutils literal"><span class="pre">email</span></code></li>
-<li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
-<li><code class="docutils literal"><span class="pre">idChecklists</span></code></li>
-<li><code class="docutils literal"><span class="pre">idLabels</span></code></li>
-<li><code class="docutils literal"><span class="pre">idList</span></code></li>
-<li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
-<li><code class="docutils literal"><span class="pre">idMembersVoted</span></code></li>
-<li><code class="docutils literal"><span class="pre">idShort</span></code></li>
-<li><code class="docutils literal"><span class="pre">labels</span></code></li>
-<li><code class="docutils literal"><span class="pre">manualCoverAttachment</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">pos</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
-<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">organization</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">organization_fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">displayName</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">billableMemberCount</span></code></li>
-<li><code class="docutils literal"><span class="pre">desc</span></code></li>
-<li><code class="docutils literal"><span class="pre">descData</span></code></li>
-<li><code class="docutils literal"><span class="pre">displayName</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
-<li><code class="docutils literal"><span class="pre">invitations</span></code></li>
-<li><code class="docutils literal"><span class="pre">invited</span></code></li>
-<li><code class="docutils literal"><span class="pre">logoHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberships</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
-<li><code class="docutils literal"><span class="pre">products</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-<li><code class="docutils literal"><span class="pre">website</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">member</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">true</span></code></li>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code class="docutils literal"><span class="pre">member_fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">bio</span></code></li>
-<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
-<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
-<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
-<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
-<li><code class="docutils literal"><span class="pre">initials</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
-<li><code class="docutils literal"><span class="pre">products</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-<li><code class="docutils literal"><span class="pre">username</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification">/1/notifications/[idNotification]</span><a class="headerlink" href="#get-1-notifications-idnotification" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">display</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">entities</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">data</span></code></li>
+                <li><code class="docutils literal"><span class="pre">date</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMemberCreator</span></code></li>
+                <li><code class="docutils literal"><span class="pre">type</span></code></li>
+                <li><code class="docutils literal"><span class="pre">unread</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">memberCreator</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">true</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">memberCreator_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bio</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+                <li><code class="docutils literal"><span class="pre">initials</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">username</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">board</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">board_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">closed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idOrganization</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invitations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invited</span></code></li>
+                <li><code class="docutils literal"><span class="pre">labelNames</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberships</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">pinned</span></code></li>
+                <li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+                <li><code class="docutils literal"><span class="pre">starred</span></code></li>
+                <li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">list</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">card</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">card_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">badges</span></code></li>
+                <li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
+                <li><code class="docutils literal"><span class="pre">closed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">due</span></code></li>
+                <li><code class="docutils literal"><span class="pre">email</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idChecklists</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idLabels</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idList</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMembersVoted</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idShort</span></code></li>
+                <li><code class="docutils literal"><span class="pre">labels</span></code></li>
+                <li><code class="docutils literal"><span class="pre">manualCoverAttachment</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">pos</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+                <li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">organization</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">organization_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">displayName</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">billableMemberCount</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">displayName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invitations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invited</span></code></li>
+                <li><code class="docutils literal"><span class="pre">logoHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberships</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">website</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">member</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">true</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">member_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bio</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+                <li><code class="docutils literal"><span class="pre">initials</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">username</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-field">
-<h2>GET <span class="target" id="notifications-idnotification-field">/1/notifications/[idNotification]/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-field" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> One of:<ul>
-<li><code class="docutils literal"><span class="pre">data</span></code></li>
-<li><code class="docutils literal"><span class="pre">date</span></code></li>
-<li><code class="docutils literal"><span class="pre">idMemberCreator</span></code></li>
-<li><code class="docutils literal"><span class="pre">type</span></code></li>
-<li><code class="docutils literal"><span class="pre">unread</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-field">/1/notifications/[idNotification]/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-field" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">field</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> One of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">data</span></code></li>
+                <li><code class="docutils literal"><span class="pre">date</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMemberCreator</span></code></li>
+                <li><code class="docutils literal"><span class="pre">type</span></code></li>
+                <li><code class="docutils literal"><span class="pre">unread</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-board">
-<h2>GET <span class="target" id="notifications-idnotification-board">/1/notifications/[idNotification]/board</span><a class="headerlink" href="#get-1-notifications-idnotification-board" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">closed</span></code></li>
-<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
-<li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
-<li><code class="docutils literal"><span class="pre">desc</span></code></li>
-<li><code class="docutils literal"><span class="pre">descData</span></code></li>
-<li><code class="docutils literal"><span class="pre">idOrganization</span></code></li>
-<li><code class="docutils literal"><span class="pre">invitations</span></code></li>
-<li><code class="docutils literal"><span class="pre">invited</span></code></li>
-<li><code class="docutils literal"><span class="pre">labelNames</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberships</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">pinned</span></code></li>
-<li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
-<li><code class="docutils literal"><span class="pre">starred</span></code></li>
-<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-board">/1/notifications/[idNotification]/board</span><a class="headerlink" href="#get-1-notifications-idnotification-board" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">closed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idOrganization</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invitations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invited</span></code></li>
+                <li><code class="docutils literal"><span class="pre">labelNames</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberships</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">pinned</span></code></li>
+                <li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+                <li><code class="docutils literal"><span class="pre">starred</span></code></li>
+                <li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-board-field">
-<h2>GET <span class="target" id="notifications-idnotification-board-field">/1/notifications/[idNotification]/board/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-board-field" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> One of:<ul>
-<li><code class="docutils literal"><span class="pre">closed</span></code></li>
-<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
-<li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
-<li><code class="docutils literal"><span class="pre">desc</span></code></li>
-<li><code class="docutils literal"><span class="pre">descData</span></code></li>
-<li><code class="docutils literal"><span class="pre">idOrganization</span></code></li>
-<li><code class="docutils literal"><span class="pre">invitations</span></code></li>
-<li><code class="docutils literal"><span class="pre">invited</span></code></li>
-<li><code class="docutils literal"><span class="pre">labelNames</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberships</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">pinned</span></code></li>
-<li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
-<li><code class="docutils literal"><span class="pre">starred</span></code></li>
-<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-board-field">/1/notifications/[idNotification]/board/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-board-field" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">field</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> One of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">closed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idOrganization</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invitations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invited</span></code></li>
+                <li><code class="docutils literal"><span class="pre">labelNames</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberships</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">pinned</span></code></li>
+                <li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+                <li><code class="docutils literal"><span class="pre">starred</span></code></li>
+                <li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-card">
-<h2>GET <span class="target" id="notifications-idnotification-card">/1/notifications/[idNotification]/card</span><a class="headerlink" href="#get-1-notifications-idnotification-card" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">badges</span></code></li>
-<li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
-<li><code class="docutils literal"><span class="pre">closed</span></code></li>
-<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
-<li><code class="docutils literal"><span class="pre">desc</span></code></li>
-<li><code class="docutils literal"><span class="pre">descData</span></code></li>
-<li><code class="docutils literal"><span class="pre">due</span></code></li>
-<li><code class="docutils literal"><span class="pre">email</span></code></li>
-<li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
-<li><code class="docutils literal"><span class="pre">idChecklists</span></code></li>
-<li><code class="docutils literal"><span class="pre">idLabels</span></code></li>
-<li><code class="docutils literal"><span class="pre">idList</span></code></li>
-<li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
-<li><code class="docutils literal"><span class="pre">idMembersVoted</span></code></li>
-<li><code class="docutils literal"><span class="pre">idShort</span></code></li>
-<li><code class="docutils literal"><span class="pre">labels</span></code></li>
-<li><code class="docutils literal"><span class="pre">manualCoverAttachment</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">pos</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
-<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-card">/1/notifications/[idNotification]/card</span><a class="headerlink" href="#get-1-notifications-idnotification-card" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">badges</span></code></li>
+                <li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
+                <li><code class="docutils literal"><span class="pre">closed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">due</span></code></li>
+                <li><code class="docutils literal"><span class="pre">email</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idChecklists</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idLabels</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idList</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMembersVoted</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idShort</span></code></li>
+                <li><code class="docutils literal"><span class="pre">labels</span></code></li>
+                <li><code class="docutils literal"><span class="pre">manualCoverAttachment</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">pos</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+                <li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-card-field">
-<h2>GET <span class="target" id="notifications-idnotification-card-field">/1/notifications/[idNotification]/card/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-card-field" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> One of:<ul>
-<li><code class="docutils literal"><span class="pre">badges</span></code></li>
-<li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
-<li><code class="docutils literal"><span class="pre">closed</span></code></li>
-<li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
-<li><code class="docutils literal"><span class="pre">desc</span></code></li>
-<li><code class="docutils literal"><span class="pre">descData</span></code></li>
-<li><code class="docutils literal"><span class="pre">due</span></code></li>
-<li><code class="docutils literal"><span class="pre">email</span></code></li>
-<li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
-<li><code class="docutils literal"><span class="pre">idChecklists</span></code></li>
-<li><code class="docutils literal"><span class="pre">idLabels</span></code></li>
-<li><code class="docutils literal"><span class="pre">idList</span></code></li>
-<li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
-<li><code class="docutils literal"><span class="pre">idMembersVoted</span></code></li>
-<li><code class="docutils literal"><span class="pre">idShort</span></code></li>
-<li><code class="docutils literal"><span class="pre">labels</span></code></li>
-<li><code class="docutils literal"><span class="pre">manualCoverAttachment</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">pos</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
-<li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
-<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-card-field">/1/notifications/[idNotification]/card/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-card-field" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">field</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> One of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">badges</span></code></li>
+                <li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
+                <li><code class="docutils literal"><span class="pre">closed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">due</span></code></li>
+                <li><code class="docutils literal"><span class="pre">email</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idChecklists</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idLabels</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idList</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMembersVoted</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idShort</span></code></li>
+                <li><code class="docutils literal"><span class="pre">labels</span></code></li>
+                <li><code class="docutils literal"><span class="pre">manualCoverAttachment</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">pos</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortLink</span></code></li>
+                <li><code class="docutils literal"><span class="pre">shortUrl</span></code></li>
+                <li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-display">
-<h2>GET <span class="target" id="notifications-idnotification-display">/1/notifications/[idNotification]/display</span><a class="headerlink" href="#get-1-notifications-idnotification-display" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments:</strong> None</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-display">/1/notifications/[idNotification]/display</span><a class="headerlink" href="#get-1-notifications-idnotification-display" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments:</strong> None</li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-entities">
-<h2>GET <span class="target" id="notifications-idnotification-entities">/1/notifications/[idNotification]/entities</span><a class="headerlink" href="#get-1-notifications-idnotification-entities" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments:</strong> None</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-entities">/1/notifications/[idNotification]/entities</span><a class="headerlink" href="#get-1-notifications-idnotification-entities" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments:</strong> None</li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-list">
-<h2>GET <span class="target" id="notifications-idnotification-list">/1/notifications/[idNotification]/list</span><a class="headerlink" href="#get-1-notifications-idnotification-list" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">closed</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">pos</span></code></li>
-<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-list">/1/notifications/[idNotification]/list</span><a class="headerlink" href="#get-1-notifications-idnotification-list" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">closed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">pos</span></code></li>
+                <li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-list-field">
-<h2>GET <span class="target" id="notifications-idnotification-list-field">/1/notifications/[idNotification]/list/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-list-field" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> One of:<ul>
-<li><code class="docutils literal"><span class="pre">closed</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">pos</span></code></li>
-<li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-list-field">/1/notifications/[idNotification]/list/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-list-field" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">field</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> One of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">closed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">pos</span></code></li>
+                <li><code class="docutils literal"><span class="pre">subscribed</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-member">
-<h2>GET <span class="target" id="notifications-idnotification-member">/1/notifications/[idNotification]/member</span><a class="headerlink" href="#get-1-notifications-idnotification-member" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
-<li><code class="docutils literal"><span class="pre">bio</span></code></li>
-<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
-<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
-<li><code class="docutils literal"><span class="pre">email</span></code></li>
-<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
-<li><code class="docutils literal"><span class="pre">gravatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoardsPinned</span></code></li>
-<li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
-<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
-<li><code class="docutils literal"><span class="pre">initials</span></code></li>
-<li><code class="docutils literal"><span class="pre">loginTypes</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
-<li><code class="docutils literal"><span class="pre">oneTimeMessagesDismissed</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
-<li><code class="docutils literal"><span class="pre">products</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">trophies</span></code></li>
-<li><code class="docutils literal"><span class="pre">uploadedAvatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-<li><code class="docutils literal"><span class="pre">username</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-member">/1/notifications/[idNotification]/member</span><a class="headerlink" href="#get-1-notifications-idnotification-member" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bio</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">email</span></code></li>
+                <li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">gravatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoardsPinned</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+                <li><code class="docutils literal"><span class="pre">initials</span></code></li>
+                <li><code class="docutils literal"><span class="pre">loginTypes</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+                <li><code class="docutils literal"><span class="pre">oneTimeMessagesDismissed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">trophies</span></code></li>
+                <li><code class="docutils literal"><span class="pre">uploadedAvatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">username</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-member-field">
-<h2>GET <span class="target" id="notifications-idnotification-member-field">/1/notifications/[idNotification]/member/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-member-field" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> One of:<ul>
-<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
-<li><code class="docutils literal"><span class="pre">bio</span></code></li>
-<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
-<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
-<li><code class="docutils literal"><span class="pre">email</span></code></li>
-<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
-<li><code class="docutils literal"><span class="pre">gravatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoardsPinned</span></code></li>
-<li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
-<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
-<li><code class="docutils literal"><span class="pre">initials</span></code></li>
-<li><code class="docutils literal"><span class="pre">loginTypes</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
-<li><code class="docutils literal"><span class="pre">oneTimeMessagesDismissed</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
-<li><code class="docutils literal"><span class="pre">products</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">trophies</span></code></li>
-<li><code class="docutils literal"><span class="pre">uploadedAvatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-<li><code class="docutils literal"><span class="pre">username</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-member-field">/1/notifications/[idNotification]/member/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-member-field" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">field</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> One of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bio</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">email</span></code></li>
+                <li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">gravatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoardsPinned</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+                <li><code class="docutils literal"><span class="pre">initials</span></code></li>
+                <li><code class="docutils literal"><span class="pre">loginTypes</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+                <li><code class="docutils literal"><span class="pre">oneTimeMessagesDismissed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">trophies</span></code></li>
+                <li><code class="docutils literal"><span class="pre">uploadedAvatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">username</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-membercreator">
-<h2>GET <span class="target" id="notifications-idnotification-membercreator">/1/notifications/[idNotification]/memberCreator</span><a class="headerlink" href="#get-1-notifications-idnotification-membercreator" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
-<li><code class="docutils literal"><span class="pre">bio</span></code></li>
-<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
-<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
-<li><code class="docutils literal"><span class="pre">email</span></code></li>
-<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
-<li><code class="docutils literal"><span class="pre">gravatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoardsPinned</span></code></li>
-<li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
-<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
-<li><code class="docutils literal"><span class="pre">initials</span></code></li>
-<li><code class="docutils literal"><span class="pre">loginTypes</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
-<li><code class="docutils literal"><span class="pre">oneTimeMessagesDismissed</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
-<li><code class="docutils literal"><span class="pre">products</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">trophies</span></code></li>
-<li><code class="docutils literal"><span class="pre">uploadedAvatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-<li><code class="docutils literal"><span class="pre">username</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-membercreator">/1/notifications/[idNotification]/memberCreator</span><a class="headerlink" href="#get-1-notifications-idnotification-membercreator" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bio</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">email</span></code></li>
+                <li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">gravatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoardsPinned</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+                <li><code class="docutils literal"><span class="pre">initials</span></code></li>
+                <li><code class="docutils literal"><span class="pre">loginTypes</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+                <li><code class="docutils literal"><span class="pre">oneTimeMessagesDismissed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">trophies</span></code></li>
+                <li><code class="docutils literal"><span class="pre">uploadedAvatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">username</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-membercreator-field">
-<h2>GET <span class="target" id="notifications-idnotification-membercreator-field">/1/notifications/[idNotification]/memberCreator/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-membercreator-field" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> One of:<ul>
-<li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
-<li><code class="docutils literal"><span class="pre">bio</span></code></li>
-<li><code class="docutils literal"><span class="pre">bioData</span></code></li>
-<li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
-<li><code class="docutils literal"><span class="pre">email</span></code></li>
-<li><code class="docutils literal"><span class="pre">fullName</span></code></li>
-<li><code class="docutils literal"><span class="pre">gravatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoardsPinned</span></code></li>
-<li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
-<li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
-<li><code class="docutils literal"><span class="pre">initials</span></code></li>
-<li><code class="docutils literal"><span class="pre">loginTypes</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberType</span></code></li>
-<li><code class="docutils literal"><span class="pre">oneTimeMessagesDismissed</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
-<li><code class="docutils literal"><span class="pre">products</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">status</span></code></li>
-<li><code class="docutils literal"><span class="pre">trophies</span></code></li>
-<li><code class="docutils literal"><span class="pre">uploadedAvatarHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-<li><code class="docutils literal"><span class="pre">username</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-membercreator-field">/1/notifications/[idNotification]/memberCreator/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-membercreator-field" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">field</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> One of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bio</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bioData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">confirmed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">email</span></code></li>
+                <li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">gravatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoardsPinned</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idPremOrgsAdmin</span></code></li>
+                <li><code class="docutils literal"><span class="pre">initials</span></code></li>
+                <li><code class="docutils literal"><span class="pre">loginTypes</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberType</span></code></li>
+                <li><code class="docutils literal"><span class="pre">oneTimeMessagesDismissed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">status</span></code></li>
+                <li><code class="docutils literal"><span class="pre">trophies</span></code></li>
+                <li><code class="docutils literal"><span class="pre">uploadedAvatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">username</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-organization">
-<h2>GET <span class="target" id="notifications-idnotification-organization">/1/notifications/[idNotification]/organization</span><a class="headerlink" href="#get-1-notifications-idnotification-organization" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">fields</span></code> (optional)<ul>
-<li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-<li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:<ul>
-<li><code class="docutils literal"><span class="pre">billableMemberCount</span></code></li>
-<li><code class="docutils literal"><span class="pre">desc</span></code></li>
-<li><code class="docutils literal"><span class="pre">descData</span></code></li>
-<li><code class="docutils literal"><span class="pre">displayName</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
-<li><code class="docutils literal"><span class="pre">invitations</span></code></li>
-<li><code class="docutils literal"><span class="pre">invited</span></code></li>
-<li><code class="docutils literal"><span class="pre">logoHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberships</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
-<li><code class="docutils literal"><span class="pre">products</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-<li><code class="docutils literal"><span class="pre">website</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-organization">/1/notifications/[idNotification]/organization</span><a class="headerlink" href="#get-1-notifications-idnotification-organization" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">billableMemberCount</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">displayName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invitations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invited</span></code></li>
+                <li><code class="docutils literal"><span class="pre">logoHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberships</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">website</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-notifications-idnotification-organization-field">
-<h2>GET <span class="target" id="notifications-idnotification-organization-field">/1/notifications/[idNotification]/organization/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-organization-field" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">field</span></code> (required)<ul>
-<li><strong>Valid Values:</strong> One of:<ul>
-<li><code class="docutils literal"><span class="pre">billableMemberCount</span></code></li>
-<li><code class="docutils literal"><span class="pre">desc</span></code></li>
-<li><code class="docutils literal"><span class="pre">descData</span></code></li>
-<li><code class="docutils literal"><span class="pre">displayName</span></code></li>
-<li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
-<li><code class="docutils literal"><span class="pre">invitations</span></code></li>
-<li><code class="docutils literal"><span class="pre">invited</span></code></li>
-<li><code class="docutils literal"><span class="pre">logoHash</span></code></li>
-<li><code class="docutils literal"><span class="pre">memberships</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-<li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
-<li><code class="docutils literal"><span class="pre">prefs</span></code></li>
-<li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
-<li><code class="docutils literal"><span class="pre">products</span></code></li>
-<li><code class="docutils literal"><span class="pre">url</span></code></li>
-<li><code class="docutils literal"><span class="pre">website</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>GET <span class="target" id="notifications-idnotification-organization-field">/1/notifications/[idNotification]/organization/[field]</span><a class="headerlink" href="#get-1-notifications-idnotification-organization-field" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">field</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> One of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">billableMemberCount</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descData</span></code></li>
+                <li><code class="docutils literal"><span class="pre">displayName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idBoards</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invitations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">invited</span></code></li>
+                <li><code class="docutils literal"><span class="pre">logoHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">memberships</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">powerUps</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">premiumFeatures</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">website</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="put-1-notifications-idnotification">
-<h2>PUT <span class="target" id="id1">/1/notifications/[idNotification]</span><a class="headerlink" href="#put-1-notifications-idnotification" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> read</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">unread</span></code> (optional)<ul>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>PUT <span class="target" id="id1">/1/notifications/[idNotification]</span><a class="headerlink" href="#put-1-notifications-idnotification" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">unread</span></code> (optional)
+          <ul>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="put-1-notifications-idnotification-unread">
-<h2>PUT <span class="target" id="notifications-idnotification-unread">/1/notifications/[idNotification]/unread</span><a class="headerlink" href="#put-1-notifications-idnotification-unread" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> write</li>
-<li><strong>Arguments</strong><ul>
-<li><code class="docutils literal"><span class="pre">value</span></code> (required)<ul>
-<li><strong>Valid Values:</strong><ul>
-<li><code class="docutils literal"><span class="pre">true</span></code></li>
-<li><code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h2>PUT <span class="target" id="notifications-idnotification-unread">/1/notifications/[idNotification]/unread</span><a class="headerlink" href="#put-1-notifications-idnotification-unread" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">value</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="post-1-notifications-all-read">
-<h2>POST <span class="target" id="notifications-all-read">/1/notifications/all/read</span><a class="headerlink" href="#post-1-notifications-all-read" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><strong>Required permissions:</strong> write</li>
-<li><strong>Arguments:</strong> None</li>
-</ul>
+  <h2>POST <span class="target" id="notifications-all-read">/1/notifications/all/read</span><a class="headerlink" href="#post-1-notifications-all-read" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments:</strong> None</li>
+  </ul>
 </div>
-</div>
-
-
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" class="clearfix">
-  <h3>Search</h3>
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-  <h3><a href="../../index.html">Documentation Home</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">notification</a><ul>
-<li><a class="reference internal" href="#get-1-notifications-idnotification">GET /1/notifications/[idNotification]</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-field">GET /1/notifications/[idNotification]/[field]</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-board">GET /1/notifications/[idNotification]/board</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-board-field">GET /1/notifications/[idNotification]/board/[field]</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-card">GET /1/notifications/[idNotification]/card</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-card-field">GET /1/notifications/[idNotification]/card/[field]</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-display">GET /1/notifications/[idNotification]/display</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-entities">GET /1/notifications/[idNotification]/entities</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-list">GET /1/notifications/[idNotification]/list</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-list-field">GET /1/notifications/[idNotification]/list/[field]</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-member">GET /1/notifications/[idNotification]/member</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-member-field">GET /1/notifications/[idNotification]/member/[field]</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-membercreator">GET /1/notifications/[idNotification]/memberCreator</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-membercreator-field">GET /1/notifications/[idNotification]/memberCreator/[field]</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-organization">GET /1/notifications/[idNotification]/organization</a></li>
-<li><a class="reference internal" href="#get-1-notifications-idnotification-organization-field">GET /1/notifications/[idNotification]/organization/[field]</a></li>
-<li><a class="reference internal" href="#put-1-notifications-idnotification">PUT /1/notifications/[idNotification]</a></li>
-<li><a class="reference internal" href="#put-1-notifications-idnotification-unread">PUT /1/notifications/[idNotification]/unread</a></li>
-<li><a class="reference internal" href="#post-1-notifications-all-read">POST /1/notifications/all/read</a></li>
-</ul>
-</li>
-</ul>

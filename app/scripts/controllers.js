@@ -184,27 +184,28 @@ app.controller('SandboxCtrl', function($scope, $http, $sce, $timeout, $window, $
 
 app.controller('CommunityCtrl', function($scope, $window) {
   $scope.wrappers = [
-    {'name':'Ruby',author:'Jeremy Tregunna', url: 'https://github.com/jeremytregunna/ruby-trello'}
-    , {name:'Node', author:'Luca Matteis', url: 'https://github.com/lmatteis/node-trello'}
-    , {name:'Python', author:'Richard Kolkovich', url: 'https://github.com/sarumont/py-trello '}
-    , {name:'Python', author:'Luke Rigby', url: 'https://github.com/plish/Trolly'}
-    , {name:'Python', author:'Brent Tubbs', url: 'https://bitbucket.org/btubbs/trollop'}
-    , {name:'Python3', author:'Wayne Werner', url: 'https://github.com/waynew/trello3'}
-    , {name:'.NET', author:'Greg Dennis', url: 'https://bitbucket.org/gregsdennis/manatee.trello'}
-    , {name:'Elixir', author: 'Chris Yammine', url: 'https://github.com/ChrisYammine/ex_trello'}
+    {name:'Ruby',author:'Jeremy Tregunna', url: 'https://github.com/jeremytregunna/ruby-trello'},
+    {name:'Node', author:'Luca Matteis', url: 'https://github.com/lmatteis/node-trello'},
+    {name:'Python', author:'Richard Kolkovich', url: 'https://github.com/sarumont/py-trello'},
+    {name:'Python', author:'Luke Rigby', url: 'https://github.com/plish/Trolly'},
+    {name:'Python', author:'Brent Tubbs', url: 'https://bitbucket.org/btubbs/trollop'},
+    {name:'Python3', author:'Wayne Werner', url: 'https://github.com/waynew/trello3'},
+    {name:'.NET', author:'Greg Dennis', url: 'https://bitbucket.org/gregsdennis/manatee.trello'},
+    {name:'Elixir', author: 'Chris Yammine', url: 'https://github.com/ChrisYammine/ex_trello'}
   ];
 
   $scope.samples = [
-    {name:'Trello Calendar', author:'Francois Metz',url:'https://github.com/francois2metz/trello-calendar'},
-    {name:'Cardorizer', author:'Mark Drago',url:'https://github.com/markdrago/cardorizer'},
-    {name:'Trello Bookmarklet', author:'Daniel LeCheminant',url:'https://github.com/danlec/Trello-Bookmarklet'},
-    {name:'Trellobo', author:'Oisín Hurley',url:'https://github.com/oisin/trellobo'},
-    {name:'taskboards', author:'Jake Ginnivan',url:'https://bitbucket.org/JakeGinnivan/taskboards'},
-    {name:'Read Cards jsfiddle', author: 'Daniel LeCheminant',url:'http://jsfiddle.net/nNesx/'},
-    {name:'Add Comment jsfiddle', author: 'Daniel LeCheminant',url:'http://jsfiddle.net/E4rLn/'},
-    {name:'Web Clipper for Trello', author: 'Oskar Jakiela',url:'https://github.com/oskarjakiela/trello-web-clipper'},
-    {name:'Node Trello to Slides', author: 'Jonalyn Valencia',url: 'https://github.com/olynvalencia/node-trello-to-slides'},
-    {name:'Trello bot in Node.js', author: 'Karl Pokus',url: 'https://github.com/karlpokus/trobot'},
+    {name: 'Trello to Newsletter', author: 'Jeff Triplett', url: 'https://gist.github.com/jefftriplett/9d2470a97ab57d2cec6d'},
+    {name:'Trello Calendar', author:'Francois Metz', url:'https://github.com/francois2metz/trello-calendar'},
+    {name:'Cardorizer', author:'Mark Drago', url:'https://github.com/markdrago/cardorizer'},
+    {name:'Trello Bookmarklet', author:'Daniel LeCheminant', url:'https://github.com/danlec/Trello-Bookmarklet'},
+    {name:'Trellobo', author:'Oisín Hurley', url:'https://github.com/oisin/trellobo'},
+    {name:'taskboards', author:'Jake Ginnivan', url:'https://bitbucket.org/JakeGinnivan/taskboards'},
+    {name:'Read Cards jsfiddle', author: 'Daniel LeCheminant', url:'http://jsfiddle.net/nNesx/'},
+    {name:'Add Comment jsfiddle', author: 'Daniel LeCheminant', url:'http://jsfiddle.net/E4rLn/'},
+    {name:'Web Clipper for Trello', author: 'Oskar Jakiela', url:'https://github.com/oskarjakiela/trello-web-clipper'},
+    {name:'Node Trello to Slides', author: 'Jonalyn Valencia', url: 'https://github.com/olynvalencia/node-trello-to-slides'},
+    {name:'Trello bot in Node.js', author: 'Karl Pokus', url: 'https://github.com/karlpokus/trobot'},
   ];
 
   $scope.open = function(url) {
@@ -236,9 +237,7 @@ app.controller('AdvancedReferenceCtrl', function($scope, $http, $location, $stat
 
 app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location, $anchorScroll, $stateParams, ExtraNavBar){
 	// We want to collapse the arguments section so people can more easily scan
-	// the routes. Since we autogenerate the full API reference docs from the
-	// server using Sphinx, doing this client side allows us to add the toggle
-	// without having to modify the HTML from the server.
+	// the routes.
 	var i, len, section, sections;
 
 	ExtraNavBar.setPage($stateParams.page);
@@ -247,15 +246,13 @@ app.controller('AdvancedReferencePageCtrl', function($scope, $http, $location, $
 
 	for (i = 0, len = sections.length; i < len; i++) {
 		$section = $(sections[i]);
-		if ($section.text() == "Arguments") {
+		if (["Arguments", "Examples", "All Action Types", "Excluded Action Types"].indexOf($section.text()) > -1) {
 		  $parent = $section.parent().addClass('js-section');
 		  $list = $parent.find('ul').addClass('js-list u-hidden');
 		  $button = $("<button>").addClass('mod-inline js-toggle-list').text("Show");
 		  $section.append(" ").append($button);
 		}
 	}
-
-	$('.sphinxsidebar').remove();
 
 	$('.headerlink').each(
 		function(i) {
@@ -327,7 +324,7 @@ app.factory('ExtraNavBar', function(){
 		page: "",
 		setPage: function(page) {
 			tool.page = page;
-			console.log("Set page to be " + page);
+			// console.log("Set page to be " + page);
 		}
 	};
 	return tool;
