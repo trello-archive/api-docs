@@ -1,9 +1,54 @@
 <div class="app-content">
-  <h2>Menus</h2>
-  <p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked
-    as the callback when a member clicks on the card-button returned as part of the plugin initialization. Initially the callback
-    runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create
-    an overlay via t.overlay that loads the appropriate interface in a new iframe.</p>
+  <h1>Power-Up Topics</h1>
+  <ul>
+    <li><a href="#cors">CORS Settings</a></li>
+    <li><a href="#menus">Menus</a></li>
+    <li><a href="#attachments">Attachments</a></li>
+    <li><a href="#authentication">Authentication</a></li>
+    <li><a href="#data-storage">Data Storage</a></li>
+    <li><a href="#recoloring">Recoloring</a></li>
+    <li><a href="#timeouts">Timeouts</a></li>
+    <li><a href="#internationalization">Internationalization</a></li>
+    <li><a href="#callbacks">Callbacks</a></li>
+    <li><a href="#webhooks-and-offline-access">Webhooks &amp; Offline Access</a></li>
+    <li><a href="#troubleshooting">Power-Ups Troubleshooting</a></li>
+  </ul>
+
+  <h2 id="cors">CORS Settings</h2>
+  <p>It looks like your Power-Up can't be loaded because the CORS settings on your server. Because the request for this file is coming from trello.com, your server will need to allow for cross-origin requests from our domain.</p>
+
+  <p>Hosting it on Github pages works because they allow cross-site requests: http://stackoverflow.com/questions/26416727/cross-origin-resource-sharing-on-github-pages</p>
+
+  <p>If you're not sure how to change CORS settings, I'm happy to help you figure it out - just let me know what type of server you're running. The gomix example shows how to set CORS in the server.js file: https://gomix.com/#!/project/rune-friend</p>
+
+  <p>Most programming languages have a package that helps you configure CORS:
+    <table>
+      <thead>
+        <tr>
+          <th>Programming Language/Framework</th>
+          <th>CORS Package</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Python/Flask</th>
+          <td><a href="https://flask-cors.readthedocs.io/en/latest/" target="_blank">https://flask-cors.readthedocs.io/en/latest/</a></td>
+        </tr>
+        <tr>
+          <th>Javascript/Express</th>
+          <td><a href="https://github.com/expressjs/cors" target="_blank">https://github.com/expressjs/cors</a></td>
+        </tr>
+        <tr>
+          <th>ASP.net</th>
+          <td><a href="https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api" target="_blank">https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </p>
+  <hr />
+
+  <h2 id="menus">Menus</h2>
+  <p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked as the callback when a member clicks on the card-button returned as part of the plugin initialization. Initially the callback runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create an overlay via t.overlay that loads the appropriate interface in a new iframe.</p>
   <p>Below is a sample callback from our Dropbox integration:</p>
   <pre>
 var attachFile = function(t) {
@@ -40,40 +85,28 @@ module.exports = function(t) {
   });
 }
   </pre>
-  <p>Popups can be nested, which will automatically provide a back button in the corner of the popup. You can also request that
-    search be allowed on the popup. This will provide native web client functionality for performing full text searches of
-    your supplied items.
-  </p>
+  <p>Popups can be nested, which will automatically provide a back button in the corner of the popup. You can also request that search be allowed on the popup. This will provide native web client functionality for performing full text searches of your supplied items.</p>
   <p>Alternatively, popups can be created containing an iframe by supplying a title, URL, and height instead of a set of items.</p>
+  <hr/>
 
-  <h3>Attachment</h3>
-  <p>Attachments can be created with the <strong>t.attach</strong> method, but they can only be removed by the user using the
-    standard web experience in the attachments section, or by clicking in the upper right hand corner of any attachment-section
-    claiming an attachment.</p>
+  <h2 id="attachments">Attachments</h2>
+  <p>Attachments can be created with the <strong>t.attach</strong> method, but they can only be removed by the user using the standard web experience in the attachments section, or by clicking in the upper right hand corner of an attachment-section claiming an attachment.</p>
   <pre>t.attach({ url: url });</pre>
   <img src="/images/content/sample-remove-attachments.png" alt="Remove attachments via popup" />
   <p>The names of each attachment in the “Remove Attachments” popup are rendered using <strong>format-url</strong>.</p>
+  <hr/>
 
-  <h3>Authentication</h3>
-  <p>You should only require authentication when it is required by the user. Here are some samples of ways that Power-Ups can
-    trigger an authentication workflow:
-  </p>
-  <p>1. For our Dropbox Power-Up, “Show Details from Dropbox…” has been added to the attachment-thumbnail by detecting that the
-    link to Dropbox has not been initialized for this member. Once the Power-Up has been initialized and authenticated, we
-    show a true thumbnail.</p>
+  <h2 id="authentication">Authentication</h2>
+  <p>You should only require authentication when it is required by the user. Here are some samples of ways that Power-Ups can trigger an authentication workflow:</p>
+  <p>1. For our Dropbox Power-Up, “Show Details from Dropbox…” has been added to the attachment-thumbnail by detecting that the link to Dropbox has not been initialized for this member. Once the Power-Up has been initialized and authenticated, we show a true thumbnail.</p>
   <img src="/images/content/sample-authentication-attachment-thumbnail.png" />
-  <p>For our Github Power-Up, the attachment-sections iframe managed by the Power-Up includes a prompt to authenticate to see
-    additional information.</p>
+  <p>For our Github Power-Up, the attachment-sections iframe managed by the Power-Up includes a prompt to authenticate to see additional information.</p>
   <img src="/images/content/sample-authentication-attachment-section.png" />
-  <p>We also trigger authentication after a user attempts to perform an action that requires it, such as when attaching a GitHub
-    Issue to a card.</p>
+  <p>We also trigger authentication after a user attempts to perform an action that requires it, such as when attaching a GitHub Issue to a card.</p>
   <img src="/images/content/sample-authentication-popup.png" />
-  <p>When developing a Power-Up that requires authentication, try to offer as much functionality in a non-authenticated state
-    as possible, and add non-intrusive links to authenticate the user to provide more functionality.</p>
-  <p>To achieve Authentication, you will often need to use the t.authenticate method. Here’s a code sample of how you might handle
-    the OAuth workflow from within a Power-Up popover iframe.</p>
-  <p>Client side we need to wire up what should happen when the authenticate button or link is clicked, which is handled by the
-    following code.</p>
+  <p>When developing a Power-Up that requires authentication, try to offer as much functionality in a non-authenticated state as possible, and add non-intrusive links to authenticate the user to provide more functionality.</p>
+  <p>To achieve Authentication, you will often need to use the t.authenticate method. Here’s a code sample of how you might handle the OAuth workflow from within a Power-Up popover iframe.</p>
+  <p>Client side we need to wire up what should happen when the authenticate button or link is clicked, which is handled by the following code.</p>
   <pre>
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
@@ -109,13 +142,8 @@ authBtn.addEventListener('click', function() {
   });
 });
   </pre>
-  <p>The authorize handler opens a new window. Once the auth flow is complete in that window, you should land on a page
-    you control (generally your return_url). That page needs to contain a small amount of javascript to send the resulting
-    token back to the Power-Up.
-  </p>
-  <p>
-    Here is an example of how that would be achieved for the Trello oauth flow from above.
-  </p>
+  <p>The authorize handler opens a new window. Once the auth flow is complete in that window, you should land on a page you control (generally your return_url). That page needs to contain a small amount of javascript to send the resulting token back to the Power-Up.</p>
+  <p>Here is an example of how that would be achieved for the Trello OAuth flow from above:</p>
   <pre>
 var token = window.location.hash.substring(7);
 if (window.opener && typeof window.opener.authorize === 'function') {
@@ -125,10 +153,10 @@ if (window.opener && typeof window.opener.authorize === 'function') {
 }
 setTimeout(function(){ window.close(); }, 1000);
   </pre>
+  <hr/>
 
-  <h3 id="data-storage">Data Storage</h3>
-  <p>There are various scopes that can be used to store data. These scopes are determined by the visibility level, and the entity
-    it is attached to.</p>
+  <h2 id="data-storage">Data Storage</h2>
+  <p>There are various scopes that can be used to store data. These scopes are determined by the visibility level, and the entity it is attached to.</p>
   <table>
     <thead>
       <tr>
@@ -160,21 +188,19 @@ setTimeout(function(){ window.close(); }, 1000);
   <p>Currently, there is no external API for accessing Power-Up data. Power-Up stored data can only be retrieved when the UI
     is loaded by the member with the Power-Up enabled.</p>
   <p>Members can reset their private data at any time via the Power-Ups menu.</p>
+  </hr>
 
-  <h3>Recoloring</h3>
-  <p>Trello expects you to change the color of any icons you use based on a query parameter that we will provide. This parameter
-    is designed to ensure that icons have great usability even when the background behind an image may change.</p>
-  <p>For example, card badge icons are expected to be grey (#999) in their default state, but when a color is applied to the
-    badge (such as ‘red’), the icon is passed <strong>?color=fff</strong>. This behavior means that the icon should be recolored
-    such that the primary color used is white, ensuring the image will look good and have good usability on a red background.</p>
+  <h2 id="recoloring">Recoloring</h2>
+  <p>Trello expects you to change the color of any icons you use based on a query parameter that we will provide. This parameter is designed to ensure that icons have great usability even when the background behind an image may change.</p>
+  <p>For example, card badge icons are expected to be grey (#999) in their default state, but when a color is applied to the badge (such as ‘red’), the icon is passed <strong>?color=fff</strong>. This behavior means that the icon should be recolored such that the primary color used is white, ensuring the image will look good and have good usability on a red background.</p>
+  <hr/>
 
-  <h3>Timeouts</h3>
-  <p>Your Power-Up should respond within 1 second to all capability methods. If your method takes more than 1 second to complete,
-    we will consider the callback as failed.</p>
+  <h2 id="timeouts">Timeouts</h2>
+  <p>Your Power-Up should respond within 1 second to all capability methods. If your method takes more than 1 second to complete, we will consider the callback as failed.</p>
+  <hr/>
 
-  <h3 id="internationalization">Internationalization</h3>
-  <p>Trello Power-Ups were designed with Internationalization in mind. When creating a plugin or iframe, you can optionally pass
-    in the options argument one of the following:</p>
+  <h2 id="internationalization">Internationalization</h2>
+  <p>Trello Power-Ups were designed with Internationalization in mind. When creating a plugin or iframe, you can optionally pass in the options argument one of the following:</p>
   <p>localization object</p>
   <pre>localization: {
   defaultLocale: 'en',
@@ -192,28 +218,22 @@ setTimeout(function(){ window.close(); }, 1000);
     ... returns a Promise that resolves to a localizer object ...
   }</pre>
   <p>Additionally, you can set window.localizer to your own custom localizer and the HostHandlers will use it.</p>
-  <p>Once a localizer has been initialized, you can call the following new handlers (which behind the scenes make use of the
-    localizer). We make the current user locale available to you via window.locale. Additionally, you can grab it off the options
-    object from any of the interfaces or callbacks as well.</p>
+  <p>Once a localizer has been initialized, you can call the following new handlers (which behind the scenes make use of the localizer). We make the current user locale available to you via window.locale. Additionally, you can grab it off the options object from any of the interfaces or callbacks as well.</p>
   <p><strong>localizeKey(key, data)</strong> synchronously returns the output of window.localizer.localize(key, data)</p>
   <p><strong>localizeKeys(key)</strong> synchronously localizes multiple keys. Input can be either an array of keys ['key1',
     'key2'] or an arrary of key, data arrays [['key1', data1], ['key2', data2]]</p>
-  <p><strong>localizeNode(node)</strong> synchronously inserts localized texts into DOM nodes starting at the provided node and
-    all of it's children. Tag a node in your HTML with data-i18n-id="key" for its text content to be replaced based on that
-    key. You can pass args with data-i18n-args='{ "arg1": "data" }'. You can also have placeholder text replaced with data-i18n-attrs='{
-    "placeholder": "key" }'. This will also use the args defined in data-i18n-args.</p>
+  <p><strong>localizeNode(node)</strong> synchronously inserts localized texts into DOM nodes starting at the provided node and all of it's children. Tag a node in your HTML with data-i18n-id="key" for its text content to be replaced based on that key. You can pass args with data-i18n-args='{ "arg1": "data" }'. You can also have placeholder text replaced with data-i18n-attrs='{ "placeholder": "key" }'. This will also use the args defined in data-i18n-args.</p>
   <p>Currently there is no support for dot notation when replacing args.</p>
   <p>Argument replacement assumes that your resource file follows this format:</p>
   <pre>{
   "key": "value with replaceable {arguments}"
 }</pre>
-  <p>Again, dot notation is not supported for arguments. This also limits how you can use braces {} in that there is no escaping
-    currently supported.</p>
+  <p>Again, dot notation is not supported for arguments. This also limits how you can use braces {} in that there is no escapingcurrently supported.</p>
+  <hr/>
 
+  <h2 id="callbacks">Callbacks</h2>
   <h3>What are callbacks?</h3>
-  <p>Sometimes a Power-Up wants the web client to create a bit of UI, and the Power-Up wants to know when the user interacts
-    with that UI (e.g. when the user clicks on a button) For example, the Trello web client might run card-button on a Power-Up,
-    and the Power-Up could respond with</p>
+  <p>Sometimes a Power-Up wants the web client to create a bit of UI, and the Power-Up wants to know when the user interacts with that UI (e.g. when the user clicks on a button) For example, the Trello web client might run card-button on a Power-Up, and the Power-Up could respond with</p>
   <pre>{
   icon: … url of an icon to display …
   text: "Activate"
@@ -221,21 +241,14 @@ setTimeout(function(){ window.close(); }, 1000);
 }</pre>
 
   <h3>How are callbacks used?</h3>
-  <p>For example, a Power-Up might request that a popover list be displayed, with, say 20 items in it. Each of the items has
-    a callback associated with it, but only the one corresponding to the thing that gets clicked on would be called. Or maybe
-    the popup would just get closed and none of them would get called.</p>
-  <p>Callbacks can also be used to e.g. supply the most recent state of the badge on a card (in that case, the same callback
-    might be called many times) … or a callback could be associated with the button in the board header (and the same callback
-    would be triggered every time the button was clicked).</p>
+  <p>For example, a Power-Up might request that a popover list be displayed, with, say 20 items in it. Each of the items has a callback associated with it, but only the one corresponding to the thing that gets clicked on would be called. Or maybe the popup would just get closed and none of them would get called.</p>
+  <p>Callbacks can also be used to e.g. supply the most recent state of the badge on a card (in that case, the same callback might be called many times) … or a callback could be associated with the button in the board header (and the same callback would be triggered every time the button was clicked).</p>
+  <hr/>
 
-  <h3>Webhooks &amp; Offline Access</h3>
-  <p>Webhooks and Offline Access are not currently part of the Power-Up architecture. Power-Ups are only active while a member
-    is in the Trello web client experience. It is possible for your Power-Up and service to access a user’s information and
-    create Webhooks using the standard API.</p>
-  <p>The way to accomplish this is for you to Authorize your application to the Trello API as a part of your Authorization flow,
-    or in response to a user action. You would then need your service to use the standard Trello API to make offline requests.</p>
-  <p>For example, if you were building a Power-Up where you wanted to react to any change made to a card, the member’s experience
-    could be as follows.</p>
+  <h2 id="webhooks-and-offline-access">Webhooks &amp; Offline Access</h2>
+  <p>Webhooks and Offline Access are not currently part of the Power-Up architecture. Power-Ups are only active while a member is in the Trello web client experience. It is possible for your Power-Up and service to access a user’s information and create Webhooks using the standard API.</p>
+  <p>The way to accomplish this is for you to Authorize your application to the Trello API as a part of your Authorization flow, or in response to a user action. You would then need your service to use the standard Trello API to make offline requests.</p>
+  <p>For example, if you were building a Power-Up where you wanted to react to any change made to a card, the member’s experience could be as follows.</p>
   <ol>
     <li>Trello Member enables <strong>Magic Service</strong> Power-Up</li>
     <li>Trello Member clicks on the <strong>card-button</strong> to attach a <strong>Magic Service</strong> to a card.</li>
@@ -246,11 +259,11 @@ setTimeout(function(){ window.close(); }, 1000);
     <li>Your Power-Up renders a new <strong>card-button</strong> for any cards that are already attached to your service</li>
     <li>When the user clicks the “detach” <strong>card-button</strong>, your service deletes the webhook</li>
   </ol>
+  <hr/>
 
   <h2 id="troubleshooting">Power-Ups Troubleshooting</h2>
   <p>As our platform grows, we are working on identifying the most common mistakes and problems.</p>
-  <p><strong>Uncaught PluginRunner::NotHandled: attempt to run callback on plugin 55a5d917446f51777421000f failed(anonymous function) @ ltp.js:40603(anonymous function) @ ltp.js:37845</strong>
-    <p>ltp.js:38699 ^--- With additional stack trace: PluginRunner::NotHandled: attempt to run callback on plugin 55a5d917446f51777421000f
-      failed</p>
-    <p><strong>Solution:</strong> Make sure you are specifying “callback” as one of your capabilities in your manifest.json file.</p>
+  <p><strong>Uncaught PluginRunner::NotHandled: attempt to run callback on plugin 55a5d917446f51777421000f failed(anonymous function) @ ltp.js:40603(anonymous function) @ ltp.js:37845</strong></p>
+  <p>ltp.js:38699 ^--- With additional stack trace: PluginRunner::NotHandled: attempt to run callback on plugin 55a5d917446f51777421000f failed</p>
+  <p><strong>Solution:</strong> Make sure you are specifying “callback” as one of your capabilities in your manifest.json file.</p>
 </div>
