@@ -76,7 +76,7 @@ TrelloPowerUp.initialize({
     <li><strong>set(scope, visibility, name, value)</strong> Used to store some persistent data in Trello's database. The Power-Up provides a scope (organization, board, or card) and the visibility of the data (i.e. whether it's ‘shared’ with everyone that can see the org/board/card or if it's ‘private’) and a string to store. Power-Ups are allowed to store 1K of data for each scope/visibility pair and the current Power-Ups store stringified JSON. Using `t.set` will re-initialize your Power-Up in it’s entirety by re-executing all capabilities. Read more about data storage in the <a ui-sref="power-ups.topics({'#':'data-storage'})">topics section</a>.
     </li>
     <li><strong>get(scope, visibility, name, defaultValue)</strong> Used to get all of the stored data for the Power-Up</li>
-    <li><strong>remove(key)</strong> Used to delete the given keys and values from pluginData. `key` can be either a single string or an array of strings for which keys to remove.</li>
+    <li><strong>remove(scope, visibility, name)</strong> Used to delete the given keys and values from pluginData. <i>name</i> should be the name of the key to remove; it can be either a single string or an array of strings for which keys to remove (e.g. <i>t.remove('organization', 'shared', ['key1', 'key2', 'key3']</i></li>
     <li><strong>attach({url:URL, name:Name})</strong> Attach a new URL to the card in the current context.</li>
     <li><strong>signUrl(URL)</strong> Sign a URL for use with <strong>attachment-sections</strong> only.</li>
     <li><strong>localizeKey(key, data)</strong> Localize a string by key</li>
