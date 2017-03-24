@@ -67,8 +67,8 @@ TrelloPowerUp.initialize({
     <li><strong>authorize(urlWithSecret, options)</strong> Pass a URL to open as a new window for OAuth authentication purposes.</li>
     NOTE: This must be run within an onclick event from one of your iframes, otherwise the browser popup blocker will be triggered and may break your ability to communicate between your authorization window and the parent Trello window.
     <li><strong>sizeTo(selector)</strong> - Sizes the current iframe based on the height of the element referenced via your selector.</li>
-    <li><strong>t.navigate({ url: 'https://trello.com/c/abc123' })</strong> Generic navigation to any url that can be handled by the Trello web client.</li>
-    <li><strong>t.showCard('abc123')</strong> bring up the card details (card back) for an open card on the current board by id (or idShort)</li>
+    <li><strong>t.navigate({ url: 'https://trello.com/c/abc123' })</strong> Generic navigation to any url that can be handled by the Trello web client. Use very sparingly, and only as the result of a direct user interaction.</li>
+    <li><strong>t.showCard('abc123')</strong> bring up the card details (card back) for an open (non-archived) card on the current board by id (or idShort). Only use as the result of a direct user interaction.</li>
   </ul>
   <h3 id="data-methods">Data Methods</h3>
   <ul>
