@@ -1,61 +1,64 @@
 <div class="app-content">
-
-    <h2>Authorizing a Client
+  <h2>Authorizing a Client
   <review-bar></review-bar></h2>
   <p>There are two ways to authorize a client and receive a User Token. The first is via our authorize route, the second is via basic OAuth.</p>
   <p>You must ask your users for permission using your Application Key to get access to a Token. If you are building a server application, you can get a single purpose token by authorizing access to your personal data at a url such as: <pre>https://trello.com/1/authorize?expiration=never&name=SinglePurposeToken&key=REPLACEWITHYOURKEY</pre></p>
-
   <h3>Using the Authorize Route</h3>
-
-	<p>If you’re authorizing a web client, you may want to check out <a href="/clientjs"><em>client.js</em></a>, a wrapper for the API in javascript.</p>
-	<p>You can get a token from Trello with the GET route</p>
-	<div class="code"><pre>https://trello.com/1/authorize</pre>
-	</div>
-	<p>This takes the following parameters:</p>
-	<ul>
-	<li><span class="code">callback_method</span></code><ul>
-	<li><span class="code">"postMessage"</span></code> or <span class="code">"fragment"</span></code></li>
-	<li>Defines how the token is returned to you.  Generally, <span class="code">"postMessage"</span></code> is used if the authorization is done in a popup, and <span class="code">"fragment"</span></code> if it is done by redirect.  For details on how to use these, see <a class="reference internal" href="/clientjs"><em>client.js</em></a></li>
-	</ul>
-	</li>
-	<li><span class="code">return_url</span></code><ul>
-	<li>URL the token should be returned to</li>
-	<li>If the token is being passed by fragment, this is where the user will be redirected after authorization</li>
-	<li>If the token is being passed by postMessage, this will be used as the <span class="code">origin</span></code> for the postMessage</li>
-	</ul>
-	</li>
-	<li><span class="code">scope</span></code><ul>
-	<li>Comma-separated list of one or more of <span class="code">"read"</span></code>, <span class="code">"write"</span></code>, <span class="code">"account"</span></code></li>
-	<li>Read: reading of boards, organizations, etc. on behalf of the user</li>
-	<li>Write: writing of boards, organizations, etc. on behalf of the user</li>
-	<li>Account: writing of member info, and marking notifications read</li>
-	</ul>
-	</li>
-	<li><span class="code">expiration</span></code><ul>
-	<li><span class="code">"1hour"</span></code>, <span class="code">"1day"</span></code>, <span class="code">"30days"</span></code>, <span class="code">"never"</span></code></li>
-	<li>When the token should expire</li>
-	</ul>
-	</li>
-	<li><span class="code">name</span></code><ul>
-	<li>Name of the application</li>
-	<li>Displayed during the authorization process</li>
-	</ul>
-	</li>
-	<li><span class="code">key</span></code><ul>
-	<li><a href="https://trello.com/app-key" target="_blank">Application key</a></li>
-	</ul>
-	</li>
-	</ul>
-
+  <p>If you’re authorizing a web client, you may want to check out <a href="/clientjs"><em>client.js</em></a>, a wrapper for the API in javascript.</p>
+  <p>You can get a token from Trello with the GET route</p>
+  <div class="code"><pre>https://trello.com/1/authorize</pre>
+  </div>
+  <p>This takes the following parameters:</p>
+  <ul>
+    <li><span class="code">callback_method</span></code>
+      <ul>
+        <li><span class="code">"postMessage"</span></code> or <span class="code">"fragment"</span></code>
+        </li>
+        <li>Defines how the token is returned to you. Generally, <span class="code">"postMessage"</span></code> is used if the authorization is done in a popup, and <span class="code">"fragment"</span></code> if it is done by redirect. For details on how to use these, see <a class="reference internal" href="/clientjs"><em>client.js</em></a></li>
+      </ul>
+    </li>
+    <li><span class="code">return_url</span></code>
+      <ul>
+        <li>URL the token should be returned to</li>
+        <li>If the token is being passed by fragment, this is where the user will be redirected after authorization</li>
+        <li>If the token is being passed by postMessage, this will be used as the <span class="code">origin</span></code> for the postMessage</li>
+      </ul>
+    </li>
+    <li><span class="code">scope</span></code>
+      <ul>
+        <li>Comma-separated list of one or more of <span class="code">"read"</span></code>, <span class="code">"write"</span></code>, <span class="code">"account"</span></code>
+        </li>
+        <li>Read: reading of boards, organizations, etc. on behalf of the user</li>
+        <li>Write: writing of boards, organizations, etc. on behalf of the user</li>
+        <li>Account: writing of member info, and marking notifications read</li>
+      </ul>
+    </li>
+    <li><span class="code">expiration</span></code>
+      <ul>
+        <li><span class="code">"1hour"</span></code>, <span class="code">"1day"</span></code>, <span class="code">"30days"</span></code>, <span class="code">"never"</span></code>
+        </li>
+        <li>When the token should expire</li>
+      </ul>
+    </li>
+    <li><span class="code">name</span></code>
+      <ul>
+        <li>Name of the application</li>
+        <li>Displayed during the authorization process</li>
+      </ul>
+    </li>
+    <li><span class="code">key</span></code>
+      <ul>
+        <li><a href="https://trello.com/app-key" target="_blank">Application key</a></li>
+      </ul>
+    </li>
+  </ul>
   <h3>Using Basic OAuth</h3>
-
   <p>The Trello API supports basic <a href="http://tools.ietf.org/html/rfc5849">OAuth</a>; you can use an OAuth library and the following URLs:</p>
-	<pre>https://trello.com/1/OAuthGetRequestToken
+  <pre>https://trello.com/1/OAuthGetRequestToken
 https://trello.com/1/OAuthAuthorizeToken
 https://trello.com/1/OAuthGetAccessToken
 </pre>
-	<p>You’ll also need your application secret (used to sign your requests). That’s listed in the second box on <a href="https://trello.com/app-key">https://trello.com/app-key</a>.</p>
-
-	<h4>Node.js</h4>
-	<p><a href="/scripts/code/oauth.coffee" target="_blank">Download our example in CoffeeScript</a></p>
+  <p>You’ll also need your application secret (used to sign your requests). That’s listed in the second box on <a href="https://trello.com/app-key">https://trello.com/app-key</a>.</p>
+  <h4>Node.js</h4>
+  <p><a href="/scripts/code/oauth.coffee" target="_blank">Download our example in CoffeeScript</a></p>
 </div>
