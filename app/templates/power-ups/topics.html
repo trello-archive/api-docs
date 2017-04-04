@@ -183,9 +183,14 @@ setTimeout(function(){ window.close(); }, 1000);
   <pre>t.set('board', 'private', 'key', value)</pre>
   <p>or</p>
   <pre>t.set('board', 'private', { key1: value1, key2: value2 })</pre>
-  <p>Currently, there is no external API for accessing Power-Up data. Power-Up stored data can only be retrieved when the UI
-    is loaded by the member with the Power-Up enabled.</p>
+  <p>Storing at the 'organization' scope will only work if the both the board is in a team and the active user is a member of the team to which the board belongs. Because the 'organization' scope is not always available, you should add a catch whenever trying to set data at the 'organization' level and fallback to the 'board' level, if necessary. For example:</p>
+<pre>t.set('organization', 'private', 'key', 'value')
+  .catch(t.NotHandled, function() {
+    // fall back to storing at board level
+    return t.set('board', 'private', 'key', 'value');
+});</pre>
   <p>Members can reset their private data at any time via the Power-Ups menu.</p>
+  <p>Shared Power-Up data is available via the API at the <a href="./advanced-reference/organization#get-1-organizations-idorg-or-name-pluginData">organization</a>, <a href="./advanced-reference/board#get-1-boards-board-id-pluginData">board</a>, and <a href="./advanced-reference/card#get-1-cards-card-id-or-shortlink-pluginData">card</a> level. Each resource returns the data (named pluginData) that was set at that scope. For instance, `1/card/IdCard/pluginData` will return data set with `t.set('card', 'shared', 'key', 'value')`. Currently, pluginData is read-only and can not be set via the API. Data set within the private scope is not available via the API.</p>
   </hr>
 
   <h2 id="recoloring">Recoloring</h2>
