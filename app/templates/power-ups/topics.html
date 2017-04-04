@@ -189,9 +189,8 @@ setTimeout(function(){ window.close(); }, 1000);
     // fall back to storing at board level
     return t.set('board', 'private', 'key', 'value');
 });</pre>
-  
-  <p>Currently, there is no external API for accessing Power-Up data. Power-Up stored data can only be retrieved when the UI is loaded by the member with the Power-Up enabled.</p>
   <p>Members can reset their private data at any time via the Power-Ups menu.</p>
+  <p>Shared Power-Up data is available via the API at the organization, board, and card level. Each resource returns the data (named pluginData) that was set at that scope. For instance, `1/card/IdCard/pluginData` will return data set with `t.set('card', 'shared', 'key', 'value')`. Currently, pluginData is read-only and can not be set via the API. Data set with within the private scope is not available via the API.</p>
   </hr>
 
   <h2 id="recoloring">Recoloring</h2>
