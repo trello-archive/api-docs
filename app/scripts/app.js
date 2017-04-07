@@ -170,6 +170,12 @@ app.run(['$rootScope', '$location', '$window', '$anchorScroll', function($rootSc
   $rootScope
     .$on('$stateChangeSuccess',
       function(event){
+        setTimeout(function(){
+          $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        }, 300);
+
         $anchorScroll();
         if( $window.ga ) {
           $window.ga('send', 'pageview', { page: $location.path() });
