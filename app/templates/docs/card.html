@@ -401,20 +401,25 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/cards/4eea503d91e31d174600008f?fields=name,idList&amp;member_fields=fullName&amp;key=[application_key]&amp;token=[optional_auth_token]
+    <li><strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/cards/4eea503d91e31d174600008f?fields=name,idList&amp;member_fields=fullName&amp;key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea503d91e31d174600008f&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Learn about the Trello API&quot;</span><span class="p">,</span>
     <span class="s2">&quot;idList&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea4ffc91e31d174600004b&quot;</span>
 <span class="p">}</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-cards-card-id-or-shortlink-field">
   <h2>GET <span class="target" id="cards-card-id-or-shortlink-field">/1/cards/[card id or shortlink]/[field]</span>
@@ -1191,7 +1196,6 @@
             </li>
           </ul>
         </li>
-
         <li><code class="docutils literal"><span class="pre">idMembers</span></code> (optional)
           <ul>
             <li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
@@ -1817,9 +1821,14 @@
           </ul>
         </li>
       </ul>
-      <li><strong>Examples</strong></li>
-        <div class="highlight">Bash: <pre>curl -D -X POST -F "file=@[path/to/file]" https://api.trello.com/1/cards/[cardId]/attachments?key=[yourKey]&token=[yourToken]</pre>
-        </div>
+      <li><strong>Examples</strong>
+        <ul>
+          <li>
+            <div class="highlight">Bash: <pre>curl -D -X POST -F "file=@[path/to/file]" https://api.trello.com/1/cards/[cardId]/attachments?key=[yourKey]&token=[yourToken]</pre>
+            </div>
+          </li>
+        </ul>
+      </li>
     </li>
     <li><strong>Errors</strong>
       <ul>

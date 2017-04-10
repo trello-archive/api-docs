@@ -109,7 +109,7 @@
         </li>
       </ul>
     </li>
-       <li>
+    <li>
       <strong>Examples</strong>
       <ul>
         <li>
@@ -120,7 +120,7 @@
           </div>
           <div class="highlight-JavaScript">
             <div class="highlight">
-              <pre>
+              <pre><code class="json">
 {
   "id": "560bf78ea40a4590ca3c5c7d",
   "idMemberCreator": "556c8537a1928ba745504dd8",
@@ -154,7 +154,7 @@
     "username": "mattcowan"
   }
 }
-</pre>
+</code></pre>
             </div>
           </div>
           <div class="highlight-URL">
@@ -164,8 +164,7 @@
           </div>
           <div class="highlight-JavaScript">
             <div class="highlight">
-              <pre>
-{
+              <pre><code class="json">{
   "id": "560bf78ea40a4590ca3c5c7d",
   "idMemberCreator": "556c8537a1928ba745504dd8",
   "data": {
@@ -241,7 +240,7 @@
     }
   }
 }
-</pre>
+</code></pre>
             </div>
           </div>
         </li>
@@ -440,21 +439,20 @@
 <div class="section" id="get-1-actions-idaction-entities">
   <h2>GET <span class="target" id="actions-idaction-entities">/1/actions/[idAction]/entities</span><a class="headerlink" href="#get-1-actions-idaction-entities" title="Permalink to this headline"></a></h2>
   <ul class="simple">
-      <li><strong>Required permissions:</strong> read</li>
-      <li><strong>Arguments:</strong> None</li>
-          <li>
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments:</strong> None</li>
+    <li>
       <strong>Examples</strong>
       <ul>
         <li>
           <div class="highlight-URL">
             <div class="highlight">
-              <pre>GET https://api.trello.com/1/actions/560bf78ea40a4590ca3c5c7d/entities
+              <pre>GET https://api.trello.com/1/actions/560bf78ea40a4590ca3c5c7d/entities</pre>
             </div>
           </div>
           <div class="highlight-JavaScript">
             <div class="highlight">
-              <pre>
-[
+              <pre><code class="json">[
   {
     "type": "member",
     "id": "556c8537a1928ba745504dd8",
@@ -476,7 +474,7 @@
     "text": "(from Mount Rainier National Park | MapQuest National Parks)"
   }
 ]
-</pre>
+</code></pre>
             </div>
           </div>
         </li>
@@ -892,7 +890,8 @@
   </ul>
   <ul class="simple">
     <li>
-      <strong id="excluded-action-types">Excluded Action Types</strong> <p>These actions will be sent to <a href="./advanced-reference/webhook">webhooks</a> but are not included in nested action resource responses (e.g. <a href="./advanced-reference/board#get-1-boards-board-id-actions">GET board/[board_id]/actions</a>).
+      <strong id="excluded-action-types">Excluded Action Types</strong>
+      <p>These actions will be sent to <a href="./advanced-reference/webhook">webhooks</a> but are not included in nested action resource responses (e.g. <a href="./advanced-reference/board#get-1-boards-board-id-actions">GET board/[board_id]/actions</a>).
       </p>
       <ul>
         <li>addAdminToBoard (Deprecated in favor of makeAdminOfBoard)</li>
