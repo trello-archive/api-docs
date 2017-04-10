@@ -829,14 +829,16 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
+    <li>
+    <strong>Examples</strong>
+    <ul>
+    <li>
   <div class="highlight-URL">
     <div class="highlight"><pre>https://api.trello.com/1/members/bobtester?fields=username,fullName,url&amp;boards=all&amp;board_fields=name&amp;organizations=all&amp;organization_fields=displayName&amp;key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
   </div>
   <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+    <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4ee7df1be582acdec80000ae&quot;</span><span class="p">,</span>
     <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;bobtester&quot;</span><span class="p">,</span>
     <span class="s2">&quot;fullName&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob Tester&quot;</span><span class="p">,</span>
@@ -850,8 +852,12 @@
         <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4ee7e707e582acdec800051a&quot;</span>
     <span class="p">}]</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
   </div>
+    </li>
+    </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-members-idmember-or-username-field">
   <h2>GET <span class="target" id="members-idmember-or-username-field">/1/members/[idMember or username]/[field]</span><a class="headerlink" href="#get-1-members-idmember-or-username-field" title="Permalink to this headline"></a></h2>
@@ -1099,14 +1105,16 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
+    <li>
+    <strong>Examples</strong>
+    <ul>
+    <li>
   <div class="highlight-URL">
     <div class="highlight"><pre>https://api.trello.com/1/members/bobtester/actions?limit=3&amp;key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
   </div>
   <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
+    <div class="highlight"><pre><code class="json"><span class="p">[{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4f9aff63b7ecafcb4a0007dd&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;board&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -1170,8 +1178,12 @@
         <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;bobtester&quot;</span>
     <span class="p">}</span>
 <span class="p">}]</span>
-</pre></div>
-  </div>
+</code></pre></div>
+  </div>    
+    </li>
+    </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-members-idmember-or-username-boardbackgrounds">
   <h2>GET <span class="target" id="members-idmember-or-username-boardbackgrounds">/1/members/[idMember or username]/boardBackgrounds</span><a class="headerlink" href="#get-1-members-idmember-or-username-boardbackgrounds" title="Permalink to this headline"></a></h2>
@@ -1467,14 +1479,16 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
+    <li>
+    <strong>Examples</strong>
+    <ul>
+    <li>
   <div class="highlight-URL">
     <div class="highlight"><pre>https://api.trello.com/1/members/bobtester/boards?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
   </div>
   <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
+    <div class="highlight"><pre><code class="json"><span class="p">[{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea4ffc91e31d1746000046&quot;</span><span class="p">,</span>
     <span class="s2">&quot;closed&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="s2">&quot;dateLastActivity&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -1605,8 +1619,12 @@
     <span class="s2">&quot;subscribed&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://trello.com/b/IwLRbh3F/public-board&quot;</span>
 <span class="p">}]</span>
-</pre></div>
+</code></pre></div>
   </div>
+    </li>
+    </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-members-idmember-or-username-boards-filter">
   <h2>GET <span class="target" id="members-idmember-or-username-boards-filter">/1/members/[idMember or username]/boards/[filter]</span><a class="headerlink" href="#get-1-members-idmember-or-username-boards-filter" title="Permalink to this headline"></a></h2>
@@ -2363,14 +2381,16 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
+    <li>
+    <strong>Examples</strong>
+    <ul>
+    <li>
+      <div class="highlight-URL">
     <div class="highlight"><pre>https://api.trello.com/1/members/alicetester/organizations?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
   </div>
   <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
+    <div class="highlight"><pre><code class="json"><span class="p">[{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4ee7e59ae582acdec8000291&quot;</span><span class="p">,</span>
     <span class="s2">&quot;billableMemberCount&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
     <span class="s2">&quot;desc&quot;</span><span class="o">:</span> <span class="s2">&quot;This is a test organization&quot;</span><span class="p">,</span>
@@ -2420,8 +2440,12 @@
     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://trello.com/publicorg&quot;</span><span class="p">,</span>
     <span class="s2">&quot;website&quot;</span><span class="o">:</span> <span class="s2">&quot;http://example.com&quot;</span>
 <span class="p">}]</span>
-</pre></div>
+</code></pre></div>
   </div>
+    </li>
+    </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-members-idmember-or-username-organizations-filter">
   <h2>GET <span class="target" id="members-idmember-or-username-organizations-filter">/1/members/[idMember or username]/organizations/[filter]</span><a class="headerlink" href="#get-1-members-idmember-or-username-organizations-filter" title="Permalink to this headline"></a></h2>
