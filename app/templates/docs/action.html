@@ -1,9 +1,18 @@
 <span id="index"></span>
-<h1 id="action">action<a class="headerlink" href="#action" title="Permalink to this headline"></a></h1>
-<p>Actions are generated whenever an action occurs in Trello. For instance, when a user deletes a card, a deleteCard action is generated and includes information about the deleted card, the list the card was in, the board the card was on, the user that deleted the card, and the idObject of the action. Actions for Trello objects can be listed from nested action endpoints - e.g. the resource <a href="/advanced-reference/board#get-1-boards-board-id-actions">GET board/[board_id]/actions</a> lists all of the actions for the given board. Additionally, data regarding individual action objects can be retrieved and updated using the resources listed below.</p>
-<p>Included at the bottom of this page are a <a href="#all-action-types">list of all action types</a> and <a href="#excluded-action-types">action types that are not returned</a> from nested resources.</p>
+<h1 id="action">action
+  <a class="headerlink" href="#action" title="Permalink to this headline"></a>
+</h1>
+<p>Actions are generated whenever an action occurs in Trello. For instance, when a user deletes a card, a deleteCard action
+  is generated and includes information about the deleted card, the list the card was in, the board the card was on, the
+  user that deleted the card, and the idObject of the action. Actions for Trello objects can be listed from nested action
+  endpoints - e.g. the resource <a href="/advanced-reference/board#get-1-boards-board-id-actions">GET board/[board_id]/actions</a>  lists all of the actions for the given board. Additionally, data regarding individual action objects can be retrieved and
+  updated using the resources listed below.</p>
+<p>Included at the bottom of this page are a <a href="#all-action-types">list of all action types</a> and <a href="#excluded-action-types">action types that are not returned</a>  from nested resources.</p>
 <div class="section" id="get-1-actions-idaction">
-  <h2>GET <span class="target" id="actions-idaction">/1/actions/[idAction]</span><a class="headerlink" href="#get-1-actions-idaction" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction">/1/actions/[idAction]</span>
+    <a class="headerlink" href="#get-1-actions-idaction"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -33,7 +42,8 @@
         <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated
+              list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">data</span></code></li>
                 <li><code class="docutils literal"><span class="pre">date</span></code></li>
@@ -57,7 +67,8 @@
         <li><code class="docutils literal"><span class="pre">member_fields</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
-            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated
+              list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
                 <li><code class="docutils literal"><span class="pre">bio</span></code></li>
@@ -89,7 +100,8 @@
         <li><code class="docutils literal"><span class="pre">memberCreator_fields</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash,fullName,initials,username</span></code></li>
-            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated
+              list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
                 <li><code class="docutils literal"><span class="pre">bio</span></code></li>
@@ -109,7 +121,7 @@
         </li>
       </ul>
     </li>
-       <li>
+    <li>
       <strong>Examples</strong>
       <ul>
         <li>
@@ -120,8 +132,7 @@
           </div>
           <div class="highlight-JavaScript">
             <div class="highlight">
-              <pre>
-{
+              <pre><code class="json">{
   "id": "560bf78ea40a4590ca3c5c7d",
   "idMemberCreator": "556c8537a1928ba745504dd8",
   "data": {
@@ -153,8 +164,7 @@
     "initials": "MC",
     "username": "mattcowan"
   }
-}
-</pre>
+}</code></pre>
             </div>
           </div>
           <div class="highlight-URL">
@@ -164,8 +174,7 @@
           </div>
           <div class="highlight-JavaScript">
             <div class="highlight">
-              <pre>
-{
+              <pre><code class="json">{
   "id": "560bf78ea40a4590ca3c5c7d",
   "idMemberCreator": "556c8537a1928ba745504dd8",
   "data": {
@@ -240,8 +249,7 @@
       }
     }
   }
-}
-</pre>
+}</code></pre>
             </div>
           </div>
         </li>
@@ -250,7 +258,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-field">
-  <h2>GET <span class="target" id="actions-idaction-field">/1/actions/[idAction]/[field]</span><a class="headerlink" href="#get-1-actions-idaction-field" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-field">/1/actions/[idAction]/[field]</span>
+    <a class="headerlink" href="#get-1-actions-idaction-field"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Arguments</strong>
       <ul>
@@ -271,7 +282,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-board">
-  <h2>GET <span class="target" id="actions-idaction-board">/1/actions/[idAction]/board</span><a class="headerlink" href="#get-1-actions-idaction-board" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-board">/1/actions/[idAction]/board</span>
+    <a class="headerlink" href="#get-1-actions-idaction-board"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -279,7 +293,8 @@
         <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated
+              list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">closed</span></code></li>
                 <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
@@ -309,7 +324,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-board-field">
-  <h2>GET <span class="target" id="actions-idaction-board-field">/1/actions/[idAction]/board/[field]</span><a class="headerlink" href="#get-1-actions-idaction-board-field" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-board-field">/1/actions/[idAction]/board/[field]</span>
+    <a class="headerlink"
+      href="#get-1-actions-idaction-board-field" title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -346,7 +364,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-card">
-  <h2>GET <span class="target" id="actions-idaction-card">/1/actions/[idAction]/card</span><a class="headerlink" href="#get-1-actions-idaction-card" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-card">/1/actions/[idAction]/card</span>
+    <a class="headerlink" href="#get-1-actions-idaction-card"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -354,7 +375,8 @@
         <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated
+              list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">badges</span></code></li>
                 <li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
@@ -389,7 +411,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-card-field">
-  <h2>GET <span class="target" id="actions-idaction-card-field">/1/actions/[idAction]/card/[field]</span><a class="headerlink" href="#get-1-actions-idaction-card-field" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-card-field">/1/actions/[idAction]/card/[field]</span>
+    <a class="headerlink"
+      href="#get-1-actions-idaction-card-field" title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -431,30 +456,35 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-display">
-  <h2>GET <span class="target" id="actions-idaction-display">/1/actions/[idAction]/display</span><a class="headerlink" href="#get-1-actions-idaction-display" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-display">/1/actions/[idAction]/display</span>
+    <a class="headerlink" href="#get-1-actions-idaction-display"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments:</strong> None</li>
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-entities">
-  <h2>GET <span class="target" id="actions-idaction-entities">/1/actions/[idAction]/entities</span><a class="headerlink" href="#get-1-actions-idaction-entities" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-entities">/1/actions/[idAction]/entities</span>
+    <a class="headerlink" href="#get-1-actions-idaction-entities"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
-      <li><strong>Required permissions:</strong> read</li>
-      <li><strong>Arguments:</strong> None</li>
-          <li>
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments:</strong> None</li>
+    <li>
       <strong>Examples</strong>
       <ul>
         <li>
           <div class="highlight-URL">
             <div class="highlight">
-              <pre>GET https://api.trello.com/1/actions/560bf78ea40a4590ca3c5c7d/entities
+              <pre>GET https://api.trello.com/1/actions/560bf78ea40a4590ca3c5c7d/entities</pre>
             </div>
           </div>
           <div class="highlight-JavaScript">
             <div class="highlight">
-              <pre>
-[
+              <pre><code class="json">[
   {
     "type": "member",
     "id": "556c8537a1928ba745504dd8",
@@ -475,16 +505,19 @@
     "type": "text",
     "text": "(from Mount Rainier National Park | MapQuest National Parks)"
   }
-]
-</pre>
+]</code></pre>
             </div>
           </div>
         </li>
       </ul>
+    </li>
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-list">
-  <h2>GET <span class="target" id="actions-idaction-list">/1/actions/[idAction]/list</span><a class="headerlink" href="#get-1-actions-idaction-list" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-list">/1/actions/[idAction]/list</span>
+    <a class="headerlink" href="#get-1-actions-idaction-list"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -492,7 +525,8 @@
         <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated
+              list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">closed</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
@@ -508,7 +542,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-list-field">
-  <h2>GET <span class="target" id="actions-idaction-list-field">/1/actions/[idAction]/list/[field]</span><a class="headerlink" href="#get-1-actions-idaction-list-field" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-list-field">/1/actions/[idAction]/list/[field]</span>
+    <a class="headerlink"
+      href="#get-1-actions-idaction-list-field" title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -531,7 +568,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-member">
-  <h2>GET <span class="target" id="actions-idaction-member">/1/actions/[idAction]/member</span><a class="headerlink" href="#get-1-actions-idaction-member" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-member">/1/actions/[idAction]/member</span>
+    <a class="headerlink" href="#get-1-actions-idaction-member"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -539,7 +579,8 @@
         <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated
+              list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
                 <li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
@@ -575,7 +616,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-member-field">
-  <h2>GET <span class="target" id="actions-idaction-member-field">/1/actions/[idAction]/member/[field]</span><a class="headerlink" href="#get-1-actions-idaction-member-field" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-member-field">/1/actions/[idAction]/member/[field]</span>
+    <a class="headerlink"
+      href="#get-1-actions-idaction-member-field" title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -618,7 +662,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-membercreator">
-  <h2>GET <span class="target" id="actions-idaction-membercreator">/1/actions/[idAction]/memberCreator</span><a class="headerlink" href="#get-1-actions-idaction-membercreator" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-membercreator">/1/actions/[idAction]/memberCreator</span>
+    <a class="headerlink"
+      href="#get-1-actions-idaction-membercreator" title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -626,7 +673,8 @@
         <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated
+              list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
                 <li><code class="docutils literal"><span class="pre">avatarSource</span></code></li>
@@ -662,7 +710,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-membercreator-field">
-  <h2>GET <span class="target" id="actions-idaction-membercreator-field">/1/actions/[idAction]/memberCreator/[field]</span><a class="headerlink" href="#get-1-actions-idaction-membercreator-field" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-membercreator-field">/1/actions/[idAction]/memberCreator/[field]</span>
+    <a
+      class="headerlink" href="#get-1-actions-idaction-membercreator-field" title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -705,7 +756,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-organization">
-  <h2>GET <span class="target" id="actions-idaction-organization">/1/actions/[idAction]/organization</span><a class="headerlink" href="#get-1-actions-idaction-organization" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-organization">/1/actions/[idAction]/organization</span>
+    <a class="headerlink"
+      href="#get-1-actions-idaction-organization" title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -713,7 +767,8 @@
         <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated
+              list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">billableMemberCount</span></code></li>
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
@@ -740,7 +795,10 @@
   </ul>
 </div>
 <div class="section" id="get-1-actions-idaction-organization-field">
-  <h2>GET <span class="target" id="actions-idaction-organization-field">/1/actions/[idAction]/organization/[field]</span><a class="headerlink" href="#get-1-actions-idaction-organization-field" title="Permalink to this headline"></a></h2>
+  <h2>GET <span class="target" id="actions-idaction-organization-field">/1/actions/[idAction]/organization/[field]</span>
+    <a class="headerlink"
+      href="#get-1-actions-idaction-organization-field" title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments</strong>
@@ -774,48 +832,65 @@
   </ul>
 </div>
 <div class="section" id="put-1-actions-idaction">
-  <h2>PUT <span class="target" id="id1">/1/actions/[idAction]</span><a class="headerlink" href="#put-1-actions-idaction" title="Permalink to this headline"></a></h2>
+  <h2>PUT <span class="target" id="id1">/1/actions/[idAction]</span>
+    <a class="headerlink" href="#put-1-actions-idaction" title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments</strong>
       <ul>
         <li><code class="docutils literal"><span class="pre">text</span></code> (optional)
           <ul>
-            <li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+            <li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code>              to <code class="docutils literal"><span class="pre">16384</span></code></li>
           </ul>
         </li>
       </ul>
     </li>
   </ul>
-  <p>You can only use PUT on commentCard actions to update the comment. PUTing a new text value will also update the comment on the card.</p>
+  <p>You can only use PUT on commentCard actions to update the comment. PUTing a new text value will also update the comment
+    on the card.</p>
 </div>
 <div class="section" id="put-1-actions-idaction-text">
-  <h2>PUT <span class="target" id="actions-idaction-text">/1/actions/[idAction]/text</span><a class="headerlink" href="#put-1-actions-idaction-text" title="Permalink to this headline"></a></h2>
+  <h2>PUT <span class="target" id="actions-idaction-text">/1/actions/[idAction]/text</span>
+    <a class="headerlink" href="#put-1-actions-idaction-text"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments</strong>
       <ul>
         <li><code class="docutils literal"><span class="pre">value</span></code> (required)
           <ul>
-            <li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">16384</span></code></li>
+            <li><strong>Valid Values:</strong> a string with a length from <code class="docutils literal"><span class="pre">1</span></code>              to <code class="docutils literal"><span class="pre">16384</span></code></li>
           </ul>
         </li>
       </ul>
     </li>
   </ul>
-  <p>You can only use PUT on commentCard actions to update the comment. PUTing a new text value will also update the comment on the card.</p>
+  <p>You can only use PUT on commentCard actions to update the comment. PUTing a new text value will also update the comment
+    on the card.</p>
 </div>
 <div class="section" id="delete-1-actions-idaction">
-  <h2>DELETE <span class="target" id="id2">/1/actions/[idAction]</span><a class="headerlink" href="#delete-1-actions-idaction" title="Permalink to this headline"></a></h2>
+  <h2>DELETE <span class="target" id="id2">/1/actions/[idAction]</span>
+    <a class="headerlink" href="#delete-1-actions-idaction"
+      title="Permalink to this headline"></a>
+  </h2>
   <ul class="simple">
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments:</strong> None</li>
   </ul>
-  <p>You can only use DELETE on commentCard actions. Deleting a commentCard action will also delete the comment on the card. You can only delete a commentCard action if you are the one that created the comment, you have more permissions on the board than the person that created the comment, or the person that created the comment has deleted their account.</p>
+  <p>You can only use DELETE on commentCard actions. Deleting a commentCard action will also delete the comment on the card.
+    You can only delete a commentCard action if you are the one that created the comment, you have more permissions on the
+    board than the person that created the comment, or the person that created the comment has deleted their account.</p>
 </div>
 <div class="section" id="action-types">
-  <h2>Action Types<a class="headerlink" href="#action-types" title="Permalink to this headline"></a></h2>
-  <p>Due to the number of actions that occur in Trello, nested action resources filter out specific action types. For example, changing the name of a checklistItem will trigger a webhook on the board and will POST an action of type updateCheckItem with the old and new name of the checklistItem. However, no nested actions resource will return action types of updateCheckItem: /cards/idCard/actions/, /boards/idBoard/actions/. However you can get that specific action instance via <a href="/advanced-reference/action#get-1-actions-idaction">GET /actions/idAction/</a>.</p>
+  <h2>Action Types
+    <a class="headerlink" href="#action-types" title="Permalink to this headline"></a>
+  </h2>
+  <p>Due to the number of actions that occur in Trello, nested action resources filter out specific action types. For example,
+    changing the name of a checklistItem will trigger a webhook on the board and will POST an action of type updateCheckItem
+    with the old and new name of the checklistItem. However, no nested actions resource will return action types of updateCheckItem:
+    /cards/idCard/actions/, /boards/idBoard/actions/. However you can get that specific action instance via <a href="/advanced-reference/action#get-1-actions-idaction">GET /actions/idAction/</a>.</p>
   <ul class="simple">
     <li>
       <strong id="all-action-types">All Action Types</strong>
@@ -892,7 +967,9 @@
   </ul>
   <ul class="simple">
     <li>
-      <strong id="excluded-action-types">Excluded Action Types</strong> <p>These actions will be sent to <a href="./advanced-reference/webhook">webhooks</a> but are not included in nested action resource responses (e.g. <a href="./advanced-reference/board#get-1-boards-board-id-actions">GET board/[board_id]/actions</a>).
+      <strong id="excluded-action-types">Excluded Action Types</strong>
+      <p>These actions will be sent to <a href="./advanced-reference/webhook">webhooks</a> but are not included in nested action
+        resource responses (e.g. <a href="./advanced-reference/board#get-1-boards-board-id-actions">GET board/[board_id]/actions</a>).
       </p>
       <ul>
         <li>addAdminToBoard (Deprecated in favor of makeAdminOfBoard)</li>
