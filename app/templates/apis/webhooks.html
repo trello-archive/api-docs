@@ -105,24 +105,6 @@ function verifyTrelloWebhookRequest(request, secret, callbackURL) {
   return doubleHash == headerHash;
 }</pre>
 
-<p>Because of certain defaults in the crypto utilities in node, the payloads that we sign are treated as binary strings, not utf-8. For example, if you take the en-dash character (U+2013 or 8211 in decimal), and create a binary buffer out of it in Node, it will show up as a buffer of [19], which are the 8 least significant bits of 8211. That is the value that is being used in the digest to compute the SHA-1.</p>
-
-<p>If you are using Ruby and need to mimic this behavior, one solution might bebody.unpack('U*').pack('c*').</p>
-
-<p>Though this isn't ideal, we cannot change the way we sign webhooks without breaking backwards compatibility.</p>
-
-<p>Here is some sample code provided by Doug Kirk for Java:</p>
-
-<pre>public static byte[] toNodejsBinaryEncoding(final String s) {
-  final int count = s.length();
-  final byte[] result = new byte[count];
-  for (int i = 0; i < count; i++) result = (byte)(s.codePointAt(i) & 0xff);
-    return result;
-  }
-}</pre>
-
-
-
 <h3>Deleting Webhooks</h3>
 <p>There are three ways to delete webhooks.</p>
 

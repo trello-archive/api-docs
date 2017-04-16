@@ -1,4 +1,3 @@
-
 <div class="api-ref u-clearfix">
 <review-bar style="top:0;"></review-bar>
 
@@ -29,6 +28,12 @@
 					<li><a href="/advanced-reference/action#put-1-actions-idaction-text">/actions/[id]/text</a></li>
 					<li>DELETE</li>
 					<li><a href="/advanced-reference/action#delete-1-actions-idaction">/actions/[id]</a></li>
+				</ul>
+			</li>
+			<li><a href="/advanced-reference/batch">batch</a>
+				<ul ng-show="navBar.page == 'batch'">
+					<li>GET</li>
+					<li><a href="/advanced-reference/batch#get-1-batch">/batch/</a></li>
 				</ul>
 			</li>
 			<li><a href="/advanced-reference/board">board</a>
@@ -135,6 +140,7 @@
 					<li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink-closed">/cards/[id]/closed</a></li>
 					<li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink-desc">/cards/[id]/desc</a></li>
 					<li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink-due">/cards/[id]/due</a></li>
+          <li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink-dueComplete">/cards/[id]/dueComplete</a></li>
 					<li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink-idattachmentcover">/cards/[id]/idAttachmentCover</a></li>
 					<li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink-idboard">/cards/[id]/idBoard</a></li>
 					<li><a href="/advanced-reference/card#put-1-cards-card-id-or-shortlink-idlist">/cards/[id]/idList</a></li>
@@ -381,16 +387,6 @@
 					<li><a href="/advanced-reference/search#get-1-search-members">/search/members</a></li>
 				</ul>
 			</li>
-			<li><a href="/advanced-reference/session">session</a>
-				<ul ng-show="navBar.page == 'session'">
-					<li>GET</li>
-					<li><a href="/advanced-reference/session#get-1-sessions-socket">/sessions/socket</a></li>
-					<li>PUT</li>
-					<li><a href="/advanced-reference/session#put-1-sessions-idsession">/sessions/[idSession]</a></li>
-					<li><a href="/advanced-reference/session#put-1-sessions-idsession-status">/sessions/[idSession]/status</a></li>
-					<li><a href="/advanced-reference/session#post-1-sessions">/sessions</a></li>
-				</ul>
-			</li>
 			<li><a href="/advanced-reference/token">token</a>
 				<ul ng-show="navBar.page == 'token'">
 					<li>GET</li>
@@ -434,6 +430,8 @@
 				</ul>
 			</li>
 		</ul>
+		<p>Have a question or think something needs clarification? Open an <a href="https://github.com/trello/api-docs/issues">issue</a> or <a href="https://github.com/trello/api-docs/compare">contribute a fix</a>!</p>
+
 		<p>You can also sign up for the <a href="http://trello.us9.list-manage.com/subscribe?u=5cb712992a906406c5eae28a7&id=1754ca72bf">Developer Newsletter</a> to stay informed about the latest changes and announcements for developers.</p>
 
 	</div>

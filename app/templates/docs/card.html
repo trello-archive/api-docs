@@ -132,7 +132,7 @@
         <li><code class="docutils literal"><span class="pre">attachments</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
-            <li><strong>Valid Values:</strong> A boolean value or &amp;quot;cover&amp;quot; for only card cover attachments</li>
+            <li><strong>Valid Values:</strong> A boolean value or &quot;cover&quot; for only card cover attachments</li>
           </ul>
         </li>
         <li><code class="docutils literal"><span class="pre">attachment_fields</span></code> (optional)
@@ -280,7 +280,7 @@
             <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
               <ul>
                 <li><code class="docutils literal"><span class="pre">closed</span></code></li>
-                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code> - The datetime of the last activity on the card. <b>Note:</b> There are activities that update <i>dateLastActivity</i> that do not create a corresponding action. For instance, updating the <i>name</i> field of a checklist item on a card does not create an action but does update the card and board's <i>dateLastActivity</i> value.</li>
                 <li><code class="docutils literal"><span class="pre">dateLastView</span></code></li>
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
                 <li><code class="docutils literal"><span class="pre">descData</span></code></li>
@@ -373,10 +373,11 @@
                 <li><code class="docutils literal"><span class="pre">badges</span></code></li>
                 <li><code class="docutils literal"><span class="pre">checkItemStates</span></code></li>
                 <li><code class="docutils literal"><span class="pre">closed</span></code></li>
-                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dateLastActivity</span></code> - The datetime of the last activity on the card. <b>Note:</b> There are activities that update <i>dateLastActivity</i> that do not create a corresponding action. For instance, updating the <i>name</i> field of a checklist item on a card does not create an action but does update the card and board's <i>dateLastActivity</i> value.</li>
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
                 <li><code class="docutils literal"><span class="pre">descData</span></code></li>
                 <li><code class="docutils literal"><span class="pre">due</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dueComplete</span></code></li>
                 <li><code class="docutils literal"><span class="pre">email</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
@@ -400,20 +401,25 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/cards/4eea503d91e31d174600008f?fields=name,idList&amp;member_fields=fullName&amp;key=[application_key]&amp;token=[optional_auth_token]
+    <li><strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/cards/4eea503d91e31d174600008f?fields=name,idList&amp;member_fields=fullName&amp;key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea503d91e31d174600008f&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Learn about the Trello API&quot;</span><span class="p">,</span>
     <span class="s2">&quot;idList&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea4ffc91e31d174600004b&quot;</span>
 <span class="p">}</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-cards-card-id-or-shortlink-field">
   <h2>GET <span class="target" id="cards-card-id-or-shortlink-field">/1/cards/[card id or shortlink]/[field]</span>
@@ -433,6 +439,7 @@
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
                 <li><code class="docutils literal"><span class="pre">descData</span></code></li>
                 <li><code class="docutils literal"><span class="pre">due</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dueComplete</span></code></li>
                 <li><code class="docutils literal"><span class="pre">email</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
@@ -690,7 +697,7 @@
         <li><code class="docutils literal"><span class="pre">filter</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">true</span></code></li>
-            <li><strong>Valid Values:</strong> A boolean value or &amp;quot;cover&amp;quot; for only card cover attachments</li>
+            <li><strong>Valid Values:</strong> A boolean value or &quot;cover&quot; for only card cover attachments</li>
           </ul>
         </li>
       </ul>
@@ -868,6 +875,7 @@
                 <li><code class="docutils literal"><span class="pre">desc</span></code></li>
                 <li><code class="docutils literal"><span class="pre">descData</span></code></li>
                 <li><code class="docutils literal"><span class="pre">due</span></code></li>
+                <li><code class="docutils literal"><span class="pre">dueComplete</span></code></li>
                 <li><code class="docutils literal"><span class="pre">email</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idAttachmentCover</span></code></li>
                 <li><code class="docutils literal"><span class="pre">idBoard</span></code></li>
@@ -1188,7 +1196,6 @@
             </li>
           </ul>
         </li>
-
         <li><code class="docutils literal"><span class="pre">idMembers</span></code> (optional)
           <ul>
             <li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
@@ -1204,6 +1211,11 @@
             <li><strong>Valid Values:</strong> id of the list the card should be moved to</li>
           </ul>
         </li>
+        <li><code class="docutils literal"><span class="pre">idLabels</span></code> (optional)
+          <ul>
+            <li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
+          </ul>
+        </li>
         <li><code class="docutils literal"><span class="pre">idBoard</span></code> (optional)
           <ul>
             <li><strong>Valid Values:</strong> id of the board the card should be moved to</li>
@@ -1217,6 +1229,16 @@
         <li><code class="docutils literal"><span class="pre">due</span></code> (optional)
           <ul>
             <li><strong>Valid Values:</strong> A date, or <code class="docutils literal"><span class="pre">null</span></code></li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">dueComplete</span></code> (optional)
+          <ul>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
           </ul>
         </li>
         <li><code class="docutils literal"><span class="pre">subscribed</span></code> (optional)
@@ -1497,6 +1519,23 @@
     </li>
   </ul>
 </div>
+<div class="section" id="put-1-cards-card-id-or-shortlink-dueComplete">
+  <h2>PUT <span class="target" id="cards-card-id-or-shortlink-dueComplete">/1/cards/[card id or shortlink]/dueComplete</span>
+    <a class="headerlink" href="#put-1-cards-card-id-or-shortlink-dueComplete" title="Permalink to this headline"></a>
+  </h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">value</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">true</span></code> or <code class="docutils literal"><span class="pre">false</span></code></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
 <div class="section" id="put-1-cards-card-id-or-shortlink-idattachmentcover">
   <h2>PUT <span class="target" id="cards-card-id-or-shortlink-idattachmentcover">/1/cards/[card id or shortlink]/idAttachmentCover</span>
     <a class="headerlink" href="#put-1-cards-card-id-or-shortlink-idattachmentcover" title="Permalink to this headline"></a>
@@ -1507,7 +1546,7 @@
       <ul>
         <li><code class="docutils literal"><span class="pre">value</span></code> (required)
           <ul>
-            <li><strong>Valid Values:</strong> Id of the image attachment of this card to use as its cover, or null for no cover</li>
+            <li><strong>Valid Values:</strong> Id of the image attachment of this card to use as its cover, or an empty string for no cover</li>
           </ul>
         </li>
       </ul>
@@ -1675,12 +1714,16 @@
             <li><strong>Valid Values:</strong> A position. <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, or a positive number.</li>
           </ul>
         </li>
-        <li><code class="docutils literal"><span class="pre">due</span></code> (required)
+        <li><code class="docutils literal"><span class="pre">due</span></code> (optional)
           <ul>
             <li><strong>Valid Values:</strong> A date, or <code class="docutils literal"><span class="pre">null</span></code></li>
           </ul>
         </li>
-
+        <li><code class="docutils literal"><span class="pre">dueComplete</span></code> (optional)
+          <ul>
+            <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">true</span></code> or <code class="docutils literal"><span class="pre">false</span></code></li>
+          </ul>
+        </li>
         <li><code class="docutils literal"><span class="pre">idList</span></code> (required)
           <ul>
             <li><strong>Valid Values:</strong> id of the list that the card should be added to</li>
@@ -1714,7 +1757,17 @@
         <li><code class="docutils literal"><span class="pre">keepFromSource</span></code> (optional)
           <ul>
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
-            <li><strong>Valid Values:</strong> Properties of the card to copy over from the source.</li>
+            <li><strong>Valid Values:</strong> A string containing one or more of the following values, separated by commas:
+              <code class="docutils literal"><span class="pre">"attachments"</span></code>,
+              <code class="docutils literal"><span class="pre">"checklists"</span></code>,
+              <code class="docutils literal"><span class="pre">"comments"</span></code>,
+              <code class="docutils literal"><span class="pre">"due"</span></code>,
+              <code class="docutils literal"><span class="pre">"labels"</span></code>,
+              <code class="docutils literal"><span class="pre">"members"</span></code>,
+              <code class="docutils literal"><span class="pre">"stickers"</span></code>
+            </li>
+            <li><strong>Note:</strong> Checklist items are always unchecked and due dates are never marked as complete regardless of their corresponding values in the source card.
+            </li>
           </ul>
         </li>
       </ul>
@@ -1743,6 +1796,7 @@
     <a class="headerlink" href="#post-1-cards-card-id-or-shortlink-attachments" title="Permalink to this headline"></a>
   </h2>
   <ul class="simple">
+    <p>The attachments endpoint should be used to add an attachment to a card. Cards are limited to having 100 attachments. You can only add a single attachment to a card at a time.</p>
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments</strong>
       <ul>
@@ -1767,10 +1821,18 @@
           </ul>
         </li>
       </ul>
+      <li><strong>Examples</strong>
+        <ul>
+          <li>
+            <div class="highlight">Bash: <pre>curl -D -X POST -F "file=@[path/to/file]" https://api.trello.com/1/cards/[cardId]/attachments?key=[yourKey]&token=[yourToken]</pre>
+            </div>
+          </li>
+        </ul>
+      </li>
     </li>
     <li><strong>Errors</strong>
       <ul>
-        <li><strong> Unprocessable entity</strong> (<code class="docutils literal"><span class="pre">422</span></code>): when an attempt is made to attach more than <code class="docutils literal"><span class="pre">100</span></code> files to a single card</li>
+        <li><strong> Unprocessable entity</strong> (<code class="docutils literal"><span class="pre">422</span></code>): This error occurs when an attempt is made to add another attachment to card that already has <code class="docutils literal"><span class="pre">100</span></code> attachments.</li>
       </ul>
     </li>
   </ul>
@@ -2135,81 +2197,3 @@
     </li>
   </ul>
 </div>
-</div>
-
-
-</div>
-<div class="sphinxsidebar">
-  <div class="sphinxsidebarwrapper">
-    <div id="searchbox" style="display: none" class="clearfix">
-      <h3>Search</h3>
-      <form class="search" action="../../search.html" method="get">
-        <input type="text" name="q" />
-        <input type="submit" value="Go" />
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
-    </div>
-    <script type="text/javascript">
-      $('#searchbox').show(0);
-    </script>
-    <h3><a href="../../index.html">Documentation Home</a></h3>
-    <ul>
-      <li><a class="reference internal" href="#">card</a>
-        <ul>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink">GET /1/cards/[card id or shortlink]</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-field">GET /1/cards/[card id or shortlink]/[field]</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-actions">GET /1/cards/[card id or shortlink]/actions</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-attachments">GET /1/cards/[card id or shortlink]/attachments</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-attachments-idattachment">GET /1/cards/[card id or shortlink]/attachments/[idAttachment]</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-board">GET /1/cards/[card id or shortlink]/board</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-board-field">GET /1/cards/[card id or shortlink]/board/[field]</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-checkitemstates">GET /1/cards/[card id or shortlink]/checkItemStates</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-checklists">GET /1/cards/[card id or shortlink]/checklists</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-list">GET /1/cards/[card id or shortlink]/list</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-list-field">GET /1/cards/[card id or shortlink]/list/[field]</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-members">GET /1/cards/[card id or shortlink]/members</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-membersvoted">GET /1/cards/[card id or shortlink]/membersVoted</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-stickers">GET /1/cards/[card id or shortlink]/stickers</a></li>
-          <li><a class="reference internal" href="#get-1-cards-card-id-or-shortlink-stickers-idsticker">GET /1/cards/[card id or shortlink]/stickers/[idSticker]</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink">PUT /1/cards/[card id or shortlink]</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-actions-idaction-comments">PUT /1/cards/[card id or shortlink]/actions/[idAction]/comments</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-name">PUT /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/name</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-pos">PUT /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/pos</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-state">PUT /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/state</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-checklist-idchecklistcurrent-checkitem-idcheckitem">PUT /1/cards/[card id or shortlink]/checklist/[idChecklistCurrent]/checkItem/[idCheckItem]</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-closed">PUT /1/cards/[card id or shortlink]/closed</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-desc">PUT /1/cards/[card id or shortlink]/desc</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-due">PUT /1/cards/[card id or shortlink]/due</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idattachmentcover">PUT /1/cards/[card id or shortlink]/idAttachmentCover</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idboard">PUT /1/cards/[card id or shortlink]/idBoard</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idlist">PUT /1/cards/[card id or shortlink]/idList</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-idmembers">PUT /1/cards/[card id or shortlink]/idMembers</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-name">PUT /1/cards/[card id or shortlink]/name</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-pos">PUT /1/cards/[card id or shortlink]/pos</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-stickers-idsticker">PUT /1/cards/[card id or shortlink]/stickers/[idSticker]</a></li>
-          <li><a class="reference internal" href="#put-1-cards-card-id-or-shortlink-subscribed">PUT /1/cards/[card id or shortlink]/subscribed</a></li>
-          <li><a class="reference internal" href="#post-1-cards">POST /1/cards</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-actions-comments">POST /1/cards/[card id or shortlink]/actions/comments</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-attachments">POST /1/cards/[card id or shortlink]/attachments</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem">POST /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem-converttocard">POST /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]/convertToCard</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-checklists">POST /1/cards/[card id or shortlink]/checklists</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-idlabels">POST /1/cards/[card id or shortlink]/idLabels</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-idmembers">POST /1/cards/[card id or shortlink]/idMembers</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-labels">POST /1/cards/[card id or shortlink]/labels</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-markassociatednotificationsread">POST /1/cards/[card id or shortlink]/markAssociatedNotificationsRead</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-membersvoted">POST /1/cards/[card id or shortlink]/membersVoted</a></li>
-          <li><a class="reference internal" href="#post-1-cards-card-id-or-shortlink-stickers">POST /1/cards/[card id or shortlink]/stickers</a></li>
-          <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink">DELETE /1/cards/[card id or shortlink]</a></li>
-          <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-actions-idaction-comments">DELETE /1/cards/[card id or shortlink]/actions/[idAction]/comments</a></li>
-          <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-attachments-idattachment">DELETE /1/cards/[card id or shortlink]/attachments/[idAttachment]</a></li>
-          <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-checklist-idchecklist-checkitem-idcheckitem">DELETE /1/cards/[card id or shortlink]/checklist/[idChecklist]/checkItem/[idCheckItem]</a></li>
-          <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-checklists-idchecklist">DELETE /1/cards/[card id or shortlink]/checklists/[idChecklist]</a></li>
-          <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-idlabels-idlabel">DELETE /1/cards/[card id or shortlink]/idLabels/[idLabel]</a></li>
-          <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-idmembers-idmember">DELETE /1/cards/[card id or shortlink]/idMembers/[idMember]</a></li>
-          <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-membersvoted-idmember">DELETE /1/cards/[card id or shortlink]/membersVoted/[idMember]</a></li>
-          <li><a class="reference internal" href="#delete-1-cards-card-id-or-shortlink-stickers-idsticker">DELETE /1/cards/[card id or shortlink]/stickers/[idSticker]</a></li>
-        </ul>
-      </li>
-    </ul>

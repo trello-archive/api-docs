@@ -1,89 +1,105 @@
 <div class="app-content">
-<h2>Power-Up Capabilities</h2>
-<p>There are currently 9 capabilities. Capabilities represent areas of the UX that you can hook into. For each capability you state that you support in your <a ui-sref="power-ups.architecture({'#':'manifest'})">manifest</a>, the web application will make a request to your Power-Up for UX and functionality to be rendered within Trello, at the time when that UX item would normally be rendered.</p>
-
-
+  <h2>Power-Up Capabilities</h2>
+  <p>There are currently 11 capabilities. Capabilities represent areas of the UX that you can hook into. For each capability you state that you support in your <a ui-sref="power-ups.architecture({'#':'manifest'})">manifest</a>, the web application will make a request to your Power-Up for UX and functionality to be rendered within Trello, at the time when that UX item would normally be rendered.</p>
   <ol>
-  <li><strong><a href="#board-buttons">board-buttons</a></strong>
-  <ul>
-  <li>Allows you to add one or more buttons to a Board at the top right of the screen</li>
-  </ul>
-  </li>
-
-  <li><strong><a href="#card-badges">card-badges</a></strong>
-  <ul>
-  <li>Allows you to add badges to the front of cards</li>
-  <li>Card badges can also be refreshed on an interval that you specify</li>
-  </ul></li>
-
-
-  <li><strong><a href="#card-detail-badges">card-detail-badges</a></strong>
-  <ul>
-  <li>Allows you to add badges on the back of cards</li>
-  <li>Card detail badges can also be refreshed on an interval that you specify</li>
-  </ul></li>
-
-  <li><strong><a href="#attachment-sections">attachment-sections</a></strong>
-  <ul>
-  <li>Allows you to add sections to the back of a card, each containing an iframe</li>
-  <li>You will need to iterate through a list of Card attachments stored in options.entries</li>
-  <li>Return list of attachments that you are claiming per section</li>
-  </ul></li>
-
-  <li><strong><a href="#attachment-thumbnail">attachment-thumbnail</a></strong>
-  <ul>
-  <li>Allows you to improve the attachment preview on the back of a card, for when you don't need a whole iframe</li>
-  <li>Specify the link, the text shown for “opening” the attachment, and the thumbnail</li>
-  </ul></li>
-
-  <li><strong><a href="#card-buttons">card-buttons</a></strong>
-  <ul>
-  <li>Allows you to add one or more buttons on the back of cards</li>
-  <li>Each button should have { icon, text, callback -> method }</li>
-  </ul></li>
-
-  <li><strong><a href="#format-url">format-url</a> </strong>
-  <ul>
-  <li>Allows you to modify the rendering of a URL any time we would display a URL such as in a Card comment</li>
-  <li>Rendered in the sidebar, in markdown, and anywhere else URLs are shown</li>
-  <li>Make URLs nicer and easier to understand by replacing the raw URL with an icon and text</li>
-  </ul></li>
-
-  <li><strong><a href="#card-from-url">card-from-url</a></strong>
-  <ul>
-  <li>Allows you to use information that you know (via authentication or algorithmically), to handle drag and dropped URLs</li>
-  <li>Set the name and description of the card based on the URL being dropped</li>
-  </ul></li>
-
-  <li><strong><a href="#show-settings">show-settings</a></strong>
-  <ul>
-  <li>Allows you to have a gear button in the menu bar for configuring your Power-Up</li>
-  <li>Useful if you are setting Board-level attributes such as which GitHub repository is on a Board</li>
-  </ul></li>
+    <li>
+      <strong><a href="#board-buttons">board-buttons</a></strong>
+      <ul>
+        <li>Allows you to add one or more buttons to a Board at the top right of the screen</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#card-badges">card-badges</a></strong>
+      <ul>
+        <li>Allows you to add badges to the front of cards</li>
+        <li>Card badges can also be refreshed on an interval that you specify</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#card-detail-badges">card-detail-badges</a></strong>
+      <ul>
+        <li>Allows you to add badges on the back of cards</li>
+        <li>Card detail badges can also be refreshed on an interval that you specify</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#attachment-sections">attachment-sections</a></strong>
+      <ul>
+        <li>Allows you to add sections to the back of a card, each containing an iframe</li>
+        <li>You will need to iterate through a list of Card attachments stored in options.entries</li>
+        <li>Return list of attachments that you are claiming per section</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#attachment-thumbnail">attachment-thumbnail</a></strong>
+      <ul>
+        <li>Allows you to improve the attachment preview on the back of a card, for when you don't need a whole iframe</li>
+        <li>Specify the link, the text shown for “opening” the attachment, and the thumbnail</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#card-buttons">card-buttons</a></strong>
+      <ul>
+        <li>Allows you to add one or more buttons on the back of cards</li>
+        <li>Each button should have { icon, text, callback -> method }</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#format-url">format-url</a> </strong>
+      <ul>
+        <li>Allows you to modify the rendering of a URL any time we would display a URL such as in a Card comment</li>
+        <li>Rendered in the sidebar, in markdown, and anywhere else URLs are shown</li>
+        <li>Make URLs nicer and easier to understand by replacing the raw URL with an icon and text</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#card-from-url">card-from-url</a></strong>
+      <ul>
+        <li>Allows you to use information that you know (via authentication or algorithmically), to handle drag and dropped URLs</li>
+        <li>Set the name and description of the card based on the URL being dropped</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#show-settings">show-settings</a></strong>
+      <ul>
+        <li>Allows you to have a gear button in the menu bar for configuring your Power-Up</li>
+        <li>Useful if you are setting Board-level attributes such as which GitHub repository is on a Board</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#authorization-status">authorization-status</a></strong>
+      <ul>
+        <li>Allows you to determine whether a user has authorized with your Power-Up yet.</li>
+      </ul>
+    </li>
+    <li>
+      <strong><a href="#show-authorization">show-authorization</a></strong>
+      <ul>
+        <li>Allows you to control what to do when a user clicks the 'Authorize Account' link from the Power-Up gear icon which shows when 'authorization-status' returns <i>{ authorized: false }</i>.</li>
+      </ul>
+    </li>
+  </ol>
   <hr/>
-
   <!-- Capability Details -->
-
   <h3>Buttons (<span id="board-buttons">board-buttons</span> &amp; <span id="card-buttons">card-buttons</span>)</h3>
   <div>
-    <img src="/images/content/sample-board-button.png" alt="Board Button Sample"/>
-    <div style="text-align:center;">(board-buttons)</div><br/>
-    <img src="/images/content/sample-card-button.png" alt="Card Button Sample"/>
+    <img src="/images/content/sample-board-button.png" alt="Board Button Sample" />
+    <div style="text-align:center;">(board-buttons)</div>
+    <br/>
+    <img src="/images/content/sample-card-button.png" alt="Card Button Sample" />
     <div style="text-align:center;">(card-buttons)</div>
   </div>
   <p>You are expected to return a list of of buttons.</p>
   <h4>Static URL Example</h4>
-  <pre>'board-buttons': function(t, board) {
-  return [
-    {
-      icon: './images/icon.svg',
-      text: "Button Text",
-      url: 'https://developers.trello.com/'
-    }
-  ];
-}</pre>
+  <pre><code class="javascript">'board-buttons': function(t, board) {
+  return [{
+    icon: './images/icon.svg',
+    text: "Button Text",
+    url: 'https://developers.trello.com/'
+  }];
+}</code></pre>
   <h4>Callback Example</h4>
-  <pre>'card-buttons': function(t, options){
+  <pre><code class="javascript">'card-buttons': function(t, options){
   return [{
     icon: './images/icon.svg',
     text: 'Button Text',
@@ -94,48 +110,44 @@
       });
     }
   }];
-}</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
-  <li>
-    <strong>icon</strong>
-    <div>Path to the icon to display on the button</div>
-  </li>
-  <li>
-    <strong>text</strong>
-    <div>Text to show on the button</div>
-  </li>
-  <li>
-    <strong>url (optional)</strong>
-    <div>The URL that a user should be taken to upon clicking the button</div>
-  </li>
-  <li>
-    <strong>target (optional)</strong>
-    <div>The target for the <strong>a</strong> tag (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target">learn about targets</a>)</div>
-  </li>
-  <li>
-    <strong>callback (optional)</strong>
-    <div>A method to call onclick.</div>
-    <div><em>Please note that callbacks require that you state “callback” as one of your capabilities in your manifest.json file.</em></div>
-  </li>
+    <li>
+      <strong>icon (required)</strong>
+      <div>Path to the icon to display on the button. Do not use a colored icon.</div>
+    </li>
+    <li>
+      <strong>text</strong>
+      <div>Text to show on the button</div>
+    </li>
+    <li>
+      <strong>url (optional)</strong>
+      <div>The URL that a user should be taken to upon clicking the button</div>
+    </li>
+    <li>
+      <strong>target (optional)</strong>
+      <div>The target for the <strong>a</strong> tag (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target">learn about targets</a>)</div>
+    </li>
+    <li>
+      <strong>callback (optional)</strong>
+      <div>A method to call onclick.</div>
+      <div><em>Please note that callbacks require that you state “callback” as one of your capabilities in your manifest.json file.</em></div>
+    </li>
+  </ul>
   <hr/>
-
-
-
   <h3><span id="card-badges">card-badges</span> &amp; <span id="card-detail-badges">card-detail-badges</span></h3>
   <h4>Example</h4>
-  <pre>'card-badges': function(t, card) {
-  return [
-    {
-      icon: './images/icon.svg',
-      text: '3'
-    }
-  ];
-}</pre>
+  <pre><code class="javascript">'card-badges': function(t, card) {
+  return [{
+    icon: './images/icon.svg',
+    text: '3'
+  }];
+}</code></pre>
   <h4>Dynamic Example</h4>
-  <pre>'card-badges': function(t, card) {
+  <pre><code class="javascript">'card-badges': function(t, card) {
   return {
-    dynamic: function(){
+    dynamic: function() {
       return {
         title: 'Detail Badge', // for detail badges only
         text: 'Dynamic ' + (Math.random() * 100).toFixed(0).toString(),
@@ -145,56 +157,49 @@
       }
     }
   }
-}</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
-  <li>
-    <strong>text</strong>
-    <div>Text to show on the badge</div>
-  </li>
-  <li>
-    <strong>icon (card-badges only)</strong>
-    <div>Path to the icon to display on the badge. </div>
-    <div><em>Style Note:</em> This image should be solid SVG</div>
-    <div><em>Style Note:</em> If using a PNG, the image should be greyscale, matching existing card badges.</div>
-  </li>
-  <li>
-    <strong>title (detail-badges only)</strong>
-    <div>Title to show above te badge</div>
-  </li>
-  <li>
-    <strong>color (optional)</strong>
-    <div>Should be one of: ‘red’, ‘yellow’, ‘green’, or ‘’</div>
-  </li>
-  <li>
-    <strong>refresh (optional)</strong>
-    <div>The number of seconds between refreshes. The system will ignore a refresh of less than 10 seconds. In order to use refresh, the object to be returned should instead look like:</div>
-    <pre>{dynamic: callbackFunction(t, context)}</pre>
-  </li>
+    <li>
+      <strong>text</strong>
+      <div>Text to show on the badge</div>
+    </li>
+    <li>
+      <strong>icon (card-badges only)</strong>
+      <div>Path to the icon to display on the badge. </div>
+      <div><em>Style Note:</em> This image should be solid SVG. If using a PNG, the image should be greyscale, matching existing card badges.</div>
+    </li>
+    <li>
+      <strong>title (detail-badges only)</strong>
+      <div>Title to show above the badge. Note: it is not possible to have a detail-badge that contains an anchor tag that links out of Trello. A user clicking on the detail badge will always result in showing the user the card back.
+        <div>
+    </li>
+    <li>
+      <strong>color (optional)</strong>
+      <div>Should be one of: ‘red’, ‘yellow’, ‘green’, or ‘’</div>
+    </li>
+    <li>
+      <strong>refresh (optional)</strong>
+      <div>The number of seconds between refreshes. The system will ignore a refresh of less than 10 seconds. In order to use refresh, the object to be returned should instead look like:</div>
+      <pre><code class="javascript">{ dynamic: callbackFunction(t, context) }</code></pre>
+    </li>
   </ul>
   <p>By returning an object with the property <strong>dynamic</strong> specified as a function that returns these parameters, your card badge will be regenerated based on your supplied refresh rate.</p>
   <hr/>
-
-
-
-
   <h3 id="attachment-sections">attachment-sections</h3>
-  <img src="/images/content/sample-attachment-section.png" alt="Attachment Sections"/>
+  <img src="/images/content/sample-attachment-section.png" alt="Attachment Sections" />
   <h4>Example</h4>
-  <pre>'attachment-sections': function(t, options) {
-  return [
-    {
-      icon: './images/icon.svg',
-      title: "Attachment Section",
-      claimed: [arrayOfClaimedAttachments],
-      content: {
-        type: 'iframe',
-        url: t.signUrl('./attachment-section.html')
-      }
-
+  <pre><code class="javascript">'attachment-sections': function(t, options) {
+  return [{
+    icon: './images/icon.svg',
+    title: "Attachment Section",
+    claimed: [arrayOfClaimedAttachments],
+    content: {
+      type: 'iframe',
+      url: t.signUrl('./attachment-section.html')
     }
-  ];
-}</pre>
+  }];
+}</code></pre>
   <h4>Fields</h4>
   <ul>
     <li>
@@ -223,16 +228,11 @@
     </li>
   </ul>
   <hr/>
-
-
-
-
-
   <h3 id="attachment-thumbnail">attachment-thumbnail</h3>
-  <img src="/images/content/sample-attachment.png" alt="Attachment Thumbnail"/>
+  <img src="/images/content/sample-attachment.png" alt="Attachment Thumbnail" />
   <h4>Example</h4>
-  <pre>'attachment-thumbnail': function(t, attachment) {
-  if(attachment.url == "https://developers.trello.com/") {
+  <pre><code class="javascript">'attachment-thumbnail': function(t, attachment) {
+  if (attachment.url == "https://developers.trello.com/") {
     return {
       title: "Trello Developer Site",
       url: "https://developers.trello.com/",
@@ -247,138 +247,149 @@
       }
     };
   } else {
-          throw t.NotHandled("Not a handled URL");
+    throw t.NotHandled("Not a handled URL");
   }
-},
-</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
-  <li>
-    <strong>title</strong>
-    <div>The name to display instead of the raw url</div>
-  </li>
-  <li>
-    <strong>url</strong>
-    <div>The URL of the file that should be linked to</div>
-  </li>
-  <li>
-    <strong>openText (optional)</strong>
-    <div>The text shown to the user such as "Open in New Tab" or "Open in DropBox"</div>
-  </li>
-  <li>
-    <strong>image (recommended)</strong>
-    <div>The URL of the thumbnail to be shown, and a boolean parameter 'logo' indicating whether you are showing a logo, or a thumbnail of the content</div>
-  </li>
-  <li>
-    <strong>modified (Date) (optional)</strong>
-    <div>The date of last modification of the attached file</div>
-  </li>
-  <li>
-    <strong>created (Date) (optional)</strong>
-    <div>The creation date of the attached file</div>
-  </li>
-  <li>
-    <strong>createdBy (optional)</strong>
-    <div>The name of the creator of the attached file</div>
-  </li>
-  <li>
-    <strong>modifiedBy (optional)</strong>
-    <div>The name of the last modifier of the attached file</div>
-  </li>
-  <li>
-    <strong>initialize (optional)</strong>
-    <div>If you would like to also include an iframe, such as for authentication purposes, specify a {type:'iframe', url:url} object within the intialize parameter.</div>
-  </li>
+    <li>
+      <strong>title</strong>
+      <div>The name to display instead of the raw url</div>
+    </li>
+    <li>
+      <strong>url</strong>
+      <div>The URL of the file that should be linked to</div>
+    </li>
+    <li>
+      <strong>openText (optional)</strong>
+      <div>The text shown to the user such as "Open in New Tab" or "Open in DropBox"</div>
+    </li>
+    <li>
+      <strong>image (recommended)</strong>
+      <div>The URL of the thumbnail to be shown, and a boolean parameter 'logo' indicating whether you are showing a logo, or a thumbnail of the content</div>
+    </li>
+    <li>
+      <strong>modified (Date) (optional)</strong>
+      <div>The date of last modification of the attached file</div>
+    </li>
+    <li>
+      <strong>created (Date) (optional)</strong>
+      <div>The creation date of the attached file</div>
+    </li>
+    <li>
+      <strong>createdBy (optional)</strong>
+      <div>The name of the creator of the attached file</div>
+    </li>
+    <li>
+      <strong>modifiedBy (optional)</strong>
+      <div>The name of the last modifier of the attached file</div>
+    </li>
+    <li>
+      <strong>initialize (optional)</strong>
+      <div>If you would like to also include an iframe, such as for authentication purposes, specify a {type:'iframe', url:url} object within the intialize parameter.</div>
+    </li>
   </ul>
   <hr/>
-
-
-
-
-
   <h3 id="format-url">format-url</h3>
-  <img src="/images/content/sample-format-url.png" alt="Formatted URL Rendering"/>
+  <img src="/images/content/sample-format-url.png" alt="Formatted URL Rendering" />
   <h4>Example</h4>
-  <pre>'format-url': function(t, options) {
-  if(options.url.length > 20) {
+  <pre><code class="javascript">'format-url': function(t, options) {
+  if (options.url.length > 20) {
     return {
       icon: './images/trello-icon.png',
       text: options.url
-
     };
   } else {
     throw t.NotHandled("Not a handled URL");
   }
-},</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
-  <li>
-    <strong>icon</strong>
-    <div>Path to the icon to display to the left of the URL</div>
-  </li>
-  <li>
-    <strong>text</strong>
-    <div>Text to show instead of the URL</div>
-  </li>
-
+    <li>
+      <strong>icon</strong>
+      <div>Path to the icon to display to the left of the URL</div>
+    </li>
+    <li>
+      <strong>text</strong>
+      <div>Text to show instead of the URL</div>
+    </li>
   </ul>
   <h4>Context Fields</h4>
   <p>The following fields are available as part of the context object:</p>
   <ul>
-  <li>
-    <strong>url</strong>
-    <div>The URL of the attachment</div>
-  </li>
-  <li>
-    <strong>locale</strong>
-    <div>The locale of the member</div>
-  </li>
+    <li>
+      <strong>url</strong>
+      <div>The URL of the attachment</div>
+    </li>
+    <li>
+      <strong>locale</strong>
+      <div>The locale of the member</div>
+    </li>
   </ul>
   <hr/>
-
-
-
-
-
   <h3 id="card-from-url">card-from-url</h3>
   <h4>Example</h4>
-  <pre>'card-from-url': function(t, options) {
+  <pre><code class="javascript">'card-from-url': function(t, options) {
   // return a name, and optionally a description
   // based on options.url
   return {
     name: 'Suitable name based on options.url',
     desc: 'Suitable description based on options.url'
   };
-},</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
-  <li>
-    <strong>name</strong>
-    <div>The name to use for the new Card</div>
-  </li>
-  <li>
-    <strong>desc (optional)</strong>
-    <div>The description to use for the new Card</div>
-  </li>
-
+    <li>
+      <strong>name</strong>
+      <div>The name to use for the new Card</div>
+    </li>
+    <li>
+      <strong>desc (optional)</strong>
+      <div>The description to use for the new Card</div>
+    </li>
   </ul>
   <hr/>
-
-
-
-
-
   <h3 id="show-settings">show-settings</h3>
-  <img src="/images/content/sample-popup.png" alt="Show Settings Popup"/>
+  <p>When a user goes to edit your Power-Up's settings by clicking on the gear icon next to your Power-Up's listing, Trello automatically provides a drop-down list with options. The `show-settings` capability will be invoked when they select "Edit Power-Up Settings" from the list.</p>
+  <img src="/images/content/sample-popup.png" alt="Show Settings Popup" />
   <h4>Example</h4>
-  <pre>'show-settings': function(t, options) {
+  <pre><code class="javascript">'show-settings': function(t, options) {
   return t.popup({
     title: "Power-Up Settings",
     url: 'settings.html',
     height: 250
   });
-}</pre>
+}</code></pre>
+  <p>If you have data stored in the private scope via the client library's <a href="https://developers.trello.com/power-ups/topics#data-storage">`t.set` data method</a>, the drop-down list will also include an option to "Remove Personal Settings". If a user clicks this option, Trello will remove all data stored in the private scope.</p>
+  <img src="/images/content/sample-remove-personal-settings.png" alt="Show Settings Popup" />
+  <hr/>
+  <h3 id="authorization-status">authorization-status</h3>
+  <p>Used to determine whether a user has authorized using your Power-Up. You should return a promise that resolves to the object with a property 'authorized' that is either true or false. You may also return the object synchronously if you know the answer synchronously.</p>
+  <p>If the 'authorization-status' capability resolves to false, when the user views your Power-Up's settings, they will be prompted with an option to "Authorize Account" which will invoke your <a href="#show-authorization">'show-authorization'</a> capability.</p>
+  <h4>Example</h4>
+  <pre><code class="javascript">'authorization-status': function(t) {
+    return new TrelloPowerUp.Promise((resolve) =>
+      resolve({ authorized: false })
+    )
+  }</code></pre>
+  <h4>Fields</h4>
+  <ul>
+    <li>
+      <strong>authorized (Boolean) (optional)</strong>
+      <div>A boolean value of true or false representing whether the user has authorized via your Power-Up or not. The default is <b>false</b>.</div>
+    </li>
+  </ul>
+  <hr/>
+  <h3 id="show-authorization">show-authorization</h3>
+  <p>Used to determine what to show the user when the `authorization-status` capability returns false.</p>
+  <img src="/images/content/sample-show-authorization.png" alt="Show Authorizations" />
+  <h4>Example</h4>
+  <pre><code class="javascript">'show-authorization': function(t) {
+    t.popup({
+      title: 'My Auth Popup',
+      url: 'authorize.html',
+      height: 140,
+    })
+  }</code></pre>
   <p>No fields need to be returned with this capability. Standard behavior is to open a popup as shown in the example above.</p>
-
-
 </div>
