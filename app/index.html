@@ -65,7 +65,7 @@
   <footer class="global-footer">
 
     <p class="global-footer-detail">
-      &copy; Copyright 2017, Trello, Inc. All rights reserved.
+      &copy; Copyright <span id="copyright-year">2017</span>, Trello, Inc. All rights reserved.
     </p>
 
   </footer>
@@ -112,6 +112,8 @@
   <script src="scripts/expander.js"></script>
   <!-- endbuild -->
 
+  <script type="text/javascript">document.getElementById('copyright-year').innerHTML = new Date().getFullYear()</script>
+  
 </body>
 
 </html>
