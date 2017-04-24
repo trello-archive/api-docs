@@ -107,14 +107,14 @@
     <li><strong>localizeKeys(keys)</strong> Localize a list of strings or objects. You can read more about internationalizationa
       and localization in the <a ui-sref="power-ups.topics({'#':'internationalization'})">topics section</a>.</li>
     <li><strong>board(field1, field2, ...)</strong> Returns a promise with information about the board for the current context.
-      Valid fields include: 'id', 'name', 'url', 'shortLink', 'members'</li>
+      Valid fields include: 'id', 'name', 'url', 'shortLink', 'members', 'dateLastActivity'</li>
     <li><strong>list(field1, field2, ...)</strong> Returns a promise with information about the list for the current context
       Valid fields include: 'id', 'name', 'cards'</li>
     <li><strong>card(field1, field2, ...)</strong> Returns a promise with information about the card for the current context.
       The information available is only when a specific card is in context. For instance, this function will return information
       about a card successfully inside of the capabilities 'attachment-sections' and 'card-badges', but not 'show-settings'
       nor 'board-buttons'. The latter are not within the context of a single card. Valid fields include: 'id', 'name', 'desc',
-      'due', 'closed', 'cover', 'attachments', 'members', 'labels', 'url', 'shortLink', 'idList', 'idShort'
+      'due', 'closed', 'cover', 'attachments', 'members', 'labels', 'url', 'shortLink', 'idList', 'idShort', 'dateLastActivity'
       <br />
       <br /> Example usage:
       <pre><code class="javascript">t.card('id', 'name', 'url')
