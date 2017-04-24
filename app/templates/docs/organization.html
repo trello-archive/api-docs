@@ -1829,6 +1829,17 @@ org/invited?key=[application_key]&amp;token=[optional_auth_token]
     <li><strong>Arguments:</strong> None</li>
   </ul>
 </div>
+<div class="section" id="get-1-organizations-idorg-or-name-tags">
+  <h2>GET <span class="target" id="organizations-idorg-or-name-tags">/1/organizations/[idOrg or name]/tags</span>
+    <a class="headerlink" href="#get-1-organizations-idorg-or-name-tags" title="Permalink to this headline"></a>
+  </h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments:</strong> None</li>
+  </ul>
+  <p>Returns a list of the organization's collections.</p>
+  <p><span class="warning">Warning:</span> This is an experimental resource and may change at any time without notice.</p>
+</div>
 <div class="section" id="put-1-organizations-idorg-or-name">
   <h2>PUT <span class="target" id="id1">/1/organizations/[idOrg or name]</span>
     <a class="headerlink" href="#put-1-organizations-idorg-or-name" title="Permalink to this headline"></a>
@@ -2349,6 +2360,24 @@ org/invited?key=[application_key]&amp;token=[optional_auth_token]
       </ul>
     </li>
   </ul>
+</div>
+<div class="section" id="post-1-organizations-idorg-or-name-tags">
+  <h2>POST <span class="target" id="organizations-idorg-or-name-tags">/1/organizations/[idOrg or name]/tags</span>
+    <a class="headerlink" href="#post-1-organizations-idorg-or-name-tags" title="Permalink to this headline"></a>
+  </h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">name</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> A string containing the name of the collection.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p><span class="warning">Warning:</span> This is an experimental resource and may change at any time without notice.</p>
 </div>
 <div class="section" id="delete-1-organizations-idorg-or-name">
   <h2>DELETE <span class="target" id="id4">/1/organizations/[idOrg or name]</span>
