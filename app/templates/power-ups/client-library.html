@@ -107,14 +107,14 @@
     <li><strong>localizeKeys(keys)</strong> Localize a list of strings or objects. You can read more about internationalizationa
       and localization in the <a ui-sref="power-ups.topics({'#':'internationalization'})">topics section</a>.</li>
     <li><strong>board(field1, field2, ...)</strong> Returns a promise with information about the board for the current context.
-      Valid fields include: 'id', 'name', 'url', 'shortLink', 'members'</li>
+      Valid fields include: 'id', 'name', 'url', 'shortLink', 'members', 'dateLastActivity', 'all'</li>
     <li><strong>list(field1, field2, ...)</strong> Returns a promise with information about the list for the current context
-      Valid fields include: 'id', 'name', 'cards'</li>
+      Valid fields include: 'id', 'name', 'cards', 'all'</li>
     <li><strong>card(field1, field2, ...)</strong> Returns a promise with information about the card for the current context.
       The information available is only when a specific card is in context. For instance, this function will return information
       about a card successfully inside of the capabilities 'attachment-sections' and 'card-badges', but not 'show-settings'
       nor 'board-buttons'. The latter are not within the context of a single card. Valid fields include: 'id', 'name', 'desc',
-      'due', 'closed', 'cover', 'attachments', 'members', 'labels', 'url', 'shortLink', 'idList', 'idShort'
+      'due', 'closed', 'cover', 'attachments', 'members', 'labels', 'url', 'shortLink', 'idList', 'idShort', 'dateLastActivity', 'badges', 'all'
       <br />
       <br /> Example usage:
       <pre><code class="javascript">t.card('id', 'name', 'url')
@@ -128,7 +128,7 @@
 }</code></pre>
     </li>
     <li><strong>t.lists</strong> Takes same args as <i>t.list</i> but gives back all open lists on the board</li>
-    <li><strong>t.member</strong> Accepted fields: 'id', 'fullName', 'username', 'avatar'. This is an easy way to get information
+    <li><strong>t.member</strong> Accepted fields: 'id', 'fullName', 'username', 'avatar', 'all'. This is an easy way to get information
       about active members. 'avatar' returns the complete URL for the 50px png file.</li>
     <li><strong>t.cards</strong> Takes same args as <i>t.card</i> but gives back all open cards on the board.</li>
   </ul>
