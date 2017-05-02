@@ -2233,6 +2233,16 @@
     </li>
   </ul>
 </div>
+<div class="section" id="get-1-boards-board-id-idtags">
+  <h2>GET <span class="target" id="boards-board-id-idtags">/1/boards/[board_id]/tags</span>
+    <a class="headerlink" href="#get-1-boards-board-id-idtags" title="Permalink to this headline"></a>
+  </h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+  </ul>
+  <p>Returns a list of idTags that represent the collections that the board has been added to.</p>
+  <p><span class="warning">Warning:</span> This is an experimental resource and may change at any time without notice.</p>
+</div>
 
 <!-- /1/boards/id/labels -->
 
@@ -4171,6 +4181,24 @@
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments:</strong> None</li>
   </ul>
+</div>
+<div class="section" id="post-1-boards-board-id-idtags">
+  <h2>POST <span class="target" id="boards-board-id-idtags">/1/boards/[board_id]/tags</span>
+    <a class="headerlink" href="#post-1-boards-board-id-idtags" title="Permalink to this headline"></a>
+  </h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">value</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> a string containing the id of a tag from the organization to which this board belongs.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p><span class="warning">Warning:</span> This is an experimental resource and may change at any time without notice.</p>
 </div>
 <div class="section" id="post-1-boards-board-id-labels">
   <h2>POST <span class="target" id="id5">/1/boards/[board_id]/labels</span>
