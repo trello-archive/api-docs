@@ -140,15 +140,15 @@
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
             <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
               <ul>
-                <li><code class="docutils literal"><span class="pre">bytes</span></code></li>
-                <li><code class="docutils literal"><span class="pre">date</span></code></li>
-                <li><code class="docutils literal"><span class="pre">edgeColor</span></code></li>
-                <li><code class="docutils literal"><span class="pre">idMember</span></code></li>
-                <li><code class="docutils literal"><span class="pre">isUpload</span></code></li>
-                <li><code class="docutils literal"><span class="pre">mimeType</span></code></li>
-                <li><code class="docutils literal"><span class="pre">name</span></code></li>
-                <li><code class="docutils literal"><span class="pre">previews</span></code></li>
-                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bytes</span></code> - Size of the attached file in bytes.</li>
+                <li><code class="docutils literal"><span class="pre">date</span></code> - The date the file was attached to the card.</li>
+                <li><code class="docutils literal"><span class="pre">edgeColor</span></code> - The hex color that is used as the background when the attachment is made the card cover.</li>
+                <li><code class="docutils literal"><span class="pre">idMember</span></code> - ID of the user who added the attachment.</li>
+                <li><code class="docutils literal"><span class="pre">isUpload</span></code> - A boolean indicating whether this was uploaded by a user on the web/mobile client or whether it was added via the API.</li>
+                <li><code class="docutils literal"><span class="pre">mimeType</span></code> - The mimeType of the file.</li>
+                <li><code class="docutils literal"><span class="pre">name</span></code> - The name of the file.</li>
+                <li><code class="docutils literal"><span class="pre">previews</span></code> - When an image is uploaded via the web client, Trello creates a number of preview thumbnails for it so that it can use the appropriately sized one given the right context. <code>previews</code> will return an object containing information about the previews generated for this attachment.</li>
+                <li><code class="docutils literal"><span class="pre">url</span></code> - The URL to the attachment in Trello's static assets.</li>
               </ul>
             </li>
           </ul>
@@ -1798,6 +1798,7 @@
   </h2>
   <ul class="simple">
     <p>The attachments endpoint should be used to add an attachment to a card. Cards are limited to having 100 attachments. You can only add a single attachment to a card at a time.</p>
+    <p>There are two primary ways of adding attachments to cards. The first is by attaching a URL directly to a card. To do so, you include the URL as a query parameter to the POST request. The second way requires that you pass in a file object in the POST request. Trello expects that the file object is encoded as multipart/form-data. For examples demonstating how to add attachments check out this <a target="_blank" href="https://glitch.com/~trello-attachments-api">Glitch project</a> 🚀.</p>
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments</strong>
       <ul>
