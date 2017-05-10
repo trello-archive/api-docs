@@ -206,6 +206,7 @@ app.controller('CommunityCtrl', function($scope, $window) {
     {name:'Web Clipper for Trello', author: 'Oskar Jakiela', url:'https://github.com/oskarjakiela/trello-web-clipper'},
     {name:'Node Trello to Slides', author: 'Jonalyn Valencia', url: 'https://github.com/olynvalencia/node-trello-to-slides'},
     {name:'Trello bot in Node.js', author: 'Karl Pokus', url: 'https://github.com/karlpokus/trobot'},
+    {name:'JsonToXL', author: 'Kevin Harper', url: 'https://github.com/kjh61/trelloToXL'},
   ];
 
   $scope.open = function(url) {
