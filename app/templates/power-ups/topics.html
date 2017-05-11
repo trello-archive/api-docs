@@ -192,6 +192,10 @@ setTimeout(function(){ window.close(); }, 1000);</code></pre>
   <p>For example, card badge icons are expected to be grey (#999) in their default state, but when a color is applied to the badge (such as ‘red’), the icon is passed <strong>?color=fff</strong>. This behavior means that the icon should be recolored such that the primary color used is white, ensuring the image will look good and have good usability on a red background.</p>
   <hr/>
 
+  <h2 id="timeouts">Timeouts</h2>
+  <p>Your Power-Up should respond within 1 second to all capability methods. If your method takes more than 1 second to complete, we will consider the callback as failed.</p>
+  <hr/>
+
   <h2 id="internationalization">Internationalization</h2>
   <p>Trello Power-Ups were designed with Internationalization in mind. When creating a plugin or iframe, you can optionally pass in the options argument one of the following:</p>
   <p>localization object</p>
