@@ -192,6 +192,11 @@ setTimeout(function(){ window.close(); }, 1000);</code></pre>
   <p>For example, card badge icons are expected to be grey (#999) in their default state, but when a color is applied to the badge (such as ‘red’), the icon is passed <strong>?color=fff</strong>. This behavior means that the icon should be recolored such that the primary color used is white, ensuring the image will look good and have good usability on a red background.</p>
   <hr/>
 
+  <h2 id="timeouts">Timeouts</h2>
+  <p>When Trello makes a request to your Power-Up for a capability method or callback, it will wait a fixed amount of time for a reply before giving up. Your Power-Up should reply within one second - faster is better across all cases. Usually, Trello will stop waiting for a response after five seconds although requests to some capabilities may wait slightly longer.</p>
+  <p>Additionally, you should make sure that your manifest file and index connector can be loaded by Trello as quickly as possible. You should have these served within one second; Trello will stop waiting for a response after 10 seconds.</p>
+  <hr/>
+
   <h2 id="internationalization">Internationalization</h2>
   <p>Trello Power-Ups were designed with Internationalization in mind. When creating a plugin or iframe, you can optionally pass in the options argument one of the following:</p>
   <p>localization object</p>
