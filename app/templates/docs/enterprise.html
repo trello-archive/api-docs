@@ -1,0 +1,591 @@
+<span id="index"></span>
+<h1 id="enterprise">enterprise<a class="headerlink" href="#enterprise" title="Permalink to this headline"></a></h1>
+<p><a href="https://trello.com/enterprise/" target="_blank">Enterprises</a> are resources that bring together a set of organizations and members into a single collection. The enterprise resource makes heavy use of the SCIM API documented <a href="/advanced-reference/scim">here</a>. For a better understanding of the schema for enterprises, read the overview provided <a href="/advanced-reference/scim#scope">here</a>.</p>
+
+<div class="section" id="get-1-enterprises-identerprise">
+  <h2>GET <span class="target" id="enterprises-identerprise">/1/enterprises/[idEnterprise]</span><a class="headerlink" href="#get-1-enterprises-identerprise" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">id</span></code></li>
+                <li><code class="docutils literal"><span class="pre">name</span></code></li>
+                <li><code class="docutils literal"><span class="pre">displayName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">prefs</span></code></li>
+                <li><code class="docutils literal"><span class="pre">ssoActivationFailed</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idAdmins</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMembers</span></code> - Note that the members array returned will be paginated if `members` is 'normal' or 'admins'. Pagination can be controlled with member_startIndex, etc, but the API response will not contain the total available result count or pagination status data. Read the SCIM documentation <a href="http://localhost:3333/advanced-reference/scim#example-uses">here</a> for more information on filtering.</p>
+                </li>
+                <li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
+                <li><code class="docutils literal"><span class="pre">products</span></code></li>
+                <li><code class="docutils literal"><span class="pre">userTypes</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idMembers</span></code></li>
+                <li><code class="docutils literal"><span class="pre">idOrganizations</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">members</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">none</span></code></li>
+                <li><code class="docutils literal"><span class="pre">normal</span></code></li>
+                <li><code class="docutils literal"><span class="pre">admins</span></code></li>
+                <li><code class="docutils literal"><span class="pre">owners</span></code></li>
+                <li><code class="docutils literal"><span class="pre">all</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">member_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash, fullName, initials, username</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">avatarHash</span></code></li>
+                <li><code class="docutils literal"><span class="pre">fullName</span></code></li>
+                <li><code class="docutils literal"><span class="pre">initials</span></code></li>
+                <li><code class="docutils literal"><span class="pre">username</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">member_filter</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li>
+              <strong>Valid Values:</strong>
+              <p>Pass a <a href="/advanced-reference/scim#filtering">SCIM-style query</a> to filter members. This takes precedence over the all/normal/admins value of <code>members</code>. If any of the member_* args are set, the member array will be paginated.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">member_sortBy</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>This paramter expects a <a href="/advanced-reference/scim#routes">SCIM-style sorting value</a>.</p>
+              <p>Note that the members array returned will be paginated if `members` is 'normal' or 'admins'. Pagination can be controlled with member_startIndex, etc, but the API response will not contain the total available result count or pagination status data.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">member_sortOrder</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">id</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">ascending</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descending</span></code></li>
+                <li><code class="docutils literal"><span class="pre">asc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">member_startIndex</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">1</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any integer between 0 and 100.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">member_count</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">10</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>0 to 100</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">organizations</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">none</span></code></li>
+                <li><code class="docutils literal"><span class="pre">members</span></code></li>
+                <li><code class="docutils literal"><span class="pre">public</span></code></li>
+                <li><code class="docutils literal"><span class="pre">all</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">organization_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any valid value that the <a href="/advanced-reference/organization#get-1-organizations-idorg-or-name-field">organization field resource</a> accepts.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">organization_paid_accounts</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">organization_memberships</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong> Comma-seperated list of:
+              <ul>
+                <li><code class="docutils literal"><span class="pre">me</span></code></li>
+                <li><code class="docutils literal"><span class="pre">normal</span></code></li>
+                <li><code class="docutils literal"><span class="pre">admin</span></code></li>
+                <li><code class="docutils literal"><span class="pre">active</span></code></li>
+                <li><code class="docutils literal"><span class="pre">deactivated</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight">
+              <pre>GET https://api.trello.com/1/enterprise/58c82319cd1381510982aa6b&amp;key=[application_key]&amp;token=[optional_auth_token]</pre>
+            </div>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight">
+              <pre>
+<code class="json">{
+  "id": "58c82319cd1381510982aa6b",
+  "name": "test_enterprise",
+  "displayName": "A Test Enterprise",
+  "prefs": {
+    "ssoOnly": false,
+    "signup": {
+      "message": "😁 Howdy, friends.",
+      "confirmation": "We're confirming that you are a 💫.",
+      "banner": "Banner Text!",
+      "bannerHtml": "&lt;p&gt;Banner Text!&lt;/p&gt;\n",
+      "confirmationHtml": "&lt;p&gt;We&#39;re confirming that you are a 💫.&lt;/p&gt;\n",
+      "messageHtml": "&lt;p&gt;😁 Howdy, friends.&lt;/p&gt;\n"
+    },
+    "mandatoryTransferDate": null,
+    "maxMembers": null
+  },
+  "ssoActivationFailed": false,
+  "idAdmins": [
+    "58cff1aih281ea1d77c4g02e",
+    "5589c3ea49b30cedcg8cf70e",
+    "5473527f204b1f224s7db5c0",
+    "58530f69bd282fbf0ff4a8fc"
+  ],
+  "idMembers": [
+    "3812694a8d747e8257efb80d",
+    "54cff1a9b280ea1d77c4002e",
+    "5189c3ea49b40cedc28cf70e",
+    "10095233f62adbe04d935195",
+    "58fe44d21e6f1c94014f015f",
+    "58530f69bd582fbf01f4a8fc"
+  ],
+  "idOrganizations": [
+    "58d3254ce396b2870d883bd6",
+    "58d3e90c7508222d67296e7d"
+  ],
+  "products": [
+    100
+  ],
+  "userTypes": {
+    "all": 6,
+    "member": 5,
+    "collaborator": 0,
+    "saml": 0,
+    "none": 1
+  }
+}
+</code>
+              </pre>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="get-1-enterprises-identerprise-admins">
+  <h2>GET <span class="target" id="enterprises-identerprise-admins">/1/enterprises/[idEnterprise]/admins</span><a class="headerlink" href="#get-1-enterprises-identerprise-admins" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong>read_in_org</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">fullName, userName</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any valid value that the <a href="/advanced-reference/member#get-1-members-idmember-or-username-field">member field resource</a> accepts.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="get-1-enterprises-identerprise-signupUrl">
+  <h2>GET <span class="target" id="enterprises-identerprise-signupUrl">/1/enterprises/[idEnterprise]/signupUrl</span><a class="headerlink" href="#get-1-enterprises-identerprise-signupUrl" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> public</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">authenticate</span></code> (optional)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">confirmationAccepted</span></code> (optional)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">false</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">true</span></code></li>
+                <li><code class="docutils literal"><span class="pre">false</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">returnUrl</span></code> (optional)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">Any valid URL</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="get-1-enterprises-identerprise-members">
+  <h2>GET <span class="target" id="enterprises-identerprise-members">/1/enterprises/[idEnterprise]/members</span><a class="headerlink" href="#get-1-enterprises-identerprise-members" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash, fullName, initials, username</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li>
+                  <p>Any combination of MemberFields</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">filter</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Pass a <a href="/advanced-reference/scim#filtering">SCIM-style query</a> to filter members. This takes precedence over the all/normal/admins value of <code>members</code>. If any of the below member_* args are set, the member array will be paginated.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">sortBy</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>This paramter expects a <a href="/advanced-reference/scim#routes">SCIM-style sorting value</a>.</p>
+              <p>Note that the members array returned will be paginated if `members` is 'normal' or 'admins'. Pagination can be controlled with member_startIndex, etc, but the API response will not contain the total available result count or pagination status data.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">sortOrder</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">ascendind</span></code></li>
+                <li><code class="docutils literal"><span class="pre">descending</span></code></li>
+                <li><code class="docutils literal"><span class="pre">asc</span></code></li>
+                <li><code class="docutils literal"><span class="pre">desc</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">startIndex</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any integer between 0 and 9999.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">count</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><p>SCIM-style filter.</p></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">organization_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">displayName</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any valid value that the <a href="/advanced-reference/organization#get-1-organizations-idorg-or-name-field">organization field resource</a> accepts.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">board_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any valid value that the <a href="/advanced-reference/board#get-1-boards-board-id-field">board field resource</a> accepts.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="get-1-enterprises-identerprise-members-idmember">
+  <h2>GET <span class="target" id="enterprises-identerprise-members-idmember">/1/enterprises/[idEnterprise]/members/[idmember]</span><a class="headerlink" href="#get-1-enterprises-identerprise-members-idmember" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">idMember</span></code> (required)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li>
+                  <p>An ID of a Member resource.</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash, fullName, initials, username</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>A comma seperated list of any valid values that the <a href="/advanced-reference/member#get-1-members-idmember-or-username-field">member field resource</a> accepts.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">organization_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">displayName</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any valid value that the <a href="/advanced-reference/organization#get-1-organizations-idorg-or-name-field">organization field resource</a> accepts.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">board_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any valid value that the <a href="/advanced-reference/board#get-1-boards-board-id-field">board field resource</a> accepts.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="get-1-enterprises-identerprise-transferrable-organization-idorganization">
+  <h2>GET <span class="target" id="enterprises-identerprise-transferrable-organization-idorganization">/1/enterprises/[idEnterprise]/transferrable/organization/[idorganization]</span><a class="headerlink" href="#get-1-enterprises-identerprise-transferrable-organization-idorganization" title="Permalink to this headline"></a></h2>
+  <p>Used to determine if an organization can be transferred into the enterprise; if not — returns the untransferred members blocking that, if so — reports the number of net new enterprise members it will result in.</p>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">idOrganization</span></code> (required)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>An ID of a Board resource.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="post-1-enterprises-identerprise-tokens">
+  <h2>POST <span class="target" id="enterprises-identerprise-members-idmember">/1/enterprises/[idEnterprise]/tokens</span><a class="headerlink" href="#post-1-enterprises-identerprise-tokens" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">expiration</span></code> (optional)
+          <p>An expiration interval</p>
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><code class="docutils literal"><span class="pre">1hour</span></code></li>
+                <li><code class="docutils literal"><span class="pre">1day</span></code></li>
+                <li><code class="docutils literal"><span class="pre">30days</span></code></li>
+                <li><code class="docutils literal"><span class="pre">never</span></code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="put-1-enterprises-identerprise-members-idmember-deactivated">
+  <h2>PUT <span class="target" id="enterprises-identerprise-members-idmember">/1/enterprises/[idEnterprise]/members/[idmember]/deactivated</span><a class="headerlink" href="#put-1-enterprises-identerprise-members-idmember-deactivated" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">idMember</span></code> (required)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>An ID of a Member resource.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">fields</span></code> (optional)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">avatarHash, fullName, initials, username</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li><strong>Valid Values:</strong>
+                  <p>A comma seperated list of any valid values that the <a href="/advanced-reference/member#get-1-members-idmember-or-username-field">member field resource</a> accepts.</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">organization_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">displayName</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any valid value that the <a href="/advanced-reference/organization#get-1-organizations-idorg-or-name-field">organization field resource</a> accepts.</p>
+            </li>
+          </ul>
+        </li>
+        <li><code class="docutils literal"><span class="pre">board_fields</span></code> (optional)
+          <ul>
+            <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">name</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>Any valid value that the <a href="/advanced-reference/board#get-1-boards-board-id-field">board field resource</a> accepts.</p>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="put-1-enterprises-identerprise-organizations">
+  <h2>PUT <span class="target" id="enterprises-identerprise-members-idmember">/1/enterprises/[idEnterprise]/organizations</span><a class="headerlink" href="#put-1-enterprises-identerprise-organizations" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <p>Used to transfer an organization to an enterprise</p>
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">idOrganization</span></code> (required)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <ul>
+                <li>Valid ID of an Organization resource.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="put-1-enterprises-identerprise-admins-idmember">
+  <h2>PUT <span class="target" id="enterprises-identerprise-admins-idmember">/1/enterprises/[idEnterprise]/admins/[idmember]</span><a class="headerlink" href="#put-1-enterprises-identerprise-admins-idmember" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">idMember</span></code> (required)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>An ID of a Member resource.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="delete-1-enterprises-identerprise-organizations-idorganization">
+  <h2>DELETE <span class="target" id="enterprises-identerprise-organizations-idorganization">/1/enterprises/[idEnterprise]/organizations/[idorganization]</span><a class="headerlink" href="#delete-1-enterprises-identerprise-organizations-idorganization" title="Permalink to this headline"></a></h2>
+  <p>Used to remove an organization from this enterprise</p>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">idOrganization</span></code> (required)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>An ID of a Organization resource.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section" id="delete-1-enterprises-identerprise-admins-idmember">
+  <h2>DELETE <span class="target" id="enterprises-identerprise-admins-idmember">/1/enterprises/[idEnterprise]/admins/[idmember]</span><a class="headerlink" href="#delete-1-enterprises-identerprise-admins-idmember" title="Permalink to this headline"></a></h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">idMember</span></code> (required)
+          <ul>
+           <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">none</span></code></li>
+            <li><strong>Valid Values:</strong>
+              <p>An ID of a Member resource.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

@@ -2,7 +2,7 @@
 <review-bar style="top:0;"></review-bar>
 
 	<div class="api-ref-nav">
-
+		<strong>Trello Resources</strong>
 		<ul>
 			<li><a href="/advanced-reference/action">action</a>
 				<ul ng-show="navBar.page == 'action'">
@@ -199,6 +199,26 @@
 					<li>DELETE</li>
 					<li><a href="/advanced-reference/checklist#delete-1-checklists-idchecklist">/checklists/[id]</a></li>
 					<li><a href="/advanced-reference/checklist#delete-1-checklists-idchecklist-checkitems-idcheckitem">/checklists/[id]/checkItems/[id]</a></li>
+				</ul>
+			</li>
+			<li><a href="/advanced-reference/enterprise">enterprise</a>
+				<ul ng-show="navBar.page == 'enterprise'">
+					<li>GET</li>
+					<li><a href="/advanced-reference/enterprise#get-1-enterprises-identerprise">/enterprises/[id]</a></li>
+					<li><a href="/advanced-reference/enterprise#get-1-enterprises-identerprise-admins">/enterprises/[id]/admins</a></li>
+					<li><a href="/advanced-reference/enterprise#get-1-enterprises-identerprise-signupUrl">/enterprises/[id]/signupUrl</a></li>
+					<li><a href="/advanced-reference/enterprise#get-1-enterprises-identerprise-members">/enterprises/[id]/members</a></li>
+					<li><a href="/advanced-reference/enterprise#get-1-enterprises-identerprise-members-idmember">/enterprises/[id]/members/[idMember]</a></li>
+					<li><a href="/advanced-reference/enterprise#get-1-enterprises-identerprise-transferrable-organization-idorganization">/enterprises/[id]/transferrable/organization/[idOrganization]</a></li>
+					<li>POST</li>
+					<li><a href="/advanced-reference/enterprise#post-1-enterprises-identerprise-tokens">/enterprises/[id]/tokens</a></li>
+					<li>PUT</li>
+					<li><a href="/advanced-reference/enterprise#put-1-enterprises-identerprise-members-idmember-deactivated">/enterprises/[id]/members/[idMember]/deactivated</a></li>
+					<li><a href="/advanced-reference/enterprise#put-1-enterprises-identerprise-organizations">/enterprises/[id]/organizations</a></li>
+					<li><a href="/advanced-reference/enterprise#put-1-enterprises-identerprise-admins-idmember">/enterprises/[id]/admins/[idMember]</a></li>
+					<li>DELETE</li>
+					<li><a href="/advanced-reference/enterprise#delete-1-enterprises-identerprise-organizations-idorganization">/enterprises/[id]/organizations/[idOrganization]</a></li>
+					<li><a href="/advanced-reference/enterprise#delete-1-enterprises-identerprise-admins-idmember">/enterprises/[id]/admins/[idMember]</a></li>
 				</ul>
 			</li>
 			<li><a href="/advanced-reference/label">label</a>
@@ -434,6 +454,14 @@
 				</ul>
 			</li>
 		</ul>
+
+		<br />
+		<strong>Additional APIs</strong>
+
+		<ul>
+			<li><a href="/advanced-reference/scim">SCIM V2</a></li>
+		</ul>
+
 		<p>Have a question or think something needs clarification? Open an <a href="https://github.com/trello/api-docs/issues">issue</a> or <a href="https://github.com/trello/api-docs/compare">contribute a fix</a>!</p>
 
 		<p>You can also sign up for the <a href="http://trello.us9.list-manage.com/subscribe?u=5cb712992a906406c5eae28a7&id=1754ca72bf">Developer Newsletter</a> to stay informed about the latest changes and announcements for developers.</p>
