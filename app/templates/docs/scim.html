@@ -22,22 +22,23 @@ The SCIM specification is defined in:
   <li><a target="_blank" href="https://tools.ietf.org/html/rfc7644">RFC7644</a> — Protocol, defining the behavior to expect from the API, and how to interact with it</li>
   <li><a target="_blank" href="https://tools.ietf.org/html/RFC7642">RFC7642</a> — Definitions, Overview, Concepts, and Requirements</li>
 </ul>
-<p>It allows an enterprise to provision and deprovision users and groups automatically across all the services they use (hosted and cloud-based). As soon as they create a user in their central identity system, a Trello user is created to match.
+<p>It allows a Trello user who is an admin of a <a target="_blank" href="https://trello.com/enterprise">Trello Enterprise</a> to provision and deprovision users and groups automatically across all the services they use (hosted and cloud-based). As soon as they create a user in their central identity system, a Trello user is created to match.
 SCIM also allows enterprises to sync between directories and Trello, to control the team membership of their users.</p>
 
 <h2 id="version">SCIM version</h2>
-<p>Trello supports SCIM version 2.0, at <a target="_blank" href="https://trello.com/scim/v2">https://trello.com/scim/v2</a>.</p>
+<p>Trello supports SCIM version 2.0, at <a target="_blank" href="https://api.trello.com/scim/v2">https://api.trello.com/scim/v2</a>.</p>
 <p>As recommended by the spec, we include v2 in the SCIM API URL to allow us to potentially implement other versions (either 1.1 for older clients, or future versions) without breaking compatibility.</p>
 
 <h2 id="scope">SCIM Scope</h2>
-<p>The SCIM API will handle users, teams and boards that are associated with a single enterprise.</p>
-<p>For example, a SCIM client will see that User C is a member of Enterprise Team 1 and Board 3, but not that they are a member of Team 1 or Board 2, because these are not associated with the enterprise.</p>
-<img src="images/SCIM.png">
+<p>The SCIM API will handle users, teams, and boards that are associated with a single <a href="https://trello.com/enterprise" target="_blank">Trello Enterprise</a>.</p>
+<p>For example, a SCIM client will see that User C (Figure 1) is a member of Enterprise Team 1 and Board 3, but not that they are a member of Team 1 or Board 2, because these are not associated with the enterprise.</p>
+<img alt="Figure 1" src="images/SCIM.png">
+Figure 1
 <p>The authorization token sent as a header in the SCIM request determines which enterprise we deal with.</p>
 
 <h2 id="authorization">Authorization</h2>
 <p>Clients authorize with the SCIM API by sending an OAuth 2-style Bearer token in the Authorization header with each request.
-This token can be obtained by a Trello enterprise admin user, logged into the Trello web client, at <a href="https://trello.com/enterprise/[enterpriseName]/token" target="_blank">https://trello.com/enterprise/[enterpriseName]/token</a>.</p>
+This token can be obtained by a Trello enterprise admin user, logged into the Trello web client, at <a href="https://trello.com/my/enterprise/token" target="_blank">https://trello.com/enterprise/[enterpriseName]/token</a>.</p>
 <p>Tokens are generated to:</p>
 <ul>
   <li>have one TokenPermission of type Enterprise or * and an idModel that corresponds to an enterprise that exists</li>
@@ -45,40 +46,37 @@ This token can be obtained by a Trello enterprise admin user, logged into the Tr
 </ul>
 <p>The Authorization header can be in the Bearer form:</p>
 <code>Authorization: Bearer TRELLO_TOKEN</code>
-<p>or as bare value:</p>
-<code>Authorization: TRELLO_TOKEN</code>
-</p>
-<p>Some SCIM clients such as Okta support using a "naked" Authorization value, but other vendors such as OneLogin and Azure AD MUST use OAuth 2-style bearer tokens.</p>
+<p>The Authorization token that is sent to Trello determines which enterprise's information will be returned. If you are the admin of multiple enterprises, you'll need a different token for each.</p>
 
 <h2 id="example-uses">Example uses</h2>
 <p>For each of these example requests, it is assumed that the token is sent in a header, e.g.: <code>Authorization: Bearer d4f925b0d9a44a85f48038725d33054abddd1b6b</code></p>
 <p>For readability, these examples show the filter parameter unencoded. This should be URL encoded in your requests, so that <code>userName sw "a"</code> becomes <code>userName+sw+%22a%22</code></p>
-<b>List the first 100 users in your enterprise, ordered by name</b>
-<p>/scim/v2/users?orderBy=displayName&count=100</p>
-<b>and the next 100…</b>
-<p>/scim/v2/users?orderBy=displayName&count=100&startIndex=100</p>
-<b>List users on enterprise boards who aren't in an enterprise team</b>
-<p>/scim/v2/users?filter=userType eq "collaborator"</p>
-<b>List users called Alice</b>
-<p>/scim/v2/users?filter=displayName co "Alice"</p>
-<p>See notes regarding handling of names.</p>
-<b>List the email addresses of users who have been deactivated from the enterprise</b>
-<p>/scim/v2/users?attributes=emails&filter=active eq false</p>
-<b>List the users in the Sales and Marketing teams</b>
+<h3>List the first 100 users in your enterprise, ordered by name</h3>
+<p><code>/scim/v2/users?orderBy=displayName&amp;count=100</code></p>
+<h3>and the next 100…</h3>
+<p><code>/scim/v2/users?orderBy=displayName&amp;count=100&amp;startIndex=100</code></p>
+<h3>List users on enterprise boards who aren't in an enterprise team</h3>
+<p><code>/scim/v2/users?filter=userType eq "collaborator"</code></p>
+<h3>List users called Alice</h3>
+<p><code>/scim/v2/users?filter=displayName co "Alice"</code></p>
+<p>See <a href="#notes">notes</a> regarding handling of names.</p>
+<h3>List the email addresses of users who have been deactivated from the enterprise</h3>
+<p><code>/scim/v2/users?attributes=emails&amp;filter=active eq false</code></p>
+<h3>List the users in the Sales and Marketing teams</h3>
 <p>First get the team IDs:</p>
-<p>/scim/v2/groups?attributes=id&filter=meta.trelloType eq "Team" and (name eq "Sales" or name eq "Marketing")</p>
-<b>Then get the users:</b>
-<p>/scim/v2/users?filter=groups.value eq "59248c4dae276a021cb296d" or groups.value eq "a286075043d42dcdce8d6668"</p>
-<b>List users not using a US English locale</b>
-<p>/scim/v2/users?filter=locale ne "en-US"</p>
-<b>List all the teams in your enterprise</b>
-<p>/scim/v2/groups?filter=meta.trelloType eq "Team"</p>
-<b>List all the boards belonging to a team</b>
+<p><code>/scim/v2/groups?attributes=id&amp;filter=meta.trelloType eq "Team" and (name eq "Sales" or name eq "Marketing")</code></p>
+<h3>Then use the IDs returned for those teams to get the users:</h3>
+<p><code>/scim/v2/users?filter=groups.value eq "59248c4dae276a021cb296d" or groups.value eq "a286075043d42dcdce8d6668"</code></p>
+<h3>List users not using a US English locale</h3>
+<p><code>/scim/v2/users?filter=locale ne "en-US"</code></p>
+<h3>List all the teams in your enterprise</h3>
+<p><code>/scim/v2/groups?filter=meta.trelloType eq "Team"</code></p>
+<h3>List all the boards belonging to a team</h3>
 <p>Group responses for teams include both Boards and Users in the members attribute.<p>
-<p>/scim/v2/groups?filter=name eq "Sales"</p>
-<b>List all the boards created since January 2017</b>
-<p>/scim/v2/groups?filter=meta.trelloType eq "Board" and meta.created gt "2017-01-01"</p>
-<b>Deactivating a user from all Trello enterprise teams and boards</b>
+<p><code>/scim/v2/groups?filter=name eq "Sales"</code></p>
+<h3>List all the boards created since January 2017</h3>
+<p><code>/scim/v2/groups?filter=meta.trelloType eq "Board" and meta.created gt "2017-01-01"</code>  </p>
+<h3>Deactivating a user from all Trello enterprise teams and boards</h3>
 
 <p>See <a href="#update-a-user">Update a User.</a></p>
 
@@ -87,7 +85,7 @@ This token can be obtained by a Trello enterprise admin user, logged into the Tr
 <h3>Users</h3>
 <div class="highlight-URL">
   <div class="highlight">
-    <pre>GET https://api.trello.com/scim/v2/users/58d11883e7ea028acc5b19a4&amp;key=[application_key]&amp;token=[token]</pre>
+    <pre>GET https://trello.com/scim/v2/users/58d11883e7ea028acc5b19a4</pre>
   </div>
 </div>
 <div class="highlight-JavaScript">
@@ -133,7 +131,7 @@ This token can be obtained by a Trello enterprise admin user, logged into the Tr
 </code></pre></div>
 
 <h3>Groups</h3>
-<p>Groups includes both Trello teams and boards. They can be distinguished by their meta.trelloType attribute.</p>
+<p>Groups includes both Trello teams and boards. They can be distinguished by their <code>meta.trelloType</code> attribute.</p>
 <p>A team's members includes boards and users; a board's members are users.</p>
 <p>This example is of a team with one user, and two boards:</p>
 <div class="highlight-URL">
@@ -182,14 +180,16 @@ This token can be obtained by a Trello enterprise admin user, logged into the Tr
 <table>
   <tr>
     <th>Users</th>
-    <th>GET /scim/v2/Users</th>
+    <td>GET /scim/v2/Users</td>
+    <td></td>
   </tr>
   <tr>
-    <td>Groups</td>
+    <th>Groups</th>
     <td>GET /scim/v2/Groups</td>
+    <td></td>
   </tr>
   <tr>
-    <td>All resources including Users and Groups</td>
+    <th>All resources including Users and Groups</th>
     <td>GET /scim/v2</td>
     <td>You can use meta.resourceType ("user", "group", etc) or meta.trelloType ("member", "team", "board", etc) to filter by types.</td>
   </tr>
@@ -250,31 +250,31 @@ and a body with a User resource representation, such as:</p>
 <ul>
   <li>Required:
     <ul>
-      <li>one of displayName, name.formatted, or name.givenName and name.familyName</li>
-      <li>emails.value</li>
+      <li>one of <code>displayName</code>, <code>name.formatted</code>, or <code>name.givenName</code> and <code>name.familyName</code></li>
+      <li><code>emails.value</code></li>
     </ul>
   </li>
   <li>Optional:
     <ul>
-      <li>userName</li>
-      <li>Normally best to omit, and one will be autogenerated. If supplied, must be 3-100 characters of only lowercase letters, underscores and numbers.</li>
-      <li>locale</li>
-      <li>timezone</li>
+      <li><code>userName</code> - Normally best to omit, and one will be autogenerated. If supplied, must be 3-100 characters of only lowercase letters, underscores and numbers.</li>
+      <li><code>locale</code></li>
+      <li><code>timezone</code></li>
     </ul>
   </li>
 </ul>
 
-<p>If successful, the response will have a status of 201, and contain the full User resource in the body.</p>
+<p>If successful, the response will have a status of 201, and contain the full User resource in the body. The user will be enabled for Single Sign On if the enterprise has this configured. Otherwise, the user will need to <a href="https://trello.com/forgot" target="_blank">reset their password</a> to set a password for login.
+</p>
 <p>The created Trello user will be owned by the enterprise. If the enterprise has domains configured, the user will not email address require confirmation. Otherwise, an email will be sent asking the user to confirm their address.</p>
 <p>At present, it is not possible to assign a user to any Teams or Boards at creation. This may be supported in a later release of the Trello SCIM API.</p>
 
 <h3 id="update-a-user">Update a User</h3>
-<p>Currently, you can only update a user's active attribute.</p>
-<p>When a user is set to active: false, they will be deactivated from all enterprise teams and boards. If the user is then set to active: true, they will be reactivated on any teams and boards they had previously been deactivated from when deactivated from the enterprise (via the SCIM API or Enterprise Admin Dashboard).</p>
-<p>If the user had been deactivated from each teams individually, setting them to active: true via the SCIM API will reactivate them in all the enterprise teams they were previously a member of.</p>
+<p>Currently, you can only update a user's active attribute. We plan to support updating other attributes at some point in the future.</p>
+<p>When a user is set to <code>active: false</code>, they will be deactivated from all enterprise teams and boards. If the user is then set to <code>active: true</code>, they will be reactivated on any teams and boards they had previously been deactivated from when deactivated from the enterprise (via the SCIM API or Enterprise Admin Dashboard).</p>
+<p>If the user had been deactivated from each teams individually, setting them to <code>active: true</code> via the SCIM API will reactivate them in all the enterprise teams they were previously a member of.</p>
 <p>A user can be updated via PATCH or PUT requests. Remember to send a Content-type header with application/json or application/scim+json.</p>
 
-<h4>Updating via PATCH</h4>
+<h4>Updating <code>active</code> via PATCH</h4>
 <div class="highlight-URL">
   <div class="highlight">
     <pre>PATCH https://api.trello.com/scim/v2/Users/58d11883e7ea028acc5b19a4&amp;key=[application_key]&amp;token=[token]</pre>
@@ -310,7 +310,7 @@ and a body with a User resource representation, such as:</p>
 </code></pre></div>
 
 
-<p>Whilst at present everything other than the active attribute is ignored, in future we may support updating other attributes via PUT.</p>
+<p>Whilst at present everything other than the <code>active</code> attribute is ignored, in future we may support updating other attributes via PUT.</p>
 <p>Therefore you should GET the current state of the User, modify the active attribute, and PUT the whole user representation, to avoid unintentionally changing other attributes.</p>
 
 <h3>Schemas</h3>
@@ -328,7 +328,7 @@ and a body with a User resource representation, such as:</p>
 <p>An example of a basic filter expression is: <code>userName eq "matt"</code> i.e. in the form {attribute} {operator} {comparison value}</p>
 
 <h4>Attributes</h4>
-<p>Pretty much any of the attributes you see in resource responses can be used. Use a dot syntax for subattributes, e.g. emails.value</p>
+<p>Pretty much any of the attributes you see in resource responses can be used. Use a dot syntax for subattributes, e.g. <code>emails.value</code></p>
 
 <h4>Operators</h4>
 <table>
@@ -398,7 +398,7 @@ and a body with a User resource representation, such as:</p>
 
 <h3>Multi-value attributes</h3>
 <p>SCIM resources can have multi-value attributes (AKA arrays).</p>
-<p>For example, a User's `emails` might look like this:</p>
+<p>For example, a User's <code>emails</code> might look like this:</p>
 
 <div class="highlight"><pre><code class="json">{
   ...,
@@ -419,4 +419,4 @@ and a body with a User resource representation, such as:</p>
 
 <h2 id="notes">Notes</h2>
 <p>Trello only stores the full name of our users. For compatibility reasons, we attempt to include a derived givenName and familyName in responses for users in locales that typically use Western-order names, but these should not be relied upon to be correct.</p>
-<p>Filtering by name.givenName, name.familyName, etc will internally use name.formatted, and so may not give the expected results. If you know that a name is Western-order, you may find a filter such as name.formatted sw "Alice " (note the trailing space) achieves what you need.</p>
+<p>Filtering by <code>name.givenName</code>, <code>name.familyName</code>, etc. will internally use <code>name.formatted</code>, and so may not give the expected results. If you know that a name is Western-order, you may find a filter such as <code>name.formatted sw "Alice "</code> (note the trailing space) achieves what you need.</p>
