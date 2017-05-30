@@ -1,39 +1,41 @@
 <div class="app-content">
   <h1>Power-Up Guidelines</h1>
-  <p>These guidelines are meant to help you make a great Power-Up. They are not hard and fast rules - our main goal is to make sure you are successful by delivering an awesome Power-Up that our users love.</p>
 
-  <h2>Guiding Principles</h2>
+  <p>We review all Power-Ups before we make them available to all of our users. It's not a super formal review, our main goal is to make sure your Power-Up is a success.</p>
 
-  <h3>Provide a contextual and shared experience</h3>
+  <p>Below is the general list of things we'll go through when reviewing your Power-Up. Every Power-Up is different, so not all of these may apply and there may be other things we look at.</p>
+
+  <h2>General</h2>
+
+  <h3>1. Provide a contextual and shared experience</h3>
   <p>Once enabled Power-Ups become a part of the board. Trello users will expect your Power-Up to be tightly tied to the board, and provide a consistent experience to all board members.</p>
-  <ul>
-    <li>Do not ask the user to select which board they would like to use.</li>
-    <li>Do not show two entirely different views to two different users. Functionality should be tied to the board, not the user.</li>
-  </ul>
 
+  <ol>
+    <li>Power-Up functionality is within the context of a Trello board or card. If what you're doing has nothing to do with the current Trello board or card, it probably shouldn't be in the Power-Up.</li>
+    <li>Power-Up does not ask users questions it already knows the answer to. The Power-Up library provides you with a lot of contextual information, including about the current member, board and card. If you need more, let us know.</li>
+    <li>Power-Up does not show different views to different users without a good reason. Trello is all about providing a shared perspective on anything. Every person who can see the board sees essentially the same thing. Make sure to follow this principle wherever possible. It's okay to restrict functionality to certain groups of users if you have complex permissions or licensing. Tie functionality to the board, not the user.</li>
+  </ol>
 
-  <h3>Make it an extension of Trello</h3>
+  <h3>2. Make it an extension of Trello</h3>
   <p>The best Power-Ups make Trello able to do something that it was not able to do before. They are simple but powerful. They fit in naturally and complement Trello in delightful new ways.</p>
-  <ul>
-    <li>Where possible use the provided styles.</li>
-    <li>Do not ask the user questions you already know the answer to. The Power-Up library provides you with a lot of contextual information. If you need more, let us know.</li>
-    <li>Ensure your Power-Up works across the same browsers Trello does. <a href="https://trello.com/platforms">Supported Platforms.</a></li>
-  </ul>
-
-  <h3>Keep it simple and delightful</h3>
-  <p>Power-Ups are powerful, but not complicated, clunky or awkward to use.</p>
-  <ul>
-    <li>Prioritize the user experience over everything else. Cut features if you have to.</li>
-    <li>If you also have a web app, do not simply embed it. Think deeply about the best subset of functionality that makes sense in Trello. It's okay to require users to pop-out to your web app for the full functionality.</li>
-    <li>Do not rely or prompt for a browser extension for full functionality. If you need something to make your Power-Up work, please let us know.</li>
-  </ul>
-
-  <h3>Other general requirements</h3>
-  <ul>
-    <li>Power-Up must provide a way to disassociate user authorization via the show-settings capability.</li>
-    <li>There should be no JS errors in console.</li>
+  <ol>
+    <li>Power-Up provides complementary and useful functionality to Trello.</li>
+    <li>Power-Up look and feel matches that of Trello, using the provided Trello styles wherever possible</li>
+    <li>Power-Up does not simply embed an existing web app, the experience is considered and tailored for Trello. Do not iframe your web app and call it a day. Think deeply about the best subset of functionality that makes sense in Trello. It's okay to require users to pop-out to your web app for the full functionality.</li>
+    <li>Power-Up uses existing Trello concepts rather than inventing new ones (e.g. teams, boards, cards).</li>
     <li>The Power-Up should be named such that it does not make use of overly generic terms, e.g. "Calendar" or "Agile". However, it may be named with a generic term if it is followed by a "by Company Name" statement - e.g. "Calendar by Trello, Inc." is acceptable. Names should be limited to alphanumeric characters and should not include emojis nor images.</li>
-  </ul>
+  </ol>
+
+
+  <h3>3. Technical</h3>
+
+  <ol>
+    <li>Power-Up is generally free of bugs, and is as fast as Trello itself. Don't have JS errors in console.</li>
+    <li>Power-Up does rely on browser extensions for functionality.</li>
+    <li>Power-Up works across the same browsers Trello does. <a href="https://trello.com/platforms">Supported Platforms.</a></li>
+    <li>Power-Ups requiring login must provide a way to disassociate the user account via the <a href="/power-ups/capabilities#show-settings">show-settings capability</a>.</li>
+  </ol>
+
 
   <h2>Capabilities</h2>
 
