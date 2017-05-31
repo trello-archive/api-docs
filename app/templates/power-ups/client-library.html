@@ -40,7 +40,7 @@
     </li>
     <li><strong>popup(options)</strong> Use this method to have Trello display a popup. It will be displayed adjacent to the
       element in the current context. Pop-ups are designed for lists of capabilities or content that a user is expected to
-      click on. The options object can contain: 'title', 'callback', 'url', 'items', and 'search'.</li>
+      click on. The options object can contain: 'title', 'callback', 'url', 'items', 'search', and 'alwaysVisible'. For more on using `t.popup` check out the <a href="/power-ups/topics#menus">Menus topic</a>. </li>
     <li><strong>closePopup()</strong> This method should be used within a popup callback to close the current popup.</li>
     <li><strong>back()</strong> This method should be used within a popup callback to return to the prior popup, if it exists.</li>
     <li><strong>overlay({url:"./url_to_file.html"})</strong> Place an iframe on top of the user's experience</li>
@@ -71,7 +71,7 @@
 });</code></pre>
     </li>
     <li><strong>closeBoardBar()</strong> Used to close the bottom Board Bar</li>
-    <li><strong>authorize(urlWithSecret, options)</strong> Pass a URL to open as a new window for OAuth authentication purposes.</li>
+    <li><strong>authorize(urlWithSecret, options)</strong> Pass a URL to open as a new window for authentication purposes.</li>
     NOTE: This must be run within an onclick event from one of your iframes, otherwise the browser popup blocker will be triggered
     and may break your ability to communicate between your authorization window and the parent Trello window.
     <li><strong>sizeTo(selector)</strong> - Sizes the current iframe based on the height of the element referenced via your selector.</li>

@@ -44,43 +44,91 @@
   <hr />
 
   <h2 id="menus">Menus</h2>
-  <p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked as the callback when a member clicks on the card-button returned as part of the plugin initialization. Initially the callback runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create an overlay via t.overlay that loads the appropriate interface in a new iframe.</p>
-  <p>Below is a sample callback from our Dropbox integration:</p>
-  <pre><code class="javascript">var attachFile = function(t) {
-  return t.overlay({
-    url: 'attach.html'
-  })
-  .then(function(){
-    return t.closePopup();
-  })
+
+  <p>Often you will want to render menus to the member, such as in response to clicking on a card-button. The client library provides you with the `t.popup` method to make this easier. Here is an example of what a popup can look like:</p>
+  <img src="images/topics-menus-basic.png"> 
+  <p>This menu was produced by code that is invoked as the callback when a member clicks on a card-button returned as part of the Power-Up initialization. The code looks like this:</p>
+  <pre><code class="javascript">const itemCallback = function(shortCode, name){
+  return function(t){
+    return t.attach({ url: 'https://www.google.com/' + shortCode, name: name})
+    .then(function() { return t.closePopup(); });
+  }
 }
 
-var attachFolder = function(t) {
-  return t.overlay({
-    url: 'attach-folder.html'
-  })
-  .then(function(){
-    return t.closePopup();
-  })
-}
+TrelloPowerUp.initialize({
+  'card-buttons': function(t, options) {
+    return [{
+      icon: 'https://url.to.our/photo/dot/com',
+      text: 'Search Parks',
+      callback: function(t){
+        let items = [
+          {
+            text: 'Acadia',
+            url: 'http://www.nps.gov/acad',
+            callback: itemCallback('acad', 'Acadia')
+          }, {
+            text: 'Chattanooga and Chickamauga',
+            url: 'http://www.nps.gov/chch',
+            callback: itemCallback('chch', 'Chattanooga and Chickamauga')
+          }
+        ]
 
-module.exports = function(t) {
-  return t.popup({
-    title: 'Dropbox',
-    items: [
-      {
-        text: "Attach a File…",
-        callback: attachFile
-      },
-      {
-        text: "Attach a Folder…",
-        callback: attachFolder
-      }
-    ]
-  });
-}</code></pre>
-  <p>Popups can be nested, which will automatically provide a back button in the corner of the popup. You can also request that search be allowed on the popup. This will provide native web client functionality for performing full text searches of your supplied items.</p>
+        return t.popup({
+          title: 'Popup Search Example',
+          items: items
+        });  
+      };
+    }];
+  }
+});
+</code></pre>
+
+  <p>Initially the callback runs the <code>t.popup</code> method and provides two hardcoded options. If the user clicks on one of these options, that item's callback in invoked. In the case of our code above, <code>t.attach</code> is called and we attach the item's url and name to the card.</p>
+ 
+  <p>Popups can be nested, which will automatically provide a back button in the corner of the popup.</p>
+
   <p>Alternatively, popups can be created containing an iframe by supplying a title, URL, and height instead of a set of items.</p>
+
+  <h3 id="#search">Search Popups</h3>
+  
+  <p>You can request that search be allowed on the popup. This will provide native web client functionality for performing full text searches of your supplied items. The search UI looks like this:</p>
+
+  <img src="images/topics-menus-popup-example.png"> 
+
+  <p>We only needed to make a slight modification to the code above to allow for search:</p>
+
+    <pre><code class="javascript">TrelloPowerUp.initialize({
+  ...
+  title: 'Popup Search Example',
+  items: items
+  search: {
+    count: 3,
+    placeholder: 'Search National Parks',
+    empty: 'No parks found'
+  }
+});</code></pre>
+
+  <p>The search parameter takes three keys and values. <code>count</code> determines how many results are shown to the user. <code>placeholder</code> is the placeholder text put in the text input before the user has entered anything. <code>empty</code> is the text that we show to the user if there are no results found.</p>
+
+  <p>With the search functionality, we can also have specific items always shown to the user. For example:</p>
+
+  <img src="images/topics-menus-alwaysVisible.png">
+
+  <p>To achieve this, we add the <code>alwaysVisible</code> key to our items object with the value set to <code>true</code>:</p>
+
+  <pre><code class="javascript">let items = [
+  {
+    text: 'Acadia',
+    url: 'http://www.nps.gov/acad',
+    callback: itemCallback('acad', 'Acadia')
+  }, {
+    text: 'Chattanooga and Chickamauga',
+    url: 'http://www.nps.gov/chch',
+    callback: itemCallback('chch', 'Chattanooga and Chickamauga')
+  }
+]
+</code></pre>
+  
   <hr/>
 
   <h2 id="attachments">Attachments</h2>
