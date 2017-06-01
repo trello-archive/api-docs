@@ -26,14 +26,18 @@ The SCIM specification is defined in:
 SCIM also allows enterprises to sync between directories and Trello, to control the team membership of their users.</p>
 
 <h2 id="version">SCIM version</h2>
-<p>Trello supports SCIM version 2.0, at <a target="_blank" href="https://api.trello.com/scim/v2">https://api.trello.com/scim/v2</a>.</p>
+<p>Trello supports SCIM version 2.0, at <a target="_blank" href="https://trello.com/scim/v2">https://trello.com/scim/v2</a>.</p>
 <p>As recommended by the spec, we include v2 in the SCIM API URL to allow us to potentially implement other versions (either 1.1 for older clients, or future versions) without breaking compatibility.</p>
 
 <h2 id="scope">SCIM Scope</h2>
 <p>The SCIM API will handle users, teams, and boards that are associated with a single <a href="https://trello.com/enterprise" target="_blank">Trello Enterprise</a>.</p>
 <p>For example, a SCIM client will see that User C (Figure 1) is a member of Enterprise Team 1 and Board 3, but not that they are a member of Team 1 or Board 2, because these are not associated with the enterprise.</p>
-<img alt="Figure 1" src="images/SCIM.png">
-Figure 1
+
+<figure>
+  <img alt="Diagram showing which users, teams and, boards are available via the SCIM API" src="images/SCIM.png">
+  <figcaption>Figure 1</figcaption>
+</figure>
+
 <p>The authorization token sent as a header in the SCIM request determines which enterprise we deal with.</p>
 
 <h2 id="authorization">Authorization</h2>
@@ -136,7 +140,7 @@ This token can be obtained by a Trello enterprise admin user, logged into the Tr
 <p>This example is of a team with one user, and two boards:</p>
 <div class="highlight-URL">
   <div class="highlight">
-    <pre>GET https://api.trello.com/scim/v2/Groups/58d54eae8a7a0251950aec81&amp;key=[application_key]&amp;token=[token]</pre>
+    <pre>GET https://trello.com/scim/v2/Groups/58d54eae8a7a0251950aec81&amp;key=[application_key]&amp;token=[token]</pre>
   </div>
 </div>
 <div class="highlight"><pre><code class="json">{
@@ -277,7 +281,7 @@ and a body with a User resource representation, such as:</p>
 <h4>Updating <code>active</code> via PATCH</h4>
 <div class="highlight-URL">
   <div class="highlight">
-    <pre>PATCH https://api.trello.com/scim/v2/Users/58d11883e7ea028acc5b19a4&amp;key=[application_key]&amp;token=[token]</pre>
+    <pre>PATCH https://trello.com/scim/v2/Users/58d11883e7ea028acc5b19a4&amp;key=[application_key]&amp;token=[token]</pre>
   </div>
 </div>
 <div class="highlight"><pre><code class="json">{
@@ -289,7 +293,7 @@ and a body with a User resource representation, such as:</p>
 <h4>Updating via PUT</h4>
 <div class="highlight-URL">
   <div class="highlight">
-    <pre>PUT https://api.trello.com/scim/v2/Users/58d11883e7ea028acc5b19a4&amp;key=[application_key]&amp;token=[token]</pre>
+    <pre>PUT https://trello.com/scim/v2/Users/58d11883e7ea028acc5b19a4&amp;key=[application_key]&amp;token=[token]</pre>
   </div>
 </div>
 <div class="highlight"><pre><code class="json">{
