@@ -94,19 +94,19 @@
   <pre><code class="javascript">'board-buttons': function(t, board) {
   return [{
     icon: './images/icon.svg',
-    text: "Button Text",
+    text: 'Button Text',
     url: 'https://developers.trello.com/'
   }];
 }</code></pre>
   <h4>Callback Example</h4>
-  <pre><code class="javascript">'card-buttons': function(t, options){
+  <pre><code class="javascript">'board-buttons': function(t, board) {
   return [{
     icon: './images/icon.svg',
     text: 'Button Text',
-    callback: function(t){
+    callback: function(t) {
       return t.popup({
-        title: "Card Button Popup",
-        url: './card-button-popup.html'
+        title: 'Board Button Popup',
+        url: './board-button-popup.html'
       });
     }
   }];
