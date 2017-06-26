@@ -462,14 +462,16 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/publicorg?members=all&amp;member_fields=username,fullName&amp;fields=name,desc&amp;key=[application_key]&amp;token=[optional_auth_token]
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/publicorg?members=all&amp;member_fields=username,fullName&amp;fields=name,desc&amp;key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4ee7e59ae582acdec8000291&quot;</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;publicorg&quot;</span><span class="p">,</span>
   <span class="s2">&quot;desc&quot;</span><span class="o">:</span> <span class="s2">&quot;This is a test organization&quot;</span><span class="p">,</span>
@@ -491,8 +493,12 @@
     <span class="s2">&quot;fullName&quot;</span><span class="o">:</span> <span class="s2">&quot;Invite Ghost 8&quot;</span>
   <span class="p">}]</span>
 <span class="p">}</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-organizations-idorg-or-name-field">
   <h2>GET <span class="target" id="organizations-idorg-or-name-field">/1/organizations/[idOrg or name]/[field]</span>
@@ -527,121 +533,124 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/billableMemberCount?key=[application_key]&amp;token=[optional_auth_token]
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/billableMemberCount?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="mi">1</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/desc?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/desc?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="s2">&quot;This is a sample organization&quot;</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/descData?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/descData?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="kc">null</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/displayName?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/displayName?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="s2">&quot;Example Org&quot;</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/idBoards?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/idBoards?key=[application_key]&amp;token=[optional_auth_token]
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[</span><span class="s2">&quot;4eea4ffc91e31d1746000046&quot;</span><span class="p">]</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/invitations?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[</span><span class="s2">&quot;4eea4ffc91e31d1746000046&quot;</span><span class="p">]</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[]</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/example
+org/invited?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/invitations?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[]</span>
-</pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/invited?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="kc">false</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/logoHash?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/logoHash?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="kc">null</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/memberships?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/memberships?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4efe2c2f2e1efe7a4c0002cd&quot;</span><span class="p">,</span>
   <span class="s2">&quot;idMember&quot;</span><span class="o">:</span> <span class="s2">&quot;4ee7deffe582acdec80000ac&quot;</span><span class="p">,</span>
   <span class="s2">&quot;memberType&quot;</span><span class="o">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
   <span class="s2">&quot;unconfirmed&quot;</span><span class="o">:</span> <span class="kc">false</span>
 <span class="p">}]</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/name?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/name?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="s2">&quot;exampleorg&quot;</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/powerUps?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/powerUps?key=[application_key]&amp;token=[optional_auth_token]
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[]</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/prefs?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[]</span>
-</pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/prefs?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;permissionLevel&quot;</span><span class="o">:</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span>
   <span class="s2">&quot;orgInviteRestrict&quot;</span><span class="o">:</span> <span class="p">[],</span>
   <span class="s2">&quot;externalMembersDisabled&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -653,44 +662,48 @@
     <span class="s2">&quot;public&quot;</span><span class="o">:</span> <span class="s2">&quot;org&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/premiumFeatures?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/premiumFeatures?key=[application_key]&amp;token=[optional_auth_token]
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[]</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/products?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[]</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[]</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/url?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/products?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[]</span>
-</pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/url?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="s2">&quot;https://trello.com/exampleorg&quot;</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/website?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/website?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
   <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="s2">&quot;http://example.org&quot;</span>
 <span class="p">}</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-organizations-idorg-or-name-actions">
   <h2>GET <span class="target" id="organizations-idorg-or-name-actions">/1/organizations/[idOrg or name]/actions</span>
@@ -898,14 +911,16 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/actions?key=[application_key]&amp;token=[optional_auth_token]
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/actions?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4efe2c2f2e1efe7a4c0002cb&quot;</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;organization&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -924,8 +939,12 @@
     <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;joetester&quot;</span>
   <span class="p">}</span>
 <span class="p">}]</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-organizations-idorg-or-name-boards">
   <h2>GET <span class="target" id="organizations-idorg-or-name-boards">/1/organizations/[idOrg or name]/boards</span>
@@ -1147,14 +1166,16 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/boards?key=[application_key]&amp;token=[optional_auth_token]
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/boards?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea4ffc91e31d1746000046&quot;</span><span class="p">,</span>
   <span class="s2">&quot;closed&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="s2">&quot;dateLastActivity&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -1220,8 +1241,12 @@
   <span class="s2">&quot;subscribed&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://trello.com/b/OXiBYZoj/example-board&quot;</span>
 <span class="p">}]</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-organizations-idorg-or-name-boards-filter">
   <h2>GET <span class="target" id="organizations-idorg-or-name-boards-filter">/1/organizations/[idOrg or name]/boards/[filter]</span>
@@ -1321,32 +1346,38 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/members?key=[application_key]&amp;token=[optional_auth_token]
+</pre></div>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4ee7deffe582acdec80000ac&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fullName&quot;</span><span class="o">:</span> <span class="s2">&quot;Joe Tester&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;joetester&quot;</span>
+<span class="p">}]</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/members?filter=admins&amp;key=[application_key]&amp;token=[optional_auth_token]
+</pre></div>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4ee7deffe582acdec80000ac&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fullName&quot;</span><span class="o">:</span> <span class="s2">&quot;Joe Tester&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;joetester&quot;</span>
+<span class="p">}]</span>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
   </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/members?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4ee7deffe582acdec80000ac&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;fullName&quot;</span><span class="o">:</span> <span class="s2">&quot;Joe Tester&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;joetester&quot;</span>
-<span class="p">}]</span>
-</pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/organizations/exampleorg/members?filter=admins&amp;key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4ee7deffe582acdec80000ac&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;fullName&quot;</span><span class="o">:</span> <span class="s2">&quot;Joe Tester&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;joetester&quot;</span>
-<span class="p">}]</span>
-</pre></div>
-  </div>
 </div>
 <div class="section" id="get-1-organizations-idorg-or-name-members-filter">
   <h2>GET <span class="target" id="organizations-idorg-or-name-members-filter">/1/organizations/[idOrg or name]/members/[filter]</span>
@@ -1362,7 +1393,7 @@
                 <li><code class="docutils literal"><span class="pre">admins</span></code></li>
                 <li><code class="docutils literal"><span class="pre">all</span></code></li>
                 <li><code class="docutils literal"><span class="pre">normal</span></code> - Returns all members with a <i>memberType</i> of <i>normal</i> (excluding <i>memberType</i>s of <i>ghost</i>.</li>
-                </ul>
+              </ul>
             </li>
           </ul>
         </li>
@@ -1797,6 +1828,17 @@
     <li><strong>Required permissions:</strong> read</li>
     <li><strong>Arguments:</strong> None</li>
   </ul>
+</div>
+<div class="section" id="get-1-organizations-idorg-or-name-tags">
+  <h2>GET <span class="target" id="organizations-idorg-or-name-tags">/1/organizations/[idOrg or name]/tags</span>
+    <a class="headerlink" href="#get-1-organizations-idorg-or-name-tags" title="Permalink to this headline"></a>
+  </h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> read</li>
+    <li><strong>Arguments:</strong> None</li>
+  </ul>
+  <p>Returns a list of the organization's collections.</p>
+  <p><span class="warning">Warning:</span> This is an experimental resource and may change at any time without notice.</p>
 </div>
 <div class="section" id="put-1-organizations-idorg-or-name">
   <h2>PUT <span class="target" id="id1">/1/organizations/[idOrg or name]</span>
@@ -2319,6 +2361,24 @@
     </li>
   </ul>
 </div>
+<div class="section" id="post-1-organizations-idorg-or-name-tags">
+  <h2>POST <span class="target" id="organizations-idorg-or-name-tags">/1/organizations/[idOrg or name]/tags</span>
+    <a class="headerlink" href="#post-1-organizations-idorg-or-name-tags" title="Permalink to this headline"></a>
+  </h2>
+  <ul class="simple">
+    <li><strong>Required permissions:</strong> write</li>
+    <li><strong>Arguments</strong>
+      <ul>
+        <li><code class="docutils literal"><span class="pre">name</span></code> (required)
+          <ul>
+            <li><strong>Valid Values:</strong> A string containing the name of the collection.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p><span class="warning">Warning:</span> This is an experimental resource and may change at any time without notice.</p>
+</div>
 <div class="section" id="delete-1-organizations-idorg-or-name">
   <h2>DELETE <span class="target" id="id4">/1/organizations/[idOrg or name]</span>
     <a class="headerlink" href="#delete-1-organizations-idorg-or-name" title="Permalink to this headline"></a>
@@ -2341,8 +2401,7 @@
   <h2>DELETE <span class="target" id="id6">/1/organizations/[idOrg or name]/members/[idMember]</span>
     <a class="headerlink" href="#delete-1-organizations-idorg-or-name-members-idmember" title="Permalink to this headline"></a>
   </h2>
-  <p>This will remove a member from your organization. See also <a href="/advanced-reference/organization#delete-1-organizations-idorg-or-name-members-idmember-all">DELETE /1/organizations/[idOrg or name]/members/[idMember]/all</a> to remove this member
-    from your organization boards.</p>
+  <p>This will remove a member from your organization. See also <a href="/advanced-reference/organization#delete-1-organizations-idorg-or-name-members-idmember-all">DELETE /1/organizations/[idOrg or name]/members/[idMember]/all</a> to remove this member from your organization boards.</p>
   <ul class="simple">
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments</strong>

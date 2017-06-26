@@ -140,15 +140,15 @@
             <li><strong>Default:</strong> <code class="docutils literal"><span class="pre">all</span></code></li>
             <li><strong>Valid Values:</strong> <code class="docutils literal"><span class="pre">all</span></code> or a comma-separated list of:
               <ul>
-                <li><code class="docutils literal"><span class="pre">bytes</span></code></li>
-                <li><code class="docutils literal"><span class="pre">date</span></code></li>
-                <li><code class="docutils literal"><span class="pre">edgeColor</span></code></li>
-                <li><code class="docutils literal"><span class="pre">idMember</span></code></li>
-                <li><code class="docutils literal"><span class="pre">isUpload</span></code></li>
-                <li><code class="docutils literal"><span class="pre">mimeType</span></code></li>
-                <li><code class="docutils literal"><span class="pre">name</span></code></li>
-                <li><code class="docutils literal"><span class="pre">previews</span></code></li>
-                <li><code class="docutils literal"><span class="pre">url</span></code></li>
+                <li><code class="docutils literal"><span class="pre">bytes</span></code> - Size of the attached file in bytes.</li>
+                <li><code class="docutils literal"><span class="pre">date</span></code> - The date the file was attached to the card.</li>
+                <li><code class="docutils literal"><span class="pre">edgeColor</span></code> - The hex color that is used as the background when the attachment is made the card cover.</li>
+                <li><code class="docutils literal"><span class="pre">idMember</span></code> - ID of the user who added the attachment.</li>
+                <li><code class="docutils literal"><span class="pre">isUpload</span></code> - A boolean indicating whether this was uploaded by a user on the web/mobile client or whether it was added via the API.</li>
+                <li><code class="docutils literal"><span class="pre">mimeType</span></code> - The mimeType of the file.</li>
+                <li><code class="docutils literal"><span class="pre">name</span></code> - The name of the file.</li>
+                <li><code class="docutils literal"><span class="pre">previews</span></code> - When an image is uploaded via the web client, Trello creates a number of preview thumbnails for it so that it can use the appropriately sized one given the right context. <code>previews</code> will return an object containing information about the previews generated for this attachment.</li>
+                <li><code class="docutils literal"><span class="pre">url</span></code> - The URL to the attachment in Trello's static assets.</li>
               </ul>
             </li>
           </ul>
@@ -401,20 +401,25 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/cards/4eea503d91e31d174600008f?fields=name,idList&amp;member_fields=fullName&amp;key=[application_key]&amp;token=[optional_auth_token]
+    <li><strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/cards/4eea503d91e31d174600008f?fields=name,idList&amp;member_fields=fullName&amp;key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea503d91e31d174600008f&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Learn about the Trello API&quot;</span><span class="p">,</span>
     <span class="s2">&quot;idList&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea4ffc91e31d174600004b&quot;</span>
 <span class="p">}</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-cards-card-id-or-shortlink-field">
   <h2>GET <span class="target" id="cards-card-id-or-shortlink-field">/1/cards/[card id or shortlink]/[field]</span>
@@ -1191,7 +1196,6 @@
             </li>
           </ul>
         </li>
-
         <li><code class="docutils literal"><span class="pre">idMembers</span></code> (optional)
           <ul>
             <li><strong>Valid Values:</strong> A comma-separated list of objectIds, 24-character hex strings</li>
@@ -1514,6 +1518,7 @@
       </ul>
     </li>
   </ul>
+  <p>To ensure that time zones are handled properly, you should pass in an ISO-formatted date string.</p>
 </div>
 <div class="section" id="put-1-cards-card-id-or-shortlink-dueComplete">
   <h2>PUT <span class="target" id="cards-card-id-or-shortlink-dueComplete">/1/cards/[card id or shortlink]/dueComplete</span>
@@ -1793,6 +1798,7 @@
   </h2>
   <ul class="simple">
     <p>The attachments endpoint should be used to add an attachment to a card. Cards are limited to having 100 attachments. You can only add a single attachment to a card at a time.</p>
+    <p>There are two primary ways of adding attachments to cards. The first is by attaching a URL directly to a card. To do so, you include the URL as a query parameter to the POST request. The second way requires that you pass in a file object in the POST request. Trello expects that the file object is encoded as multipart/form-data. For examples demonstating how to add attachments check out this <a target="_blank" href="https://glitch.com/~trello-attachments-api">Glitch project</a> 🚀.</p>
     <li><strong>Required permissions:</strong> write</li>
     <li><strong>Arguments</strong>
       <ul>
@@ -1817,9 +1823,14 @@
           </ul>
         </li>
       </ul>
-      <li><strong>Examples</strong></li>
-        <div class="highlight">Bash: <pre>curl -D -X POST -F "file=@[path/to/file]" https://api.trello.com/1/cards/[cardId]/attachments?key=[yourKey]&token=[yourToken]</pre>
-        </div>
+      <li><strong>Examples</strong>
+        <ul>
+          <li>
+            <div class="highlight">Bash: <pre>curl -D -X POST -F "file=@[path/to/file]" https://api.trello.com/1/cards/[cardId]/attachments?key=[yourKey]&token=[yourToken]</pre>
+            </div>
+          </li>
+        </ul>
+      </li>
     </li>
     <li><strong>Errors</strong>
       <ul>

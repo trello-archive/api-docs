@@ -15,11 +15,7 @@
   </ul>
 
   <h2 id="cors">CORS Settings</h2>
-  <p>It looks like your Power-Up can't be loaded because the CORS settings on your server. Because the request for this file is coming from trello.com, your server will need to allow for cross-origin requests from our domain.</p>
-
-  <p>Hosting it on Github pages works because they allow cross-site requests: http://stackoverflow.com/questions/26416727/cross-origin-resource-sharing-on-github-pages</p>
-
-  <p>If you're not sure how to change CORS settings, I'm happy to help you figure it out - just let me know what type of server you're running. The gomix example shows how to set CORS in the server.js file: https://gomix.com/#!/project/rune-friend</p>
+  <p>Power-Ups run inside of the Trello web client. They will be making requests to your server (for example, to retrieve the manifest.json file) from the trello.com domain. Your server will need to have CORS settings that allow Trello.com to successfully make that request. Your server should respond to requests with an Access-Control-Allow-Origin header of either: Access-Control-Allow-Origin: 'https://trello.com' or Access-Control-Allow-Origin: '*'.</p>
 
   <p>Most programming languages have a package that helps you configure CORS:
     <table>
@@ -48,50 +44,98 @@
   <hr />
 
   <h2 id="menus">Menus</h2>
-  <p>Often you will want to render Menus to the member, such as in response to clicking on a card-button. This code is invoked as the callback when a member clicks on the card-button returned as part of the plugin initialization. Initially the callback runs the t.popup method and provides two hardcoded options. If the user clicks on one of these options, we then create an overlay via t.overlay that loads the appropriate interface in a new iframe.</p>
-  <p>Below is a sample callback from our Dropbox integration:</p>
-  <pre>
-var attachFile = function(t) {
-  return t.overlay({
-    url: 'attach.html'
-  })
-  .then(function(){
-    return t.closePopup();
-  })
+
+  <p>Often you will want to render menus to the member, such as in response to clicking on a card-button. The client library provides you with the `t.popup` method to make this easier. Here is an example of what a popup can look like:</p>
+  <img src="images/topics-menus-basic.png"> 
+  <p>This menu was produced by code that is invoked as the callback when a member clicks on a card-button returned as part of the Power-Up initialization. The code looks like this:</p>
+  <pre><code class="javascript">const itemCallback = function(shortCode, name){
+  return function(t){
+    return t.attach({ url: 'https://www.google.com/' + shortCode, name: name})
+    .then(function() { return t.closePopup(); });
+  }
 }
 
-var attachFolder = function(t) {
-  return t.overlay({
-    url: 'attach-folder.html'
-  })
-  .then(function(){
-    return t.closePopup();
-  })
-}
+TrelloPowerUp.initialize({
+  'card-buttons': function(t, options) {
+    return [{
+      icon: 'https://url.to.our/photo/dot/com',
+      text: 'Search Parks',
+      callback: function(t){
+        let items = [
+          {
+            text: 'Acadia',
+            url: 'http://www.nps.gov/acad',
+            callback: itemCallback('acad', 'Acadia')
+          }, {
+            text: 'Chattanooga and Chickamauga',
+            url: 'http://www.nps.gov/chch',
+            callback: itemCallback('chch', 'Chattanooga and Chickamauga')
+          }
+        ]
 
-module.exports = function(t) {
-  return t.popup({
-    title: 'Dropbox',
-    items: [
-      {
-        text: "Attach a File…",
-        callback: attachFile
-      },
-      {
-        text: "Attach a Folder…",
-        callback: attachFolder
-      }
-    ]
-  });
-}
-  </pre>
-  <p>Popups can be nested, which will automatically provide a back button in the corner of the popup. You can also request that search be allowed on the popup. This will provide native web client functionality for performing full text searches of your supplied items.</p>
+        return t.popup({
+          title: 'Popup Search Example',
+          items: items
+        });  
+      };
+    }];
+  }
+});
+</code></pre>
+
+  <p>Initially the callback runs the <code>t.popup</code> method and provides two hardcoded options. If the user clicks on one of these options, that item's callback in invoked. In the case of our code above, <code>t.attach</code> is called and we attach the item's url and name to the card.</p>
+ 
+  <p>Popups can be nested, which will automatically provide a back button in the corner of the popup.</p>
+
   <p>Alternatively, popups can be created containing an iframe by supplying a title, URL, and height instead of a set of items.</p>
+
+  <h3 id="#search">Search Popups</h3>
+  
+  <p>You can request that search be allowed on the popup. This will provide native web client functionality for performing full text searches of your supplied items. The search UI looks like this:</p>
+
+  <img src="images/topics-menus-popup-example.png"> 
+
+  <p>We only needed to make a slight modification to the code above to allow for search:</p>
+
+    <pre><code class="javascript">TrelloPowerUp.initialize({
+  ...
+  title: 'Popup Search Example',
+  items: items
+  search: {
+    count: 3,
+    placeholder: 'Search National Parks',
+    empty: 'No parks found'
+  }
+});</code></pre>
+
+  <p>The search parameter takes three keys and values. <code>count</code> determines how many results are shown to the user. <code>placeholder</code> is the placeholder text put in the text input before the user has entered anything. <code>empty</code> is the text that we show to the user if there are no results found.</p>
+
+  <p>With the search functionality, we can also have specific items always shown to the user. For example:</p>
+
+  <img src="images/topics-menus-alwaysVisible.png">
+
+  <p>To achieve this, we add the <code>alwaysVisible</code> key to our items object with the value set to <code>true</code>:</p>
+
+  <pre><code class="javascript">let items = [
+  {
+    text: 'Acadia',
+    url: 'http://www.nps.gov/acad',
+    callback: itemCallback('acad', 'Acadia')
+  }, {
+    text: 'Chattanooga and Chickamauga',
+    url: 'http://www.nps.gov/chch',
+    callback: itemCallback('chch', 'Chattanooga and Chickamauga')
+  }
+]
+</code></pre>
+  
   <hr/>
 
   <h2 id="attachments">Attachments</h2>
-  <p>Attachments can be created with the <strong>t.attach</strong> method, but they can only be removed by the user using the standard web experience in the attachments section, or by clicking in the upper right hand corner of an attachment-section claiming an attachment.</p>
-  <pre>t.attach({ url: url });</pre>
+  <p>Attachments can be created with the <strong>t.attach</strong> method, but they can only be removed by the user using the standard web experience in the attachments section, or by clicking in the upper right hand corner of an attachment-section claiming an attachment. `t.attach` will fail if the member (on whose behalf the Power-Up is making the request) does not have write access to the board. Your Power-Up can check this ahead of time using the permissions object in the context. If permissions.card === 'write' you should be good to go. To access the context when using `TrelloPowerUp.iframe()`, you can do so like: <br />
+  `const canEdit = t.args[0].context.permissions.board === 'write';`</p>
+  <p>The context has a permissions property, with sub-properties of card, board, and organization. If you look at the context and look at permissions.card and see that it is 'write' then you can generally expect this call will succeed. Power-Ups may want to alter their behavior (for example not even showing a button at all) based on the permissions of the current user.</p>
+  <pre><code class="javascript">t.attach({ url: url });</code></pre>
   <img src="/images/content/sample-remove-attachments.png" alt="Remove attachments via popup" />
   <p>The names of each attachment in the “Remove Attachments” popup are rendered using <strong>format-url</strong>.</p>
   <hr/>
@@ -107,8 +151,7 @@ module.exports = function(t) {
   <p>When developing a Power-Up that requires authentication, try to offer as much functionality in a non-authenticated state as possible, and add non-intrusive links to authenticate the user to provide more functionality.</p>
   <p>To achieve Authentication, you will often need to use the t.authenticate method. Here’s a code sample of how you might handle the OAuth workflow from within a Power-Up popover iframe.</p>
   <p>Client side we need to wire up what should happen when the authenticate button or link is clicked, which is handled by the following code.</p>
-  <pre>
-var Promise = TrelloPowerUp.Promise;
+  <pre><code class="javascript">var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
 
 var oauthUrl = 'https://trello.com/1/authorize?expiration=never' +
@@ -140,19 +183,16 @@ authBtn.addEventListener('click', function() {
     // you might alternatively choose to open a new popup
     return t.closePopup();
   });
-});
-  </pre>
+});</code></pre>
   <p>The authorize handler opens a new window. Once the auth flow is complete in that window, you should land on a page you control (generally your return_url). That page needs to contain a small amount of javascript to send the resulting token back to the Power-Up.</p>
   <p>Here is an example of how that would be achieved for the Trello OAuth flow from above:</p>
-  <pre>
-var token = window.location.hash.substring(7);
+  <pre><code class="javascript">var token = window.location.hash.substring(7);
 if (window.opener && typeof window.opener.authorize === 'function') {
   window.opener.authorize(token);
 } else {
   localStorage.setItem('token', token);
 }
-setTimeout(function(){ window.close(); }, 1000);
-  </pre>
+setTimeout(function(){ window.close(); }, 1000);</code></pre>
   <hr/>
 
   <h2 id="data-storage">Data Storage</h2>
@@ -182,12 +222,17 @@ setTimeout(function(){ window.close(); }, 1000);
     </tbody>
   </table>
   <p>You can store data two ways:</p>
-  <pre>t.set('board', 'private', 'key', value)</pre>
+  <pre><code class="javascript">t.set('board', 'private', 'key', value)</code></pre>
   <p>or</p>
-  <pre>t.set('board', 'private', { key1: value1, key2: value2 })</pre>
-  <p>Currently, there is no external API for accessing Power-Up data. Power-Up stored data can only be retrieved when the UI
-    is loaded by the member with the Power-Up enabled.</p>
+  <pre><code class="javascript">t.set('board', 'private', { key1: value1, key2: value2 })</code></pre>
+  <p>Storing at the 'organization' scope will only work if the both the board is in a team and the active user is a member of the team to which the board belongs. Because the 'organization' scope is not always available, you should add a catch whenever trying to set data at the 'organization' level and fallback to the 'board' level, if necessary. For example:</p>
+<pre><code class="javascript">t.set('organization', 'private', 'key', 'value')
+  .catch(t.NotHandled, function() {
+    // fall back to storing at board level
+    return t.set('board', 'private', 'key', 'value');
+});</code></pre>
   <p>Members can reset their private data at any time via the Power-Ups menu.</p>
+  <p>Shared Power-Up data is available via the API at the <a href="./advanced-reference/organization#get-1-organizations-idorg-or-name-pluginData">organization</a>, <a href="./advanced-reference/board#get-1-boards-board-id-pluginData">board</a>, and <a href="./advanced-reference/card#get-1-cards-card-id-or-shortlink-pluginData">card</a> level. Each resource returns the data (named pluginData) that was set at that scope. For instance, `1/card/IdCard/pluginData` will return data set with `t.set('card', 'shared', 'key', 'value')`. Currently, pluginData is read-only and can not be set via the API. Data set within the private scope is not available via the API.</p>
   </hr>
 
   <h2 id="recoloring">Recoloring</h2>
@@ -196,27 +241,28 @@ setTimeout(function(){ window.close(); }, 1000);
   <hr/>
 
   <h2 id="timeouts">Timeouts</h2>
-  <p>Your Power-Up should respond within 1 second to all capability methods. If your method takes more than 1 second to complete, we will consider the callback as failed.</p>
+  <p>When Trello makes a request to your Power-Up for a capability method or callback, it will wait a fixed amount of time for a reply before giving up. Your Power-Up should reply within one second - faster is better across all cases. Usually, Trello will stop waiting for a response after five seconds although requests to some capabilities may wait slightly longer.</p>
+  <p>Additionally, you should make sure that your manifest file and index connector can be loaded by Trello as quickly as possible. You should have these served within one second; Trello will stop waiting for a response after 10 seconds.</p>
   <hr/>
 
   <h2 id="internationalization">Internationalization</h2>
   <p>Trello Power-Ups were designed with Internationalization in mind. When creating a plugin or iframe, you can optionally pass in the options argument one of the following:</p>
   <p>localization object</p>
-  <pre>localization: {
+  <pre><code class="javascript">localization: {
   defaultLocale: 'en',
   supportedLocales: ['en', 'fr'],
   resourceUrl: './strings/{locale}.json'
-}</pre>
+}</code></pre>
   <p>localizer object</p>
-  <pre>localizer: {
+  <pre><code class="javascript">localizer: {
   localize: function(key, data){
     ... synchronously returns a localized string for the given key and data ...
   }
-}</pre>
+}</code></pre>
   <p>loadLocalizer function</p>
-  <pre>loadLocalizer: function(locale){
+  <pre><code class="javascript">loadLocalizer: function(locale){
     ... returns a Promise that resolves to a localizer object ...
-  }</pre>
+  }</code></pre>
   <p>Additionally, you can set window.localizer to your own custom localizer and the HostHandlers will use it.</p>
   <p>Once a localizer has been initialized, you can call the following new handlers (which behind the scenes make use of the localizer). We make the current user locale available to you via window.locale. Additionally, you can grab it off the options object from any of the interfaces or callbacks as well.</p>
   <p><strong>localizeKey(key, data)</strong> synchronously returns the output of window.localizer.localize(key, data)</p>
@@ -225,24 +271,19 @@ setTimeout(function(){ window.close(); }, 1000);
   <p><strong>localizeNode(node)</strong> synchronously inserts localized texts into DOM nodes starting at the provided node and all of it's children. Tag a node in your HTML with data-i18n-id="key" for its text content to be replaced based on that key. You can pass args with data-i18n-args='{ "arg1": "data" }'. You can also have placeholder text replaced with data-i18n-attrs='{ "placeholder": "key" }'. This will also use the args defined in data-i18n-args.</p>
   <p>Currently there is no support for dot notation when replacing args.</p>
   <p>Argument replacement assumes that your resource file follows this format:</p>
-  <pre>{
+  <pre><code class="json">{
   "key": "value with replaceable {arguments}"
-}</pre>
-  <p>Again, dot notation is not supported for arguments. This also limits how you can use braces {} in that there is no escapingcurrently supported.</p>
+}</code></pre>
+  <p>Again, dot notation is not supported for arguments. This also limits how you can use braces {} in that there is no escaping currently supported.</p>
   <hr/>
 
   <h2 id="callbacks">Callbacks</h2>
   <h3>What are callbacks?</h3>
-  <p>Sometimes a Power-Up wants the web client to create a bit of UI, and the Power-Up wants to know when the user interacts with that UI (e.g. when the user clicks on a button) For example, the Trello web client might run card-button on a Power-Up, and the Power-Up could respond with</p>
-  <pre>{
-  icon: … url of an icon to display …
-  text: "Activate"
-  callback: … a callback to run when the button is clicked …
-}</pre>
+  <p>Callbacks are functions that get called in response to a user taking an action within a capability. Trello provides a number of capabilities with default UI. For instance, the <a href="/power-ups/capabilities#card-detail-badges">'card-detail-badges' capability</a> allows you to create a badge on a card with a given set of parameters. Trello takes care of rendering the badge appropriately. If you want something to happen when the user clicks the badge, you can provide a callback to be called.</p>
 
   <h3>How are callbacks used?</h3>
-  <p>For example, a Power-Up might request that a popover list be displayed, with, say 20 items in it. Each of the items has a callback associated with it, but only the one corresponding to the thing that gets clicked on would be called. Or maybe the popup would just get closed and none of them would get called.</p>
-  <p>Callbacks can also be used to e.g. supply the most recent state of the badge on a card (in that case, the same callback might be called many times) … or a callback could be associated with the button in the board header (and the same callback would be triggered every time the button was clicked).</p>
+  <p>For example, a Power-Up might request that a popover list be displayed with 20 items in it. Each of the items has a callback associated with it, but only the one corresponding to the thing that gets clicked on would be called.</p>
+  <p>Callbacks can also be used to supply the most recent state of the badge on a card (in that case, the same callback might be called many times). Or a callback could be associated with the button in the board header and the same callback would be triggered every time the button was clicked.</p>
   <hr/>
 
   <h2 id="webhooks-and-offline-access">Webhooks &amp; Offline Access</h2>

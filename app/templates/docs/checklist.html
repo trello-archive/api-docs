@@ -93,14 +93,16 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/checklists/4eea6ae1a5da7f5a49000092?fields=name&amp;cards=all&amp;card_fields=name&amp;key=[application_key]&amp;token=[optional_auth_token]
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/checklists/4eea6ae1a5da7f5a49000092?fields=name&amp;cards=all&amp;card_fields=name&amp;key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea6ae1a5da7f5a49000092&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;API Checklist&quot;</span><span class="p">,</span>
     <span class="s2">&quot;checkItems&quot;</span><span class="o">:</span> <span class="p">[{</span>
@@ -127,8 +129,12 @@
         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Figure out how to read a user&#39;s board list&quot;</span>
     <span class="p">}]</span>
 <span class="p">}</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-checklists-idchecklist-field">
   <h2>GET <span class="target" id="checklists-idchecklist-field">/1/checklists/[idChecklist]/[field]</span><a class="headerlink" href="#get-1-checklists-idchecklist-field" title="Permalink to this headline"></a></h2>
@@ -497,14 +503,15 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/checklists/4eea6ae1a5da7f5a49000092/checkItems?key=[application_key]&amp;token=[optional_auth_token]
+    <li><strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/checklists/4eea6ae1a5da7f5a49000092/checkItems?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[{</span>
     <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;complete&quot;</span><span class="p">,</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea6aeda5da7f5a490000b9&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;See if there is a call&quot;</span><span class="p">,</span>
@@ -523,8 +530,11 @@
     <span class="s2">&quot;nameData&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;pos&quot;</span><span class="o">:</span> <span class="mi">50647</span>
 <span class="p">}]</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+    </li>
+    </ul>
 </div>
 <div class="section" id="get-1-checklists-idchecklist-checkitems-idcheckitem">
   <h2>GET <span class="target" id="checklists-idchecklist-checkitems-idcheckitem">/1/checklists/[idChecklist]/checkItems/[idCheckItem]</span><a class="headerlink" href="#get-1-checklists-idchecklist-checkitems-idcheckitem" title="Permalink to this headline"></a></h2>

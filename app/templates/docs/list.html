@@ -107,14 +107,15 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a?fields=name&amp;cards=open&amp;card_fields=name&amp;key=[application_key]&amp;token=[optional_auth_token]
+    <li><strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a?fields=name&amp;cards=open&amp;card_fields=name&amp;key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea4ffc91e31d174600004a&quot;</span><span class="p">,</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;To Do Soon&quot;</span><span class="p">,</span>
     <span class="s2">&quot;cards&quot;</span><span class="o">:</span> <span class="p">[{</span>
@@ -122,8 +123,12 @@
         <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Finish my awesome application&quot;</span>
     <span class="p">}]</span>
 <span class="p">}</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-lists-idlist-field">
   <h2>GET <span class="target" id="lists-idlist-field">/1/lists/[idList]/[field]</span><a class="headerlink" href="#get-1-lists-idlist-field" title="Permalink to this headline"></a></h2>
@@ -145,58 +150,64 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/closed?key=[application_key]&amp;token=[optional_auth_token]
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/closed?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="kc">false</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/idBoard?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/idBoard?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea4ffc91e31d1746000046&quot;</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/name?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/name?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="s2">&quot;To Do Soon&quot;</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/pos?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/pos?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="mi">16384</span>
 <span class="p">}</span>
+</code></pre></div>
+          </div>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/subscribed?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/subscribed?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">{</span>
     <span class="s2">&quot;_value&quot;</span><span class="o">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-lists-idlist-actions">
   <h2>GET <span class="target" id="lists-idlist-actions">/1/lists/[idList]/actions</span><a class="headerlink" href="#get-1-lists-idlist-actions" title="Permalink to this headline"></a></h2>
@@ -368,14 +379,17 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/actions?key=[application_key]&amp;token=[optional_auth_token]
-</pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight">
+              <pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/actions?key=[application_key]&amp;token=[optional_auth_token]</pre>
+            </div>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json">[<span class="p">[{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4efe314cc72846af4e00008a&quot;</span><span class="p">,</span>
     <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;list&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -426,8 +440,12 @@
         <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;joetester&quot;</span>
     <span class="p">}</span>
 <span class="p">}]</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-lists-idlist-board">
   <h2>GET <span class="target" id="lists-idlist-board">/1/lists/[idList]/board</span><a class="headerlink" href="#get-1-lists-idlist-board" title="Permalink to this headline"></a></h2>
@@ -719,14 +737,16 @@
         </li>
       </ul>
     </li>
-    <li><strong>Examples</strong></li>
-  </ul>
-  <div class="highlight-URL">
-    <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/cards?key=[application_key]&amp;token=[optional_auth_token]
+    <li>
+      <strong>Examples</strong>
+      <ul>
+        <li>
+          <div class="highlight-URL">
+            <div class="highlight"><pre>https://api.trello.com/1/lists/4eea4ffc91e31d174600004a/cards?key=[application_key]&amp;token=[optional_auth_token]
 </pre></div>
-  </div>
-  <div class="highlight-JavaScript">
-    <div class="highlight"><pre><span class="p">[{</span>
+          </div>
+          <div class="highlight-JavaScript">
+            <div class="highlight"><pre><code class="json"><span class="p">[{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;4eea503791e31d1746000080&quot;</span><span class="p">,</span>
     <span class="s2">&quot;badges&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;votes&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -764,8 +784,12 @@
     <span class="s2">&quot;subscribed&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://trello.com/c/XlG8S7ll/3-finish-my-awesome-application&quot;</span>
 <span class="p">}]</span>
-</pre></div>
-  </div>
+</code></pre></div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="section" id="get-1-lists-idlist-cards-filter">
   <h2>GET <span class="target" id="lists-idlist-cards-filter">/1/lists/[idList]/cards/[filter]</span><a class="headerlink" href="#get-1-lists-idlist-cards-filter" title="Permalink to this headline"></a></h2>

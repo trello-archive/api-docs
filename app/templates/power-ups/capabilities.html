@@ -91,17 +91,15 @@
   </div>
   <p>You are expected to return a list of of buttons.</p>
   <h4>Static URL Example</h4>
-  <pre>'board-buttons': function(t, board) {
-  return [
-    {
-      icon: './images/icon.svg',
-      text: "Button Text",
-      url: 'https://developers.trello.com/'
-    }
-  ];
-}</pre>
+  <pre><code class="javascript">'board-buttons': function(t, board) {
+  return [{
+    icon: './images/icon.svg',
+    text: "Button Text",
+    url: 'https://developers.trello.com/'
+  }];
+}</code></pre>
   <h4>Callback Example</h4>
-  <pre>'card-buttons': function(t, options){
+  <pre><code class="javascript">'card-buttons': function(t, options){
   return [{
     icon: './images/icon.svg',
     text: 'Button Text',
@@ -112,7 +110,7 @@
       });
     }
   }];
-}</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
     <li>
@@ -140,18 +138,16 @@
   <hr/>
   <h3><span id="card-badges">card-badges</span> &amp; <span id="card-detail-badges">card-detail-badges</span></h3>
   <h4>Example</h4>
-  <pre>'card-badges': function(t, card) {
-  return [
-    {
-      icon: './images/icon.svg',
-      text: '3'
-    }
-  ];
-}</pre>
+  <pre><code class="javascript">'card-badges': function(t, card) {
+  return [{
+    icon: './images/icon.svg',
+    text: '3'
+  }];
+}</code></pre>
   <h4>Dynamic Example</h4>
-  <pre>'card-badges': function(t, card) {
+  <pre><code class="javascript">'card-badges': function(t, card) {
   return {
-    dynamic: function(){
+    dynamic: function() {
       return {
         title: 'Detail Badge', // for detail badges only
         text: 'Dynamic ' + (Math.random() * 100).toFixed(0).toString(),
@@ -161,7 +157,7 @@
       }
     }
   }
-}</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
     <li>
@@ -185,7 +181,7 @@
     <li>
       <strong>refresh (optional)</strong>
       <div>The number of seconds between refreshes. The system will ignore a refresh of less than 10 seconds. In order to use refresh, the object to be returned should instead look like:</div>
-      <pre>{dynamic: callbackFunction(t, context)}</pre>
+      <pre><code class="javascript">{ dynamic: callbackFunction(t, context) }</code></pre>
     </li>
   </ul>
   <p>By returning an object with the property <strong>dynamic</strong> specified as a function that returns these parameters, your card badge will be regenerated based on your supplied refresh rate.</p>
@@ -193,20 +189,17 @@
   <h3 id="attachment-sections">attachment-sections</h3>
   <img src="/images/content/sample-attachment-section.png" alt="Attachment Sections" />
   <h4>Example</h4>
-  <pre>'attachment-sections': function(t, options) {
-  return [
-    {
-      icon: './images/icon.svg',
-      title: "Attachment Section",
-      claimed: [arrayOfClaimedAttachments],
-      content: {
-        type: 'iframe',
-        url: t.signUrl('./attachment-section.html')
-      }
-
+  <pre><code class="javascript">'attachment-sections': function(t, options) {
+  return [{
+    icon: './images/icon.svg',
+    title: "Attachment Section",
+    claimed: [arrayOfClaimedAttachments],
+    content: {
+      type: 'iframe',
+      url: t.signUrl('./attachment-section.html')
     }
-  ];
-}</pre>
+  }];
+}</code></pre>
   <h4>Fields</h4>
   <ul>
     <li>
@@ -238,8 +231,8 @@
   <h3 id="attachment-thumbnail">attachment-thumbnail</h3>
   <img src="/images/content/sample-attachment.png" alt="Attachment Thumbnail" />
   <h4>Example</h4>
-  <pre>'attachment-thumbnail': function(t, attachment) {
-  if(attachment.url == "https://developers.trello.com/") {
+  <pre><code class="javascript">'attachment-thumbnail': function(t, attachment) {
+  if (attachment.url == "https://developers.trello.com/") {
     return {
       title: "Trello Developer Site",
       url: "https://developers.trello.com/",
@@ -254,10 +247,9 @@
       }
     };
   } else {
-          throw t.NotHandled("Not a handled URL");
+    throw t.NotHandled("Not a handled URL");
   }
-},
-</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
     <li>
@@ -301,17 +293,16 @@
   <h3 id="format-url">format-url</h3>
   <img src="/images/content/sample-format-url.png" alt="Formatted URL Rendering" />
   <h4>Example</h4>
-  <pre>'format-url': function(t, options) {
-  if(options.url.length > 20) {
+  <pre><code class="javascript">'format-url': function(t, options) {
+  if (options.url.length > 20) {
     return {
       icon: './images/trello-icon.png',
       text: options.url
-
     };
   } else {
     throw t.NotHandled("Not a handled URL");
   }
-},</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
     <li>
@@ -338,14 +329,14 @@
   <hr/>
   <h3 id="card-from-url">card-from-url</h3>
   <h4>Example</h4>
-  <pre>'card-from-url': function(t, options) {
+  <pre><code class="javascript">'card-from-url': function(t, options) {
   // return a name, and optionally a description
   // based on options.url
   return {
     name: 'Suitable name based on options.url',
     desc: 'Suitable description based on options.url'
   };
-},</pre>
+}</code></pre>
   <h4>Fields</h4>
   <ul>
     <li>
@@ -362,13 +353,13 @@
   <p>When a user goes to edit your Power-Up's settings by clicking on the gear icon next to your Power-Up's listing, Trello automatically provides a drop-down list with options. The `show-settings` capability will be invoked when they select "Edit Power-Up Settings" from the list.</p>
   <img src="/images/content/sample-popup.png" alt="Show Settings Popup" />
   <h4>Example</h4>
-  <pre>'show-settings': function(t, options) {
+  <pre><code class="javascript">'show-settings': function(t, options) {
   return t.popup({
     title: "Power-Up Settings",
     url: 'settings.html',
     height: 250
   });
-}</pre>
+}</code></pre>
   <p>If you have data stored in the private scope via the client library's <a href="https://developers.trello.com/power-ups/topics#data-storage">`t.set` data method</a>, the drop-down list will also include an option to "Remove Personal Settings". If a user clicks this option, Trello will remove all data stored in the private scope.</p>
   <img src="/images/content/sample-remove-personal-settings.png" alt="Show Settings Popup" />
   <hr/>
@@ -376,11 +367,11 @@
   <p>Used to determine whether a user has authorized using your Power-Up. You should return a promise that resolves to the object with a property 'authorized' that is either true or false. You may also return the object synchronously if you know the answer synchronously.</p>
   <p>If the 'authorization-status' capability resolves to false, when the user views your Power-Up's settings, they will be prompted with an option to "Authorize Account" which will invoke your <a href="#show-authorization">'show-authorization'</a> capability.</p>
   <h4>Example</h4>
-  <pre>'authorization-status': function(t) {
-    return new TrelloPowerUp.Promise((resolve) => 
+  <pre><code class="javascript">'authorization-status': function(t) {
+    return new TrelloPowerUp.Promise((resolve) =>
       resolve({ authorized: false })
     )
-  }</pre>
+  }</code></pre>
   <h4>Fields</h4>
   <ul>
     <li>
@@ -393,12 +384,12 @@
   <p>Used to determine what to show the user when the `authorization-status` capability returns false.</p>
   <img src="/images/content/sample-show-authorization.png" alt="Show Authorizations" />
   <h4>Example</h4>
-  <pre>'show-authorization': function(t) {
+  <pre><code class="javascript">'show-authorization': function(t) {
     t.popup({
       title: 'My Auth Popup',
       url: 'authorize.html',
       height: 140,
     })
-  }</pre>
+  }</code></pre>
   <p>No fields need to be returned with this capability. Standard behavior is to open a popup as shown in the example above.</p>
 </div>
