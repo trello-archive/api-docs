@@ -140,11 +140,22 @@ authBtn.addEventListener('click', function() {
   <p>The authorize handler opens a new window. Once the auth flow is complete in that window, you should land on a page you control (generally your return_url). That page needs to contain a small amount of javascript to send the resulting token back to the Power-Up.</p>
   <p>Here is an example of how that would be achieved for the Trello OAuth flow from above:</p>
   <pre><code class="javascript">var token = window.location.hash.substring(7);
-if (window.opener && typeof window.opener.authorize === 'function') {
-  window.opener.authorize(token);
+let authorize;
+
+try {
+  if (window.opener && typeof window.opener.authorize === 'function') {
+    authorize = window.opener.authorize;
+  }
+} catch (e) {
+  // Security settings are preventing this, fall back to local storage.
+}
+
+if (authorize) {
+  authorize(token);
 } else {
   localStorage.setItem('token', token);
 }
+
 setTimeout(function(){ window.close(); }, 1000);</code></pre>
   <hr/>
 
