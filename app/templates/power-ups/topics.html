@@ -8,6 +8,7 @@
     <li><a href="#data-storage">Data Storage</a></li>
     <li><a href="#recoloring">Recoloring</a></li>
     <li><a href="#timeouts">Timeouts</a></li>
+    <li><a href="#background">Backgrounded Power-Ups</a></li>
     <li><a href="#internationalization">Internationalization</a></li>
     <li><a href="#callbacks">Callbacks</a></li>
     <li><a href="#webhooks-and-offline-access">Webhooks &amp; Offline Access</a></li>
@@ -139,11 +140,22 @@ authBtn.addEventListener('click', function() {
   <p>The authorize handler opens a new window. Once the auth flow is complete in that window, you should land on a page you control (generally your return_url). That page needs to contain a small amount of javascript to send the resulting token back to the Power-Up.</p>
   <p>Here is an example of how that would be achieved for the Trello OAuth flow from above:</p>
   <pre><code class="javascript">var token = window.location.hash.substring(7);
-if (window.opener && typeof window.opener.authorize === 'function') {
-  window.opener.authorize(token);
+let authorize;
+
+try {
+  if (window.opener && typeof window.opener.authorize === 'function') {
+    authorize = window.opener.authorize;
+  }
+} catch (e) {
+  // Security settings are preventing this, fall back to local storage.
+}
+
+if (authorize) {
+  authorize(token);
 } else {
   localStorage.setItem('token', token);
 }
+
 setTimeout(function(){ window.close(); }, 1000);</code></pre>
   <hr/>
 
@@ -197,6 +209,10 @@ setTimeout(function(){ window.close(); }, 1000);</code></pre>
   <p>Additionally, you should make sure that your manifest file and index connector can be loaded by Trello as quickly as possible. You should have these served within one second; Trello will stop waiting for a response after 10 seconds.</p>
   <hr/>
 
+  <h2 id="background">Power-Ups Running In Browser Background</h2>
+  <p>Many browsers <a href="https://developers.google.com/web/updates/2017/03/background_tabs" targe="_blank">throttle the CPU usage</a> of tabs open in the background. This causes Power-Up communication to be slowed drastically and causes them to be more prone to time outs. To mitiage potential problems, the Power-Up client library will only attempt to communicate with your Power-Up if the Trello board on which the Power-Up is enabled <a href="https://www.w3.org/TR/page-visibility/" target="_blank">is visible</a>.</p>
+  <hr/>
+   
   <h2 id="internationalization">Internationalization</h2>
   <p>Trello Power-Ups were designed with Internationalization in mind. When creating a plugin or iframe, you can optionally pass in the options argument one of the following:</p>
   <p>localization object</p>
