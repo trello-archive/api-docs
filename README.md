@@ -1,21 +1,13 @@
 # Trello's Developer and API Documentation Site
 
-Have a question or think something needs clarification? Open an [issue](https://github.com/trello/api-docs/issues) or [contribute a fix](https://github.com/trello/api-docs/compare)!
+👋 Hey there,
 
-## I want to run the site locally
+Trello's documentation and developer site can be found at [https://developers.trello.com](https://developers.trello.com). There you can find info on [building Power-Ups](http://developers.trello.com/power-ups/), [using the REST API](https://developers.trello.com/reference/#introduction), and much more! 🎉
 
-1. `git clone git@github.com:trello/api-docs.git`
-2. `cd api-docs`
-3. `npm install` (or `sudo npm install`)
-4. `npm start`
-5. Navigate to http://localhost:3333
+We no longer use this repository to manage nor host the documentation. You can use the "Suggest Edit" buttons throughout the developer site to suggest edits to any pages. You can also [open an issue on this repository](https://github.com/trello/api-docs/issues) if you have a question or comment.
 
-## I want to build the styles.
+Sign up for the (Developer Newsletter ✉️)[http://trello.us9.list-manage.com/subscribe?u=5cb712992a906406c5eae28a7&id=1754ca72bf] to stay informed about the latest changes and announcements for developers.
 
-1. `cd api-docs`
-2. `npm install` (or `sudo npm install`)
-3. `./tools/gulp`
+If you'd rather correspond directly with a human 🙆‍♂️, you can email us at [integrations@trello.com](mailto:integrations@trello.com). 
 
-See `/src/styles/` for LESS files and other stylesheets.
-
-You can also sign up for the (Developer Newsletter)[http://trello.us9.list-manage.com/subscribe?u=5cb712992a906406c5eae28a7&id=1754ca72bf] to stay informed about the latest changes and announcements for developers.
+Looking for something old? Here's the [last commit](https://github.com/trello/api-docs/commit/b82e22044993924853f82709f06d67bc3b3863a2) prior to the docs moving.
